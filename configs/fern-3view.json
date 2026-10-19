@@ -1,0 +1,22 @@
+{
+  "scene": "fern",
+  "protocol": "public calibrated cameras; training-only COLMAP triangulation",
+  "sorted_image_count": 20,
+  "training_indices_zero_based": [1, 10, 19],
+  "test_indices_zero_based": [0, 8, 16],
+  "unused_images": 14,
+  "resolution": [504, 378],
+  "seed": 42,
+  "optimizer_updates": 30000,
+  "sh_degree": 3,
+  "sh_degree_interval": 1000,
+  "batch_size": 1,
+  "precision": "float32",
+  "rasterization": "classic, packed",
+  "strategy": "gsplat DefaultStrategy without parameter changes",
+  "loss": "0.8 L1 + 0.2 (1 - fused SSIM valid)",
+  "additional_regularization": false,
+  "pose_appearance_exposure_optimization": false,
+  "depth_supervision": false,
+  "upstream": "937e29912570c372bed6747a5c9bf85fed877bae"
+}

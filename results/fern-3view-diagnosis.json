@@ -1,0 +1,303 @@
+{
+  "scope": "Phase 1 fern 3-view diagnosis only; no depth regularization or improvement claim",
+  "camera_audit": {
+    "camera_source": {
+      "model_id": 2,
+      "width": 4032,
+      "height": 3024,
+      "params": [
+        3260.5263328805895,
+        2016.0,
+        1512.0,
+        0.019750463822896944
+      ],
+      "distortion": {
+        "ignored_simple_radial_k": 0.019750463822896944,
+        "p50_p95_max_shift_px": [
+          0.6277961010123507,
+          2.3251564003171765,
+          3.716323489696453
+        ],
+        "interpretation": "Nominal pinhole-to-source distortion field, not measured correspondence error"
+      }
+    },
+    "mapping_max_abs_error": 8.881784197001252e-16,
+    "intrinsics_max_abs_error": 0.0,
+    "initial_point_count": 373,
+    "projection_diagnostics": [
+      {
+        "split": "train",
+        "image": "image001.png",
+        "positive_in_frame_initial_points": 373,
+        "projected_point_hull_image_fraction": 0.8147575864459878,
+        "occupied_grid_fraction_16x12": 0.578125,
+        "nearest_projected_point_distance_p50_p90_px": [
+          15.336821369754704,
+          36.011772095031766
+        ],
+        "nearest_training_camera": "image001.png",
+        "nearest_training_camera_distance_normalized": 0.0,
+        "minimum_training_forward_axis_angle_degrees": 0.0
+      },
+      {
+        "split": "train",
+        "image": "image010.png",
+        "positive_in_frame_initial_points": 373,
+        "projected_point_hull_image_fraction": 0.7778982220305547,
+        "occupied_grid_fraction_16x12": 0.578125,
+        "nearest_projected_point_distance_p50_p90_px": [
+          15.551752924030918,
+          41.26323986072562
+        ],
+        "nearest_training_camera": "image010.png",
+        "nearest_training_camera_distance_normalized": 0.0,
+        "minimum_training_forward_axis_angle_degrees": 8.537736462515939e-07
+      },
+      {
+        "split": "train",
+        "image": "image019.png",
+        "positive_in_frame_initial_points": 370,
+        "projected_point_hull_image_fraction": 0.7805180153577842,
+        "occupied_grid_fraction_16x12": 0.578125,
+        "nearest_projected_point_distance_p50_p90_px": [
+          15.360214912932424,
+          40.82467499420709
+        ],
+        "nearest_training_camera": "image019.png",
+        "nearest_training_camera_distance_normalized": 0.0,
+        "minimum_training_forward_axis_angle_degrees": 1.4787793334710982e-06
+      },
+      {
+        "split": "test",
+        "image": "image000.png",
+        "positive_in_frame_initial_points": 373,
+        "projected_point_hull_image_fraction": 0.7857612024624526,
+        "occupied_grid_fraction_16x12": 0.5885416666666666,
+        "nearest_projected_point_distance_p50_p90_px": [
+          15.419796264556751,
+          37.086379174737644
+        ],
+        "nearest_training_camera": "image001.png",
+        "nearest_training_camera_distance_normalized": 0.770842535803291,
+        "minimum_training_forward_axis_angle_degrees": 3.0681535513343055
+      },
+      {
+        "split": "test",
+        "image": "image008.png",
+        "positive_in_frame_initial_points": 373,
+        "projected_point_hull_image_fraction": 0.7945339671728417,
+        "occupied_grid_fraction_16x12": 0.578125,
+        "nearest_projected_point_distance_p50_p90_px": [
+          15.325842103749267,
+          39.56824647286278
+        ],
+        "nearest_training_camera": "image001.png",
+        "nearest_training_camera_distance_normalized": 0.6982462168600464,
+        "minimum_training_forward_axis_angle_degrees": 2.5718466950824705
+      },
+      {
+        "split": "test",
+        "image": "image016.png",
+        "positive_in_frame_initial_points": 366,
+        "projected_point_hull_image_fraction": 0.7715372043894548,
+        "occupied_grid_fraction_16x12": 0.515625,
+        "nearest_projected_point_distance_p50_p90_px": [
+          16.607603303775193,
+          40.665314574944695
+        ],
+        "nearest_training_camera": "image001.png",
+        "nearest_training_camera_distance_normalized": 2.1844688819949076,
+        "minimum_training_forward_axis_angle_degrees": 8.533976345675933
+      }
+    ],
+    "downloaded_metadata_provenance": [
+      {
+        "member": "nerf_llff_data/fern/sparse/0/images.bin",
+        "compressed_bytes": 1887022,
+        "raw_bytes": 5675908,
+        "sha256": "55440bb428f6be4f57200bd46677648989914d7e2315fe5d30454d0aa9fb86b6"
+      },
+      {
+        "member": "nerf_llff_data/fern/sparse/0/cameras.bin",
+        "compressed_bytes": 43,
+        "raw_bytes": 64,
+        "sha256": "ca0f39ee49fd61d9c66bd56c39f4ec89bf57b251e286f28cb43620c84f1355bc"
+      }
+    ]
+  },
+  "original": {
+    "train_mean": {
+      "psnr": 44.73148981730143,
+      "ssim": 0.9981352686882019,
+      "lpips_alex": 0.0019039425921315949,
+      "rgb_depth_render_seconds": 0.003993860449979062
+    },
+    "test_mean": {
+      "psnr": 13.056586583455404,
+      "ssim": 0.28117556869983673,
+      "lpips_alex": 0.5429821809132894,
+      "rgb_depth_render_seconds": 0.004169343800003844
+    },
+    "checkpoint_sha256": "9e0effc5b0f55dcfe477f50b4289a57cea716edebcb3d76497ddc8a66569c124"
+  },
+  "native_training_reference": {
+    "train": {
+      "per_image": [
+        {
+          "image": "image001.png",
+          "psnr": 43.810787200927734,
+          "ssim": 0.9981275796890259,
+          "lpips_alex": 0.0019079004414379597,
+          "rgb_depth_render_seconds": 0.004471630999978516,
+          "valid_depth_fraction_alpha_0_5": 0.9955750818846056,
+          "depth_visualization_percentile_2_98": [
+            2.4209207344055175,
+            12.797561988830566
+          ]
+        },
+        {
+          "image": "image010.png",
+          "psnr": 44.44318389892578,
+          "ssim": 0.9974725842475891,
+          "lpips_alex": 0.002088674111291766,
+          "rgb_depth_render_seconds": 0.004393376099960733,
+          "valid_depth_fraction_alpha_0_5": 0.9973597463676829,
+          "depth_visualization_percentile_2_98": [
+            3.4387913227081297,
+            12.688232116699218
+          ]
+        },
+        {
+          "image": "image019.png",
+          "psnr": 46.211021423339844,
+          "ssim": 0.9981216192245483,
+          "lpips_alex": 0.0028327684849500656,
+          "rgb_depth_render_seconds": 0.004275507400006972,
+          "valid_depth_fraction_alpha_0_5": 0.9953756193835559,
+          "depth_visualization_percentile_2_98": [
+            3.1494327068328856,
+            12.483516120910643
+          ]
+        }
+      ],
+      "mean": {
+        "psnr": 44.82166417439779,
+        "ssim": 0.9979072610537211,
+        "lpips_alex": 0.0022764476792265973,
+        "rgb_depth_render_seconds": 0.004380171499982074
+      }
+    },
+    "test": {
+      "per_image": [
+        {
+          "image": "image000.png",
+          "psnr": 14.773568153381348,
+          "ssim": 0.3785803020000458,
+          "lpips_alex": 0.4508204460144043,
+          "rgb_depth_render_seconds": 0.004222426099977384,
+          "valid_depth_fraction_alpha_0_5": 0.971293146888385,
+          "depth_visualization_percentile_2_98": [
+            3.00777153968811,
+            12.831376876831055
+          ]
+        },
+        {
+          "image": "image008.png",
+          "psnr": 15.551311492919922,
+          "ssim": 0.3747265934944153,
+          "lpips_alex": 0.42703408002853394,
+          "rgb_depth_render_seconds": 0.00419965860000957,
+          "valid_depth_fraction_alpha_0_5": 0.9836335768875452,
+          "depth_visualization_percentile_2_98": [
+            2.8898748779296874,
+            12.723347778320312
+          ]
+        },
+        {
+          "image": "image016.png",
+          "psnr": 10.1807222366333,
+          "ssim": 0.1518557071685791,
+          "lpips_alex": 0.6611599326133728,
+          "rgb_depth_render_seconds": 0.004074431150002056,
+          "valid_depth_fraction_alpha_0_5": 0.8776612496850592,
+          "depth_visualization_percentile_2_98": [
+            2.7712739086151124,
+            13.195026931762696
+          ]
+        }
+      ],
+      "mean": {
+        "psnr": 13.501867294311523,
+        "ssim": 0.30172086755434674,
+        "lpips_alex": 0.5130048195521036,
+        "rgb_depth_render_seconds": 0.0041655052833296695
+      }
+    },
+    "resources": {
+      "status": "passed",
+      "error": null,
+      "wall_seconds": 524.7713069020001,
+      "torch_peak_allocated_mib": 1168.29296875,
+      "torch_peak_reserved_mib": 1794.0,
+      "whole_board_sampled_peak_mib": 2923,
+      "sampling_period_ms": 200,
+      "samples": 2622,
+      "sampler_error": null,
+      "training_loop_seconds": 524.6153113239998,
+      "optimizer_updates": 30000,
+      "initial_gaussians": 373,
+      "final_gaussians": 750590,
+      "initial_parameters_sha256": "6f859cc440944c667c29ff2066438d50f37575c5593f2eaae58c194af19bccb7"
+    },
+    "checkpoint_sha256": "01078a273b438e44c1e1cc06454d32f7617df8bc513480cb4ed13fa01e22b28e",
+    "evaluation_versions": {
+      "torch": "2.4.1+cu124",
+      "torchvision": "0.19.1+cu124",
+      "gsplat": "1.5.3+pt24cu124",
+      "torchmetrics": "1.9.0",
+      "numpy": "1.26.4"
+    }
+  },
+  "timing_audit": {
+    "original_perf_counter_training_seconds": 459.4953862880002,
+    "original_gpu_timestamp_sampling_span_seconds": 499.419,
+    "native_perf_counter_training_seconds": 524.6153113239998,
+    "native_upstream_time_time_training_seconds": 571.7530748844147,
+    "native_gpu_timestamp_sampling_span_seconds": 571.932,
+    "note": "Observed inconsistent clock domains; cause unverified. Raw values retained. GPU sample spans include surrounding initialization/save overhead; do not infer speed gains."
+  },
+  "attempts": [
+    {
+      "name": "camera-audit",
+      "outcome": "stopped on unexpected SIMPLE_RADIAL source; diagnostic extended"
+    },
+    {
+      "name": "upstream-30k",
+      "outcome": "wrapper startup failed on byte paths, before training"
+    },
+    {
+      "name": "upstream-30k-v2",
+      "outcome": "wrapper failed during first iteration: missing empty optimizer lists"
+    },
+    {
+      "name": "upstream-30k-v3",
+      "outcome": "completed 30000 updates, no OOM"
+    }
+  ],
+  "tests": {
+    "passed": 10,
+    "skipped": 0,
+    "output_overwrite_guards_passed": 2
+  },
+  "decisions": {
+    "diagnostic_substep": "pass",
+    "formal_baseline": "conditional pass for documented pinhole approximation only",
+    "phase2": "do not proceed before camera distortion protocol validation",
+    "push": "not recommended yet; no commits or pushes performed"
+  },
+  "limits": [
+    "Same initialization but different view sampling order; not a pure code ablation",
+    "Reference reuses input adapter, not upstream Parser; shared preprocessing remains unvalidated",
+    "Sparse support, extrapolation and radial displacement diagnostics do not isolate causal PSNR effects"
+  ]
+}
