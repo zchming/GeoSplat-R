@@ -3,7 +3,8 @@
 Training loop/order follows gsplat/examples/simple_trainer.py at
 937e29912570c372bed6747a5c9bf85fed877bae, Nerfstudio Team, Apache-2.0.
 Modifications: explicit train-only assets, GPU image caching, post-update checkpoint,
-resource logging and separate evaluation. See docs/licenses/gsplat-Apache-2.0.txt.
+resource logging, optional uniform depth loss and separate evaluation.
+See docs/licenses/gsplat-Apache-2.0.txt.
 """
 import hashlib
 import csv
@@ -135,6 +136,13 @@ def train(args):
     scene_scale=float(np.linalg.norm(centers-centers.mean(0),axis=1).max()*1.1)
     parser=type('TrainOnlyPoints',(),{'points':initial['points'],'points_rgb':initial['rgb']})()
     strategy=DefaultStrategy()
+    depth_root=getattr(args,'depth_priors',None)
+    depth_lambda=getattr(args,'depth_lambda',0.)
+    depth_start=getattr(args,'depth_start',1000)
+    depth_priors=None
+    if depth_root is not None:
+        from geosplat_r.depth import load_depth_priors,uniform_inverse_depth_loss
+        depth_priors,depth_manifest=load_depth_priors(depth_root,views,sha256(data/'cameras.json'),sha256(data/'points.npz'),sha256)
     config={'upstream':UPSTREAM_SHA,'seed':args.seed,'resolution':[views[0]['width'],views[0]['height']],
             'train_images':[{'name':v['name'],'sha256':v['image_sha256']} for v in views],
             'cameras_sha256':sha256(data/'cameras.json'),'points_sha256':sha256(data/'points.npz'),
@@ -142,15 +150,25 @@ def train(args):
             'scene_scale':scene_scale,'strategy':asdict(strategy),'packed':True,'precision':'float32',
             'sh_degree':3,'sh_degree_interval':1000,'rgb_loss':'0.8 L1 + 0.2 (1-fused SSIM valid)',
             'batch_size':1,'near_plane':.01,'far_plane':1e10,
-            'camera_optimization':False,'depth_loss':False,'appearance_optimization':False,
+            'camera_optimization':False,'depth_loss':depth_lambda>0,'appearance_optimization':False,
             'image_cache':'3 CUDA float32 RGBs','checkpoint_semantics':'after all requested optimizer updates',
             'schedule_reference':'full max_steps; pilot does not compress schedule',
             'training_implementation_sha256':sha256(Path(__file__)),
             'memory_fraction':memory_fraction,'initial_free_mib':free_vram/2**20,
             'memory_headroom_mib':1024,'timing_protocol':'time.time, perf_counter, CUDA events and GPU timestamps'}
+    if depth_priors is not None:
+        config['depth_protocol']={'lambda':depth_lambda,'start_zero_based_step':depth_start,
+            'loss':'mean valid |1/ED - aligned inverse Z| / median train-anchor inverse Z',
+            'weighting':'uniform; no robust loss or reliability weights',
+            'mask':'fixed positive target and 2px border; detached alpha>=0.5; finite positive ED',
+            'normalization':'per-image count of currently valid pixels; no hidden loss-sum change',
+            'render_mode':'RGB+ED for lambda-zero and positive controls',
+            'priors_manifest_sha256':sha256(depth_root/'manifest.json'),
+            'depth_implementation_sha256':sha256(Path(__file__).with_name('depth.py'))}
     (args.output/'config.json').write_text(json.dumps(config,indent=2)+'\n')
     source_dir=args.output/'source';source_dir.mkdir()
     (source_dir/'baseline.py').write_bytes(Path(__file__).read_bytes())
+    if depth_priors is not None:(source_dir/'depth.py').write_bytes(Path(__file__).with_name('depth.py').read_bytes())
     torch.cuda.reset_peak_memory_stats()
     sampler=MemorySampler(args.output/'gpu-memory.csv');sampler.start()
     started=time.perf_counter();wall_started=time.time();status='failed';error=None;records=[]
@@ -167,12 +185,19 @@ def train(args):
         event_start.record()
         for step in range(iteration_count):
             if not order:order=torch.randperm(len(views),generator=generator).tolist()
-            view=views[order.pop(0)];pixels=view['pixels'][None]
-            rgb,alpha,info=render(params,view,degree=min(step//1000,3))
+            view_index=order.pop(0);view=views[view_index];pixels=view['pixels'][None]
+            rgb_depth,alpha,info=render(params,view,degree=min(step//1000,3),depth=depth_priors is not None)
+            rgb=rgb_depth[...,:3]
             strategy.step_pre_backward(params,optimizers,state,step,info)
             l1=(rgb-pixels).abs().mean()
             ssim=1-fused_ssim(rgb.permute(0,3,1,2),pixels.permute(0,3,1,2),padding='valid')
             loss=.8*l1+.2*ssim
+            if depth_priors is not None:
+                prior=depth_priors[view_index]
+                depth_term,depth_fraction=uniform_inverse_depth_loss(rgb_depth[...,3],alpha,
+                    prior['target'],prior['mask'],prior['normalizer'])
+                weight=depth_lambda if step>=depth_start else 0.
+                if weight:loss=loss+weight*depth_term
             if not torch.isfinite(loss):raise RuntimeError(f'Nonfinite loss at step {step}')
             loss.backward()
             for optimizer in optimizers.values():
@@ -186,6 +211,9 @@ def train(args):
                      'elapsed_wall_clock_seconds':time.time()-loop_wall_started,
                      'allocated_mib':torch.cuda.memory_allocated()/2**20,
                      'reserved_mib':torch.cuda.memory_reserved()/2**20}
+                if depth_priors is not None:row.update({'rgb_l1':l1.item(),'one_minus_ssim':ssim.item(),
+                    'depth_normalized_l1':depth_term.item(),'depth_valid_fraction':depth_fraction.item(),
+                    'depth_weight':weight})
                 records.append(row);print(json.dumps(row),flush=True)
         event_end.record();torch.cuda.synchronize();training_seconds=time.perf_counter()-loop_started
         training_wall_seconds=time.time()-loop_wall_started

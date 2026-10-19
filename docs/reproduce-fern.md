@@ -89,7 +89,8 @@ legacy-prepared 仅为原针孔相机审计所需的训练三角化，不需要�
 ```
 
 测试仍需安装训练环境依赖，不能用未安装 Torch/gsplat 的空 Python 环境代替。
-共有 16 项：无资产时 8 项执行、8 项跳过，不能称为“16 项全部通过”。
+Phase 1最初有16项，首次Phase 2有25项，种子复核后有30项；RGB路径复核后当前共35项。
+无资产且未要求CUDA检查时22项执行、13项跳过，不能称为全部真实实验检查通过。
 针对当前复现资产可设置以下变量后运行同一命令：
 
 ```bash
@@ -102,7 +103,10 @@ export GEOSPLAT_UNDISTORT_RUN="$FERN_WORK/train-30k"
 "$TRAIN_PY" -m unittest discover -s tests -v
 ```
 
-这会保留原始训练与上游参照两项跳过。要复查本机全部历史证据，再显式提供：
+这会保留原始训练与上游参照两项跳过；Phase 2另有先验/配对/CUDA三项，配置见相应报告。
+种子复核另有一项六run来源检查，需要GEOSPLAT_SEED_MANIFEST指定完整评价清单。
+RGB路径复核另有一项九run来源检查，需要GEOSPLAT_RGB_PATH_MANIFEST指定完整路径评价清单。
+要复查本机全部历史证据，再显式提供：
 
 | 变量 | 要求的已完成资产 |
 |---|---|
@@ -112,7 +116,10 @@ export GEOSPLAT_UNDISTORT_RUN="$FERN_WORK/train-30k"
 
 原始审计测试还固定检查历史 373 点与原哈希。全新三角化/CUDA 即使固定 seed 也未保证逐位复现；
 这些历史证据检查不等于通用跨机器验收，不能放宽断言或更换旧资产来制造通过。
-本机此次使用全部历史与当前资产得到 16 项通过、0 skip；当前检查日志随本机审阅包保留。
+Phase 1提交候选审阅时，使用全部当时历史与当前资产得到16项通过、0 skip，日志随本机审阅包保留。
+当前新增的Phase 2检查与25项完整结果见 [Phase 2报告](phase2-uniform-depth.md)。
+30项完整检查与三种子资产说明见 [种子复核报告](phase2-seed-stability.md)。
+35项完整检查、三条路径和资产说明见 [RGB路径复核报告](phase2-rgb-path-check.md)。
 
 期望结果及全部哈希见 `results/fern-3view-undistorted.json`：测试约 15.020 dB / 0.3780 / 0.4491。
 单场景单 seed 仍严重过拟合；没有保证复跑逐位相同，也没有跨机器或多种子误差范围。

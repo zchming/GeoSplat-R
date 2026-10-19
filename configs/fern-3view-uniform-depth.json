@@ -1,0 +1,90 @@
+{
+  "scene": "fern",
+  "protocol": "fern-undistorted-v1; public calibrated cameras; training-only COLMAP triangulation",
+  "sorted_image_count": 20,
+  "training_indices_zero_based": [
+    1,
+    10,
+    19
+  ],
+  "test_indices_zero_based": [
+    0,
+    8,
+    16
+  ],
+  "unused_images": 14,
+  "resolution": [
+    504,
+    378
+  ],
+  "seed": 42,
+  "optimizer_updates": 30000,
+  "sh_degree": 3,
+  "sh_degree_interval": 1000,
+  "batch_size": 1,
+  "precision": "float32",
+  "rasterization": "classic, packed",
+  "strategy": "gsplat DefaultStrategy without parameter changes",
+  "loss": "0.8 L1 + 0.2 (1 - fused SSIM valid)",
+  "additional_regularization": "only uniform inverse-depth L1 in positive-lambda arm",
+  "pose_appearance_exposure_optimization": false,
+  "depth_supervision": "train-only aligned Small priors in positive-lambda arm",
+  "upstream": "937e29912570c372bed6747a5c9bf85fed877bae",
+  "source_distortion": [
+    0.019750463822896944,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "pinhole_K": [
+    [
+      413.7574847929507,
+      0.0,
+      251.5
+    ],
+    [
+      0.0,
+      413.7574847929507,
+      188.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "resampling": "OpenCV INTER_LINEAR, alpha=0, centered principal point, focal guard=1.001",
+  "evaluation_gt": "Same six image names, resampled into a separate pinhole protocol",
+  "evaluation_mask": false,
+  "padding_pixels": 0,
+  "training_rgb_cache": "CUDA float32",
+  "comparability": "Do not interpret differences from legacy distorted-GT metrics as algorithm gains",
+  "phase": "Phase 2 minimal uniform depth control",
+  "baseline_commit": "49f0522e45e59790ae44d0f4a2e296cdd3c4a5ec",
+  "comparison": {
+    "control_lambda": 0.0,
+    "uniform_lambda": 0.01,
+    "depth_start_zero_based_step": 1000,
+    "schedule": "fixed weight after warmup; no decay or per-view tuning",
+    "render_mode_both": "RGB+ED",
+    "normalizer": "per-image median inverse Z of observed train SfM anchors",
+    "loss": "valid-pixel arithmetic mean absolute inverse-Z error / normalizer",
+    "mask": "fixed positive target and 2px border; detached alpha>=0.5 and finite positive ED",
+    "robust_loss": false,
+    "reliability_weights": false,
+    "test_based_selection": false
+  },
+  "prior": {
+    "model": "Depth Anything V2 Small",
+    "source": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "weights_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "inference_input_short_side": 518,
+    "inference_precision": "float32",
+    "alignment": "per-view unweighted OLS affine inverse-depth to observed train SfM inverse Z; no fallback",
+    "min_anchors": 20,
+    "target_resolution": [
+      504,
+      378
+    ]
+  }
+}

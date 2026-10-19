@@ -57,3 +57,43 @@
 - Prepare the first engineering commit candidate, complete diff, proposed file list and
   actual validation report. Documentation and packaging checks only; no new training,
   Phase 2, commits or pushes. Preserve all historical files and external evidence.
+
+## Current Phase 2 authorization (2026-10-19)
+
+- User approved pushing only 49f0522 to the existing codex branch; this is complete.
+- Implement and run the minimal uniform depth-regularization comparison on the frozen
+  fern-undistorted-v1 protocol, same initialization, split, seed and 30k budget.
+  Training priors/alignment use train images and train SfM only. No reliability module,
+  robust-loss extension, new scenes or test-based tuning. Stop and report the result.
+- Exact Small weights (99,218,434 bytes) were separately approved for download.
+  Keep all data, priors, weights, source mirrors, checkpoints and raw logs external.
+  No automatic commits or pushes of Phase 2 changes.
+
+## Current seed-stability authorization (2026-10-19)
+
+- Run the zero-weight/uniform-depth pair for seeds43 and44, exactly 30k updates
+  each, reusing the frozen fern inputs, train-only priors, lambda=0.01 and start=1000.
+  Keep training and evaluation separate; combine with the preserved seed42 pair.
+  No reliability module, hyperparameter changes, new scenes, commits or pushes.
+- Report baseline variability, paired seed/image improvements and degradations,
+  resources, failures, acceptance and the next recommended substep; then stop.
+- All user-facing conversational responses start with 张总 and default to Chinese.
+
+## Current RGB-path diagnostic authorization (2026-10-19)
+
+- User approved the recommended same-implementation RGB-only seed42/43/44
+  three-run 30k diagnostic. Reuse the frozen cameras, images, initialization,
+  sampling, optimizers and budget; omit priors and depth rendering for these runs.
+- Compare with all preserved RGB+ED zero-weight and uniform-depth runs, using
+  separate evaluation and identical GT/metric protocol. Path differences also
+  include the existing prior cache/diagnostics; do not claim isolated causality.
+- Do not change the frozen training/evaluation implementation, tune coefficients,
+  expand scenes, implement reliability, commit or push. Complete checks and report.
+
+## Current cumulative submission-review authorization (2026-10-19)
+
+- Review all accumulated Phase 2 changes against 49f0522, the complete diff,
+  candidate file list, provenance and actual checks; recommend whether to commit.
+- Documentation/packaging corrections are allowed; preserve frozen experiment
+  source hashes and all historical evidence. No new training, flower/leaves work,
+  downloads, staging, commits or pushes are authorized by this review.

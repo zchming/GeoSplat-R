@@ -1,0 +1,31 @@
+{
+  "scope": "Phase 2 fern seed stability only",
+  "base_protocol": "configs/fern-3view-uniform-depth.json",
+  "base_config_sha256": "0e92d95e725a67e90be7f146b1ee78b88ca0e19e68c93a3ba4153098189ef0c6",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "new_training_seeds": [
+    43,
+    44
+  ],
+  "arms": {
+    "zero": 0.0,
+    "uniform": 0.01
+  },
+  "depth_start": 1000,
+  "max_steps": 30000,
+  "concurrency": 1,
+  "evaluation_policy": "Evaluate only after all four new training runs; no test-based changes",
+  "prior_manifest_sha256": "35f16db75486b0ad3bf8cf96b37e58a259bf02b9169f59597e89b06e6249d683",
+  "source_hashes": {
+    "scripts/train_baseline.py": "98760217cc437668282846693b39dfebdaceb612b170b6bfeeef4a3989a8e304",
+    "src/geosplat_r/baseline.py": "288dc2381cf18b3f9f24c09ce0b5c17f4ea4e602a02e010f3f2981476de62de8",
+    "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+    "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9",
+    "configs/fern-3view-uniform-depth.json": "0e92d95e725a67e90be7f146b1ee78b88ca0e19e68c93a3ba4153098189ef0c6"
+  },
+  "aggregate_policy": "Scene-test arithmetic mean per seed; paired delta across seeds with sample SD ddof=1, range and median; report each seed/image degradation. Three seeds on one scene do not establish cross-scene generalization. No hypothesis-test p-value on nine correlated images."
+}

@@ -107,7 +107,7 @@ def evaluate(args):
                 save_rgb(output/'error.png',error_rgb);save_rgb(output/'depth.png',depth_rgb)
                 w,h=v['width'],v['height'];canvas=Image.new('RGB',(w*4,h+46),'white')
                 draw=ImageDraw.Draw(canvas)
-                for i,(arr,label) in enumerate([(truth,'GT'),(rendered,'Vanilla 3DGS'),
+                for i,(arr,label) in enumerate([(truth,'GT'),(rendered,getattr(args,'label','Vanilla 3DGS')),
                         (error_rgb,'Mean absolute RGB error: 0 to 0.25'),(depth_rgb,'Expected Z depth; alpha >= 0.5')]):
                     panel=Image.fromarray((arr.clip(0,1)*255).round().astype(np.uint8))
                     canvas.paste(panel,(i*w,46));draw.text((i*w+5,23),label,fill='black')
@@ -141,6 +141,7 @@ def evaluate(args):
         imageio.mimsave(args.output/'novel-view-path.mp4',frames,fps=12,macro_block_size=1)
         lpips_file=Path(__import__('torchmetrics').__file__).parent/'functional/image/lpips_models/alex.pth'
         results.update({'checkpoint_sha256':sha256(args.checkpoint),'optimizer_updates':data['optimizer_updates'],
+            'method_label':getattr(args,'label','Vanilla 3DGS'),
             'evaluation_seconds':time.perf_counter()-tic,
             'versions':{p:version(p) for p in ['torch','torchvision','gsplat','torchmetrics','numpy']},
             'metric_protocol':{'rgb':'sRGB [0,1], clamp prediction, no mask/crop',
@@ -161,4 +162,5 @@ if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
     for field in ['checkpoint','train-data','test-data','weights','output']:
         ap.add_argument('--'+field,type=Path,required=True)
+    ap.add_argument('--label',default='Vanilla 3DGS',help='Display label only; does not change metrics or rendering')
     evaluate(ap.parse_args())
