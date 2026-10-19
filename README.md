@@ -3,9 +3,16 @@
 Geometry-Reliability Guided Sparse-View 3D Gaussian Splatting.
 
 稀疏视角三维重建工程研究项目，基于固定版本 gsplat v1.5.3。
-目前完成 fern 去畸变三路径对照（RGB-only、RGB+ED零权重、统一深度；3-view、seed42/43/44、各30k）；尚未加入可靠性模块。
+目前完成 fern 三路径对照，以及 flower/leaves 冻结18模型扩展（3-view、seed42/43/44、三路径各30k）；尚未加入可靠性模块。
 
-Phase 2 三种子测试场景均值如下（±为种子样本标准差）：
+最新两开发场景结果：统一深度相对RGB-only的测试PSNR配对增益，flower为 **+0.8426 ± 0.3462 dB**，
+leaves为 **+0.1869 ± 0.2391 dB**；两场景等权+0.5147 dB。27个配对测试视角中9个至少一项指标退化，
+明显缺口、拉丝与细枝伪影仍在。共19次尝试得到18个完整模型，1次环境中断保留；leaves44统一深度重启后重跑，
+环境影响尚未隔离。工程验收通过，协议和研究结论有条件通过，不宣称稳定泛化或高质量重建。
+下一步建议审阅累计完整Diff及提交候选；加强leaves稳定性结论前，另申请重启后seed44匹配基线复核。
+详见[正式训练验收](docs/phase2-flower-leaves-training.md)和[完整数值/退化](results/flower-leaves-depth-controls.json)。
+
+历史 fern 三种子测试场景均值如下（±为种子样本标准差；不与新场景混池）：
 
 | 组别 | PSNR ↑ dB | SSIM ↑ | LPIPS-Alex ↓ |
 |---|---:|---:|---:|
@@ -17,7 +24,7 @@ Phase 2 三种子测试场景均值如下（±为种子样本标准差）：
 三个种子的场景均值均改善，但seed43/image016的PSNR下降0.6338 dB、image008的SSIM也退化。
 RGB+ED零权重在三个seed场景均值上均弱于RGB-only，平均低0.4988 dB；两条路径不能视为已等价，原因未孤立确认。
 保留该路径作深度项匹配消融，但不把相对它的+1.3316 dB当作对RGB-only的收益。
-下一步建议固定设置扩flower/leaves开发场景并保留双对照，暂不进入可靠性模块，不宣称稳定跨场景收益。
+该轮随后固定设置扩flower/leaves开发场景并保留双对照，结果见上方；暂不进入可靠性模块，不宣称稳定跨场景收益。
 
 | 历史 RGB 基线（去畸变协议） | PSNR ↑ dB | SSIM ↑ | LPIPS-Alex ↓ |
 |---|---:|---:|---:|
@@ -35,7 +42,10 @@ Phase 2 三条路径保持去畸变后的 GT 与初始化资产不变，同seed�
 - [Phase 1：协议、真实指标、失败案例、资源与复现](docs/phase1-fern.md)
 - [当前协议复现步骤与检查范围](docs/reproduce-fern.md)
 - [首次提交候选与审阅清单（历史）](docs/initial-submission-review.md)
-- [Phase 2 累计提交候选与审阅结论](docs/phase2-submission-review.md)
+- [flower/leaves 累计提交候选与审阅结论](docs/phase2-flower-leaves-submission-review.md)
+- [fern Phase 2 提交候选审阅（历史）](docs/phase2-submission-review.md)
+- [flower/leaves 正式训练验收与条件限制](docs/phase2-flower-leaves-training.md)
+- [flower/leaves 数据准备验收（训练前历史记录）](docs/phase2-flower-leaves-preparation.md)
 - [Phase 2：统一深度对照、局限与复现](docs/phase2-uniform-depth.md)
 - [Phase 2：三种子复核、基线波动与下一步](docs/phase2-seed-stability.md)
 - [三种子指标](results/fern-3view-depth-seeds.json) · [冻结扩展配置](configs/fern-3view-depth-seeds.json)

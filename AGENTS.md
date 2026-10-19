@@ -97,3 +97,40 @@
 - Documentation/packaging corrections are allowed; preserve frozen experiment
   source hashes and all historical evidence. No new training, flower/leaves work,
   downloads, staging, commits or pushes are authorized by this review.
+
+## Current publication and development-data planning authorization (2026-10-19)
+
+- User approved pushing only 42e297e to codex/phase2-uniform-depth; verify the
+  remote ref after pushing. Do not push new planning documents automatically.
+- Inspect flower/leaves file listings, exact sizes and the frozen experiment
+  proposal using metadata only; do not retrieve dataset member payloads, prepare
+  data, implement new input adapters, train or enter reliability in this substep.
+- Report verified facts, pending input/calibration gates and next-step judgment.
+
+## Current development-data preparation authorization (2026-10-19)
+
+- User approved the 21 named flower/leaves members totaling 11,049,045 compressed
+  payload bytes and minimal explicit input adaptation plus data-preparation checks.
+- Preserve frozen split/math, train/test isolation, old fern entry paths and all
+  historical inputs, models and evidence. Preserve failures and resource records.
+- Prepare train-only geometry/anchors/Small priors and validate inputs; report
+  whether the fixed 18-run experiment should be released. No Gaussian training,
+  reliability module, automatic staging, commits or pushes are authorized.
+
+## Current development-scene training authorization (2026-10-19)
+
+- User approved the frozen flower/leaves 18-run matrix and evaluation only after
+  all 18 training runs finish. Verify preparation/source hashes before execution.
+- Keep split, initialization, depth lambda/schedule and all settings frozen.
+  Preserve every attempt and degradation; stop and investigate anomalies first.
+- No reliability module, automatic staging, commits or pushes. Complete checks,
+  report actual metrics/resources/limitations and the next acceptance judgment.
+
+## Current development-scene submission-review authorization (2026-10-19)
+
+- Review accumulated flower/leaves changes against 42e297e, the complete diff,
+  proposed file list, real checks and preserved experiment evidence.
+- Documentation and packaging corrections are allowed. Keep frozen source/input
+  hashes and all historical failures, runs and reproduction paths unchanged.
+- Recommend whether to make one engineering commit; stop and report. No staging,
+  commits, pushes, new training/evaluation, downloads or reliability work.

@@ -17,11 +17,16 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for key in ['data','output']:ap.add_argument('--'+key,type=Path,required=True)
+    ap.add_argument('--scene-manifest',type=Path)
     args=ap.parse_args();args.output.mkdir(parents=True,exist_ok=False)
     start=time.time();access=audit_training_reads(args.data)
     views=json.loads((args.data/'cameras.json').read_text())
     names=[v['name'] for v in views]
-    if names!=['image001.png','image010.png','image019.png']:raise ValueError('Frozen train split required')
+    scene_input=None
+    if args.scene_manifest is not None:
+        from geosplat_r.scene_input import validate_scene_input
+        scene_input=validate_scene_input(args.data,views,args.scene_manifest)
+    elif names!=['image001.png','image010.png','image019.png']:raise ValueError('Frozen train split required')
     model=pycolmap.Reconstruction(args.data/'triangulated')
     assert {im.name for im in model.images.values()}==set(names)
     by_name={im.name:im for im in model.images.values()}
@@ -34,7 +39,7 @@ def main():
         np.testing.assert_allclose(expected,v['c2w'],rtol=0,atol=1e-6)
     xyz=np.array([(p.xyz-center)*scale for p in model.points3D.values()])
     frozen=np.load(args.data/'points.npz')['points']
-    assert len(xyz)==len(frozen)==488
+    assert len(xyz)==len(frozen)==(scene_input['initial_point_count'] if scene_input else 488)
     nearest=np.sqrt(((xyz[:,None]-frozen[None])**2).sum(-1).min(1)).max()
     assert nearest<1e-5,nearest
     records=[]
@@ -59,8 +64,8 @@ def main():
         target=args.output/(Path(v['name']).stem+'.npz')
         np.savez(target,xy=rows[:,:2],inverse_z=1/rows[:,2],point_ids=rows[:,3].astype(np.int64))
         records.append({'image':v['name'],'file':target.name,'sha256':sha(target),'anchors':len(rows)})
-    result={'protocol':'fern-undistorted-v1','cameras_sha256':sha(args.data/'cameras.json'),
-        'points_sha256':sha(args.data/'points.npz'),'points':488,'cloud_max_nearest_distance':float(nearest),
+    result={'protocol':scene_input['protocol'] if scene_input else 'fern-undistorted-v1','cameras_sha256':sha(args.data/'cameras.json'),
+        'points_sha256':sha(args.data/'points.npz'),'points':len(frozen),'cloud_max_nearest_distance':float(nearest),
         'selection':'observed training tracks; positive Z; <=2px reprojection; 2px border; nearest per rounded pixel',
         'records':records,'elapsed_wall_seconds':time.time()-start}
     (args.output/'manifest.json').write_text(json.dumps(result,indent=2)+'\n')

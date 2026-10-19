@@ -1,0 +1,664 @@
+{
+  "scope": "Flower/leaves minimal input adaptation and preparation acceptance only; no Gaussian training",
+  "reference_commit": "42e297eb3f468fb53a7b5a7818face9a0298a8d7",
+  "plan": "configs/flower-leaves-phase2-plan.json",
+  "plan_sha256": "9997c5bdf334313730e1527beedadd6e50611d954cc9f101ddfc92fd19e53a5b",
+  "scenes": [
+    {
+      "scene": "flower",
+      "protocol": "flower-undistorted-v1",
+      "train_indices": [
+        1,
+        17,
+        33
+      ],
+      "test_indices": [
+        0,
+        8,
+        16,
+        24,
+        32
+      ],
+      "input_manifest": {
+        "scene": "flower",
+        "protocol": "flower-undistorted-v1",
+        "split": "train",
+        "train_images": [
+          {
+            "name": "image001.png",
+            "sha256": "9c50684e4fb6b6f7aefa520fab1476624705f31f3afda990d017126b4a2941aa"
+          },
+          {
+            "name": "image017.png",
+            "sha256": "92aed040c9713dbe8218f6ee8af94f8da3ade0344376674db37da77620fe2deb"
+          },
+          {
+            "name": "image033.png",
+            "sha256": "d597c25f10b433d89a3fcebee484281c1bedd1be6cad39658fbace2c6ab830a8"
+          }
+        ],
+        "resolution": [
+          504,
+          378
+        ],
+        "cameras_sha256": "0944c96f6855554cca36cab7fd2178bca10341481356df71e85df6cb21e5e10c",
+        "points_sha256": "98092119424385b5c3a88c32673bccb6a52c98a3194672769ff4d35f1054e232",
+        "initial_point_count": 1285
+      },
+      "input_manifest_sha256": "471aa4f5cfde03b4137c6a6ce21e8cfeccd826b28498c97100812dde18babe7a",
+      "prior_manifest_sha256": "4b7a559aa6c65b5423642f5251d67af15c843dfbd017e5124f6a72585aeebfed",
+      "anchor_manifest_sha256": "badd99f7b6d7354808796a38c7de3a945382b18652cee2adea085ebcd965b9da",
+      "test_cameras_sha256": "94637330c13e9a48d2081186b2496f0940707917fade624f98152572e0a9feb8",
+      "source_calibration": {
+        "model_id": 2,
+        "camera_id": 1,
+        "width": 4032,
+        "height": 3024,
+        "params": [
+          3575.0586059510074,
+          2016.0,
+          1512.0,
+          0.025134574603909228
+        ]
+      },
+      "derived_intrinsics": [
+        [
+          453.9658092034565,
+          0.0,
+          251.5
+        ],
+        [
+          0.0,
+          453.9658092034565,
+          188.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "analytic_remap_error_px": 1.5258470909884636e-05,
+      "reprojection_mean_px": 0.3311094073588892,
+      "triangulation_wall_seconds": 0.4354376792907715,
+      "download_wall_seconds": 34.521740674972534,
+      "downloaded_compressed_bytes": 5928929,
+      "header_bytes": 330,
+      "downloaded_files": [
+        {
+          "name": "flower/images_8/image000.png",
+          "compressed_bytes": 359617,
+          "raw_bytes": 359586,
+          "crc32": "624261c3",
+          "sha256": "80ec4980490933c88d617f6d0904018dfce2780a78b799d83cc2cbc066b4fa67",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image001.png",
+          "compressed_bytes": 355215,
+          "raw_bytes": 355194,
+          "crc32": "8095b032",
+          "sha256": "5b828470e45f9e9875e66f9aec433a58aeef26d8f74893647bf62131e17c8ca8",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image008.png",
+          "compressed_bytes": 360599,
+          "raw_bytes": 360590,
+          "crc32": "53299e0b",
+          "sha256": "4a222ba125559b2918a2b0fdb9fb4009043100f9a961bdd2c1cb5e3ae631631d",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image016.png",
+          "compressed_bytes": 358429,
+          "raw_bytes": 358426,
+          "crc32": "891d41ab",
+          "sha256": "987f4ea5c00a602ea170834e5e4cf6f2c9afab74ba1300abd44bec0e6e892116",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image017.png",
+          "compressed_bytes": 354969,
+          "raw_bytes": 354972,
+          "crc32": "7a6733b0",
+          "sha256": "225ce4960a6aa6339c30a8494141cb6b7156b77c7e50e28384d19431be676300",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image024.png",
+          "compressed_bytes": 353732,
+          "raw_bytes": 353739,
+          "crc32": "ae855316",
+          "sha256": "5ffc731a2dac02ce840154fb8536f55397d107f19f7f4c1d516564a9c0eb1cb6",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image032.png",
+          "compressed_bytes": 352223,
+          "raw_bytes": 352238,
+          "crc32": "029f917b",
+          "sha256": "a5bf5572371845499cd33a4c89db19b92660ea96cd7bb18e55e52c55e78960ae",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/images_8/image033.png",
+          "compressed_bytes": 349709,
+          "raw_bytes": 349698,
+          "crc32": "86c38571",
+          "sha256": "6a452e07906590a7c3b6b58feae72e898bf88a3b6dcaec14edc925f226773124",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/poses_bounds.npy",
+          "compressed_bytes": 3900,
+          "raw_bytes": 4704,
+          "crc32": "300a2016",
+          "sha256": "4a7671db882f8a69b86f2ebf5b268f1ed9e49b8d74558a6fd96444c85d37dbbf",
+          "raw_persisted": true
+        },
+        {
+          "name": "flower/sparse/0/cameras.bin",
+          "compressed_bytes": 44,
+          "raw_bytes": 64,
+          "crc32": "80f2a7ec",
+          "sha256": "ef4494bfaf92590e4ed552161f19022d25555c4f16a63dddb214637a0564c18c",
+          "raw_persisted": false
+        },
+        {
+          "name": "flower/sparse/0/images.bin",
+          "compressed_bytes": 3080492,
+          "raw_bytes": 7539786,
+          "crc32": "0eb1b42e",
+          "sha256": "2936ce5bc75165c2e60827c1dc32046cce3643fb7c5036c991cd76fd5c93b16d",
+          "raw_persisted": false
+        }
+      ],
+      "anchors": [
+        {
+          "image": "image001.png",
+          "file": "image001.npz",
+          "sha256": "fc4dbea92bac3896db8d6a241976097c4ebdfde7ca00196904bcc454f58e8683",
+          "anchors": 847
+        },
+        {
+          "image": "image017.png",
+          "file": "image017.npz",
+          "sha256": "f95a8905999394ff10aac9b3515d363b2d02597773451bb6778bb8973a6195f7",
+          "anchors": 1158
+        },
+        {
+          "image": "image033.png",
+          "file": "image033.npz",
+          "sha256": "f6cb470d657ceef34957071f08757b786dbbe6dca1ac5132ed0514be6025eadc",
+          "anchors": 912
+        }
+      ],
+      "prior_records": [
+        {
+          "image": "image001.png",
+          "image_sha256": "9c50684e4fb6b6f7aefa520fab1476624705f31f3afda990d017126b4a2941aa",
+          "file": "image001.npz",
+          "sha256": "c3727b7f69d478d892fe7cf96775c691dd7cf15d9549a1d88bbee570a1ebe2ca",
+          "alignment": {
+            "slope": 0.028811695670529512,
+            "shift": 0.01528477160366553,
+            "normalizer": 0.035344970540258584,
+            "anchors": 847,
+            "anchor_pearson_correlation": 0.9283959344586578,
+            "anchor_relative_l1": 0.29058524275297026,
+            "valid_fraction": 0.9815654656924498,
+            "fit": "unweighted ordinary least squares to train inverse Z"
+          },
+          "inference_wall_seconds": 0.5177211761474609,
+          "network_input_shape": [
+            1,
+            3,
+            518,
+            686
+          ]
+        },
+        {
+          "image": "image017.png",
+          "image_sha256": "92aed040c9713dbe8218f6ee8af94f8da3ade0344376674db37da77620fe2deb",
+          "file": "image017.npz",
+          "sha256": "ffc4ed9fa816bcb6baa5a67c55e1cf2a92f0a6c947326a2c9c86a77426a2ea4b",
+          "alignment": {
+            "slope": 0.02754201116817864,
+            "shift": 0.013603423180990304,
+            "normalizer": 0.03861628334214681,
+            "anchors": 1158,
+            "anchor_pearson_correlation": 0.9231666771225406,
+            "anchor_relative_l1": 0.2554119089265302,
+            "valid_fraction": 0.9815654656924498,
+            "fit": "unweighted ordinary least squares to train inverse Z"
+          },
+          "inference_wall_seconds": 0.026746511459350586,
+          "network_input_shape": [
+            1,
+            3,
+            518,
+            686
+          ]
+        },
+        {
+          "image": "image033.png",
+          "image_sha256": "d597c25f10b433d89a3fcebee484281c1bedd1be6cad39658fbace2c6ab830a8",
+          "file": "image033.npz",
+          "sha256": "8f60e60a3043738e7f59fde24b4032b3a54fde89e574f0497f69512c313c73bc",
+          "alignment": {
+            "slope": 0.025235519223212564,
+            "shift": 0.01690708856398614,
+            "normalizer": 0.03873642361193065,
+            "anchors": 912,
+            "anchor_pearson_correlation": 0.9383723781058114,
+            "anchor_relative_l1": 0.20780668269308442,
+            "valid_fraction": 0.9815654656924498,
+            "fit": "unweighted ordinary least squares to train inverse Z"
+          },
+          "inference_wall_seconds": 0.02897500991821289,
+          "network_input_shape": [
+            1,
+            3,
+            518,
+            686
+          ]
+        }
+      ],
+      "prior_resources": {
+        "status": "passed",
+        "error": null,
+        "elapsed_wall_seconds": 1.9640634059906006,
+        "elapsed_perf_counter_seconds": 1.9640633019989764,
+        "torch_peak_allocated_mib": 283.55419921875,
+        "torch_peak_reserved_mib": 366.0,
+        "whole_board_sampled_peak_mib": 1837,
+        "sampling_period_ms": 200,
+        "samples": 10,
+        "sampler_error": null,
+        "gpu_timestamp_sampling_span_seconds": 1.826,
+        "gpu_utilization_mean_percent": 11.0,
+        "gpu_utilization_peak_percent": 33
+      },
+      "input_preflight": {
+        "status": "passed",
+        "scene": "flower",
+        "actual_training_asset_reads": [
+          "cameras.json",
+          "images/image001.png",
+          "images/image017.png",
+          "images/image033.png",
+          "input-manifest.json",
+          "points.npz"
+        ],
+        "input_manifest_sha256": "471aa4f5cfde03b4137c6a6ce21e8cfeccd826b28498c97100812dde18babe7a",
+        "priors_manifest_sha256": "4b7a559aa6c65b5423642f5251d67af15c843dfbd017e5124f6a72585aeebfed",
+        "torch_peak_allocated_mib": 9.2724609375,
+        "torch_peak_reserved_mib": 24.0,
+        "optimizer_updates": 0,
+        "rendering_performed": false,
+        "training_performed": false
+      },
+      "test_images": {
+        "image000.png": "848300ae5e909bbcb8604bba032da6af133a520577b1582663b7b11576b02183",
+        "image008.png": "f508f021129893471a7f992bbfee97463d63e5fdf50364af589e92b9f4f34e39",
+        "image016.png": "2208c86ebb2fb7ff4898e135d478f81ae2c9c4fb65893ba4ecd19074edd48bdc",
+        "image024.png": "5d8c51ace9e0bf60bd90a870868ac947b0ff5ccaf12e1ec47994f2254964d17f",
+        "image032.png": "2b79de469e88972d130ab53bffd00b24568563cf829eeb3578f2f2a44c2787cc"
+      }
+    },
+    {
+      "scene": "leaves",
+      "protocol": "leaves-undistorted-v1",
+      "train_indices": [
+        1,
+        12,
+        25
+      ],
+      "test_indices": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "input_manifest": {
+        "scene": "leaves",
+        "protocol": "leaves-undistorted-v1",
+        "split": "train",
+        "train_images": [
+          {
+            "name": "image001.png",
+            "sha256": "838f035041910b6367f1948d3cba4fc2eca002a97a8e85c8b6c40d573b6b4e5d"
+          },
+          {
+            "name": "image012.png",
+            "sha256": "87773f1da201771436fc43eeb430fdbe5619a0d97d70b94469aac346cec98aa4"
+          },
+          {
+            "name": "image025.png",
+            "sha256": "ed504c0b175eec1f0a95b7963dabbc964cb4023130098e9576aeb730f597365c"
+          }
+        ],
+        "resolution": [
+          504,
+          378
+        ],
+        "cameras_sha256": "6d88f993c980cdfc146178fc246318b5ba3012b256d01cd7f1f18b69f0993346",
+        "points_sha256": "dcda6a8fb0f337fce2bac8b060abf6340b86d7c9016317d88aa1edab3de32394",
+        "initial_point_count": 274
+      },
+      "input_manifest_sha256": "0a97f127f3d94082fa6ca954c60568d3597f539526b5a4be05a95516b4cf9e42",
+      "prior_manifest_sha256": "7b5be585c98750c864d09811208ee8449cefa53aebfe2923bf6de0f73638e7aa",
+      "anchor_manifest_sha256": "8881212892f13e193095ec66ea31a7c6dc1bdedc6e97585f3cb75844b5099003",
+      "test_cameras_sha256": "865659b3860d52078d5d97eada3ceb4e0d7653e02349b391ff290daf95aebe34",
+      "source_calibration": {
+        "model_id": 2,
+        "camera_id": 1,
+        "width": 4032,
+        "height": 3024,
+        "params": [
+          3428.4755177313386,
+          2016.0,
+          1512.0,
+          0.03738835450733112
+        ]
+      },
+      "derived_intrinsics": [
+        [
+          438.4584675203909,
+          0.0,
+          251.5
+        ],
+        [
+          0.0,
+          438.4584675203909,
+          188.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "analytic_remap_error_px": 1.525828861304035e-05,
+      "reprojection_mean_px": 0.18353926454221778,
+      "triangulation_wall_seconds": 0.4232673645019531,
+      "download_wall_seconds": 28.797890186309814,
+      "downloaded_compressed_bytes": 5120116,
+      "header_bytes": 300,
+      "downloaded_files": [
+        {
+          "name": "leaves/images_8/image000.png",
+          "compressed_bytes": 449984,
+          "raw_bytes": 450027,
+          "crc32": "78b1bbc7",
+          "sha256": "0f8179231da7bd77cb5d72bc14859bb0db3ae86daba237c4a9ed6492e8c1ee91",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/images_8/image001.png",
+          "compressed_bytes": 446291,
+          "raw_bytes": 446280,
+          "crc32": "21a99352",
+          "sha256": "32f7c2eba1c4442ee4cf777495e5dcfdf4e06d5f034c667381f3ee71be5e7ec3",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/images_8/image008.png",
+          "compressed_bytes": 446273,
+          "raw_bytes": 446274,
+          "crc32": "c0743e38",
+          "sha256": "a5ff506b650ea00ed9cdd62378388df616e9320686077a93bcf395d3de61596f",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/images_8/image012.png",
+          "compressed_bytes": 442626,
+          "raw_bytes": 442637,
+          "crc32": "41a628f7",
+          "sha256": "b3203cea5826a6ffb15b617ce02b11d7c4a596252fd05872dbd6e76682a8a76a",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/images_8/image016.png",
+          "compressed_bytes": 441450,
+          "raw_bytes": 441486,
+          "crc32": "edf6ab9d",
+          "sha256": "1d7d95524e39e3471c43d65e820d640eb80a2ef7e146f193beb8aae42670d667",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/images_8/image024.png",
+          "compressed_bytes": 436173,
+          "raw_bytes": 436215,
+          "crc32": "b0c5b5d0",
+          "sha256": "72c6bd8b25192a70c8de70d4525d5a0bc31cf2ab86cdcfe4fae826cf6e87e3dc",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/images_8/image025.png",
+          "compressed_bytes": 434206,
+          "raw_bytes": 434283,
+          "crc32": "431fcfe9",
+          "sha256": "6e5d300bb87c02ae800e46b7e7a0718bdd078eb4b35a68ba94a9d81a171d0526",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/poses_bounds.npy",
+          "compressed_bytes": 3039,
+          "raw_bytes": 3616,
+          "crc32": "e132dd5c",
+          "sha256": "ada27886341d11f32a8d887e2d1ae1e9cb5ea3de65b9632b3f34b006f77e0f66",
+          "raw_persisted": true
+        },
+        {
+          "name": "leaves/sparse/0/cameras.bin",
+          "compressed_bytes": 43,
+          "raw_bytes": 64,
+          "crc32": "f36b5da5",
+          "sha256": "73bcea72824cf4cb48a1f58e9d03efd9e4728bb198e4f11e4aba004a454d52cb",
+          "raw_persisted": false
+        },
+        {
+          "name": "leaves/sparse/0/images.bin",
+          "compressed_bytes": 2020031,
+          "raw_bytes": 5988154,
+          "crc32": "7b16b2ec",
+          "sha256": "f4bd3b275b1bce1be544dbe79459a1136c2376c8b8c192857799a143f7724bc8",
+          "raw_persisted": false
+        }
+      ],
+      "anchors": [
+        {
+          "image": "image001.png",
+          "file": "image001.npz",
+          "sha256": "03c88cc3918bacf396d5b81a623ead51b640d09a50d9d631af69baa42648b70e",
+          "anchors": 199
+        },
+        {
+          "image": "image012.png",
+          "file": "image012.npz",
+          "sha256": "2a847c04c780c4f72d574181a642d1e4ff5280888c955c9ef78f812d113f8c94",
+          "anchors": 235
+        },
+        {
+          "image": "image025.png",
+          "file": "image025.npz",
+          "sha256": "fa380c3cbdc692fdd925af9f7cbe86018fe736d22dba8c7e8402ef3726172f32",
+          "anchors": 176
+        }
+      ],
+      "prior_records": [
+        {
+          "image": "image001.png",
+          "image_sha256": "838f035041910b6367f1948d3cba4fc2eca002a97a8e85c8b6c40d573b6b4e5d",
+          "file": "image001.npz",
+          "sha256": "9af1445fa31f0ac6687f3eff2bbb5a30b286c67f6ebdc2d1fc2b06520489a63f",
+          "alignment": {
+            "slope": 0.02796099517719107,
+            "shift": 0.014722481753989314,
+            "normalizer": 0.12008758673594297,
+            "anchors": 199,
+            "anchor_pearson_correlation": 0.979628109764855,
+            "anchor_relative_l1": 0.04939130030928333,
+            "valid_fraction": 0.9815654656924498,
+            "fit": "unweighted ordinary least squares to train inverse Z"
+          },
+          "inference_wall_seconds": 0.2187027931213379,
+          "network_input_shape": [
+            1,
+            3,
+            518,
+            686
+          ]
+        },
+        {
+          "image": "image012.png",
+          "image_sha256": "87773f1da201771436fc43eeb430fdbe5619a0d97d70b94469aac346cec98aa4",
+          "file": "image012.npz",
+          "sha256": "8d445710c0ff3acf4bc225dbaabd79ade0b7ae054456c11c43b60b5209739740",
+          "alignment": {
+            "slope": 0.03289211579781727,
+            "shift": 0.0068206826903790445,
+            "normalizer": 0.10480295680274473,
+            "anchors": 235,
+            "anchor_pearson_correlation": 0.960425822612038,
+            "anchor_relative_l1": 0.09778431523623793,
+            "valid_fraction": 0.9815654656924498,
+            "fit": "unweighted ordinary least squares to train inverse Z"
+          },
+          "inference_wall_seconds": 0.032155752182006836,
+          "network_input_shape": [
+            1,
+            3,
+            518,
+            686
+          ]
+        },
+        {
+          "image": "image025.png",
+          "image_sha256": "ed504c0b175eec1f0a95b7963dabbc964cb4023130098e9576aeb730f597365c",
+          "file": "image025.npz",
+          "sha256": "aaa3d8393d2829251893961116d8fb58c377ae0b6b0b86efab3a56feb77331cd",
+          "alignment": {
+            "slope": 0.029801702955465626,
+            "shift": 0.009705073364462129,
+            "normalizer": 0.04793101384249228,
+            "anchors": 176,
+            "anchor_pearson_correlation": 0.9810554868162998,
+            "anchor_relative_l1": 0.1667505127581229,
+            "valid_fraction": 0.9815654656924498,
+            "fit": "unweighted ordinary least squares to train inverse Z"
+          },
+          "inference_wall_seconds": 0.034522056579589844,
+          "network_input_shape": [
+            1,
+            3,
+            518,
+            686
+          ]
+        }
+      ],
+      "prior_resources": {
+        "status": "passed",
+        "error": null,
+        "elapsed_wall_seconds": 1.290381908416748,
+        "elapsed_perf_counter_seconds": 1.2903821199979575,
+        "torch_peak_allocated_mib": 283.55419921875,
+        "torch_peak_reserved_mib": 366.0,
+        "whole_board_sampled_peak_mib": 1883,
+        "sampling_period_ms": 200,
+        "samples": 7,
+        "sampler_error": null,
+        "gpu_timestamp_sampling_span_seconds": 1.208,
+        "gpu_utilization_mean_percent": 7.285714285714286,
+        "gpu_utilization_peak_percent": 22
+      },
+      "input_preflight": {
+        "status": "passed",
+        "scene": "leaves",
+        "actual_training_asset_reads": [
+          "cameras.json",
+          "images/image001.png",
+          "images/image012.png",
+          "images/image025.png",
+          "input-manifest.json",
+          "points.npz"
+        ],
+        "input_manifest_sha256": "0a97f127f3d94082fa6ca954c60568d3597f539526b5a4be05a95516b4cf9e42",
+        "priors_manifest_sha256": "7b5be585c98750c864d09811208ee8449cefa53aebfe2923bf6de0f73638e7aa",
+        "torch_peak_allocated_mib": 9.2724609375,
+        "torch_peak_reserved_mib": 24.0,
+        "optimizer_updates": 0,
+        "rendering_performed": false,
+        "training_performed": false
+      },
+      "test_images": {
+        "image000.png": "185069899cbf114024fda58ebd26dc17efdacde3ad21291d2b9dc1502f827c83",
+        "image008.png": "e52773d64bff3ca765d72f80a57be64e9890c6d4e1032cb249f4dd9a1dbc80a8",
+        "image016.png": "679ae7fab1b78f3d24a49122d88f736250698b76e6b508f4e7d81e34cf98d821",
+        "image024.png": "88a32bf611f60ee48bcf0b817291d587d91f0eb43356df7c8025b2c40aaf30ac"
+      }
+    }
+  ],
+  "source_hashes": {
+    "scripts/audit_fern.py": "5990ac761e53d1253161129d57870ac68742e7020245cd5e9040c4a5572792a9",
+    "scripts/check_cuda.py": "aae150f499c70e8b8092f3e1d41505d45d4552f399840b6687ef7e6b6b9df7d9",
+    "scripts/check_scene_input.py": "0e3d5a317931357bccbe728f4296bd0325c2a847cec06333661a31bbb9b89700",
+    "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9",
+    "scripts/export_train_anchors.py": "1554d6a8b96f36c83a87100b7dc3aed9e02fd1d090a43a692097b2318379c70a",
+    "scripts/fetch_fern.py": "cc833758d6af238771f860cc2fe9b24ca176bf5fa4c3535c594b22004ec90971",
+    "scripts/fetch_llff_subset.py": "27afe05fbdc9d6ba2ec61d64eb35f4e48807f0983f40f520a7ab4f89dd844b3e",
+    "scripts/prepare_depth_priors.py": "c78a9a87b4e5839185592006177596c0f2abdd0f48663a632cfa888a21956d96",
+    "scripts/prepare_fern.py": "5e10f81974323248d60d9bb715038ce3525635d0a3ef6af2367cbe370e2d6bcb",
+    "scripts/run_upstream_reference.py": "295d24a13d90ba2d995b8f48e0a64fc2bbc584c8b50bc3efd31036f1fe8fc11a",
+    "scripts/summarize_depth_seeds.py": "3bfbfbe4c1718ed1e7ce3c80fe6e60af4f70f160935d6b59b5409f00deea365d",
+    "scripts/summarize_rgb_paths.py": "1ab0dd0798e49b161ff88a2c0be5f4fa3658902a2ab18c2724b4388430ec7b8c",
+    "scripts/train_baseline.py": "9725cfce85f2a06b4cb68c0feeaa0fb123aaf53ad372904052e11a5a471ad91d",
+    "scripts/undistort_fern.py": "f84472bd11073fd0ca37567f6b13eb6be1acd472e2902abb9d4442b4ced5bec7",
+    "scripts/undistort_llff_subset.py": "efe3775e0aff08be184331e08edf1616105752bc7d0e8e7febe721e92509df10",
+    "scripts/validate_llff_preparation.py": "0feb15d4c7b747642ecfee7d2a184ea98605502ec86e3fd9c4dee825a5a55dba",
+    "src/geosplat_r/__init__.py": "961d50c5acf12465761bb9049eddb73eedd4011cd00a88d4d29d8ab9f9e02d20",
+    "src/geosplat_r/baseline.py": "bbd64b6f85a4580977cbb59fbbb7ed2d463f7ef62f86c486f609bcd7a64f2c9e",
+    "src/geosplat_r/camera.py": "e3fa07483149340a26d46cae89927e24997a9fa07937138f049ca737514f27d9",
+    "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+    "src/geosplat_r/isolation.py": "f8a42e2068fc21b372afad08525fc76ce9374febc25ff446dd1f16b588314887",
+    "src/geosplat_r/rgb_path_summary.py": "251853164fd277937e8a94069fd8c8c1522062acf98ae89e39ed9b46a6388436",
+    "src/geosplat_r/scene_input.py": "4c6ddc16c2a465bf42060c89cb89d6f8bdca5c7bdf55b9587afaa933e829b047",
+    "src/geosplat_r/seed_summary.py": "976e5a3f92b813f92a9092f48f28069932cd1d78b783f01fb6fcfce3cd7e4201"
+  },
+  "frozen_execution_manifest_sha256": "968762422d5f16f2292e58462c2fdf487ed50125d25e6a58dd05220fa0cd9ffb",
+  "downloaded_compressed_payload_bytes": 11049045,
+  "download_header_bytes": 630,
+  "download_attempts": 1,
+  "download_failures": 0,
+  "new_weight_download_bytes": 0,
+  "formal_training_runs_executed": 0,
+  "new_test_render_metrics_computed": false,
+  "failures": [
+    {
+      "stage": "flower initial input-audit",
+      "kind": "Positional point comparison failed because COLMAP serialization changed hash-map iteration order",
+      "data_changed_to_pass": false,
+      "resolution": "Exact float32 XYZ+RGB multiset comparison including multiplicity; separate corrected audit output",
+      "failed_log_preserved": true
+    }
+  ],
+  "checks": {
+    "full_tests_passed": 43,
+    "full_tests_skipped": 0,
+    "asset_free_passed": 28,
+    "asset_free_skipped": 15,
+    "cli_help_and_refusal_entries": 10,
+    "training_loop_render_and_depth_math_unchanged": true,
+    "legacy_fern_priors_three_arrays_each_exactly_equal": true
+  },
+  "acceptance": {
+    "engineering": "pass",
+    "recommend_18_run_training_release": true,
+    "conditions": "Explicit user training authorization; verify frozen source/input hashes first; preserve all 18 attempts and stop on failure, no setting changes or tuning",
+    "quality": "Not evaluated. Flower fitted anchor residuals are higher than fern; no independent dense depth truth or test-render evidence",
+    "next": "18 formal runs using frozen commands, then independent evaluation after all complete; no reliability module"
+  },
+  "publication": "No staging, commits or pushes authorized or performed"
+}

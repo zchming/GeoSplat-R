@@ -13,17 +13,19 @@ def describe(values):
         'median':statistics.median(values),'min':min(values),'max':max(values),'n_seeds':len(values)}
 
 
-def summarize_pairs(pairs):
+def summarize_pairs(pairs,view_names=None):
     seeds=[p['seed'] for p in pairs]
     if sorted(seeds)!=[42,43,44]:raise ValueError('Exactly one pair for each authorized seed42/43/44 required')
     for p in pairs:
         a=p['zero']['test'];b=p['uniform']['test']
-        expected=['image000.png','image008.png','image016.png']
+        expected=view_names['test'] if view_names else ['image000.png','image008.png','image016.png']
         if [r['image'] for r in a['per_image']]!=expected or [r['image'] for r in b['per_image']]!=expected:
             raise ValueError('Frozen test-image order required in both arms')
         for arm in ['zero','uniform']:
             for split in ['train','test']:
                 result=p[arm][split]
+                if view_names and [r['image'] for r in result['per_image']]!=view_names[split]:
+                    raise ValueError('Frozen scene view order required')
                 for metric in METRICS:
                     mean=statistics.mean(r[metric] for r in result['per_image'])
                     if not math.isfinite(mean) or not math.isclose(mean,result['mean'][metric],abs_tol=1e-6):

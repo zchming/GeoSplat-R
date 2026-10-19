@@ -16,6 +16,7 @@ if __name__=='__main__':
     ap.add_argument('--depth-priors',type=Path,help='Explicit frozen train-only aligned priors; enables RGB+ED in both controls')
     ap.add_argument('--depth-lambda',type=float,default=0.)
     ap.add_argument('--depth-start',type=int,default=1000)
+    ap.add_argument('--scene-manifest',type=Path,help='Explicit train/input-manifest.json for approved development scenes; omit for legacy fern')
     args=ap.parse_args()
     if args.max_steps<1 or (args.stop_after is not None and not 0<args.stop_after<=args.max_steps):
         ap.error('Invalid step count')

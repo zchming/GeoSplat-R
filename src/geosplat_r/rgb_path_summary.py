@@ -9,9 +9,9 @@ CONTRASTS={'rgb_ed_zero_minus_rgb_only':('rgb_only','rgb_ed_zero'),
     'uniform_minus_rgb_ed_zero':('rgb_ed_zero','uniform')}
 
 
-def summarize_paths(rows):
+def summarize_paths(rows,view_names=None):
     if sorted(p['seed'] for p in rows)!=[42,43,44]:raise ValueError('Exactly seed42/43/44 required once each')
-    names={'train':['image001.png','image010.png','image019.png'],
+    names=view_names or {'train':['image001.png','image010.png','image019.png'],
         'test':['image000.png','image008.png','image016.png']}
     for p in rows:
         for arm in ARMS:

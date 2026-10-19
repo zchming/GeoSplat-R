@@ -89,8 +89,8 @@ legacy-prepared 仅为原针孔相机审计所需的训练三角化，不需要�
 ```
 
 测试仍需安装训练环境依赖，不能用未安装 Torch/gsplat 的空 Python 环境代替。
-Phase 1最初有16项，首次Phase 2有25项，种子复核后有30项；RGB路径复核后当前共35项。
-无资产且未要求CUDA检查时22项执行、13项跳过，不能称为全部真实实验检查通过。
+Phase 1最初有16项，首次Phase 2有25项，种子复核后有30项；RGB路径复核后共35项；flower/leaves输入适配后43项，正式矩阵验收后当前45项。
+当前无资产且未要求CUDA检查时28项执行、17项跳过，不能称为全部真实实验检查通过。
 针对当前复现资产可设置以下变量后运行同一命令：
 
 ```bash
@@ -125,3 +125,14 @@ Phase 1提交候选审阅时，使用全部当时历史与当前资产得到16�
 单场景单 seed 仍严重过拟合；没有保证复跑逐位相同，也没有跨机器或多种子误差范围。
 重采样 GT、K 与初始化均不同于旧协议，不能把差值作为算法收益。
 计时保留多个时钟口径，已观察到 perf_counter 与墙钟差异，原因尚未验证。
+
+训练前43项完整检查及新输入适配见 [flower/leaves数据准备验收](phase2-flower-leaves-preparation.md)。
+在上述全部历史资产变量之外，GEOSPLAT_DEV_PREPARATION须显式指向已完成的开发场景准备根目录；
+缺少它时两项新场景真实资产检查明确跳过。新入口的--scene-manifest仅用于新场景，旧fern调用不需要添加。
+
+当前45项完整检查全部通过、0跳过，见[正式矩阵验收](phase2-flower-leaves-training.md)。
+在全部上述变量之外，`GEOSPLAT_DEV_TRAINING`须指向已完成的18模型训练证据根，
+`GEOSPLAT_DEV_SUMMARY`须指向其完整两场景汇总目录；缺少时分别跳过一项，不会自动训练或评价。
+训练证据根的training-completion.json声明active_execution_manifest，默认支持原frozen-execution.json，
+本次恢复使用保留父清单的frozen-execution-recovery1.json。中断尝试必须保留且不得冒充完整30k结果。
+这两项检查依赖完整本地证据与哈希，并非仅凭仓库精简结果JSON就能执行。

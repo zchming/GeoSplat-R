@@ -21,6 +21,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for key in ['data','anchors','source','source-manifest','weights','output']:
         ap.add_argument('--'+key,type=Path,required=True)
+    ap.add_argument('--scene-manifest',type=Path)
     args=ap.parse_args();args.output.mkdir(parents=True,exist_ok=False)
     access=audit_training_reads(args.data)
     if sha256(args.weights)!=WEIGHTS_SHA:raise ValueError('Unexpected Small weights; no network fallback')
@@ -29,7 +30,11 @@ def main():
     for r in source['files']:
         if sha256(args.source/r['path'])!=r['sha256']:raise ValueError('Depth-model source changed')
     views=json.loads((args.data/'cameras.json').read_text())
-    if [v['name'] for v in views]!=['image001.png','image010.png','image019.png']:raise ValueError('Frozen train split required')
+    scene_input=None
+    if args.scene_manifest is not None:
+        from geosplat_r.scene_input import validate_scene_input
+        scene_input=validate_scene_input(args.data,views,args.scene_manifest)
+    elif [v['name'] for v in views]!=['image001.png','image010.png','image019.png']:raise ValueError('Frozen train split required')
     anchors=json.loads((args.anchors/'manifest.json').read_text())
     assert anchors['cameras_sha256']==sha256(args.data/'cameras.json')
     assert anchors['points_sha256']==sha256(args.data/'points.npz')
@@ -46,7 +51,7 @@ def main():
         for view,anchor in zip(views,anchors['records']):
             p=args.data/'images'/view['name']
             assert sha256(p)==view['image_sha256']
-            image=cv2.imread(str(p));assert image.shape==(378,504,3)
+            image=cv2.imread(str(p));assert image.shape==(view['height'],view['width'],3)
             transformed,_=model.image2tensor(image,518)
             input_shape=list(transformed.shape);del transformed
             torch.cuda.synchronize();tick=time.time()
@@ -66,7 +71,7 @@ def main():
             records.append({'image':view['name'],'image_sha256':view['image_sha256'],
                 'file':dest.name,'sha256':sha256(dest),'alignment':diagnostics,
                 'inference_wall_seconds':seconds,'network_input_shape':input_shape})
-        result={'protocol':'fern-undistorted-v1','model':'Depth Anything V2 Small relative inverse depth',
+        result={'protocol':scene_input['protocol'] if scene_input else 'fern-undistorted-v1','model':'Depth Anything V2 Small relative inverse depth',
             'weights_sha256':WEIGHTS_SHA,'source_revision':SOURCE_SHA,
             'source_manifest_sha256':sha256(args.source_manifest),'source_files':source['files'],
             'cameras_sha256':sha256(args.data/'cameras.json'),'points_sha256':sha256(args.data/'points.npz'),

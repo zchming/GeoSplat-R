@@ -18,13 +18,22 @@ def collect(manifest):
         'scene_scale','strategy','packed','precision','sh_degree','sh_degree_interval','rgb_loss','batch_size',
         'near_plane','far_plane','camera_optimization','appearance_optimization','image_cache','training_implementation_sha256']
     expected_access={'cameras.json','points.npz','images/image001.png','images/image010.png','images/image019.png'}
+    scene_input=None;view_names=None
+    if manifest.get('scene_input_manifest'):
+        from geosplat_r.scene_input import validate_scene_input,SCENE_TESTS
+        input_path=Path(manifest['scene_input_manifest'])
+        views=json.loads((input_path.parent/'cameras.json').read_text())
+        scene_input=validate_scene_input(input_path.parent,views,input_path)
+        view_names={'train':[v['name'] for v in views],'test':SCENE_TESTS[scene_input['scene']]}
+        expected_access={'cameras.json','points.npz','input-manifest.json',*[f'images/{n}' for n in view_names['train']]}
+        fixed=fixed+['scene_input']
     for item in sorted(manifest['pairs'],key=lambda p:p['seed']):
         pair={'seed':item['seed']};initial=[]
         for arm,weight in [('zero',0.),('uniform',.01)]:
             run=Path(item[arm]['run']);evaluation=Path(item[arm]['evaluation'])
             config=json.loads((run/'config.json').read_text());resources=json.loads((run/'resources.json').read_text())
             metrics=json.loads((evaluation/'metrics.json').read_text())
-            gt={name:sha(evaluation/'test'/Path(name).stem/'gt.png') for name in ['image000.png','image008.png','image016.png']}
+            gt={name:sha(evaluation/'test'/Path(name).stem/'gt.png') for name in (view_names['test'] if view_names else ['image000.png','image008.png','image016.png'])}
             if gt_hashes is None:gt_hashes=gt
             elif gt!=gt_hashes:raise ValueError('Evaluation test GT differs across runs')
             if config['seed']!=item['seed'] or config['depth_protocol']['lambda']!=weight:
@@ -37,6 +46,11 @@ def collect(manifest):
             if sha(run/'checkpoint.pt')!=metrics['checkpoint_sha256']:raise ValueError('Evaluation checkpoint mismatch')
             if sha(run/'source/baseline.py')!=config['training_implementation_sha256']:raise ValueError('Training source hash mismatch')
             if sha(run/'source/depth.py')!=config['depth_protocol']['depth_implementation_sha256']:raise ValueError('Depth source hash mismatch')
+            if scene_input is not None:
+                if config['scene_input']['input']!=scene_input or config['scene_input']['manifest_sha256']!=sha(input_path):
+                    raise ValueError('Run scene input differs from the frozen manifest')
+                if sha(run/'source/scene_input.py')!=config['scene_input']['adapter_sha256']:
+                    raise ValueError('Scene adapter source mismatch')
             if set(json.loads((run/'training-access.json').read_text()))!=expected_access:raise ValueError('Unexpected training asset access')
             if resources['whole_board_sampled_peak_mib']>=12282 or resources['sampler_error'] is not None:
                 raise ValueError('Resource checks failed')
@@ -49,10 +63,11 @@ def collect(manifest):
                 'checkpoint_sha256':metrics['checkpoint_sha256'],'metrics_sha256':sha(evaluation/'metrics.json')}
         if initial[0]!=initial[1]:raise ValueError('Pair initial parameters differ')
         pair['initial_parameters_sha256']=initial[0];pairs.append(pair)
-    summary=summarize_pairs(pairs)
-    return {'scope':'Phase 2 frozen fern uniform-depth seed stability, 42/43/44, 30k',
+    summary=summarize_pairs(pairs,view_names)
+    return {'scope':f"Phase 2 frozen {scene_input['scene'] if scene_input else 'fern'} uniform-depth seed stability, 42/43/44, 30k",
         'pairs':pairs,**summary,'frozen_core':reference,'depth_protocol_except_lambda':reference_depth,
-        'metric_protocol':metric_protocol,'versions':versions,'test_gt_png_sha256':gt_hashes}
+        'metric_protocol':metric_protocol,'versions':versions,'test_gt_png_sha256':gt_hashes,
+        **({'view_names':view_names} if view_names else {})}
 
 
 def main():

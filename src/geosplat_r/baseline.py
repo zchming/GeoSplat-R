@@ -129,7 +129,12 @@ def train(args):
     # Training reads only this explicit three-image directory, never any split parent.
     views=load_views(data)
     for view in views:view['pixels']=view['pixels'].cuda()
-    if [v['name'] for v in views] != ['image001.png','image010.png','image019.png']:
+    scene_manifest=getattr(args,'scene_manifest',None)
+    scene_input=None
+    if scene_manifest is not None:
+        from geosplat_r.scene_input import validate_scene_input
+        scene_input=validate_scene_input(data,views,scene_manifest)
+    elif [v['name'] for v in views] != ['image001.png','image010.png','image019.png']:
         raise ValueError('This authorized substep requires the frozen fern 3-view split')
     initial=np.load(data/'points.npz')
     centers=np.array([v['c2w'] for v in views])[:,:3,3]
@@ -165,9 +170,14 @@ def train(args):
             'render_mode':'RGB+ED for lambda-zero and positive controls',
             'priors_manifest_sha256':sha256(depth_root/'manifest.json'),
             'depth_implementation_sha256':sha256(Path(__file__).with_name('depth.py'))}
+    if scene_input is not None:
+        config['scene_input']={'manifest_sha256':sha256(scene_manifest),'input':scene_input,
+            'adapter_sha256':sha256(Path(__file__).with_name('scene_input.py'))}
     (args.output/'config.json').write_text(json.dumps(config,indent=2)+'\n')
     source_dir=args.output/'source';source_dir.mkdir()
     (source_dir/'baseline.py').write_bytes(Path(__file__).read_bytes())
+    if scene_input is not None:
+        (source_dir/'scene_input.py').write_bytes(Path(__file__).with_name('scene_input.py').read_bytes())
     if depth_priors is not None:(source_dir/'depth.py').write_bytes(Path(__file__).with_name('depth.py').read_bytes())
     torch.cuda.reset_peak_memory_stats()
     sampler=MemorySampler(args.output/'gpu-memory.csv');sampler.start()
