@@ -158,3 +158,35 @@
 - Documentation/packaging corrections are allowed; no frozen implementation,
   input, historical result or recovery-evidence changes. No staging, commits,
   pushes, training, fresh evaluation, downloads or reliability implementation.
+
+## Current train-only diagnostic planning authorization (2026-10-20)
+
+- The reviewed five-file document commit 2754e1a was separately approved and
+  pushed to the existing codex branch; preserve its result and source history.
+- Prepare and review a train-only error/coverage diagnostic proposal with
+  hypotheses, explicit input boundaries, checks and acceptance criteria.
+- Source/schema review and metadata/hash inventory of existing training files
+  are allowed; do not compute folds, residuals, coverage or correlations yet.
+- No diagnostic implementation/execution, checkpoint/model loads, rendering,
+  training, reliability weights, downloads, staging, commits or pushes.
+
+## Current D1 implementation and offline execution authorization (2026-10-20)
+
+- User approved the recommended D1 minimal CPU entry, checks and one frozen
+  leaves train-only offline diagnostic. Preserve the reviewed proposal bytes.
+- Use only the fourteen approved train/anchor/prior files; exclude test assets,
+  evaluation caches, checkpoints, models, rendering and all optimizer updates.
+- Keep global point-group folds, fitting/normalization, bins and unknown/failure
+  handling frozen. Complete the synthetic/isolation checks before real execution.
+- Preserve all failures and partial outputs. Report actual results, resources,
+  limitations and acceptance after completion. No reliability weights, new
+  training, downloads, staging, commits or pushes.
+
+## Current D1 submission-review authorization (2026-10-20)
+
+- Review the nine-file D1 diff against 2754e1a, complete pre-commit checks and
+  prepare one engineering commit candidate with an acceptance recommendation.
+- Documentation and packaging corrections are allowed; preserve frozen plan,
+  diagnostic source/input hashes, prior results and external recovery evidence.
+- Keep the full diff, file inventory and actual check logs outside Git. No staging,
+  commits, pushes, extra diagnostic runs, training, downloads or reliability work.

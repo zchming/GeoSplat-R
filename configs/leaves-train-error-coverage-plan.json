@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "protocol": "leaves-train-error-coverage-d1-v1",
+  "date": "2026-10-20",
+  "status": "proposal_reviewed_not_executed",
+  "execution_authorized": false,
+  "scope": "CPU-only offline diagnostic on existing leaves train assets. No training, inference, rendering or reliability module.",
+  "reference_commit": "2754e1acfd453538822228b0235fb2aef15e71b6",
+  "scene": "leaves",
+  "train_images": [
+    "image001.png",
+    "image012.png",
+    "image025.png"
+  ],
+  "resolution": [
+    504,
+    378
+  ],
+  "known_anchor_counts": [
+    199,
+    235,
+    176
+  ],
+  "known_initial_points": 274,
+  "input_roots": {
+    "train": "Explicit prepared/train directory only",
+    "anchors": "Explicit leaves training anchor cache only",
+    "priors": "Explicit leaves cached prior directory only"
+  },
+  "allowlisted_files": [
+    {
+      "root": "train",
+      "path": "input-manifest.json",
+      "bytes": 730,
+      "sha256": "0a97f127f3d94082fa6ca954c60568d3597f539526b5a4be05a95516b4cf9e42"
+    },
+    {
+      "root": "train",
+      "path": "cameras.json",
+      "bytes": 2660,
+      "sha256": "6d88f993c980cdfc146178fc246318b5ba3012b256d01cd7f1f18b69f0993346"
+    },
+    {
+      "root": "train",
+      "path": "points.npz",
+      "bytes": 4614,
+      "sha256": "dcda6a8fb0f337fce2bac8b060abf6340b86d7c9016317d88aa1edab3de32394"
+    },
+    {
+      "root": "train",
+      "path": "images/image001.png",
+      "bytes": 413888,
+      "sha256": "838f035041910b6367f1948d3cba4fc2eca002a97a8e85c8b6c40d573b6b4e5d"
+    },
+    {
+      "root": "train",
+      "path": "images/image012.png",
+      "bytes": 409357,
+      "sha256": "87773f1da201771436fc43eeb430fdbe5619a0d97d70b94469aac346cec98aa4"
+    },
+    {
+      "root": "train",
+      "path": "images/image025.png",
+      "bytes": 402126,
+      "sha256": "ed504c0b175eec1f0a95b7963dabbc964cb4023130098e9576aeb730f597365c"
+    },
+    {
+      "root": "anchors",
+      "path": "manifest.json",
+      "bytes": 1006,
+      "sha256": "8881212892f13e193095ec66ea31a7c6dc1bdedc6e97585f3cb75844b5099003"
+    },
+    {
+      "root": "anchors",
+      "path": "image001.npz",
+      "bytes": 7126,
+      "sha256": "03c88cc3918bacf396d5b81a623ead51b640d09a50d9d631af69baa42648b70e"
+    },
+    {
+      "root": "anchors",
+      "path": "image012.npz",
+      "bytes": 8278,
+      "sha256": "2a847c04c780c4f72d574181a642d1e4ff5280888c955c9ef78f812d113f8c94"
+    },
+    {
+      "root": "anchors",
+      "path": "image025.npz",
+      "bytes": 6390,
+      "sha256": "fa380c3cbdc692fdd925af9f7cbe86018fe736d22dba8c7e8402ef3726172f32"
+    },
+    {
+      "root": "priors",
+      "path": "manifest.json",
+      "bytes": 6923,
+      "sha256": "7b5be585c98750c864d09811208ee8449cefa53aebfe2923bf6de0f73638e7aa"
+    },
+    {
+      "root": "priors",
+      "path": "image001.npz",
+      "bytes": 1715388,
+      "sha256": "9af1445fa31f0ac6687f3eff2bbb5a30b286c67f6ebdc2d1fc2b06520489a63f"
+    },
+    {
+      "root": "priors",
+      "path": "image012.npz",
+      "bytes": 1715388,
+      "sha256": "8d445710c0ff3acf4bc225dbaabd79ade0b7ae054456c11c43b60b5209739740"
+    },
+    {
+      "root": "priors",
+      "path": "image025.npz",
+      "bytes": 1715388,
+      "sha256": "aaa3d8393d2829251893961116d8fb58c377ae0b6b0b86efab3a56feb77331cd"
+    }
+  ],
+  "forbidden": [
+    "test directories/images/cameras/metrics",
+    "all evaluation caches and metrics.json, including train subdirectories beneath evaluation roots",
+    "all checkpoints and Gaussian renderers",
+    "full original execution manifests that mix train and test paths",
+    "new data/weights/model inference",
+    "new source triangulation/alignment priors",
+    "optimizer updates",
+    "reliability masks/weights or hyperparameter changes"
+  ],
+  "grouped_cv": {
+    "groups": "Cached point_ids; same 3D point assigned the same fold across all three views. No pixel-level random split.",
+    "folds": 5,
+    "assignment": "int.from_bytes(SHA256(UTF8(\"train-error-coverage-v1|leaves|\" + canonical_decimal_int64_point_id)).digest()[:8], \"big\") % 5",
+    "fit": "Per image/fold, unweighted float64 affine OLS from cached raw_inverse_depth sampled with the frozen OpenCV INTER_LINEAR rule to non-held-out positive inverse_z anchors.",
+    "guards": {
+      "fit_anchors_min": 20,
+      "held_anchors_min_for_fold_summary": 5,
+      "sample_std_min": 1e-06,
+      "slope_positive": true
+    },
+    "failure_policy": "Keep fold assignment fixed; preserve every failed/unsupported fold and its counts/reason. No refold, fallback, point removal or positive-prediction clipping. Incomplete CV is labeled incomplete.",
+    "prediction": "Only raw_inverse_depth and fit-fold OLS parameters. Cached inverse_z/valid/full-fit parameters never filter or define held-out predictions.",
+    "normalizer": "Median inverse_z of fit-fold anchors only.",
+    "error": "abs(a_fit*raw_sample+b_fit-held_inverse_z)/fit_median_inverse_z; retain finite nonpositive predictions as errors and separately flag them.",
+    "optimism_comparator": "Full-data OLS evaluated on the exact same held anchors and divided by the same fit-fold median; explicitly in-sample, not independent truth.",
+    "aggregation": "Per fold counts/mean/median/p90 then per-image pooled out-of-fold anchor means/median/p90, no duplicated point-level significance claims.",
+    "full_fit_reproduction": {
+      "fields": [
+        "slope",
+        "shift",
+        "normalizer"
+      ],
+      "atol": 1e-10,
+      "rtol": 1e-08,
+      "policy": "Compare a separate full-data reproduction against existing manifest metadata; do not use those full-data parameters or masks in cross-fit prediction."
+    }
+  },
+  "coverage": {
+    "grid_columns_rows": [
+      12,
+      9
+    ],
+    "tile_pixels": [
+      42,
+      42
+    ],
+    "full_maps": "Every full-image pixel distance to nearest existing anchor; record full-image and cached-prior-valid denominators separately, excluded pixels never set to zero.",
+    "held_anchor_support": "Distance/count support from fit-fold anchors only; exclude held point IDs before computing support.",
+    "normalized_distance": "Euclidean image-pixel distance / 630 (image diagonal)",
+    "distance_bin_edges": [
+      0,
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      "infinity"
+    ],
+    "bin_intervals": "Left-inclusive right-exclusive; last bin includes all finite distances >=0.1. These are descriptive bins, not reliability thresholds.",
+    "association": "Per-image out-of-fold and per-fold Spearman rank correlation (average ranks) between support distance and normalized held-out residual; constant/insufficient data is unavailable. No p-values, confidence intervals or pooled pixel significance.",
+    "tile_error_min_observations": 5,
+    "tile_error_failure_policy": "Fewer than 5 out-of-fold residual observations: error unavailable, count and support still reported. Zero-anchor tiles are unobserved, not known failures.",
+    "correlation_min_pairs": 5,
+    "tie_and_constant_policy": "Average ranks for ties; if fewer than five finite pairs or zero rank variance, mark unavailable with reason, not zero correlation."
+  },
+  "hypotheses": {
+    "H1": "Out-of-fold alignment residual may exceed full-fit residual on the same anchors; compare signed differences in all three train views without threshold tuning.",
+    "H2": "Larger fit-anchor support distance may associate with larger out-of-fold residual; report all view/fold directions including opposite/undefined results.",
+    "H3": "Low fitted residual may coexist with low spatial support. Report all 108 tiles per view, including zero-anchor tiles and no-error-observation tiles; unknown is not failure."
+  },
+  "acceptance": {
+    "engineering": "Exact input/source provenance, train-only access record, 15 fold records with all unsupported/failed statuses, complete coverage counts and formula/aggregation checks. Engineering does not require H1/H2/H3 to hold.",
+    "research": "Proxy-level descriptive evidence only, no independent dense depth truth or universal reliability score. No automatic authorization for masks, weighting, training or other scenes.",
+    "if_hypotheses_fail": "Report null/opposite/unsupported outcomes. Do not search folds, thresholds, views or scenes. Stop and recommend next step."
+  },
+  "resources": {
+    "device": "CPU only, no CUDA initialization or GPU processes",
+    "threads_max": 4,
+    "distance_chunk_pixels_max": 4096,
+    "peak_ram_target_gib": 2,
+    "wall_stop_for_investigation_minutes": 10,
+    "output_budget_mib": 200,
+    "policy": "Measure actual wall/peak RSS, stop and preserve anomalies; no silent subsampling, resolution/bins/precision changes."
+  },
+  "outputs": [
+    "train-only input hash/access manifest",
+    "point_id-to-fold assignment with observed-view membership",
+    "15 fold rows and all per-anchor OOF/full-fit comparator residuals",
+    "324 tile rows with support and observation counts",
+    "three train-only RGB/anchor/support/sparse OOF-residual overlays; no dense error map or reliability labels",
+    "per-view/full-map support distance summaries",
+    "all failed/undefined cases and measured CPU resources",
+    "concise limitations and acceptance report; raw arrays stay outside Git"
+  ],
+  "not_executed_this_step": [
+    "No residual, fold membership, coverage or correlation computed",
+    "No model load, training, inference, rendering or new test evaluation",
+    "Only existing source/schema and 14 training-only file existence/size/SHA256 inspected"
+  ],
+  "runtime_entry_contract": {
+    "required_locations": [
+      "train-data",
+      "anchors",
+      "priors",
+      "input-allowlist",
+      "output"
+    ],
+    "output_must_not_exist": true,
+    "network_access": "No network calls",
+    "model_and_renderer_imports": "Forbidden in D1",
+    "input_decode": "Allowlisted bytes only; NumPy allow_pickle=False, image decode from memory",
+    "run_repetition": "Exactly one approved complete run; retain failed outputs and obtain a new reviewed scope before changing plan or retrying with altered settings."
+  }
+}
