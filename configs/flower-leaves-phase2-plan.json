@@ -1,0 +1,581 @@
+{
+  "scope": "Phase 2 flower/leaves planning only; no dataset payload download or training authorized",
+  "prepared_date_Asia_Shanghai": "2026-10-19",
+  "reference_commit": "42e297eb3f468fb53a7b5a7818face9a0298a8d7",
+  "protocol_status": "Predeclared selection and numerical protocol; image/calibration/initialization gates pending approved payload download; not an execution-ready dataset",
+  "data_source": {
+    "publisher": "NerfBaselines LLFF mirror, referenced by its own dataset loader; not a verified byte-identical official archive",
+    "repository": "nerfbaselines/nerfbaselines-data",
+    "revision": "6a638951a007c8b47eb8a0301d48b04d18e955cf",
+    "official_origin": "https://github.com/bmild/nerf#running-code",
+    "loader_source": "https://github.com/nerfbaselines/nerfbaselines/blob/main/nerfbaselines/datasets/llff.py",
+    "dataset_rights": "No explicit independent LLFF dataset license verified from listing. Repository code licenses are not dataset licenses; do not redistribute data."
+  },
+  "selection_rule": {
+    "image_listing": "Only immediate PNG children of scene/images_8; exclude .ipynb_checkpoints and any nested files",
+    "sort": "lexicographic file name",
+    "test": "zero-based i % 8 == 0",
+    "train": "remaining[np.rint(np.linspace(0, M-1, 3)).astype(int)]; ties to even",
+    "unused_rgb": "never fetch",
+    "poses_bounds": "read only first 15 camera/H/W/f fields; never use full-cloud near/far bounds"
+  },
+  "scenes": [
+    {
+      "scene": "flower",
+      "image_count": 34,
+      "image_names": [
+        "image000.png",
+        "image001.png",
+        "image002.png",
+        "image003.png",
+        "image004.png",
+        "image005.png",
+        "image006.png",
+        "image007.png",
+        "image008.png",
+        "image009.png",
+        "image010.png",
+        "image011.png",
+        "image012.png",
+        "image013.png",
+        "image014.png",
+        "image015.png",
+        "image016.png",
+        "image017.png",
+        "image018.png",
+        "image019.png",
+        "image020.png",
+        "image021.png",
+        "image022.png",
+        "image023.png",
+        "image024.png",
+        "image025.png",
+        "image026.png",
+        "image027.png",
+        "image028.png",
+        "image029.png",
+        "image030.png",
+        "image031.png",
+        "image032.png",
+        "image033.png"
+      ],
+      "train_indices": [
+        1,
+        17,
+        33
+      ],
+      "test_indices": [
+        0,
+        8,
+        16,
+        24,
+        32
+      ],
+      "unused_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "train_names": [
+        "image001.png",
+        "image017.png",
+        "image033.png"
+      ],
+      "test_names": [
+        "image000.png",
+        "image008.png",
+        "image016.png",
+        "image024.png",
+        "image032.png"
+      ],
+      "url": "https://huggingface.co/datasets/nerfbaselines/nerfbaselines-data/resolve/6a638951a007c8b47eb8a0301d48b04d18e955cf/llff/flower.zip",
+      "revision": "6a638951a007c8b47eb8a0301d48b04d18e955cf",
+      "archive_bytes": 188798089,
+      "archive_sha256_publisher_lfs": "b7a3ab4f340aea531edd1c5e93ff53c9da2f7d21a987cf3d87279006ee4eac56",
+      "selected_members": [
+        {
+          "name": "flower/images_8/image000.png",
+          "compressed_bytes": 359617,
+          "raw_bytes": 359586,
+          "crc32": "624261c3",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 136377212
+        },
+        {
+          "name": "flower/images_8/image001.png",
+          "compressed_bytes": 355215,
+          "raw_bytes": 355194,
+          "crc32": "8095b032",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 135307435
+        },
+        {
+          "name": "flower/images_8/image008.png",
+          "compressed_bytes": 360599,
+          "raw_bytes": 360590,
+          "crc32": "53299e0b",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 128565788
+        },
+        {
+          "name": "flower/images_8/image016.png",
+          "compressed_bytes": 358429,
+          "raw_bytes": 358426,
+          "crc32": "891d41ab",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 133523791
+        },
+        {
+          "name": "flower/images_8/image017.png",
+          "compressed_bytes": 354969,
+          "raw_bytes": 354972,
+          "crc32": "7a6733b0",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 134601300
+        },
+        {
+          "name": "flower/images_8/image024.png",
+          "compressed_bytes": 353732,
+          "raw_bytes": 353739,
+          "crc32": "ae855316",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 131768558
+        },
+        {
+          "name": "flower/images_8/image032.png",
+          "compressed_bytes": 352223,
+          "raw_bytes": 352238,
+          "crc32": "029f917b",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 132122376
+        },
+        {
+          "name": "flower/images_8/image033.png",
+          "compressed_bytes": 349709,
+          "raw_bytes": 349698,
+          "crc32": "86c38571",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 133173996
+        },
+        {
+          "name": "flower/poses_bounds.npy",
+          "compressed_bytes": 3900,
+          "raw_bytes": 4704,
+          "crc32": "300a2016",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 145195398
+        },
+        {
+          "name": "flower/sparse/0/cameras.bin",
+          "compressed_bytes": 44,
+          "raw_bytes": 64,
+          "crc32": "80f2a7ec",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 140672605
+        },
+        {
+          "name": "flower/sparse/0/images.bin",
+          "compressed_bytes": 3080492,
+          "raw_bytes": 7539786,
+          "crc32": "0eb1b42e",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 140672734
+        }
+      ],
+      "selected_compressed_bytes": 5928929,
+      "selected_raw_bytes": 10388997,
+      "member_local_header_probe_bytes": 330
+    },
+    {
+      "scene": "leaves",
+      "image_count": 26,
+      "image_names": [
+        "image000.png",
+        "image001.png",
+        "image002.png",
+        "image003.png",
+        "image004.png",
+        "image005.png",
+        "image006.png",
+        "image007.png",
+        "image008.png",
+        "image009.png",
+        "image010.png",
+        "image011.png",
+        "image012.png",
+        "image013.png",
+        "image014.png",
+        "image015.png",
+        "image016.png",
+        "image017.png",
+        "image018.png",
+        "image019.png",
+        "image020.png",
+        "image021.png",
+        "image022.png",
+        "image023.png",
+        "image024.png",
+        "image025.png"
+      ],
+      "train_indices": [
+        1,
+        12,
+        25
+      ],
+      "test_indices": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "unused_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "train_names": [
+        "image001.png",
+        "image012.png",
+        "image025.png"
+      ],
+      "test_names": [
+        "image000.png",
+        "image008.png",
+        "image016.png",
+        "image024.png"
+      ],
+      "url": "https://huggingface.co/datasets/nerfbaselines/nerfbaselines-data/resolve/6a638951a007c8b47eb8a0301d48b04d18e955cf/llff/leaves.zip",
+      "revision": "6a638951a007c8b47eb8a0301d48b04d18e955cf",
+      "archive_bytes": 180271107,
+      "archive_sha256_publisher_lfs": "b4ceba46cdbfa86b7799c8757be9388e76a695682bb038eb0d19e2ba3203b4b7",
+      "selected_members": [
+        {
+          "name": "leaves/images_8/image000.png",
+          "compressed_bytes": 449984,
+          "raw_bytes": 450027,
+          "crc32": "78b1bbc7",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 140443818
+        },
+        {
+          "name": "leaves/images_8/image001.png",
+          "compressed_bytes": 446291,
+          "raw_bytes": 446280,
+          "crc32": "21a99352",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 139114121
+        },
+        {
+          "name": "leaves/images_8/image008.png",
+          "compressed_bytes": 446273,
+          "raw_bytes": 446274,
+          "crc32": "c0743e38",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 133828353
+        },
+        {
+          "name": "leaves/images_8/image012.png",
+          "compressed_bytes": 442626,
+          "raw_bytes": 442637,
+          "crc32": "41a628f7",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 144018824
+        },
+        {
+          "name": "leaves/images_8/image016.png",
+          "compressed_bytes": 441450,
+          "raw_bytes": 441486,
+          "crc32": "edf6ab9d",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 137337830
+        },
+        {
+          "name": "leaves/images_8/image024.png",
+          "compressed_bytes": 436173,
+          "raw_bytes": 436215,
+          "crc32": "b0c5b5d0",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 136901571
+        },
+        {
+          "name": "leaves/images_8/image025.png",
+          "compressed_bytes": 434206,
+          "raw_bytes": 434283,
+          "crc32": "431fcfe9",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 135587574
+        },
+        {
+          "name": "leaves/poses_bounds.npy",
+          "compressed_bytes": 3039,
+          "raw_bytes": 3616,
+          "crc32": "e132dd5c",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 146712983
+        },
+        {
+          "name": "leaves/sparse/0/cameras.bin",
+          "compressed_bytes": 43,
+          "raw_bytes": 64,
+          "crc32": "f36b5da5",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 144469233
+        },
+        {
+          "name": "leaves/sparse/0/images.bin",
+          "compressed_bytes": 2020031,
+          "raw_bytes": 5988154,
+          "crc32": "7b16b2ec",
+          "method": 8,
+          "flags": 0,
+          "local_header_offset": 144469361
+        }
+      ],
+      "selected_compressed_bytes": 5120116,
+      "selected_raw_bytes": 9089036,
+      "member_local_header_probe_bytes": 300
+    }
+  ],
+  "transfer": {
+    "selected_dataset_members": 21,
+    "selected_compressed_payload_bytes": 11049045,
+    "selected_decompressed_raw_bytes": 19478033,
+    "selected_member_local_header_bytes_if_reprobed": 630,
+    "metadata_body_bytes_read_for_zip_inspection": 20613,
+    "dataset_member_payload_bytes_read_this_task": 0,
+    "whole_archives_bytes_not_to_download": 369069196,
+    "wire_size_caveat": "Compressed payload excludes HTTP/TLS headers, redirects, retries and ZIP metadata. No fallback to a full archive if ranges fail.",
+    "integrity": "Revision-pinned archive; per-member method/size/CRC32 plus SHA256 after approved retrieval. LFS archive SHA256 is publisher metadata, not locally verified by partial reads."
+  },
+  "weights": {
+    "new_download_bytes": 0,
+    "reuse_small_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "reuse_alexnet_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "new_scene_priors": "regenerate offline using each scene train RGB/anchors only; fern priors never reused for another scene"
+  },
+  "experiment": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "arms": {
+      "rgb_only": {
+        "render": "RGB",
+        "priors": false,
+        "depth_lambda": 0.0
+      },
+      "rgb_ed_zero": {
+        "render": "RGB+ED",
+        "priors": true,
+        "depth_lambda": 0.0
+      },
+      "uniform": {
+        "render": "RGB+ED",
+        "priors": true,
+        "depth_lambda": 0.01
+      }
+    },
+    "new_formal_training_runs": 18,
+    "optimizer_updates_each": 30000,
+    "depth_start_zero_based_step": 1000,
+    "precision": "float32",
+    "batch_size": 1,
+    "sh_degree": 3,
+    "sh_degree_interval": 1000,
+    "strategy": "unchanged gsplat DefaultStrategy",
+    "upstream_sha": "937e29912570c372bed6747a5c9bf85fed877bae",
+    "rasterization": "classic, packed",
+    "rgb_loss": "0.8 L1 + 0.2 (1-fused SSIM valid)",
+    "other_optimization": {
+      "pose": false,
+      "appearance": false,
+      "exposure": false
+    },
+    "resolution": "Native images_8; expected 504x378 but unverified without image payload. Verify actual dimensions/intrinsics before any training, no silent resize/crop.",
+    "camera_protocol": "Audit scene-specific SIMPLE_RADIAL/pinhole calibration and sorted pose mapping; use scene-specific undistortion/K, no fern K or distortion reuse",
+    "depth": "Small float32 518 input, train-anchor unweighted affine inverse-Z OLS, >=20 usable anchors per train image, positive slope, fixed positive target and 2px border, detached alpha>=0.5, finite positive ED, valid-pixel mean normalized by median train anchor inverse Z; no robust/reliability weights",
+    "initialization": "CPU SIFT/exhaustive matching, fixed calibrated train-camera triangulation, >=4 train-only points; require anchor threshold separately; normalize from train camera centers only",
+    "shared_inputs": "Same scene images/cameras/point cache and priors across all seeds/arms; match all 3 arm initial parameter hashes within each seed",
+    "run_order": [
+      {
+        "scene": "flower",
+        "seed": 42,
+        "arm": "rgb_only"
+      },
+      {
+        "scene": "flower",
+        "seed": 42,
+        "arm": "rgb_ed_zero"
+      },
+      {
+        "scene": "flower",
+        "seed": 42,
+        "arm": "uniform"
+      },
+      {
+        "scene": "flower",
+        "seed": 43,
+        "arm": "rgb_only"
+      },
+      {
+        "scene": "flower",
+        "seed": 43,
+        "arm": "rgb_ed_zero"
+      },
+      {
+        "scene": "flower",
+        "seed": 43,
+        "arm": "uniform"
+      },
+      {
+        "scene": "flower",
+        "seed": 44,
+        "arm": "rgb_only"
+      },
+      {
+        "scene": "flower",
+        "seed": 44,
+        "arm": "rgb_ed_zero"
+      },
+      {
+        "scene": "flower",
+        "seed": 44,
+        "arm": "uniform"
+      },
+      {
+        "scene": "leaves",
+        "seed": 42,
+        "arm": "rgb_only"
+      },
+      {
+        "scene": "leaves",
+        "seed": 42,
+        "arm": "rgb_ed_zero"
+      },
+      {
+        "scene": "leaves",
+        "seed": 42,
+        "arm": "uniform"
+      },
+      {
+        "scene": "leaves",
+        "seed": 43,
+        "arm": "rgb_only"
+      },
+      {
+        "scene": "leaves",
+        "seed": 43,
+        "arm": "rgb_ed_zero"
+      },
+      {
+        "scene": "leaves",
+        "seed": 43,
+        "arm": "uniform"
+      },
+      {
+        "scene": "leaves",
+        "seed": 44,
+        "arm": "rgb_only"
+      },
+      {
+        "scene": "leaves",
+        "seed": 44,
+        "arm": "rgb_ed_zero"
+      },
+      {
+        "scene": "leaves",
+        "seed": 44,
+        "arm": "uniform"
+      }
+    ],
+    "gpu": "Sequential local GPU <=12 GiB; prioritize utilization, retain measured 1 GiB headroom. No silent precision/batch/resolution/budget changes.",
+    "evaluation": "No new test render metrics until all 18 preregistered runs complete. If a failure occurs, preserve it and stop dependent work; do not tune or drop runs based on test scores.",
+    "outputs": "Each run/evaluation uses a new explicit external directory, no overwrite; record every attempt including failures/OOMs",
+    "undistortion": "If audited SIMPLE_RADIAL: OpenCV alpha=0, centered principal point, focal guard=1.001, INTER_LINEAR uint8, analytic remap check and no-padding check. If camera model differs or guard fails, stop for protocol review; do not silently choose a new camera/resampling route."
+  },
+  "analysis": {
+    "primary": "uniform - rgb_only, per-scene paired seed means and sample SD; equal weight to scene-level seed-mean gains across flower/leaves",
+    "secondary": "uniform - rgb_ed_zero; rgb_ed_zero - rgb_only; all per-view deltas/degradations",
+    "metrics": "Same frozen sRGB clamp/no-mask/no-crop PSNR, torchmetrics SSIM, LPIPS-Alex and weights; independent evaluation",
+    "resources": "All raw clocks, measured peak memory and utilization; preparation/prior/alignment/evaluation cost separate",
+    "fern": "Keep as previously evaluated development evidence. Do not mix it into two-new-scene primary estimate or rerun/pick old seeds. If a later combined development summary is produced, label its mixed source history and equal scene weights.",
+    "no_claims": "No p-values from n=3, no isolated kernel causality, no novel algorithm, no independent geometry accuracy or final held-out generalization claim",
+    "acceptance": "Engineering passes only after source/input/split/initial/metric/resource checks and complete attempt accounting. Quality remains descriptive; show each scene and every seed, including failure/degradation. An average gain cannot mask a harmed scene. Mixed/no gains stop expansion and trigger separately authorized diagnosis rather than tuning."
+  },
+  "pretraining_gates": [
+    "Obtain explicit approval of the named range members and sizes; then fetch only those members with strict 206/content-range checks",
+    "Verify CRC32/raw sizes/SHA256, image dimensions, camera model/intrinsics/distortion and one-to-one poses/name mapping; do not persist full-view feature observations or use source points3D",
+    "Implement and separately validate explicit scene/manifest adapters; preserve old fern entry paths/evidence and numerical training/loss/evaluation behavior",
+    "Build train-only triangulation/normalization/anchors, refuse insufficient anchors or invalid affine fits without fallback",
+    "Freeze derived data/prior/source hashes and all 18 commands before training, then obtain training authorization"
+  ],
+  "not_authorized": [
+    "dataset member download",
+    "data preparation/triangulation",
+    "new training",
+    "reliability module",
+    "new commits or pushes after 42e297e",
+    "final-test scenes"
+  ],
+  "recommendation": "Next request approval for exactly the selected 11,049,045 compressed bytes and minimal input-adapter/data validation stage first; authorize the 18-run experiment only after those gates pass."
+}

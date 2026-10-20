@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "protocol": "leaves-robust-depth-execution-freeze-v1",
+  "review_date": "2026-10-20",
+  "status": "static_review_passed_GPU_gate_pending",
+  "GPU_preflight_authorized": false,
+  "training_authorized": false,
+  "evaluation_authorized": false,
+  "reference_commit": "9987bf46a03f923e408fd44b64754feb604de923",
+  "historical_plan": {
+    "path": "configs/leaves-robust-depth-plan.json",
+    "sha256": "3441c0596de8ccfe4df139cc7e49ba6f04ad76123c5179c4756dcc90ce56a5d6",
+    "preserved_bytes": true
+  },
+  "CPU_evidence": {
+    "path": "results/leaves-robust-depth-cpu-checks.json",
+    "sha256": "167bc87bc20647275ff3a92c8024bfceec511690be70a8d734b294d8940bfb48",
+    "passed": 65,
+    "failed": 0,
+    "skipped": 0,
+    "source_identity_reverified_this_review": true,
+    "tests_repeated_this_review": false
+  },
+  "source_hashes": {
+    "src/geosplat_r/__init__.py": "961d50c5acf12465761bb9049eddb73eedd4011cd00a88d4d29d8ab9f9e02d20",
+    "src/geosplat_r/baseline.py": "4ac616c8f807defb94451c444c3fda7c08b151aa99fd29b331057e52cd13a7ff",
+    "src/geosplat_r/camera.py": "e3fa07483149340a26d46cae89927e24997a9fa07937138f049ca737514f27d9",
+    "src/geosplat_r/crossview_diagnostics.py": "330859e2ec8b5d05063e6f3e735f94046239cfefab2f1e67d3355f7f78f72b4c",
+    "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+    "src/geosplat_r/depth_objectives.py": "a6bb2fcd2a80595fd307928224bfb021405bd5a2306d72c89d6e71968c89df1b",
+    "src/geosplat_r/depth_options.py": "c9c6bca1323c2eebadeb591bc4bb0957119352a5052bc4b7a234d4230c280592",
+    "src/geosplat_r/isolation.py": "f8a42e2068fc21b372afad08525fc76ce9374febc25ff446dd1f16b588314887",
+    "src/geosplat_r/rgb_path_summary.py": "251853164fd277937e8a94069fd8c8c1522062acf98ae89e39ed9b46a6388436",
+    "src/geosplat_r/scene_input.py": "4c6ddc16c2a465bf42060c89cb89d6f8bdca5c7bdf55b9587afaa933e829b047",
+    "src/geosplat_r/seed_summary.py": "976e5a3f92b813f92a9092f48f28069932cd1d78b783f01fb6fcfce3cd7e4201",
+    "src/geosplat_r/train_diagnostics.py": "0502533f35a22600af6a2cad7569afce67427e12ca93ed952d4c3b8b66b5f1e3",
+    "scripts/audit_fern.py": "5990ac761e53d1253161129d57870ac68742e7020245cd5e9040c4a5572792a9",
+    "scripts/check_cuda.py": "aae150f499c70e8b8092f3e1d41505d45d4552f399840b6687ef7e6b6b9df7d9",
+    "scripts/check_scene_input.py": "0e3d5a317931357bccbe728f4296bd0325c2a847cec06333661a31bbb9b89700",
+    "scripts/diagnose_crossview_priors.py": "5b11e9cf221f27e7cf5bd7c16434b76b94f2c0b5058759716222a1734f44c6a0",
+    "scripts/diagnose_train_support.py": "21b58b93519ecaf1483123d788702c15f9546836546c0bdcc6d3a82157450a31",
+    "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9",
+    "scripts/export_train_anchors.py": "1554d6a8b96f36c83a87100b7dc3aed9e02fd1d090a43a692097b2318379c70a",
+    "scripts/fetch_fern.py": "cc833758d6af238771f860cc2fe9b24ca176bf5fa4c3535c594b22004ec90971",
+    "scripts/fetch_llff_subset.py": "27afe05fbdc9d6ba2ec61d64eb35f4e48807f0983f40f520a7ab4f89dd844b3e",
+    "scripts/prepare_depth_priors.py": "c78a9a87b4e5839185592006177596c0f2abdd0f48663a632cfa888a21956d96",
+    "scripts/prepare_fern.py": "5e10f81974323248d60d9bb715038ce3525635d0a3ef6af2367cbe370e2d6bcb",
+    "scripts/run_upstream_reference.py": "295d24a13d90ba2d995b8f48e0a64fc2bbc584c8b50bc3efd31036f1fe8fc11a",
+    "scripts/summarize_depth_seeds.py": "3bfbfbe4c1718ed1e7ce3c80fe6e60af4f70f160935d6b59b5409f00deea365d",
+    "scripts/summarize_rgb_paths.py": "1ab0dd0798e49b161ff88a2c0be5f4fa3658902a2ab18c2724b4388430ec7b8c",
+    "scripts/train_baseline.py": "15bd32b4f6ab5a6cabc87c008c5b82a1077f2cd2bdf7b4d99b02feaf793798f4",
+    "scripts/undistort_fern.py": "f84472bd11073fd0ca37567f6b13eb6be1acd472e2902abb9d4442b4ced5bec7",
+    "scripts/undistort_llff_subset.py": "efe3775e0aff08be184331e08edf1616105752bc7d0e8e7febe721e92509df10",
+    "scripts/validate_llff_preparation.py": "0feb15d4c7b747642ecfee7d2a184ea98605502ec86e3fd9c4dee825a5a55dba",
+    "tests/test_crossview_diagnostics.py": "1df77c1c629033fee102ea7fc11b1491e4f5e0b6b180dcbe9e0a7f99b7f7272b",
+    "tests/test_depth.py": "12fb23d26da6230f71c6e1118ddba3b5962bb3802b51f72f179bf94f4c05d5f3",
+    "tests/test_development_training.py": "8f335a83f97442ea20bce80ce5a45e35b5b15dd7bdc854639c0b14bafecf7e09",
+    "tests/test_diagnosis.py": "a27796beadb925be4b0b1c0c7a1157473ae521d0e3951397eed02ef93ba8205d",
+    "tests/test_protocol.py": "b0972da54da587c580cf2b130c76ca0411f2e8dab71b3db92628d1449f51533a",
+    "tests/test_rgb_paths.py": "fc007b1e810056ebcb185b65fb77efccfb9df0370d51983fd015d6839ce2de29",
+    "tests/test_robust_depth.py": "08639a71f2a45d05a308dad72d85fcd54954a74dec9cadc5147c740a2ddf67e7",
+    "tests/test_scene_input.py": "7f880f289436ba853ecdab5d2f8de672b3153099fb788a84e41133fc8c41e375",
+    "tests/test_seed_summary.py": "a27b76cf4bad0682d74dae1ccd1027a689c7333e9ad265fa6cba9d377b04a05c",
+    "tests/test_train_diagnostics.py": "d7df5746cea099f7ba8d6e496dfca3a2f171d481d21c800b204c96d65e44e104",
+    "tests/test_undistortion.py": "b3d916c2822c08c577f1203497c6386bfb93b830b2fb6be908d49b08eb203b47"
+  },
+  "external_manifest_sha256": {
+    "frozen-execution.json": "7ce7d5364766ac2011bda9f5693235b152b9b8da6f17ba807c26ae95dbbbc8af",
+    "upstream-inventory.json": "8bd4ce05dbcd34e36e481f2b8aa36730a5d6c2d5b98dae63281f313ebb303857",
+    "runtime-inventory.json": "0be286ed5e749c93fe8aa56f89672bd75af81c3b1a089364300b6e114fda79ef",
+    "asset-inventory.json": "92641c751e1d0e417302c70277fa423152d0c9fbd4166a50397ee10a57fb1c98"
+  },
+  "upstream": {
+    "gsplat_commit": "937e29912570c372bed6747a5c9bf85fed877bae",
+    "gsplat_clean": true,
+    "fused_ssim_commit": "328dc9836f513d00c4b5bc38fe30478b4435cbb5",
+    "fused_ssim_clean": true,
+    "distinction": "Pinned example source plus installed prebuilt gsplat 1.5.3+pt24cu124 wheel; not claiming wheel built from that example commit."
+  },
+  "runtime": {
+    "python": "3.10.22",
+    "versions": {
+      "torch": "2.4.1+cu124",
+      "torchvision": "0.19.1+cu124",
+      "gsplat": "1.5.3+pt24cu124",
+      "torchmetrics": "1.9.0",
+      "numpy": "1.26.4",
+      "fused-ssim": "0.0.0",
+      "Pillow": "12.3.0",
+      "scipy": "1.15.3",
+      "matplotlib": "3.10.9",
+      "imageio": "2.38.0",
+      "imageio-ffmpeg": "0.6.0"
+    },
+    "package_file_hash_counts": {
+      "gsplat": 25,
+      "fused-ssim": 2,
+      "torchmetrics": 352,
+      "torchvision": 187
+    },
+    "GPU_ABI_execution_verified": false
+  },
+  "assets": [
+    {
+      "role": "training",
+      "path": "train/input-manifest.json",
+      "bytes": 730,
+      "sha256": "0a97f127f3d94082fa6ca954c60568d3597f539526b5a4be05a95516b4cf9e42"
+    },
+    {
+      "role": "training",
+      "path": "train/cameras.json",
+      "bytes": 2660,
+      "sha256": "6d88f993c980cdfc146178fc246318b5ba3012b256d01cd7f1f18b69f0993346"
+    },
+    {
+      "role": "training",
+      "path": "train/points.npz",
+      "bytes": 4614,
+      "sha256": "dcda6a8fb0f337fce2bac8b060abf6340b86d7c9016317d88aa1edab3de32394"
+    },
+    {
+      "role": "training",
+      "path": "train/images/image001.png",
+      "bytes": 413888,
+      "sha256": "838f035041910b6367f1948d3cba4fc2eca002a97a8e85c8b6c40d573b6b4e5d"
+    },
+    {
+      "role": "training",
+      "path": "train/images/image012.png",
+      "bytes": 409357,
+      "sha256": "87773f1da201771436fc43eeb430fdbe5619a0d97d70b94469aac346cec98aa4"
+    },
+    {
+      "role": "training",
+      "path": "train/images/image025.png",
+      "bytes": 402126,
+      "sha256": "ed504c0b175eec1f0a95b7963dabbc964cb4023130098e9576aeb730f597365c"
+    },
+    {
+      "role": "provenance_only",
+      "path": "anchors/manifest.json",
+      "bytes": 1006,
+      "sha256": "8881212892f13e193095ec66ea31a7c6dc1bdedc6e97585f3cb75844b5099003"
+    },
+    {
+      "role": "provenance_only",
+      "path": "anchors/image001.npz",
+      "bytes": 7126,
+      "sha256": "03c88cc3918bacf396d5b81a623ead51b640d09a50d9d631af69baa42648b70e"
+    },
+    {
+      "role": "provenance_only",
+      "path": "anchors/image012.npz",
+      "bytes": 8278,
+      "sha256": "2a847c04c780c4f72d574181a642d1e4ff5280888c955c9ef78f812d113f8c94"
+    },
+    {
+      "role": "provenance_only",
+      "path": "anchors/image025.npz",
+      "bytes": 6390,
+      "sha256": "fa380c3cbdc692fdd925af9f7cbe86018fe736d22dba8c7e8402ef3726172f32"
+    },
+    {
+      "role": "training",
+      "path": "priors/manifest.json",
+      "bytes": 6923,
+      "sha256": "7b5be585c98750c864d09811208ee8449cefa53aebfe2923bf6de0f73638e7aa"
+    },
+    {
+      "role": "training",
+      "path": "priors/image001.npz",
+      "bytes": 1715388,
+      "sha256": "9af1445fa31f0ac6687f3eff2bbb5a30b286c67f6ebdc2d1fc2b06520489a63f"
+    },
+    {
+      "role": "training",
+      "path": "priors/image012.npz",
+      "bytes": 1715388,
+      "sha256": "8d445710c0ff3acf4bc225dbaabd79ade0b7ae054456c11c43b60b5209739740"
+    },
+    {
+      "role": "training",
+      "path": "priors/image025.npz",
+      "bytes": 1715388,
+      "sha256": "aaa3d8393d2829251893961116d8fb58c377ae0b6b0b86efab3a56feb77331cd"
+    },
+    {
+      "role": "evaluation_only",
+      "path": "test/images/image000.png",
+      "bytes": 415840,
+      "sha256": "185069899cbf114024fda58ebd26dc17efdacde3ad21291d2b9dc1502f827c83"
+    },
+    {
+      "role": "evaluation_only",
+      "path": "test/images/image008.png",
+      "bytes": 412459,
+      "sha256": "e52773d64bff3ca765d72f80a57be64e9890c6d4e1032cb249f4dd9a1dbc80a8"
+    },
+    {
+      "role": "evaluation_only",
+      "path": "test/images/image016.png",
+      "bytes": 408651,
+      "sha256": "679ae7fab1b78f3d24a49122d88f736250698b76e6b508f4e7d81e34cf98d821"
+    },
+    {
+      "role": "evaluation_only",
+      "path": "test/images/image024.png",
+      "bytes": 404573,
+      "sha256": "88a32bf611f60ee48bcf0b817291d587d91f0eb43356df7c8025b2c40aaf30ac"
+    },
+    {
+      "role": "evaluation_only",
+      "path": "test/cameras.json",
+      "bytes": 3544,
+      "sha256": "865659b3860d52078d5d97eada3ceb4e0d7653e02349b391ff290daf95aebe34"
+    },
+    {
+      "role": "evaluation_weight",
+      "path": "weights/alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02"
+    },
+    {
+      "role": "evaluation_weight",
+      "path": "torchmetrics/lpips_models/alex.pth",
+      "bytes": 6009,
+      "sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+    }
+  ],
+  "asset_totals": {
+    "training_assets": 10,
+    "training_asset_bytes": 6386462,
+    "anchor_provenance_only": 4,
+    "evaluation_assets": 5,
+    "evaluation_assets_bytes": 1645067,
+    "evaluation_weights": 2,
+    "evaluation_weights_bytes": 244414920
+  },
+  "paths": {
+    "TRAIN_PY": "Absolute interpreter in existing approved environment",
+    "REPO": "GeoSplat-R repository root, source hashes must match",
+    "TRAIN": "Existing explicit leaves prepared/train directory",
+    "PRIORS": "Existing full-training aligned leaves priors; no D1/D2 fits/scores",
+    "GSPLAT_SOURCE": "Explicit clean pinned source directory verified in external manifest",
+    "PILOT_OUT": "Fresh external future-pilot directory fixed by resolved manifest; must not exist before approved execution",
+    "TEST": "Evaluator-only existing prepared/test directory; never passed to trainer",
+    "WEIGHTS": "Evaluator-only existing AlexNet cache root; bundled LPIPS calibration fixed by package hash"
+  },
+  "commands": [
+    {
+      "id": "A1_l1",
+      "loss": "l1",
+      "lambda": 0.01,
+      "train_argv": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/train_baseline.py",
+        "--data",
+        "${TRAIN}",
+        "--source",
+        "${GSPLAT_SOURCE}",
+        "--scene-manifest",
+        "${TRAIN}/input-manifest.json",
+        "--seed",
+        "44",
+        "--max-steps",
+        "30000",
+        "--depth-priors",
+        "${PRIORS}",
+        "--depth-start",
+        "1000",
+        "--depth-cauchy-scale",
+        "0.1",
+        "--depth-diagnostics",
+        "--depth-loss",
+        "l1",
+        "--depth-lambda",
+        "0.01",
+        "--output",
+        "${PILOT_OUT}/A1_l1"
+      ],
+      "evaluation_argv_after_all_four_complete": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/evaluate_baseline.py",
+        "--checkpoint",
+        "${PILOT_OUT}/A1_l1/checkpoint.pt",
+        "--train-data",
+        "${TRAIN}",
+        "--test-data",
+        "${TEST}",
+        "--weights",
+        "${WEIGHTS}",
+        "--output",
+        "${PILOT_OUT}/A1_l1-evaluation",
+        "--label",
+        "leaves seed44 A1_l1"
+      ]
+    },
+    {
+      "id": "B_weak_l1",
+      "loss": "l1",
+      "lambda": 0.005,
+      "train_argv": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/train_baseline.py",
+        "--data",
+        "${TRAIN}",
+        "--source",
+        "${GSPLAT_SOURCE}",
+        "--scene-manifest",
+        "${TRAIN}/input-manifest.json",
+        "--seed",
+        "44",
+        "--max-steps",
+        "30000",
+        "--depth-priors",
+        "${PRIORS}",
+        "--depth-start",
+        "1000",
+        "--depth-cauchy-scale",
+        "0.1",
+        "--depth-diagnostics",
+        "--depth-loss",
+        "l1",
+        "--depth-lambda",
+        "0.005",
+        "--output",
+        "${PILOT_OUT}/B_weak_l1"
+      ],
+      "evaluation_argv_after_all_four_complete": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/evaluate_baseline.py",
+        "--checkpoint",
+        "${PILOT_OUT}/B_weak_l1/checkpoint.pt",
+        "--train-data",
+        "${TRAIN}",
+        "--test-data",
+        "${TEST}",
+        "--weights",
+        "${WEIGHTS}",
+        "--output",
+        "${PILOT_OUT}/B_weak_l1-evaluation",
+        "--label",
+        "leaves seed44 B_weak_l1"
+      ]
+    },
+    {
+      "id": "C_cauchy",
+      "loss": "cauchy",
+      "lambda": 0.01,
+      "train_argv": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/train_baseline.py",
+        "--data",
+        "${TRAIN}",
+        "--source",
+        "${GSPLAT_SOURCE}",
+        "--scene-manifest",
+        "${TRAIN}/input-manifest.json",
+        "--seed",
+        "44",
+        "--max-steps",
+        "30000",
+        "--depth-priors",
+        "${PRIORS}",
+        "--depth-start",
+        "1000",
+        "--depth-cauchy-scale",
+        "0.1",
+        "--depth-diagnostics",
+        "--depth-loss",
+        "cauchy",
+        "--depth-lambda",
+        "0.01",
+        "--output",
+        "${PILOT_OUT}/C_cauchy"
+      ],
+      "evaluation_argv_after_all_four_complete": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/evaluate_baseline.py",
+        "--checkpoint",
+        "${PILOT_OUT}/C_cauchy/checkpoint.pt",
+        "--train-data",
+        "${TRAIN}",
+        "--test-data",
+        "${TEST}",
+        "--weights",
+        "${WEIGHTS}",
+        "--output",
+        "${PILOT_OUT}/C_cauchy-evaluation",
+        "--label",
+        "leaves seed44 C_cauchy"
+      ]
+    },
+    {
+      "id": "A2_l1_repeat",
+      "loss": "l1",
+      "lambda": 0.01,
+      "train_argv": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/train_baseline.py",
+        "--data",
+        "${TRAIN}",
+        "--source",
+        "${GSPLAT_SOURCE}",
+        "--scene-manifest",
+        "${TRAIN}/input-manifest.json",
+        "--seed",
+        "44",
+        "--max-steps",
+        "30000",
+        "--depth-priors",
+        "${PRIORS}",
+        "--depth-start",
+        "1000",
+        "--depth-cauchy-scale",
+        "0.1",
+        "--depth-diagnostics",
+        "--depth-loss",
+        "l1",
+        "--depth-lambda",
+        "0.01",
+        "--output",
+        "${PILOT_OUT}/A2_l1_repeat"
+      ],
+      "evaluation_argv_after_all_four_complete": [
+        "${TRAIN_PY}",
+        "${REPO}/scripts/evaluate_baseline.py",
+        "--checkpoint",
+        "${PILOT_OUT}/A2_l1_repeat/checkpoint.pt",
+        "--train-data",
+        "${TRAIN}",
+        "--test-data",
+        "${TEST}",
+        "--weights",
+        "${WEIGHTS}",
+        "--output",
+        "${PILOT_OUT}/A2_l1_repeat-evaluation",
+        "--label",
+        "leaves seed44 A2_l1_repeat"
+      ]
+    }
+  ],
+  "common_training_environment": {
+    "fresh_environment": true,
+    "HOME": "Existing home, resolved externally",
+    "PATH": "Existing venv/bin followed by fixed system/WSL executable paths, resolved externally",
+    "LANG": "C.UTF-8",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "NUMEXPR_NUM_THREADS": "4",
+    "inherit_other_variables": false,
+    "evaluation_extra": {
+      "TORCH_HOME": "${WEIGHTS}"
+    },
+    "resource_profile": "Common explicit environment for all four. 504x378/batch1/float32/30k unchanged; no compiler/precision/batch/resolution tuning. Fresh-environment import/ABI readiness remains a GPU preflight gate."
+  },
+  "matching": {
+    "order": [
+      "A1_l1",
+      "B_weak_l1",
+      "C_cauchy",
+      "A2_l1_repeat"
+    ],
+    "same_boot_and_driver_before_after_every_run": true,
+    "expected_historical_initial_parameters_sha256": "4b8ffac51e93619f964947439d4aae3de3213a1a0bda4a744798bb1e850f359e",
+    "all_initial_parameters_and_view_order_hashes_must_match": true,
+    "all_arms_depth_diagnostics": true,
+    "first_depth_active_update": 1001,
+    "no_stop_after": true,
+    "stop_on_source_input_boot_driver_hash_or_runtime_change": true,
+    "no_automatic_retry_or_matrix_substitution": true
+  },
+  "future_zero_update_preflight": {
+    "performed": false,
+    "recommended": true,
+    "implementation_status": "Minimal loss-specific zero-update harness still to be prepared/reviewed under next authorization; no executable command falsely claimed here.",
+    "existing_input_entry": "scripts/check_scene_input.py",
+    "do_not_use_as_zero_update_entry": "scripts/check_cuda.py creates Adam and performs optimizer steps",
+    "scope": [
+      "Recheck frozen hashes, clean upstream, package paths, driver/boot and available VRAM; no downloads",
+      "Use separate process and fresh output; load train-only inputs, original prior caches and initial splats; never read test assets/evaluation weights or old checkpoints",
+      "Exercise RGB+ED forward/backward and L1/full, L1/half and fixed Cauchy synthetic nonempty/empty validity cases on CUDA; compare CPU references and check finite parameter gradients",
+      "No optimizer.step, scheduler.step, densification update, training loop or model checkpoint save; verify zero parameter mutation",
+      "Measure actual allocated/reserved and sampled full-card memory, keep local 12 GB budget and measured headroom; initial small-case success is not a 30k peak-memory guarantee"
+    ],
+    "numeric_checks": {
+      "synthetic_loss_cpu_gpu_rtol": 2e-05,
+      "synthetic_loss_cpu_gpu_atol": 1e-06,
+      "synthetic_ED_gradient_cpu_gpu_rtol": 0.0002,
+      "synthetic_ED_gradient_cpu_gpu_atol": 1e-06,
+      "known_Z_absolute_error_max": 0.0001,
+      "known_Z_gradient_absolute_error_max": 0.001,
+      "known_Z_finite_difference_absolute_error_max": 0.002
+    },
+    "failure_policy": "Preserve raw failed output, stop and investigate; no tolerance relaxation, silent environment changes or optimizer updates."
+  },
+  "formal_training_recommendation": "Conditional only: proceed with exact four sequential 30k commands only after user authorization and all loss-specific zero-update preflight gates pass. No unconditional training release now.",
+  "evaluation": {
+    "source_unchanged": true,
+    "after_all_four_complete_only": true,
+    "no_midrun_test_metrics_or_model_selection": true,
+    "metric_protocol": "sRGB [0,1], prediction clamp, full image, no mask/crop; PSNR image mean; Gaussian SSIM sigma1.5 kernel11 data_range1; LPIPS-Alex normalize=True/reset per image",
+    "all_test_views_and_degradations_reported": true,
+    "qualitative": "All four fixed test RGB/GT/error/depth panels plus unchanged existing 3D export/trajectory; no favorable crops/view choice",
+    "direction_gate": "Transform metrics to higher-is-better (PSNR, SSIM, -LPIPS). For each metric m, C_m-max(A1_m,A2_m,B_m) must be strictly greater than abs(A1_m-A2_m). All three metrics must satisfy this predeclared rule. Always report all pairwise/per-view differences and actual magnitudes.",
+    "limit": "Development leaves seed44 only. Descriptive bookend range, not confidence intervals, stable gains, novelty or final-test evidence."
+  },
+  "static_checks": {
+    "status": "passed",
+    "source_files": 41,
+    "training_assets": 10,
+    "anchor_provenance_only": 4,
+    "evaluation_assets": 5,
+    "evaluation_assets_bytes": 1645067,
+    "evaluation_weights": 2,
+    "evaluation_weights_bytes": 244414920,
+    "training_asset_bytes": 6386462,
+    "test_names": [
+      "image000.png",
+      "image008.png",
+      "image016.png",
+      "image024.png"
+    ],
+    "all_test_assets_match_prior_frozen_hashes": true,
+    "both_weights_match_prior_hashes": true,
+    "source_matches_CPU_acceptance": true,
+    "four_train_argv_parse_without_heavy_import": true,
+    "evaluator_argv_checked_by_AST_only": true,
+    "no_training_argv_test_path": true,
+    "new_output_paths_absent": true,
+    "gsplat_clean_pinned": true,
+    "fused_ssim_clean": true,
+    "package_versions_match_historical_core": true,
+    "no_heavy_imports_models_GPU_render_optimizer": true,
+    "original_plan_unchanged": true,
+    "frozen_execution_sha256": "7ce7d5364766ac2011bda9f5693235b152b9b8da6f17ba807c26ae95dbbbc8af"
+  },
+  "new_download_bytes": 0,
+  "cumulative_contribution": "Optional robust loss and auditable CPU compatibility/gradient checks, now a frozen execution proposal; no new performance/geometry gains. D1/D2 negative/unknown evidence remains.",
+  "evidence_root": "~/.local/share/geosplat-r/robust-depth-execution-review-20261020T055630Z/"
+}

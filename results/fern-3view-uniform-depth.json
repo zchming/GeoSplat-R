@@ -1,0 +1,486 @@
+{
+  "scope": "Phase 2 minimal uniform depth regularization; frozen fern 3-view; seed42; 30k; exploratory single pair",
+  "protocol_config": "configs/fern-3view-uniform-depth.json",
+  "frozen_experiment_sha256": "e5f6849b2cc2f22f5dd359eb3c9ea443e83f6d88bdc11a0a1d20d6c2d1f1aa6e",
+  "zero_control": {
+    "train": {
+      "per_image": [
+        {
+          "image": "image001.png",
+          "psnr": 47.59299850463867,
+          "ssim": 0.9986394047737122,
+          "lpips_alex": 0.0015516352141276002,
+          "rgb_depth_render_seconds": 0.0035948363499983317,
+          "valid_depth_fraction_alpha_0_5": 0.996294196691022,
+          "depth_visualization_percentile_2_98": [
+            2.1419277429580688,
+            12.27014226913452
+          ]
+        },
+        {
+          "image": "image010.png",
+          "psnr": 47.3299446105957,
+          "ssim": 0.9980471134185791,
+          "lpips_alex": 0.0013796602142974734,
+          "rgb_depth_render_seconds": 0.0028527773500172772,
+          "valid_depth_fraction_alpha_0_5": 0.9964149239942891,
+          "depth_visualization_percentile_2_98": [
+            2.829091739654541,
+            12.351916732788085
+          ]
+        },
+        {
+          "image": "image019.png",
+          "psnr": 49.0132942199707,
+          "ssim": 0.9986050724983215,
+          "lpips_alex": 0.0005902504781261086,
+          "rgb_depth_render_seconds": 0.0029762207499970826,
+          "valid_depth_fraction_alpha_0_5": 0.9949452003023431,
+          "depth_visualization_percentile_2_98": [
+            3.0341865634918213,
+            12.094682273864747
+          ]
+        }
+      ],
+      "mean": {
+        "psnr": 47.978745778401695,
+        "ssim": 0.9984305302302042,
+        "lpips_alex": 0.0011738486355170608,
+        "rgb_depth_render_seconds": 0.0031412781500042308
+      }
+    },
+    "test": {
+      "per_image": [
+        {
+          "image": "image000.png",
+          "psnr": 14.833442687988281,
+          "ssim": 0.41309019923210144,
+          "lpips_alex": 0.4284561276435852,
+          "rgb_depth_render_seconds": 0.0028518458999997167,
+          "valid_depth_fraction_alpha_0_5": 0.9612465356512976,
+          "depth_visualization_percentile_2_98": [
+            2.5414103984832765,
+            12.30646282196045
+          ]
+        },
+        {
+          "image": "image008.png",
+          "psnr": 16.242998123168945,
+          "ssim": 0.4136420786380768,
+          "lpips_alex": 0.40035420656204224,
+          "rgb_depth_render_seconds": 0.002856147800002873,
+          "valid_depth_fraction_alpha_0_5": 0.9837280591248845,
+          "depth_visualization_percentile_2_98": [
+            2.4195067644119264,
+            12.213928813934325
+          ]
+        },
+        {
+          "image": "image016.png",
+          "psnr": 10.627883911132812,
+          "ssim": 0.17749112844467163,
+          "lpips_alex": 0.6110208034515381,
+          "rgb_depth_render_seconds": 0.002565663449991007,
+          "valid_depth_fraction_alpha_0_5": 0.866801041404216,
+          "depth_visualization_percentile_2_98": [
+            2.8461276054382325,
+            12.508419227600093
+          ]
+        }
+      ],
+      "mean": {
+        "psnr": 13.90144157409668,
+        "ssim": 0.33474113543828327,
+        "lpips_alex": 0.4799437125523885,
+        "rgb_depth_render_seconds": 0.002757885716664532
+      }
+    },
+    "resources": {
+      "status": "passed",
+      "error": null,
+      "elapsed_perf_counter_seconds": 334.52159699999993,
+      "elapsed_wall_clock_seconds": 374.26347398757935,
+      "torch_peak_allocated_mib": 711.59326171875,
+      "torch_peak_reserved_mib": 1094.0,
+      "whole_board_sampled_peak_mib": 2196,
+      "sampling_period_ms": 200,
+      "samples": 1666,
+      "sampler_error": null,
+      "gpu_timestamp_sampling_span_seconds": 374.157,
+      "gpu_utilization_mean_percent": 89.53421368547419,
+      "gpu_utilization_peak_percent": 94,
+      "training_perf_counter_seconds": 334.4388444219999,
+      "training_wall_clock_seconds": 374.180721282959,
+      "cuda_stream_elapsed_seconds": 371.60865625,
+      "optimizer_updates": 30000,
+      "final_gaussians": 447350,
+      "initial_gaussians": 488,
+      "initial_parameters_sha256": "b600c3076269ef9eca9066c9081f163a805cd880a2a1be8d65f2892ebe2d5c17"
+    },
+    "checkpoint_sha256": "992c4f18a2625d49bbf24265aa268b5fda250e1666ad8d350e6c9ccdc2c829b4"
+  },
+  "uniform": {
+    "train": {
+      "per_image": [
+        {
+          "image": "image001.png",
+          "psnr": 44.9838981628418,
+          "ssim": 0.9960514307022095,
+          "lpips_alex": 0.005200592335313559,
+          "rgb_depth_render_seconds": 0.0032205732000193167,
+          "valid_depth_fraction_alpha_0_5": 1.0,
+          "depth_visualization_percentile_2_98": [
+            5.005822706222534,
+            12.825367679595947
+          ]
+        },
+        {
+          "image": "image010.png",
+          "psnr": 42.06161880493164,
+          "ssim": 0.9947004318237305,
+          "lpips_alex": 0.007594800088554621,
+          "rgb_depth_render_seconds": 0.00336460429998624,
+          "valid_depth_fraction_alpha_0_5": 1.0,
+          "depth_visualization_percentile_2_98": [
+            5.190670719146729,
+            12.899635791778564
+          ]
+        },
+        {
+          "image": "image019.png",
+          "psnr": 42.88468933105469,
+          "ssim": 0.9940661787986755,
+          "lpips_alex": 0.005894230213016272,
+          "rgb_depth_render_seconds": 0.0029584252999939054,
+          "valid_depth_fraction_alpha_0_5": 1.0,
+          "depth_visualization_percentile_2_98": [
+            5.39788064956665,
+            12.581684379577636
+          ]
+        }
+      ],
+      "mean": {
+        "psnr": 43.31006876627604,
+        "ssim": 0.9949393471082052,
+        "lpips_alex": 0.006229874212294817,
+        "rgb_depth_render_seconds": 0.003181200933333154
+      }
+    },
+    "test": {
+      "per_image": [
+        {
+          "image": "image000.png",
+          "psnr": 17.344934463500977,
+          "ssim": 0.4759766757488251,
+          "lpips_alex": 0.38359397649765015,
+          "rgb_depth_render_seconds": 0.003105563849999271,
+          "valid_depth_fraction_alpha_0_5": 1.0,
+          "depth_visualization_percentile_2_98": [
+            5.178438329696656,
+            13.27856674194336
+          ]
+        },
+        {
+          "image": "image008.png",
+          "psnr": 17.63096809387207,
+          "ssim": 0.46434977650642395,
+          "lpips_alex": 0.3525488078594208,
+          "rgb_depth_render_seconds": 0.0030187024500037294,
+          "valid_depth_fraction_alpha_0_5": 1.0,
+          "depth_visualization_percentile_2_98": [
+            5.323340005874634,
+            12.794786682128906
+          ]
+        },
+        {
+          "image": "image016.png",
+          "psnr": 12.950620651245117,
+          "ssim": 0.24151457846164703,
+          "lpips_alex": 0.5722193121910095,
+          "rgb_depth_render_seconds": 0.003024617949995445,
+          "valid_depth_fraction_alpha_0_5": 1.0,
+          "depth_visualization_percentile_2_98": [
+            4.9433019161224365,
+            14.470715465545654
+          ]
+        }
+      ],
+      "mean": {
+        "psnr": 15.975507736206055,
+        "ssim": 0.39394701023896533,
+        "lpips_alex": 0.43612069884936017,
+        "rgb_depth_render_seconds": 0.003049628083332815
+      }
+    },
+    "resources": {
+      "status": "passed",
+      "error": null,
+      "elapsed_perf_counter_seconds": 338.9580700020001,
+      "elapsed_wall_clock_seconds": 375.0828654766083,
+      "torch_peak_allocated_mib": 724.8447265625,
+      "torch_peak_reserved_mib": 1012.0,
+      "whole_board_sampled_peak_mib": 2141,
+      "sampling_period_ms": 200,
+      "samples": 1688,
+      "sampler_error": null,
+      "gpu_timestamp_sampling_span_seconds": 374.909,
+      "gpu_utilization_mean_percent": 89.36492890995261,
+      "gpu_utilization_peak_percent": 94,
+      "training_perf_counter_seconds": 338.8688018529997,
+      "training_wall_clock_seconds": 374.9935977458954,
+      "cuda_stream_elapsed_seconds": 376.53103125,
+      "optimizer_updates": 30000,
+      "final_gaussians": 457281,
+      "initial_gaussians": 488,
+      "initial_parameters_sha256": "b600c3076269ef9eca9066c9081f163a805cd880a2a1be8d65f2892ebe2d5c17"
+    },
+    "checkpoint_sha256": "a215225c2229870ccd23ce8c38af7996475eba9c7ff966c4a52e7d5fb9332de3"
+  },
+  "test_delta_uniform_minus_zero": {
+    "psnr": 2.074066162109375,
+    "ssim": 0.05920587480068207,
+    "lpips_alex": -0.043823013703028324
+  },
+  "paired_test_images": [
+    {
+      "image": "image000.png",
+      "zero": {
+        "psnr": 14.833442687988281,
+        "ssim": 0.41309019923210144,
+        "lpips_alex": 0.4284561276435852
+      },
+      "uniform": {
+        "psnr": 17.344934463500977,
+        "ssim": 0.4759766757488251,
+        "lpips_alex": 0.38359397649765015
+      },
+      "delta_uniform_minus_zero": {
+        "psnr": 2.5114917755126953,
+        "ssim": 0.06288647651672363,
+        "lpips_alex": -0.04486215114593506
+      }
+    },
+    {
+      "image": "image008.png",
+      "zero": {
+        "psnr": 16.242998123168945,
+        "ssim": 0.4136420786380768,
+        "lpips_alex": 0.40035420656204224
+      },
+      "uniform": {
+        "psnr": 17.63096809387207,
+        "ssim": 0.46434977650642395,
+        "lpips_alex": 0.3525488078594208
+      },
+      "delta_uniform_minus_zero": {
+        "psnr": 1.387969970703125,
+        "ssim": 0.05070769786834717,
+        "lpips_alex": -0.04780539870262146
+      }
+    },
+    {
+      "image": "image016.png",
+      "zero": {
+        "psnr": 10.627883911132812,
+        "ssim": 0.17749112844467163,
+        "lpips_alex": 0.6110208034515381
+      },
+      "uniform": {
+        "psnr": 12.950620651245117,
+        "ssim": 0.24151457846164703,
+        "lpips_alex": 0.5722193121910095
+      },
+      "delta_uniform_minus_zero": {
+        "psnr": 2.3227367401123047,
+        "ssim": 0.0640234500169754,
+        "lpips_alex": -0.038801491260528564
+      }
+    }
+  ],
+  "historical_same_gt_rgb_baseline": {
+    "train": {
+      "psnr": 45.44001134236654,
+      "ssim": 0.9983099699020386,
+      "lpips_alex": 0.001150707694857071,
+      "rgb_depth_render_seconds": 0.002917601583334317
+    },
+    "test": {
+      "psnr": 15.019688288370768,
+      "ssim": 0.37802347044150036,
+      "lpips_alex": 0.4490658740202586,
+      "rgb_depth_render_seconds": 0.002918174233332138
+    },
+    "checkpoint_sha256": "eb3ebc62a81e54544ce266e2f53345c4e98d50f8eec3c2fe63491ddc53547177",
+    "zero_control_psnr_minus_historical": -1.118246714274088,
+    "uniform_psnr_minus_historical": 0.955819447835287,
+    "caveat": "Same GT and initialization, but render channels/diagnostic path differ; runs are not deterministic replicas and not a separate matched loss ablation"
+  },
+  "prior": {
+    "weights": {
+      "url": "https://huggingface.co/Depth-Anything/Depth-Anything-V2-Small/resolve/03876f8651c73a60fe4c2c48294e09fcb6838fcf/depth_anything_v2_vits.pth",
+      "revision": "03876f8651c73a60fe4c2c48294e09fcb6838fcf",
+      "bytes": 99218434,
+      "sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+      "elapsed_wall_seconds": 12.66678261756897,
+      "authorization": "User approved exact 99,218,434 byte Small weight download"
+    },
+    "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "source_files": 15,
+    "source_bytes": 73964,
+    "manifest_sha256": "35f16db75486b0ad3bf8cf96b37e58a259bf02b9169f59597e89b06e6249d683",
+    "records": [
+      {
+        "image": "image001.png",
+        "image_sha256": "a150f8f7f2dd62d52a59820d0195a5ae66267df0a1d8a8893392dc1cd03d1b17",
+        "file": "image001.npz",
+        "sha256": "59d483cd312eb61fb5c093a492e2eddc0dd4315c73bb5d6da8c8164b1d909569",
+        "alignment": {
+          "slope": 0.0169284225202478,
+          "shift": 0.042284436088909236,
+          "normalizer": 0.08687097793335674,
+          "anchors": 208,
+          "anchor_pearson_correlation": 0.8215514070872455,
+          "anchor_relative_l1": 0.07196300159247762,
+          "valid_fraction": 0.9815654656924498,
+          "fit": "unweighted ordinary least squares to train inverse Z"
+        },
+        "inference_wall_seconds": 0.5211868286132812,
+        "network_input_shape": [
+          1,
+          3,
+          518,
+          686
+        ]
+      },
+      {
+        "image": "image010.png",
+        "image_sha256": "f557c43c92d72df2ac573e1fe7f3c8f744b40cfb6cc87bd6a60e8c937e19a34d",
+        "file": "image010.npz",
+        "sha256": "bc614c1d004355a9974af40bc9f175c0da1a753ed6238087b4c962af66cbbbfb",
+        "alignment": {
+          "slope": 0.013682377794811369,
+          "shift": 0.05033079655047423,
+          "normalizer": 0.08822219333126069,
+          "anchors": 398,
+          "anchor_pearson_correlation": 0.6482775541515928,
+          "anchor_relative_l1": 0.0975626769407459,
+          "valid_fraction": 0.9815654656924498,
+          "fit": "unweighted ordinary least squares to train inverse Z"
+        },
+        "inference_wall_seconds": 0.02804398536682129,
+        "network_input_shape": [
+          1,
+          3,
+          518,
+          686
+        ]
+      },
+      {
+        "image": "image019.png",
+        "image_sha256": "ffdb260f616ff5e31f13855b287dfec6995047f00afe2a502b8fc4356fcc7e35",
+        "file": "image019.npz",
+        "sha256": "27d7eddb960a9d3dc019bb66dcbca2cd2a55c1c1e7016a0e48dc520d936fe806",
+        "alignment": {
+          "slope": 0.014155189198006395,
+          "shift": 0.05349282253182824,
+          "normalizer": 0.09137428679338923,
+          "anchors": 393,
+          "anchor_pearson_correlation": 0.6435690910627576,
+          "anchor_relative_l1": 0.09982006783545352,
+          "valid_fraction": 0.9815654656924498,
+          "fit": "unweighted ordinary least squares to train inverse Z"
+        },
+        "inference_wall_seconds": 0.029071807861328125,
+        "network_input_shape": [
+          1,
+          3,
+          518,
+          686
+        ]
+      }
+    ],
+    "resources": {
+      "status": "passed",
+      "error": null,
+      "elapsed_wall_seconds": 2.3664700984954834,
+      "elapsed_perf_counter_seconds": 2.3664706050003588,
+      "torch_peak_allocated_mib": 283.55419921875,
+      "torch_peak_reserved_mib": 366.0,
+      "whole_board_sampled_peak_mib": 1541,
+      "sampling_period_ms": 200,
+      "samples": 12,
+      "sampler_error": null,
+      "gpu_timestamp_sampling_span_seconds": 2.225,
+      "gpu_utilization_mean_percent": 19.416666666666668,
+      "gpu_utilization_peak_percent": 27
+    },
+    "anchor_export_wall_seconds": 0.07879924774169922
+  },
+  "metric_protocol": {
+    "rgb": "sRGB [0,1], clamp prediction, no mask/crop",
+    "psnr": "-10 log10 per-image RGB MSE, then arithmetic image mean",
+    "ssim": {
+      "gaussian_kernel": true,
+      "sigma": 1.5,
+      "kernel_size": 11,
+      "data_range": 1.0,
+      "k1": 0.01,
+      "k2": 0.03
+    },
+    "lpips": "AlexNet, normalize=True; per-image reset",
+    "alexnet_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "lpips_calibration_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+  },
+  "versions": {
+    "torch": "2.4.1+cu124",
+    "torchvision": "0.19.1+cu124",
+    "gsplat": "1.5.3+pt24cu124",
+    "torchmetrics": "1.9.0",
+    "numpy": "1.26.4"
+  },
+  "evaluation_implementation_sha256": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9",
+  "evaluation_label_correction": "Initial evaluations preserved. Added only --label/metadata/display label, re-evaluated into new v2 outputs; all train/test quality metrics agree within 1e-6.",
+  "warmup_trajectory": {
+    "control-zero-30k": {
+      "updates": 1000,
+      "loss": 0.08970603346824646,
+      "gaussians": 3449,
+      "depth_weight": 0.0
+    },
+    "uniform-30k": {
+      "updates": 1000,
+      "loss": 0.08853662759065628,
+      "gaussians": 3567,
+      "depth_weight": 0.0
+    }
+  },
+  "checks": {
+    "tests_passed": 25,
+    "tests_skipped": 0,
+    "cli_help_and_overwrite_entries": 4,
+    "raster_rgb_ed_rgb_only_parity": "passed on CUDA with stated test tolerances",
+    "video_frames_each": 48,
+    "training_failures": 0,
+    "oom": 0
+  },
+  "acceptance": {
+    "engineering": "pass",
+    "research": "positive single-scene single-seed signal; stable improvement and independent geometry accuracy unproven",
+    "next": "fixed-lambda paired seeds43/44 or repetitions to quantify zero-control variability before reliability modules; needs separate authorization",
+    "publication": "49f0522 was pushed only to the approved codex branch; no Phase 2 commits or pushes"
+  },
+  "limits": [
+    "Only fern and one full paired seed; fern is a development scene",
+    "Prior and Gaussian depth have no independent dense ground truth",
+    "Zero control is 1.118dB below the older same-GT RGB run; report this baseline variability rather than amplify only the weaker control delta",
+    "Before depth activation, both groups already have differing warmup trajectories despite identical initial parameter hashes",
+    "Clock domains disagree; retain wall/perf/CUDA/GPU timestamps, do not claim measured isolated loss overhead",
+    "Uniform loss has no independent occlusion verification or confidence/reliability weighting",
+    "Depth prior is external pretrained supervision; no independent novel algorithm contribution claimed"
+  ],
+  "operational_notes": [
+    "Anonymous GitHub source-metadata API hit HTTP403 rate limit; authenticated metadata retry succeeded",
+    "xFormers unavailable; official fallback used, no extra dependency installation",
+    "One initial label inherited Vanilla name for depth arm; preserved and corrected in v2 without metric changes"
+  ]
+}

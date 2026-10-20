@@ -1,0 +1,36 @@
+{
+  "scope": "Same-implementation fern RGB-only vs existing RGB+ED zero/uniform diagnostic",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "new_arm": "rgb_only",
+  "new_runs": 3,
+  "max_steps": 30000,
+  "depth_lambda": 0.0,
+  "depth_priors": null,
+  "training_render_mode": "RGB",
+  "evaluation_render_mode": "RGB+ED unchanged for all arms",
+  "concurrency": 1,
+  "source_hashes": {
+    "scripts/train_baseline.py": "98760217cc437668282846693b39dfebdaceb612b170b6bfeeef4a3989a8e304",
+    "src/geosplat_r/baseline.py": "288dc2381cf18b3f9f24c09ce0b5c17f4ea4e602a02e010f3f2981476de62de8",
+    "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+    "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9",
+    "configs/fern-3view-uniform-depth.json": "0e92d95e725a67e90be7f146b1ee78b88ca0e19e68c93a3ba4153098189ef0c6"
+  },
+  "data_hashes": {
+    "cameras_sha256": "7683398e2a3fdff4140c9137ca7637dd45159e5d9072c27e8d0b7750238c3a32",
+    "points_sha256": "59029bf5b99ae08db9d2f9ac1d336e954ab2f86cef8e2e7e7249e878d8268394"
+  },
+  "test_cameras_sha256": "21c8237eb6064e9d6f42ac6b49eda7b87abd061f84aada7742608e43518867c7",
+  "comparisons": [
+    "rgb_ed_zero - rgb_only",
+    "uniform - rgb_only",
+    "uniform - rgb_ed_zero"
+  ],
+  "analysis_policy": "Per-seed three-view arithmetic mean; paired differences, mean/sample SD/range/median; list every per-view regression. No p-value or formal equivalence conclusion with n=3. Historical old-source RGB seed42 kept separate.",
+  "evaluation_policy": "Evaluate after all three new training runs; no test-driven setting changes",
+  "causal_limit": "RGB-only omits prior cache and depth diagnostics as well as ED channels; CUDA trajectories not guaranteed identical. Descriptive path check, not isolated kernel causality."
+}

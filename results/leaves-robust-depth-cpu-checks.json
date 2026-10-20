@@ -1,0 +1,118 @@
+{
+  "protocol": "leaves-robust-depth-cpu-checks-v1",
+  "date": "2026-10-20",
+  "reference_commit": "9987bf46a03f923e408fd44b64754feb604de923",
+  "plan_sha256": "3441c0596de8ccfe4df139cc7e49ba6f04ad76123c5179c4756dcc90ce56a5d6",
+  "scope": "Minimal optional loss/CLI/diagnostics implementation and CPU-only synthetic checks; no GPU, models, training, rendering or new evaluation",
+  "candidate": {
+    "formula": "c*log(1+(r/c)^2)",
+    "c": 0.1,
+    "normalization": "Maximum residual-gradient magnitude one; no sum-of-influence normalization",
+    "default": "Original L1 function and legacy numerical path",
+    "scale_validation": "Finite positive normalized float32 range, rejected before training-stack import; frozen candidate remains c=0.1"
+  },
+  "checks": {
+    "robust_depth_new": 20,
+    "legacy_depth_math": 6,
+    "legacy_scene_input": 6,
+    "D1_D2_regression": 33,
+    "passed_total": 65,
+    "failed": 0,
+    "skipped": 0,
+    "other_suites": "Not activated: GPU rasterization, real historical model/data/evaluation suites outside this CPU scope; not reported as passes."
+  },
+  "synthetic_formula_audit": {
+    "status": "passed",
+    "fixtures": "Synthetic only; fixed c=.1, no data/model/optimizer/render calls",
+    "measurements": [
+      {
+        "dtype": "torch.float32",
+        "residual_cases": 17,
+        "max_value_abs_error": 1.5292321808857423e-07,
+        "max_derivative_abs_error": 5.483627318891848e-08
+      },
+      {
+        "dtype": "torch.float64",
+        "residual_cases": 17,
+        "max_value_abs_error": 8.881784197001252e-16,
+        "max_derivative_abs_error": 1.1102230246251565e-16
+      }
+    ],
+    "independent_scalar_reference_ED_finite_difference_max_abs_error": 1.0786541988381734e-11,
+    "finite_difference_step": 1e-06,
+    "cuda_initialization_attempts": 0,
+    "cuda_initialized": false,
+    "model_forward_or_training": false
+  },
+  "resources": {
+    "tests_run": 32,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "cuda_initialization_attempts": 0,
+    "cuda_initialized": false,
+    "optimizer_updates": 0,
+    "rendering": false,
+    "models_or_checkpoints_loaded": false,
+    "elapsed_seconds": 0.3397122659998786,
+    "peak_process_rss_mib": 463.2421875,
+    "torch": "2.4.1+cu124",
+    "device": "CPU"
+  },
+  "cuda_guard": {
+    "GPU_hidden_from_CPU_process": true,
+    "lazy_initialization_blocked": true,
+    "attempts": 0,
+    "cuda_initialized": false
+  },
+  "legacy_acceptance": {
+    "depth_py_sha256": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+    "original_depth_function_file_unchanged": true,
+    "render_and_load_views_AST_unchanged": true,
+    "legacy_loop": "Exact historical AST after removing only explicitly checked opt-in dispatch/order-hash/log blocks and extra logging condition",
+    "default_depth_protocol": "Same historical semantic fields; self-source hashes reflect new code version; new top-level validator-source hash added",
+    "historical_sources": "Original six reference sources and prior scene-input test saved externally and recoverable from reference commit",
+    "changed_runtime_files": [
+      "src/geosplat_r/baseline.py",
+      "scripts/train_baseline.py"
+    ],
+    "scope_limit": "No GPU forward/backward parity or 30k trajectory equivalence demonstrated"
+  },
+  "provenance": {
+    "implementation_source_hashes": {
+      "src/geosplat_r/depth_options.py": "c9c6bca1323c2eebadeb591bc4bb0957119352a5052bc4b7a234d4230c280592",
+      "src/geosplat_r/depth_objectives.py": "a6bb2fcd2a80595fd307928224bfb021405bd5a2306d72c89d6e71968c89df1b",
+      "src/geosplat_r/baseline.py": "4ac616c8f807defb94451c444c3fda7c08b151aa99fd29b331057e52cd13a7ff",
+      "scripts/train_baseline.py": "15bd32b4f6ab5a6cabc87c008c5b82a1077f2cd2bdf7b4d99b02feaf793798f4",
+      "tests/test_robust_depth.py": "08639a71f2a45d05a308dad72d85fcd54954a74dec9cadc5147c740a2ddf67e7",
+      "tests/test_scene_input.py": "7f880f289436ba853ecdab5d2f8de672b3153099fb788a84e41133fc8c41e375",
+      "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+      "src/geosplat_r/scene_input.py": "4c6ddc16c2a465bf42060c89cb89d6f8bdca5c7bdf55b9587afaa933e829b047",
+      "src/geosplat_r/isolation.py": "f8a42e2068fc21b372afad08525fc76ce9374febc25ff446dd1f16b588314887",
+      "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9"
+    },
+    "old_reference_source_hashes": {
+      "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+      "src/geosplat_r/baseline.py": "bbd64b6f85a4580977cbb59fbbb7ed2d463f7ef62f86c486f609bcd7a64f2c9e",
+      "src/geosplat_r/scene_input.py": "4c6ddc16c2a465bf42060c89cb89d6f8bdca5c7bdf55b9587afaa933e829b047",
+      "src/geosplat_r/isolation.py": "f8a42e2068fc21b372afad08525fc76ce9374febc25ff446dd1f16b588314887",
+      "scripts/train_baseline.py": "9725cfce85f2a06b4cb68c0feeaa0fb123aaf53ad372904052e11a5a471ad91d",
+      "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9"
+    }
+  },
+  "warning_history": {
+    "initial_unit_run_passed": 29,
+    "initial_shutdown_warning": "Torch 2.4.1 process-owned torch.distributed.nn.jit.instantiator._TEMP_DIR was implicitly cleaned at process exit. Original log preserved.",
+    "resolution": "CPU runner explicitly closes that test-process-owned scratch directory after tests; no warning suppression or third-party source edits. Subsequent 31/32-case logs clean.",
+    "loss_failures_or_OOMs": 0
+  },
+  "acceptance": {
+    "CPU_implementation": "pass",
+    "GPU_preflight": "not performed or authorized",
+    "four_run_training": "not performed or authorized",
+    "research_quality_gain": "unknown; no new metrics",
+    "next": "Review cumulative diff and verify pinned upstream/source/evaluator assets/weights plus exact four-run commands before any training-release decision. No reliability module."
+  },
+  "evidence_root": "~/.local/share/geosplat-r/robust-depth-cpu-20261020T053905Z/"
+}

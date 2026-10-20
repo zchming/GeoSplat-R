@@ -1,0 +1,151 @@
+{
+  "scope": "fern 3-view vanilla gsplat baseline, seed42, 30000 updates; no improvement claim",
+  "protocol_config": "configs/fern-3view.json",
+  "train": {
+    "per_image": [
+      {
+        "image": "image001.png",
+        "psnr": 44.32157516479492,
+        "ssim": 0.9981728792190552,
+        "lpips_alex": 0.0016903255600482225,
+        "rgb_depth_render_seconds": 0.004128215799983082,
+        "valid_depth_fraction_alpha_0_5": 0.9957692953724699,
+        "depth_visualization_percentile_2_98": [
+          2.2160080671310425,
+          12.740796756744384
+        ]
+      },
+      {
+        "image": "image010.png",
+        "psnr": 45.121421813964844,
+        "ssim": 0.9980169534683228,
+        "lpips_alex": 0.0017723507480695844,
+        "rgb_depth_render_seconds": 0.003975765049972324,
+        "valid_depth_fraction_alpha_0_5": 0.9966301335348955,
+        "depth_visualization_percentile_2_98": [
+          2.816554946899414,
+          12.748310260772703
+        ]
+      },
+      {
+        "image": "image019.png",
+        "psnr": 44.75147247314453,
+        "ssim": 0.9982159733772278,
+        "lpips_alex": 0.0022491514682769775,
+        "rgb_depth_render_seconds": 0.0038776004999817814,
+        "valid_depth_fraction_alpha_0_5": 0.9958532795834383,
+        "depth_visualization_percentile_2_98": [
+          2.8662467193603516,
+          12.44964723587036
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 44.73148981730143,
+      "ssim": 0.9981352686882019,
+      "lpips_alex": 0.0019039425921315949,
+      "rgb_depth_render_seconds": 0.003993860449979062
+    }
+  },
+  "test": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 14.25960922241211,
+        "ssim": 0.35645806789398193,
+        "lpips_alex": 0.47926753759384155,
+        "rgb_depth_render_seconds": 0.004729073550015528,
+        "valid_depth_fraction_alpha_0_5": 0.9674246241706559,
+        "depth_visualization_percentile_2_98": [
+          2.671332836151123,
+          12.613418769836425
+        ]
+      },
+      {
+        "image": "image008.png",
+        "psnr": 15.10910415649414,
+        "ssim": 0.3518684208393097,
+        "lpips_alex": 0.48024439811706543,
+        "rgb_depth_render_seconds": 0.00392738030000146,
+        "valid_depth_fraction_alpha_0_5": 0.9763479465860418,
+        "depth_visualization_percentile_2_98": [
+          2.537888526916504,
+          12.476639556884765
+        ]
+      },
+      {
+        "image": "image016.png",
+        "psnr": 9.801046371459961,
+        "ssim": 0.13520021736621857,
+        "lpips_alex": 0.6694346070289612,
+        "rgb_depth_render_seconds": 0.003851577549994545,
+        "valid_depth_fraction_alpha_0_5": 0.8734147980179726,
+        "depth_visualization_percentile_2_98": [
+          2.2098851919174196,
+          13.202824878692628
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 13.056586583455404,
+      "ssim": 0.28117556869983673,
+      "lpips_alex": 0.5429821809132894,
+      "rgb_depth_render_seconds": 0.004169343800003844
+    }
+  },
+  "training_resources": {
+    "status": "passed",
+    "error": null,
+    "wall_seconds": 459.6302155739995,
+    "torch_peak_allocated_mib": 1083.0263671875,
+    "torch_peak_reserved_mib": 1618.0,
+    "whole_board_sampled_peak_mib": 2591,
+    "sampling_period_ms": 200,
+    "samples": 2297,
+    "sampler_error": null,
+    "training_loop_seconds": 459.4953862880002,
+    "optimizer_updates": 30000,
+    "final_gaussians": 698450,
+    "initial_gaussians": 373,
+    "initial_parameters_sha256": "6f859cc440944c667c29ff2066438d50f37575c5593f2eaae58c194af19bccb7"
+  },
+  "evaluation": {
+    "evaluation_seconds": 3.9783318909994705,
+    "torch_peak_allocated_mib": 583.01220703125,
+    "torch_peak_reserved_mib": 852.0,
+    "whole_board_sampled_peak_mib": 1997,
+    "sampling_period_ms": 200
+  },
+  "versions": {
+    "torch": "2.4.1+cu124",
+    "torchvision": "0.19.1+cu124",
+    "gsplat": "1.5.3+pt24cu124",
+    "torchmetrics": "1.9.0",
+    "numpy": "1.26.4"
+  },
+  "metric_protocol": {
+    "rgb": "sRGB [0,1], clamp prediction, no mask/crop",
+    "psnr": "-10 log10 per-image RGB MSE, then arithmetic image mean",
+    "ssim": {
+      "gaussian_kernel": true,
+      "sigma": 1.5,
+      "kernel_size": 11,
+      "data_range": 1.0,
+      "k1": 0.01,
+      "k2": 0.03
+    },
+    "lpips": "AlexNet, normalize=True; per-image reset",
+    "alexnet_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "lpips_calibration_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+  },
+  "checkpoint_sha256": "9e0effc5b0f55dcfe477f50b4289a57cea716edebcb3d76497ddc8a66569c124",
+  "limitations": [
+    "public calibrated camera poses may use all source views",
+    "only training RGB used for points, color and optimization",
+    "one scene and one full seed, substantial test artifacts",
+    "no reliable dense geometry ground truth",
+    "no published baseline metric equivalence established",
+    "Source SIMPLE_RADIAL distortion was ignored by the initial pinhole approximation; see diagnosis before geometric comparisons."
+  ],
+  "timing_caveat": "training_loop_seconds and wall_seconds were measured with perf_counter; GPU timestamp sample span is 499.419s. See results/fern-3view-diagnosis.json; no speed claim."
+}
