@@ -190,3 +190,34 @@
   diagnostic source/input hashes, prior results and external recovery evidence.
 - Keep the full diff, file inventory and actual check logs outside Git. No staging,
   commits, pushes, extra diagnostic runs, training, downloads or reliability work.
+
+## Current cross-view diagnostic planning authorization (2026-10-20)
+
+- User requested the next recommended step after the D1 engineering commit.
+  Prepare and review one train-only cross-view prior diagnostic proposal.
+- Source/schema inspection and exact existing training-file size/hash inventory
+  are allowed. Preserve D1 results, frozen code/configuration and all evidence.
+- No new diagnostic implementation, folds/scores/correlations, other scenes,
+  reliability weights, model loads, inference, rendering, training or downloads.
+- Keep fbc61f2 local. No staging, commits or pushes; complete the plan checks,
+  report the acceptance recommendation and stop.
+
+## Current D2 implementation and offline execution authorization (2026-10-20)
+
+- User explicitly approved the frozen D2 minimal CPU entry, checks before real
+  execution, and exactly one offline leaves train-only diagnostic.
+- Preserve both proposal files and D1 evidence. Use only the fourteen approved
+  training assets, global point-group folds and fixed scoring/analysis/gates.
+- Retain every failed or unavailable target/direction and all execution evidence.
+  No reliability module, extra training, downloads, staging, commits or pushes.
+- Complete the implementation/checks and one frozen run, report actual results,
+  resources, limitations and acceptance/next-step recommendation, then stop.
+
+## Current D2 submission-review authorization (2026-10-20)
+
+- User approved reviewing the nine-file D2 diff against fbc61f2, completing
+  pre-commit checks and preparing one engineering commit recommendation.
+- Documentation/packaging corrections are allowed. Preserve frozen plans,
+  runtime/test sources, input hashes, negative results and historical evidence.
+- Keep the full diff, file inventory and actual check logs outside Git. No staging,
+  commits, pushes, new diagnostic runs, training, downloads or reliability work.

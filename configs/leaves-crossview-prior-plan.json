@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "protocol": "leaves-crossview-prior-d2-v1",
+  "date": "2026-10-20",
+  "status": "proposal_reviewed_not_executed",
+  "implementation_authorized": false,
+  "execution_authorized": false,
+  "stage": "Phase 2 train-only diagnostic proposal; not a Phase 3 reliability module",
+  "reference_commit": "fbc61f29296deca2f8cc35fff5d89e9baa879168",
+  "question": "Does train-prior cross-view depth disagreement associate with grouped held-anchor residuals?",
+  "input_contract": {
+    "path": "configs/leaves-train-error-coverage-plan.json",
+    "sha256": "ad66abed47aa5942531a5c4b9f202f002af919ab7550afad7041d531c946607a",
+    "field": "allowlisted_files",
+    "file_count": 14,
+    "bytes": 6409262,
+    "policy": "Use exactly the referenced fourteen files, explicit train/anchors/priors leaf roots and an independent absolute-path/hash manifest. No asset-directory walking or reference following."
+  },
+  "scene": "leaves",
+  "train_images": [
+    "image001.png",
+    "image012.png",
+    "image025.png"
+  ],
+  "resolution": [
+    504,
+    378
+  ],
+  "reuse_frozen_cv": {
+    "point_group_assignment": "int.from_bytes(SHA256(UTF8(\"train-error-coverage-v1|leaves|\" + canonical_decimal_int64_point_id)).digest()[:8], \"big\") % 5",
+    "folds": 5,
+    "fit": "Per image/fold, unweighted float64 affine OLS from cached raw_inverse_depth sampled with the frozen OpenCV INTER_LINEAR rule to non-held-out positive inverse_z anchors.",
+    "guards": {
+      "fit_anchors_min": 20,
+      "held_anchors_min_for_fold_summary": 5,
+      "sample_std_min": 1e-06,
+      "slope_positive": true
+    },
+    "normalizer": "Median inverse Z of the fit fold only",
+    "reference_error": "abs(q_target-held_inverse_z)/fit_fold_median_inverse_z",
+    "fit_records": 15,
+    "all_views_exclude_same_fold": true,
+    "policy": "Refit from raw caches with identical D1 formula. No cached full-fit target, valid mask, a/b, normalizer or saved D1 fold parameters define the score. Verify separate full-fit provenance before dependent work."
+  },
+  "score": {
+    "target_query": "Each original anchor xy, without its inverse_z or 3D coordinates; point_id used only for global fold assignment",
+    "target_inverse_z": "q_i=a_i[k]*INTER_LINEAR(raw_i,xy_i)+b_i[k]",
+    "backprojection": "P_i=inv(K_i)*[u,v,1]^T/q_i; P_world=R_i*P_i+t_i; c2w=[R_i,t_i]",
+    "source_projection": "P_j=R_j^T*(P_world-t_j); uv_j=(K_j*P_j)[:2]/P_j.z; q_projected=1/P_j.z",
+    "source_inverse_z": "q_j=a_j[k]*INTER_LINEAR(raw_j,uv_j)+b_j[k]; same held point group excluded from every source fit",
+    "pair_disagreement": "2*abs(q_projected-q_j)/(q_projected+q_j)",
+    "primary": "Arithmetic mean of the two directional disagreements, only when both source queries are available; no alternate aggregation",
+    "source_views": "Both other train views, always. No point-track membership or ground-truth visibility filter.",
+    "source_sampling_border": "2 <= u < 501 and 2 <= v < 375; 504x378; float64 raw, frozen cv2.INTER_LINEAR/float32 coordinate convention",
+    "availability": "Finite positive target q, source-camera Z and sampled source q, valid fit in both views, finite in-border projection. No clipping, epsilon replacement, fallback, invalid-to-zero or cached prior-valid filtering.",
+    "query_order": "Target-fit status, finite target q, positive target q; then source-fit status, finite transformed coordinates, positive source Z, finite projection, border, finite source q, positive source q, finite disagreement. Record the first failure reason and any available intermediate values.",
+    "missing_sources": "Keep both directional rows and a target row. Exactly one source is one_source_only, none is no_source. Both are excluded from primary association but their counts and available target errors must be reported.",
+    "possible_occlusion": "Record sign(q_j-q_projected); positive means source prior lies nearer. No occlusion threshold, visibility-truth claim, or sign-based exclusion."
+  },
+  "analysis": {
+    "unit": "Original anchor observations; 610 target rows and 1220 directional rows retained even when unavailable. Distinct 3D point IDs and shared views are not independent repeats.",
+    "primary_association": "Per image and per fold Spearman average ranks between two-source score and D1-formula OOF residual; >=5 finite pairs, otherwise null/reason; constant ranks null.",
+    "descriptive_contrast": "Within each image, score-only 1/3 and 2/3 quantiles, NumPy method=linear. Low c<=q1, high c>=q2; if q1>=q2 or either group has <5 observations, unavailable. Report both errors/counts and high-minus-low mean, with all middle rows retained.",
+    "missingness": "Per image/fold, total anchors, target-error availability, 0/1/2-source counts and reasons. Report target OOF errors for primary-included and excluded groups and each status; unavailable target error is null. Per six ordered image pairs report availability/reasons, disagreement and sign counts.",
+    "claims": "Descriptive sparse proxy only. No p-values, confidence intervals, pooled significance, causal claims, dense accuracy, statistical independence or reliability weights."
+  },
+  "gates": {
+    "engineering": "Exact provenance/isolation, unchanged D1 reference formula, 15 fold fits, all 610 target/1220 direction rows, every failure/unknown preserved, synthetic and isolation checks before real execution.",
+    "screening_support": "Each image: at least 50% of its original anchors have two-source scores and finite target residuals; all five per-fold correlations have >=5 pairs and nonconstant ranks. The 50% rule is an operational stopping rule, not an accuracy threshold.",
+    "screening_direction": "Each image rho strictly positive; at least 3/5 fold rhos strictly positive in each image; each image high-score minus low-score mean residual strictly positive with defined tertiles. No threshold/magnitude tuning.",
+    "if_support_or_direction_fails": "Stop this cross-view score route in this scope, retain negative/incomplete evidence; no new score variants, scene search, masks or training.",
+    "if_all_screening_gates_pass": "Only recommend separately reviewing the same frozen diagnostic extension to fern/flower development scenes. This is not approval for weights, Phase 3, dense confidence or training.",
+    "limits": "Passing these post-D1 screening rules does not establish significance, useful effect size, truth or robustness. Shared prediction terms, camera/SfM errors, texture-selection bias, occlusion and common-mode wrong depth remain."
+  },
+  "required_checks": [
+    "Analytic pinhole camera translation/rotation, axial Z vs ray length, and exact projection/sampling conventions",
+    "Vary held inverse_z in every view: score, source queries, fit parameters and fit normalizers for that fold unchanged; target error changes",
+    "No ground-truth 3D point coordinate, source observed track coordinate or held inverse_z enters feature construction",
+    "Cached full targets, valid masks, full-fit metadata and saved D1 fold parameters cannot control score/primary selection",
+    "Coherent correct plane gives zero disagreement; corrupt one independently sampled source prior changes the score",
+    "Coherent wrong-depth local plane may give zero disagreement and nonzero reference error; it must not receive a reliable label",
+    "Nonpositive predictions, behind-camera/outside-border queries, failed fits, missing/one-source rows and constant ranks retained with explicit null/status",
+    "Score ties/tertiles, inclusion/exclusion counts and 610/1220/15 records; source-prior-closer sign must never filter points",
+    "All fourteen input hashes/path guards and no forbidden asset/model imports; validate output location before directory creation and refuse overwrite",
+    "Unchanged historical source/inputs/results; CPU/time/RSS/access logs; actual real-run status and all failures preserved"
+  ],
+  "resources": {
+    "device": "CPU only",
+    "threads_max": 4,
+    "peak_ram_target_gib": 2,
+    "wall_stop_minutes": 10,
+    "output_budget_mib": 200,
+    "new_download_bytes": 0,
+    "optimizer_updates": 0,
+    "model_inference": false,
+    "rendering": false
+  },
+  "future_execution_contract": {
+    "required_locations": [
+      "train-data",
+      "anchors",
+      "priors",
+      "input-allowlist",
+      "plan",
+      "output"
+    ],
+    "output_must_not_exist": true,
+    "prevalidate_output_outside_repo_and_assets": true,
+    "complete_runs_after_separate_approval": 1,
+    "partial_failure_policy": "Preserve artifacts; no silent retries or parameter changes"
+  },
+  "outputs": [
+    "Input/source/config hashes and exact asset access records",
+    "Global point-group membership and 15 fit records",
+    "All 610 target and 1220 directional rows, including failures/unknowns",
+    "Three image and fifteen fold associations plus fixed tertile/missingness summaries",
+    "Six ordered-pair availability/sign summaries",
+    "Three train RGB/sparse score/sparse reference-error/missing-status panels; no dense confidence map",
+    "Actual CPU resources and concise acceptance/limitations; raw data outside Git"
+  ],
+  "prohibited": [
+    "Implementation or real score computation in this planning step",
+    "Test/evaluation assets, full mixed manifests, checkpoints, original SfM model and source-track expansion",
+    "Model/Gaussian loads, inference, rendering, optimizer steps, new triangulation or priors",
+    "Distance-based or cross-view reliability weights, photometric-score blends, robust-loss training, extra scenes or threshold search",
+    "Downloads, staging, commits and pushes"
+  ]
+}
