@@ -134,3 +134,27 @@
   hashes and all historical failures, runs and reproduction paths unchanged.
 - Recommend whether to make one engineering commit; stop and report. No staging,
   commits, pushes, new training/evaluation, downloads or reliability work.
+
+## Current leaves seed44 environment-control authorization (2026-10-19)
+
+- The reviewed 25-file commit 2e1e679 was separately approved and pushed to the
+  existing codex/phase2-uniform-depth branch; preserve its evidence and history.
+- User approved two additional leaves seed44 RGB-only/ED-zero 30k controls.
+  Preflight found another environment restart after the previous uniform retry;
+  user then explicitly approved one additional uniform 30k run as well.
+- Run the three paths sequentially with the same frozen inputs, initialization,
+  coefficient/schedule and settings. Check boot identity and source/input hashes;
+  complete all three training runs before fresh evaluation. Preserve every attempt.
+- This is a single-seed diagnostic, not a replacement for the original matrix or
+  proof of a causal reboot effect. No downloads, reliability, commits or pushes.
+- The uniform attempt stopped at 21k after a manual chat-turn interruption;
+  user explicitly approved a full 30k retry in a new directory. Preserve both.
+
+## Current leaves seed44 submission-review authorization (2026-10-20)
+
+- Review the five-file diagnostic diff against 2e1e679, actual checks, all paired
+  regressions and preserved interrupted/retried attempts. Prepare one submission
+  candidate and recommend whether to commit; keep the review package external.
+- Documentation/packaging corrections are allowed; no frozen implementation,
+  input, historical result or recovery-evidence changes. No staging, commits,
+  pushes, training, fresh evaluation, downloads or reliability implementation.

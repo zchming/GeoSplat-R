@@ -9,8 +9,14 @@ Geometry-Reliability Guided Sparse-View 3D Gaussian Splatting.
 leaves为 **+0.1869 ± 0.2391 dB**；两场景等权+0.5147 dB。27个配对测试视角中9个至少一项指标退化，
 明显缺口、拉丝与细枝伪影仍在。共19次尝试得到18个完整模型，1次环境中断保留；leaves44统一深度重启后重跑，
 环境影响尚未隔离。工程验收通过，协议和研究结论有条件通过，不宣称稳定泛化或高质量重建。
-下一步建议审阅累计完整Diff及提交候选；加强leaves稳定性结论前，另申请重启后seed44匹配基线复核。
+上述25文件工程成果已提交并推送为2e1e679，原18模型矩阵和条件限制继续保留。
 详见[正式训练验收](docs/phase2-flower-leaves-training.md)和[完整数值/退化](results/flower-leaves-depth-controls.json)。
+
+补充的leaves seed44同次启动环境三路径复核已完成：统一深度相对RGB-only为PSNR +0.205986 dB、
+SSIM +0.028098、LPIPS −0.000225；相对零权重，LPIPS均值反而变差+0.008457，且四张测试图全部退化。
+本轮3个完整模型来自4次尝试，包含1次手动中断后经批准从头重跑；不替换原矩阵，不把重复差异归因于重启。
+补充工程/配对协议通过，稳定感知收益未通过。本次5文件候选审查通过，建议形成一个文档提交，提交后核对再判断推送；暂不进入可靠性模块。
+见[环境复核报告](docs/leaves-seed44-postboot-controls.md)及[数值与全部退化](results/leaves-seed44-postboot-controls.json)。
 
 历史 fern 三种子测试场景均值如下（±为种子样本标准差；不与新场景混池）：
 
