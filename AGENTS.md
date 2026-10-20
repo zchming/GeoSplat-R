@@ -317,3 +317,15 @@
   rewriting, branch deletion, new training or reliability implementation.
 - Future approved work starts from current main on descriptive feat/, fix/,
   experiment/ or chore/ branches; retain historical names in provenance.
+
+## Current CPU CI and branch protection authorization (2026-10-20)
+
+- User requested the next recommended step: portable CPU continuous integration
+  and main protection. Use chore/cpu-ci-and-main-protection; preserve frozen
+  training/evaluation code, configurations, results and all historical evidence.
+- Review full diff, actual checks, explicit skips and dependency boundaries;
+  publish through a PR. Bind main protection only to a real successful CPU
+  regression check, require PR integration and apply checks to administrators.
+- Use the public repository's standard CPU Actions runner only; no paid runner,
+  GPU training, data/model downloads, new algorithm or reliability work.
+- Preserve existing branches and commit histories. No force push or deletion.
