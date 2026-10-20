@@ -5,7 +5,12 @@
   this substep. No other scenes, depth regularization or Phase 2 without new authorization.
 - Authorized future remote: https://github.com/zchming/GeoSplat-R.git. Do not commit or push automatically.
 - This is independent of VisionGeometryLab / GeoRecon-Fusion. Never modify that project.
-- Use codex/ branches. No automatic commits, pushes, remote repository creation or license selection.
+- For future work and commits, use descriptive branches such as feat/, fix/ or
+  experiment/; never create or commit further work on a codex/-prefixed branch.
+  Switch to an appropriately named branch before the next commit. Historical
+  branch names below describe completed actions and are not naming instructions.
+  No automatic commits, pushes, remote repository creation or license selection
+  without applicable user authorization.
 - Before a commit, show full diff, file list, actual checks and skip reasons; obtain confirmation.
 - Before large dataset downloads or deleting/condensing historical artifacts, provide exact
   scope and effects and obtain confirmation. No paid/cloud resources.
@@ -298,3 +303,17 @@
   this ordinary residual-loss pilot does not establish geometric confidence.
 - User delegated publication decision. One cohesive engineering commit/push
   may proceed after complete diff/file/provenance/test/publication checks.
+
+## Current history integration authorization (2026-10-20)
+
+- User requested continuation of the reviewed branch integration plan after
+  removing codex/ prefixes from the published stage branches. Use
+  chore/integrate-project-history to preserve both independent roots and all
+  stage commits; retain the original main description and full project README.
+- Review the full diff, file list, actual CPU checks and source/result hashes
+  before publishing the integration branch and opening a pull request to main.
+  Integrating engineering history does not change research acceptance.
+- Preserve all stage branches and historical evidence. No force push, history
+  rewriting, branch deletion, new training or reliability implementation.
+- Future approved work starts from current main on descriptive feat/, fix/,
+  experiment/ or chore/ branches; retain historical names in provenance.

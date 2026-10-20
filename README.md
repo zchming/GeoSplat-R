@@ -1,5 +1,7 @@
 # GeoSplat-R
 
+稀疏视角 3D Gaussian Splatting 的几何可靠性优化。
+
 Geometry-Reliability Guided Sparse-View 3D Gaussian Splatting.
 
 稀疏视角三维重建工程研究项目，基于固定版本 gsplat v1.5.3。
