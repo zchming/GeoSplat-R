@@ -21,14 +21,23 @@ SSIM +0.028098、LPIPS −0.000225；相对零权重，LPIPS均值反而变差+0
 [训练端D1误差与覆盖诊断](docs/leaves-train-error-coverage-d1.md)已完成一次冻结CPU离线执行，14项检查全部通过。
 610个训练锚点观测按253个3D点分组留点，15折均可用；三图距离与残差相关为−0.0392/+0.0772/−0.0453，
 当前证据不支持直接按锚点距离设计可靠性权重。仅44/324格具备至少5个误差观测，其余保持未知。
-未读取测试资产，未训练、推理或渲染；不建议立即追加训练。9文件工程成果已提交为fbc61f2，核对通过，尚未推送。
+未读取测试资产，未训练、推理或渲染；不建议立即追加训练。9文件工程成果已提交为fbc61f2，核对并推送完成。
 见[精简结果与全部折数据](results/leaves-train-error-coverage-d1.json)及[冻结前方案（历史）](docs/leaves-train-error-coverage-plan.md)。
 
 [训练端D2多视图先验冲突诊断](docs/leaves-crossview-prior-d2.md)已完成一次冻结CPU执行，D2检查19项及D1回归14项均通过。
 610个锚点中546个具备两源评分，其余64个保持评分未知；三图冲突与残差相关为−0.2380/+0.3794/−0.0303，
 支持门槛通过、研究方向门槛未通过。停止当前评分路线，不扩场景、不进入可靠性模块或新训练。
-9文件工程候选已完成完整Diff审阅及33项检查，建议形成一次工程提交，尚未提交或推送D2改动。
+9文件工程成果已提交并推送为9987bf4，提交内容和远程引用已核对。
 见[完整统计与缺失结果](results/leaves-crossview-prior-d2.json)和[冻结前方案（历史）](docs/leaves-crossview-prior-plan.md)。
+
+[简单鲁棒深度入口与CPU验收](docs/leaves-robust-depth-implementation.md)已完成：可选Cauchy损失，
+65项相关CPU/回归检查通过，保留原L1函数与经结构核对的默认路径。尚未GPU预检、训练或证明质量收益。
+[冻结方案](docs/leaves-robust-depth-plan.md)仍保留完整/半强度L1及首尾重复，共4次拟议训练；
+[累计Diff与执行冻结审阅](docs/leaves-robust-depth-execution-review.md)已通过静态检查，四组命令、源码及评价资产已冻结。
+[一次零更新GPU预检](docs/leaves-robust-depth-gpu-preflight.md)已通过：43项CPU检查、6组合成损失、3条光栅梯度链及9个训练图梯度探针通过，参数未更新。
+[四次冻结30k对照与完整评价](docs/leaves-robust-depth-pilot.md)已完成，80项相关检查通过。
+Cauchy三项测试均值均劣于三个对照，预定门槛三项均未通过；停止当前固定候选，不追加调参或进入可靠性模块。
+全部逐图退化、首尾波动、真实资源及可恢复证据见[完整结果](results/leaves-robust-depth-pilot.json)，不宣称质量收益。
 
 历史 fern 三种子测试场景均值如下（±为种子样本标准差；不与新场景混池）：
 

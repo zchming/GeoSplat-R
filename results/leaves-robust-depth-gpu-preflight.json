@@ -1,0 +1,294 @@
+{
+  "protocol": "leaves-robust-depth-zero-update-v1",
+  "date": "2026-10-20",
+  "status": "passed",
+  "scope": "One authorized zero-update GPU preflight; no formal training, test-asset access, evaluation, pretrained/checkpoint loading, downloads or reliability module.",
+  "reference_commit": "9987bf46a03f923e408fd44b64754feb604de923",
+  "parent_execution_freeze_sha256": "7ce7d5364766ac2011bda9f5693235b152b9b8da6f17ba807c26ae95dbbbc8af",
+  "public_execution_freeze_sha256": "662111732d327f1a7f4516b509a51d63a87a3906dcc0915bf52b33973e1e5ddd",
+  "preflight_contract_sha256": "135182bab72dfc90c1cc6d5460cfc66cff23b4e66a4809a1643184dbc975018d",
+  "entry_sha256": "395f88c9a9349a6c25c36ea423efc7eeaf021f9ee81753cd3e1d07f56cb61d5a",
+  "tests_sha256": "c8b0e10cd5c576977d0fbc2ca3425e2de4c9407521702d3bea04f694ac275785",
+  "execution": {
+    "attempts": 1,
+    "automatic_retries": 0,
+    "returncode": 0,
+    "formal_training": false,
+    "evaluation": false,
+    "optimizer_objects_created": 6,
+    "optimizer_updates": 0,
+    "scheduler_updates": 0,
+    "densification_updates": 0,
+    "optimizer_state_entries": 0,
+    "checkpoint_loads": 0,
+    "checkpoint_saves": 0,
+    "parameter_mutation": false,
+    "blocked_operation_attempts": []
+  },
+  "CPU_checks": {
+    "tests_run": 43,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "cuda_initialization_attempts": 0,
+    "cuda_initialized": false,
+    "elapsed_seconds": 0.44063933699999325,
+    "peak_process_rss_mib": 464.05859375
+  },
+  "CPU_check_scope": "11 new preflight boundary/contract/update-guard checks plus previous 32 value/gradient/CLI/legacy checks, all rerun; D1/D2 previous 33 not rerun and not counted here. No unrelated/GPU training suite reported as passing.",
+  "GPU": {
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "driver": "617.42",
+    "boot_and_UUID_unchanged_during_preflight": true,
+    "boot_fingerprint_sha256": "c8b20c093873d23f939b74dc9570e4cf41952faab8f8bdfa14b69bb3040c4ef3",
+    "device_total_mib": 12282.0,
+    "initial_free_cuda_mib": 11051.0,
+    "memory_fraction": 0.8164312176851362,
+    "torch": "2.4.1+cu124",
+    "cuda_runtime": "12.4"
+  },
+  "profile": {
+    "resolution": [
+      504,
+      378
+    ],
+    "batch": 1,
+    "precision": "float32",
+    "render_mode": "RGB+ED",
+    "seed": 44,
+    "scale": 0.1
+  },
+  "isolation": {
+    "training_files_read": 10,
+    "actual_training_reads": [
+      "prepared/train/cameras.json",
+      "prepared/train/images/image001.png",
+      "prepared/train/images/image012.png",
+      "prepared/train/images/image025.png",
+      "prepared/train/input-manifest.json",
+      "prepared/train/points.npz",
+      "priors/image001.npz",
+      "priors/image012.npz",
+      "priors/image025.npz",
+      "priors/manifest.json"
+    ],
+    "test_assets_read": 0,
+    "evaluation_weight_reads": 0,
+    "anchors_or_diagnostic_scores_read": 0,
+    "network_connections": 0,
+    "rejected_asset_or_network_attempts": [],
+    "audit_limit": "Read auditing is an error detector, not an OS security sandbox."
+  },
+  "frozen_files_verified_before_after": 777,
+  "original_training_evaluation_sources_unchanged": true,
+  "initial_gaussians": 274,
+  "initial_parameters_sha256": "4b8ffac51e93619f964947439d4aae3de3213a1a0bda4a744798bb1e850f359e",
+  "final_parameters_sha256": "4b8ffac51e93619f964947439d4aae3de3213a1a0bda4a744798bb1e850f359e",
+  "future_view_order_hashes": {
+    "1": "b40711a88c7039756fb8a73827eabe2c0fe5a0346ca7e0a104adc0fc764f528d",
+    "1000": "3d18acb69de897caf72dc0f1e7003442a6f3c195a3be5b03728fced6252e7266",
+    "1001": "62f8ea0da6f0ae8a2230149b3459e0d0ecc59862d18bd295ca05a4776fa84403",
+    "30000": "6cd9c3bca11ab68a4d8ebdb8775b6ad3ef9fb7caade521ef5c2a36844d93fe01"
+  },
+  "synthetic_loss_checks": [
+    {
+      "kind": "l1",
+      "lambda": 0.01,
+      "empty": false,
+      "loss": 0.703125,
+      "max_ED_gradient_cpu_gpu_abs_error": 0.0
+    },
+    {
+      "kind": "l1",
+      "lambda": 0.005,
+      "empty": false,
+      "loss": 0.703125,
+      "max_ED_gradient_cpu_gpu_abs_error": 0.0
+    },
+    {
+      "kind": "cauchy",
+      "lambda": 0.01,
+      "empty": false,
+      "loss": 0.3668404817581177,
+      "max_ED_gradient_cpu_gpu_abs_error": 0.0
+    },
+    {
+      "kind": "l1",
+      "lambda": 0.01,
+      "empty": true,
+      "loss": 0.0,
+      "max_ED_gradient_cpu_gpu_abs_error": 0.0
+    },
+    {
+      "kind": "l1",
+      "lambda": 0.005,
+      "empty": true,
+      "loss": 0.0,
+      "max_ED_gradient_cpu_gpu_abs_error": 0.0
+    },
+    {
+      "kind": "cauchy",
+      "lambda": 0.01,
+      "empty": true,
+      "loss": 0.0,
+      "max_ED_gradient_cpu_gpu_abs_error": 0.0
+    }
+  ],
+  "known_Z_and_loss_raster_chain": {
+    "synthetic_resolution": [
+      64,
+      64
+    ],
+    "expected_Z_max_abs_error": 4.172325134277344e-06,
+    "Z_derivative": 0.9999997019767761,
+    "finite_difference": 0.9999870657920837,
+    "loss_raster_chain_checks": [
+      {
+        "kind": "l1",
+        "lambda": 0.01,
+        "analytic_dloss_dmean_Z": -0.005,
+        "actual_dloss_dmean_Z": -0.004999999888241291,
+        "abs_error": 1.1175870905794083e-10
+      },
+      {
+        "kind": "l1",
+        "lambda": 0.005,
+        "analytic_dloss_dmean_Z": -0.0025,
+        "actual_dloss_dmean_Z": -0.0024999999441206455,
+        "abs_error": 5.5879354528970415e-11
+      },
+      {
+        "kind": "cauchy",
+        "lambda": 0.01,
+        "analytic_dloss_dmean_Z": -0.0023529411764705885,
+        "actual_dloss_dmean_Z": -0.0023529408499598503,
+        "abs_error": 3.265107381515697e-10
+      }
+    ]
+  },
+  "train_gradient_probe_count": 9,
+  "train_gradient_probe_summary": [
+    {
+      "image": "image001.png",
+      "valid_count": 49056,
+      "valid_fraction": 0.25749559082892415,
+      "arms": [
+        {
+          "kind": "l1",
+          "lambda": 0.01,
+          "depth_objective_actual": 0.22917000949382782,
+          "raw_normalized_l1": 0.22917000949382782,
+          "lambda_weighted_abs_dloss_dED_sum": 0.00021443248260766268,
+          "finite_parameter_gradients": true
+        },
+        {
+          "kind": "l1",
+          "lambda": 0.005,
+          "depth_objective_actual": 0.22917000949382782,
+          "raw_normalized_l1": 0.22917000949382782,
+          "lambda_weighted_abs_dloss_dED_sum": 0.00010721624130383134,
+          "finite_parameter_gradients": true
+        },
+        {
+          "kind": "cauchy",
+          "lambda": 0.01,
+          "depth_objective_actual": 0.1567467451095581,
+          "raw_normalized_l1": 0.22917000949382782,
+          "lambda_weighted_abs_dloss_dED_sum": 0.000122440789709799,
+          "finite_parameter_gradients": true
+        }
+      ]
+    },
+    {
+      "image": "image012.png",
+      "valid_count": 52798,
+      "valid_fraction": 0.2771373981691442,
+      "arms": [
+        {
+          "kind": "l1",
+          "lambda": 0.01,
+          "depth_objective_actual": 0.2792605757713318,
+          "raw_normalized_l1": 0.2792605757713318,
+          "lambda_weighted_abs_dloss_dED_sum": 0.00024230973212979734,
+          "finite_parameter_gradients": true
+        },
+        {
+          "kind": "l1",
+          "lambda": 0.005,
+          "depth_objective_actual": 0.2792605757713318,
+          "raw_normalized_l1": 0.2792605757713318,
+          "lambda_weighted_abs_dloss_dED_sum": 0.00012115486606489867,
+          "finite_parameter_gradients": true
+        },
+        {
+          "kind": "cauchy",
+          "lambda": 0.01,
+          "depth_objective_actual": 0.18897143006324768,
+          "raw_normalized_l1": 0.2792605757713318,
+          "lambda_weighted_abs_dloss_dED_sum": 0.00013155894703231752,
+          "finite_parameter_gradients": true
+        }
+      ]
+    },
+    {
+      "image": "image025.png",
+      "valid_count": 54971,
+      "valid_fraction": 0.2885435038212816,
+      "arms": [
+        {
+          "kind": "l1",
+          "lambda": 0.01,
+          "depth_objective_actual": 0.5491060018539429,
+          "raw_normalized_l1": 0.5491060018539429,
+          "lambda_weighted_abs_dloss_dED_sum": 0.0005067097954452038,
+          "finite_parameter_gradients": true
+        },
+        {
+          "kind": "l1",
+          "lambda": 0.005,
+          "depth_objective_actual": 0.5491060018539429,
+          "raw_normalized_l1": 0.5491060018539429,
+          "lambda_weighted_abs_dloss_dED_sum": 0.0002533548977226019,
+          "finite_parameter_gradients": true
+        },
+        {
+          "kind": "cauchy",
+          "lambda": 0.01,
+          "depth_objective_actual": 0.29056116938591003,
+          "raw_normalized_l1": 0.5491060018539429,
+          "lambda_weighted_abs_dloss_dED_sum": 0.00018483451276551932,
+          "finite_parameter_gradients": true
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "preflight_perf_counter_seconds": 5.440828863000206,
+    "launcher_perf_counter_seconds": 5.876008020999507,
+    "launcher_UTC_timestamp_elapsed_seconds": 8.836781,
+    "GPU_timestamp_sampling_span_seconds": 3.427,
+    "timing_limit": "Clock sources differ; retain all measured durations without selecting the shortest or asserting a cause. Not full training time.",
+    "torch_peak_allocated_mib": 49.619140625,
+    "torch_peak_reserved_mib": 82.0,
+    "whole_board_sampled_peak_mib": 983,
+    "whole_board_before_mib": 748.0,
+    "whole_board_after_mib": 1089.0,
+    "maximum_observed_board_mib_including_endpoints": 1089.0,
+    "sample_period_ms": 200,
+    "samples": 18,
+    "sampler_error": null,
+    "limit": "Initial 274-splat preflight cannot predict 30k densification peak or guarantee no OOM. Endpoints outside sampler window retained."
+  },
+  "acceptance": {
+    "entry_and_CPU_checks": "pass",
+    "authorized_single_GPU_preflight": "pass",
+    "four_formal_runs": "recommended on frozen matrix with per-run source/input/package/boot/driver guards and continuous memory checks; explicit prior no-training scope remains in force this turn",
+    "formal_training_started": false,
+    "quality_or_speed_gain": "unknown; no new test metrics or full training timing",
+    "no_tuning_from_preflight": true
+  },
+  "historical_failures": "All previous negative/unknown/interrupted results and original warning logs preserved; no failed GPU attempt or OOM in this single preflight.",
+  "cumulative_contribution": "Adds a train-only zero-update CUDA entry and verified end-to-end depth-gradient path to existing robust objective/CPU evidence; no measured reconstruction improvement.",
+  "evidence_root": "~/.local/share/geosplat-r/robust-depth-zero-update-20261020T060330Z/"
+}

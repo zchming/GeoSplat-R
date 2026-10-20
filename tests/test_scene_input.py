@@ -102,7 +102,42 @@ class SceneInputChecks(unittest.TestCase):
         def loop(source):
             return next(n for n in ast.walk(ast.parse(source)) if isinstance(n,ast.For)
                 and isinstance(n.target,ast.Name) and n.target.id=='step')
-        self.assertEqual(ast.dump(loop(reference)),ast.dump(loop(current)))
+        # Only erase the three explicitly checked opt-in additions. Default L1
+        # must still reconstruct the exact historical loop, not an approximation.
+        expected_dispatch=ast.parse("""
+if depth_objective_kind=='cauchy' and step>=depth_start:
+    depth_term,depth_fraction=cauchy_inverse_depth_loss(rgb_depth[...,3],alpha,
+        prior['target'],prior['mask'],prior['normalizer'],depth_cauchy_scale)
+else:
+    depth_term,depth_fraction=uniform_inverse_depth_loss(rgb_depth[...,3],alpha,
+        prior['target'],prior['mask'],prior['normalizer'])
+""").body[0]
+        expected_order=ast.parse("""
+if depth_diagnostics_enabled:
+    view_order_digest.update(int(view_index).to_bytes(4,'big'))
+""").body[0]
+        expected_log=ast.parse("""
+if depth_diagnostics_enabled:
+    row.update(depth_objective_diagnostics(rgb_depth[...,3],alpha,prior['target'],prior['mask'],
+        prior['normalizer'],depth_objective_kind if step>=depth_start else 'l1',weight,depth_cauchy_scale))
+    row.update({'depth_objective':depth_term.item(),'depth_requested_objective':depth_objective_kind,
+                'view_order_sha256':view_order_digest.hexdigest()})
+""").body[0]
+        extra_log=ast.parse('depth_diagnostics_enabled and step==depth_start',mode='eval').body
+        case=self
+        class LegacyDefault(ast.NodeTransformer):
+            def visit_If(self,node):
+                if ast.dump(node.test)==ast.dump(expected_dispatch.test):
+                    case.assertEqual(ast.dump(node),ast.dump(expected_dispatch))
+                    return node.orelse
+                if ast.dump(node.test)==ast.dump(expected_order.test):
+                    case.assertIn(ast.dump(node),[ast.dump(expected_order),ast.dump(expected_log)])
+                    return None
+                if isinstance(node.test,ast.BoolOp) and isinstance(node.test.op,ast.Or) and len(node.test.values)==4:
+                    case.assertEqual(ast.dump(node.test.values[-1]),ast.dump(extra_log))
+                    node.test.values.pop()
+                return self.generic_visit(node)
+        self.assertEqual(ast.dump(loop(reference)),ast.dump(LegacyDefault().visit(loop(current))))
         for name in ['render','load_views']:
             old=next(n for n in ast.parse(reference).body if isinstance(n,ast.FunctionDef) and n.name==name)
             new=next(n for n in ast.parse(current).body if isinstance(n,ast.FunctionDef) and n.name==name)

@@ -221,3 +221,80 @@
   runtime/test sources, input hashes, negative results and historical evidence.
 - Keep the full diff, file inventory and actual check logs outside Git. No staging,
   commits, pushes, new diagnostic runs, training, downloads or reliability work.
+
+## Current publication and robust-depth planning authorization (2026-10-20)
+
+- User explicitly approved pushing both fbc61f2 and 9987bf4 to the existing
+  codex/phase2-uniform-depth branch. Completed and remote ref verified at 9987bf4.
+- The next recommended work is review of a simple residual-robust depth control
+  proposal only: inspect existing source, training-asset hashes and public loss
+  definitions, freeze the candidate/controls and declare implementation gates.
+- No loss implementation, autograd/model/GPU work, rendering, training, new test
+  evaluation or reliability modules. Preserve old source, inputs and evidence.
+- Do not stage, commit or push these new planning changes; report plan acceptance
+  and the next bounded recommendation, then stop.
+
+## Current robust-depth CPU implementation authorization (2026-10-20)
+
+- User requested the next recommended step: implement the minimal optional
+  residual objective/CLI and CPU value, gradient, isolation and legacy checks.
+- Preserve the reviewed plan bytes, original depth.py and renderer/evaluator,
+  historical inputs/results/source snapshots. Default L1 must reconstruct its
+  historical loop/metadata; explicitly check the opt-in extensions separately.
+- No CUDA context/GPU preflight, model/checkpoint loads, rendering, optimization,
+  four-run pilot, reliability module, downloads, staging, commits or pushes.
+- Preserve all failed checks and report actual CPU evidence and remaining
+  execution gates. CPU acceptance is not authorization to train.
+
+## Current robust-depth execution-review authorization (2026-10-20)
+
+- User approved cumulative full-diff review and freezing four comparison argv
+  arrays, actual source/upstream/runtime identities and evaluator-only assets.
+- Static checks and documentation/manifest additions only; preserve frozen
+  proposal bytes, CPU acceptance sources and all old evidence. Test assets may
+  be hashed for evaluation provenance; never pass them to the trainer.
+- Recommend GPU preflight/formal-training release separately. This step does
+  not execute GPU preflight, models, rendering, training or evaluation.
+- No reliability module, downloads, staging, commits or pushes. Report checks,
+  remaining gates and acceptance, then stop.
+
+## Current robust-depth zero-update GPU authorization (2026-10-20)
+
+- User approved preparing and reviewing the loss-specific zero-update GPU entry,
+  CPU checks first, followed by exactly one preflight if checks pass.
+- Preserve frozen training/evaluation code, matrix, coefficients and schedule.
+  Preflight reads only ten training assets, never real test assets, evaluation
+  weights, diagnostic scores or old checkpoints. Preserve every attempt.
+- Initialize splats and run forward/backward probes only; no optimizer, scheduler
+  or densification updates. No formal training, evaluation, downloads, reliability,
+  staging, commits or pushes. Report acceptance and four-run recommendation.
+- User requests autonomous routine technical decisions and fewer progress reports;
+  this does not lift the explicit current no-training/commit/push boundaries.
+
+## Current robust-depth four-run authorization (2026-10-20)
+
+- User explicitly approved frozen A1_l1 -> B_weak_l1 -> C_cauchy -> A2_l1_repeat,
+  four sequential full 30k runs and unchanged independent evaluation only after
+  all four complete. Verify code, inputs and same boot/driver/environment, keep
+  coefficients/schedule and train/test isolation; preserve failures/degradation.
+- Stop on anomalies and investigate; no automatic retries, extra matrix arms,
+  hyperparameter changes or new downloads. Codex leads routine acceptance.
+- User explicitly authorizes Codex to decide whether to commit/push the reviewed
+  engineering result and whether evidence warrants reliability work. This
+  supersedes earlier confirmation requirements for this result only; complete
+  full-diff/file-list/actual-check/publication review before any chosen commit.
+- Choose next-stage recommendations from evidence, not a successful process or
+  training fit. Preserve all negative/unknown results and historical evidence.
+
+## Four-run acceptance decision (2026-10-20)
+
+- All four frozen 30k runs and independent post-completion evaluation finished;
+  80 related checks passed. Preserve every arm, bookend, per-view regression and
+  the initial supervisor interpreter failure (no training started in that failure).
+- Engineering acceptance passed. Cauchy was worse than all three controls on
+  each test mean and failed all declared direction gates. Stop this fixed
+  candidate, do not tune c/lambda or add seeds/scenes automatically.
+- Do not enter reliability: existing D1/D2 score routes remain unsupported, and
+  this ordinary residual-loss pilot does not establish geometric confidence.
+- User delegated publication decision. One cohesive engineering commit/push
+  may proceed after complete diff/file/provenance/test/publication checks.

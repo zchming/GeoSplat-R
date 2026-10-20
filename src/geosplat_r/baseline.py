@@ -1,9 +1,9 @@
-"""Minimal adapter of gsplat's example training behavior; no algorithm additions.
+"""Minimal adapter of gsplat's example behavior with optional depth objectives.
 
 Training loop/order follows gsplat/examples/simple_trainer.py at
 937e29912570c372bed6747a5c9bf85fed877bae, Nerfstudio Team, Apache-2.0.
 Modifications: explicit train-only assets, GPU image caching, post-update checkpoint,
-resource logging, optional uniform depth loss and separate evaluation.
+resource logging, optional L1/Cauchy depth objectives and separate evaluation.
 See docs/licenses/gsplat-Apache-2.0.txt.
 """
 import hashlib
@@ -106,6 +106,15 @@ class MemorySampler:
 
 
 def train(args):
+    from geosplat_r.depth_options import validate_depth_options
+    depth_objective_kind=getattr(args,'depth_loss','l1')
+    depth_cauchy_scale=getattr(args,'depth_cauchy_scale',.1)
+    depth_diagnostics_enabled=getattr(args,'depth_diagnostics',False) or depth_objective_kind=='cauchy'
+    validate_depth_options(depth_objective_kind,depth_cauchy_scale,getattr(args,'depth_lambda',0.),
+                           getattr(args,'depth_priors',None) is not None,depth_diagnostics_enabled)
+    if depth_diagnostics_enabled:
+        from geosplat_r.depth_objectives import cauchy_inverse_depth_loss,depth_objective_diagnostics
+        view_order_digest=hashlib.sha256()
     args.output.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(4)
     total_vram=torch.cuda.get_device_properties(0).total_memory
@@ -159,6 +168,7 @@ def train(args):
             'image_cache':'3 CUDA float32 RGBs','checkpoint_semantics':'after all requested optimizer updates',
             'schedule_reference':'full max_steps; pilot does not compress schedule',
             'training_implementation_sha256':sha256(Path(__file__)),
+            'depth_options_sha256':sha256(Path(__file__).with_name('depth_options.py')),
             'memory_fraction':memory_fraction,'initial_free_mib':free_vram/2**20,
             'memory_headroom_mib':1024,'timing_protocol':'time.time, perf_counter, CUDA events and GPU timestamps'}
     if depth_priors is not None:
@@ -170,15 +180,27 @@ def train(args):
             'render_mode':'RGB+ED for lambda-zero and positive controls',
             'priors_manifest_sha256':sha256(depth_root/'manifest.json'),
             'depth_implementation_sha256':sha256(Path(__file__).with_name('depth.py'))}
+        if depth_diagnostics_enabled:
+            config['depth_protocol'].update({'objective_kind':depth_objective_kind,
+                'cauchy_scale':depth_cauchy_scale if depth_objective_kind=='cauchy' else None,
+                'objective_diagnostics':True,'preactivation_objective':'original L1, weight zero',
+                'objective_implementation_sha256':sha256(Path(__file__).with_name('depth_objectives.py')),
+                'option_validation_sha256':sha256(Path(__file__).with_name('depth_options.py'))})
+            if depth_objective_kind=='cauchy':
+                config['depth_protocol'].update({'loss':'mean valid c*log(1+(r/c)^2); r=(1/ED-target)/median train inverse Z',
+                    'weighting':'uniform spatial reduction; residual Cauchy objective, no geometry weights'})
     if scene_input is not None:
         config['scene_input']={'manifest_sha256':sha256(scene_manifest),'input':scene_input,
             'adapter_sha256':sha256(Path(__file__).with_name('scene_input.py'))}
     (args.output/'config.json').write_text(json.dumps(config,indent=2)+'\n')
     source_dir=args.output/'source';source_dir.mkdir()
     (source_dir/'baseline.py').write_bytes(Path(__file__).read_bytes())
+    (source_dir/'depth_options.py').write_bytes(Path(__file__).with_name('depth_options.py').read_bytes())
     if scene_input is not None:
         (source_dir/'scene_input.py').write_bytes(Path(__file__).with_name('scene_input.py').read_bytes())
     if depth_priors is not None:(source_dir/'depth.py').write_bytes(Path(__file__).with_name('depth.py').read_bytes())
+    if depth_diagnostics_enabled:
+        (source_dir/'depth_objectives.py').write_bytes(Path(__file__).with_name('depth_objectives.py').read_bytes())
     torch.cuda.reset_peak_memory_stats()
     sampler=MemorySampler(args.output/'gpu-memory.csv');sampler.start()
     started=time.perf_counter();wall_started=time.time();status='failed';error=None;records=[]
@@ -196,6 +218,8 @@ def train(args):
         for step in range(iteration_count):
             if not order:order=torch.randperm(len(views),generator=generator).tolist()
             view_index=order.pop(0);view=views[view_index];pixels=view['pixels'][None]
+            if depth_diagnostics_enabled:
+                view_order_digest.update(int(view_index).to_bytes(4,'big'))
             rgb_depth,alpha,info=render(params,view,degree=min(step//1000,3),depth=depth_priors is not None)
             rgb=rgb_depth[...,:3]
             strategy.step_pre_backward(params,optimizers,state,step,info)
@@ -204,8 +228,12 @@ def train(args):
             loss=.8*l1+.2*ssim
             if depth_priors is not None:
                 prior=depth_priors[view_index]
-                depth_term,depth_fraction=uniform_inverse_depth_loss(rgb_depth[...,3],alpha,
-                    prior['target'],prior['mask'],prior['normalizer'])
+                if depth_objective_kind=='cauchy' and step>=depth_start:
+                    depth_term,depth_fraction=cauchy_inverse_depth_loss(rgb_depth[...,3],alpha,
+                        prior['target'],prior['mask'],prior['normalizer'],depth_cauchy_scale)
+                else:
+                    depth_term,depth_fraction=uniform_inverse_depth_loss(rgb_depth[...,3],alpha,
+                        prior['target'],prior['mask'],prior['normalizer'])
                 weight=depth_lambda if step>=depth_start else 0.
                 if weight:loss=loss+weight*depth_term
             if not torch.isfinite(loss):raise RuntimeError(f'Nonfinite loss at step {step}')
@@ -214,7 +242,7 @@ def train(args):
                 optimizer.step();optimizer.zero_grad(set_to_none=True)
             schedule.step()
             strategy.step_post_backward(params,optimizers,state,step,info,packed=True)
-            if (step+1)%1000==0 or step==0 or step+1==iteration_count:
+            if (step+1)%1000==0 or step==0 or step+1==iteration_count or (depth_diagnostics_enabled and step==depth_start):
                 torch.cuda.synchronize()
                 row={'updates':step+1,'loss':loss.item(),'gaussians':len(params['means']),
                      'elapsed_perf_counter_seconds':time.perf_counter()-loop_started,
@@ -224,6 +252,11 @@ def train(args):
                 if depth_priors is not None:row.update({'rgb_l1':l1.item(),'one_minus_ssim':ssim.item(),
                     'depth_normalized_l1':depth_term.item(),'depth_valid_fraction':depth_fraction.item(),
                     'depth_weight':weight})
+                if depth_diagnostics_enabled:
+                    row.update(depth_objective_diagnostics(rgb_depth[...,3],alpha,prior['target'],prior['mask'],
+                        prior['normalizer'],depth_objective_kind if step>=depth_start else 'l1',weight,depth_cauchy_scale))
+                    row.update({'depth_objective':depth_term.item(),'depth_requested_objective':depth_objective_kind,
+                                'view_order_sha256':view_order_digest.hexdigest()})
                 records.append(row);print(json.dumps(row),flush=True)
         event_end.record();torch.cuda.synchronize();training_seconds=time.perf_counter()-loop_started
         training_wall_seconds=time.time()-loop_wall_started
