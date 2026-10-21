@@ -1,0 +1,121 @@
+{
+  "protocol": "delivery-area-source-check-v1",
+  "date": "2026-10-21",
+  "status": "passed_current_official_HEAD_identity_check",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "review_plan_sha256": "058f84c0b417e745daa9d89e98b21da1c51e530e08e569b6b8f1b0fccabe88f8",
+  "prior_review_evidence_key": "second-scene-ordinal-review-20261021T071600Z",
+  "external_evidence_key": "delivery-area-source-recheck-20261021T072231Z",
+  "assets": [
+    {
+      "file": "delivery_area_dslr_jpg.7z",
+      "url": "https://www.eth3d.net/data/delivery_area_dslr_jpg.7z",
+      "bytes": 372958192,
+      "etag": "\"59347f4c-163ae3f0\"",
+      "sha256": null,
+      "content_identity": "Length and ETag match historical HEAD; SHA256/CRC/members pending approved download.",
+      "proofs": [
+        {
+          "route": "normal",
+          "origin_status": 200,
+          "bytes": 372958192,
+          "etag": "\"59347f4c-163ae3f0\"",
+          "server_date": "Wed, 21 Oct 2026 07:22:35 GMT",
+          "last_modified": "Sun, 04 Jun 2017 21:44:44 GMT",
+          "content_type": "application/x-7z-compressed"
+        },
+        {
+          "route": "direct_TLS",
+          "origin_status": 200,
+          "bytes": 372958192,
+          "etag": "\"59347f4c-163ae3f0\"",
+          "server_date": "Wed, 21 Oct 2026 07:22:37 GMT",
+          "last_modified": "Sun, 04 Jun 2017 21:44:44 GMT",
+          "content_type": "application/x-7z-compressed"
+        }
+      ]
+    },
+    {
+      "file": "delivery_area_dslr_depth.7z",
+      "url": "https://www.eth3d.net/data/delivery_area_dslr_depth.7z",
+      "bytes": 388144128,
+      "etag": "\"5ad0d0d4-17229c00\"",
+      "sha256": null,
+      "content_identity": "Length and ETag match historical HEAD; SHA256/CRC/members pending approved download.",
+      "proofs": [
+        {
+          "route": "normal",
+          "origin_status": 200,
+          "bytes": 388144128,
+          "etag": "\"5ad0d0d4-17229c00\"",
+          "server_date": "Wed, 21 Oct 2026 07:22:35 GMT",
+          "last_modified": "Fri, 13 Apr 2018 15:46:28 GMT",
+          "content_type": "application/x-7z-compressed"
+        },
+        {
+          "route": "direct_TLS",
+          "origin_status": 200,
+          "bytes": 388144128,
+          "etag": "\"5ad0d0d4-17229c00\"",
+          "server_date": "Wed, 21 Oct 2026 07:22:38 GMT",
+          "last_modified": "Fri, 13 Apr 2018 15:46:28 GMT",
+          "content_type": "application/x-7z-compressed"
+        }
+      ]
+    }
+  ],
+  "total_compressed_bytes": 761102320,
+  "total_MiB": 725.8437347412109,
+  "dataset_payload_read_bytes": 0,
+  "requests": {
+    "total": 6,
+    "successful_www_HEAD": 4,
+    "failed_bare_domain_TLS": 2,
+    "TLS_validation_disabled": false,
+    "redirect_to_HTTP_allowed": false
+  },
+  "interpretation": "Official www HTTPS metadata reachable again; no demonstrated root cause for earlier failure; HEAD is not archive content integrity or data-preparation acceptance.",
+  "intake_candidate": {
+    "authorization_required": true,
+    "download_files": [
+      "delivery_area_dslr_jpg.7z",
+      "delivery_area_dslr_depth.7z"
+    ],
+    "download_bytes": 761102320,
+    "archive_location": "fresh external data directory, no overwrite",
+    "download_rules": [
+      "Recheck final origin200, exact Content-Length and ETag immediately before transfer. Drift stops before payload.",
+      "Download only the two listed full archives; stop on version/length drift or partial failure, retain all partials and logs.",
+      "Compute SHA256 and full 7z CRC/test; checksum is a newly established local identity, not an upstream published authenticity proof.",
+      "List members before selective extraction; reject traversal, unsafe links/duplicates and excessive expanded size."
+    ],
+    "CPU_metadata_intake": [
+      "Require exactly44 unique original RGB names; sort full relative names, freeze ranks0/21/43 and reserved7/14/28/35 before RGB decode or GT inspection.",
+      "Freeze selected names, image/camera IDs, canonical member mapping and content hashes; no alternate image/scene on mismatch.",
+      "Extract only selected three RGB/three native GT plus calibration metadata required for three camera records; do not export full tracks/points3D/other views.",
+      "Validate selected RGB native6048x4032 and camera THIN_PRISM_FISHEYE/pose/quaternion/finite parameters, one-to-one name and ID references; no feature matching or SfM.",
+      "Verify selected GT file names, raw byte lengths97542144 each and hashes only; no decoding as JPEG or computing GT value/support/order/error statistics before future complete prediction seal.",
+      "Write predictor-only three RGB and selected camera manifest separately from evaluator-only three labels; test directory allowlists/forbidden access and fresh-output behavior.",
+      "Report accepted/blocked/failed with archive/member identities and all unknowns; intake acceptance does not release adapters, GPU or real GT evaluation."
+    ],
+    "CPU_threads_max": 4,
+    "CPU_RSS_GiB": 2,
+    "external_working_storage_budget_GiB": 10,
+    "prediction_or_GT_analysis_allowed": false,
+    "feature_or_anchor_generation_allowed": false,
+    "model_loading_allowed": false,
+    "new_weights_download_bytes": 0
+  },
+  "execution_counts": {
+    "downloads": 0,
+    "archive_inspections": 0,
+    "RGB_decodes": 0,
+    "GT_payload_analysis": 0,
+    "model_forwards": 0,
+    "training_updates": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "decision": "Recommend user approval only for the two named archives and bounded CPU metadata/input intake. No downloads authorized by this source-check continuation. Preserve prior frozen plan and all negative/unknown evidence.",
+  "cumulative_contribution": "Resolves second-scene source reachability/size gate using current metadata; ordinal terrace finding unchanged; no new accuracy, reliability or training evidence."
+}

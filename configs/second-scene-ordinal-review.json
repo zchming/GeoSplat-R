@@ -1,0 +1,258 @@
+{
+  "protocol": "delivery-area-ordinal-confirmation-review-v1",
+  "date": "2026-10-21",
+  "status": "conditional_plan_acceptance_blocked_current_source_verification",
+  "authorization": {
+    "review_only": true,
+    "downloads": false,
+    "implementation": false,
+    "inference": false,
+    "GT_payload_analysis": false,
+    "training": false,
+    "reliability_weighting": false,
+    "commit": false,
+    "push": false
+  },
+  "question": "Does the unchanged Small prior and ordinal protocol retain near/far signal on a preselected second development scene, without GT alignment or threshold tuning?",
+  "scene_selection": {
+    "recommended": "ETH3D delivery_area high-resolution public training data",
+    "official_image_count": 44,
+    "official_environment": "indoors",
+    "selection_reason": "Different indoor environment from terrace, same sensor/format family, and smaller known two-archive budget than courtyard; selected before inspecting any new scene RGB/GT/model outputs.",
+    "alternative_not_selected": {
+      "scene": "courtyard",
+      "official_image_count": 38,
+      "official_environment": "outdoors",
+      "previously_verified_total_bytes": 853781481
+    },
+    "no_automatic_scene_fallback": true,
+    "not_final_blind_test": true,
+    "pretraining_overlap_unknown": true
+  },
+  "official_sources": [
+    {
+      "url": "https://www.eth3d.net/datasets",
+      "basis": "official search-index text checked this review; direct fetch failed"
+    },
+    {
+      "url": "https://www.eth3d.net/documentation",
+      "basis": "official search-index text checked this review; direct fetch failed"
+    },
+    {
+      "url": "https://github.com/ETH3D/dataset-pipeline/blob/e09275b39b30c9c59abf535b849fcc539dc03efd/src/exe/ground_truth_creator.cc",
+      "basis": "previously audited fixed upstream generator; unchanged coordinate contract, no new dataset payload inspected"
+    }
+  ],
+  "assets": [
+    {
+      "file": "delivery_area_dslr_jpg.7z",
+      "url": "https://www.eth3d.net/data/delivery_area_dslr_jpg.7z",
+      "bytes_previously_verified": 372958192,
+      "etag_previously_verified": "\"59347f4c-163ae3f0\"",
+      "historical_evidence": "configs/independent-geometry-feasibility.json (2026-10-20)",
+      "current_HEAD_status": "failed_TLS_no_origin_response",
+      "current_bytes": null,
+      "current_etag": null,
+      "content_sha256": null,
+      "members_inspected": false,
+      "expanded_bytes": null,
+      "dataset_payload_read_bytes_this_review": 0
+    },
+    {
+      "file": "delivery_area_dslr_depth.7z",
+      "url": "https://www.eth3d.net/data/delivery_area_dslr_depth.7z",
+      "bytes_previously_verified": 388144128,
+      "etag_previously_verified": "\"5ad0d0d4-17229c00\"",
+      "historical_evidence": "configs/independent-geometry-feasibility.json (2026-10-20)",
+      "current_HEAD_status": "failed_TLS_no_origin_response",
+      "current_bytes": null,
+      "current_etag": null,
+      "content_sha256": null,
+      "members_inspected": false,
+      "expanded_bytes": null,
+      "dataset_payload_read_bytes_this_review": 0
+    }
+  ],
+  "compressed_bytes_previously_verified": 761102320,
+  "current_compressed_bytes_verified": null,
+  "current_source_gate": "blocked: urllib/curl original domain and curl official alternate all failed TLS; CONNECT 200 is proxy negotiation, not origin archive 200; no TLS bypass, GET, range, archive index or payload reads",
+  "selection": {
+    "expected_full_scene_image_count": 44,
+    "name_sort": "full relative image path, lexicographic, unique",
+    "selected_zero_based_ranks": [
+      0,
+      21,
+      43
+    ],
+    "rule": "first, floor((N-1)/2), last; N must equal44, otherwise stop",
+    "reserved_zero_based_ranks": [
+      7,
+      14,
+      28,
+      35
+    ],
+    "selected_names": null,
+    "reserved_names": null,
+    "actual_camera_ids": null,
+    "actual_native_wh": null,
+    "expected_native_wh": [
+      6048,
+      4032
+    ],
+    "allow_different_resolution": false,
+    "not_selected": "all remaining views remain archived and inaccessible to predictor/evaluator",
+    "when_to_freeze_names": "metadata/member-list intake before RGB decode or GT analysis; freeze selected image/camera identity and byte hashes before any model inference"
+  },
+  "coordinate_contract": {
+    "RGB": "original distorted DSLR JPEG; no crop, rectification or undistortion",
+    "camera": "cameras.txt camera_id association; THIN_PRISM_FISHEYE expected; unique matching image names/IDs including ID0 allowed",
+    "pose": "world-to-camera Hamilton qw,qx,qy,qz: Xc=R Xw+t; center=-R.T t; no GT/ICP alignment",
+    "GT": "same-relative-name native row-major 4-byte axial Z; infinity unknown; little endian and exact4WH must be checked at intake, no JPEG decode, interpolation or filling",
+    "units": "official metric coordinate contract; ordinal positive-Z order does not depend on global metric scale; no metric-accuracy claim",
+    "pixel_center": "native integer-center index mapped to work ((i+.5)/6-.5,(j+.5)/6-.5)",
+    "expected_three_GT_bytes": 292626432,
+    "content_gate": "member safety, schema and native byte lengths/hash first; GT counts/nodes/pairs only in evaluator after all predictions sealed; mismatch stops without inferred repair"
+  },
+  "unchanged_protocol": {
+    "base_plan": "configs/terrace-relative-diagnostic-plan.json",
+    "base_plan_sha256": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+    "semantic_sections_sha256": {
+      "mapping": "c6e2de84b2513959521070237e7fe2e2e73f8bb4a77bb6d6e8296d01696c6602",
+      "sampling": "52b405770dd5e6cd1831f3c7dd518ba07ab766f96cfd9a876da163b4e3e47148",
+      "pairs": "811dd06b01a6c1a133cc74760c662bf17cf2e6e7ce24b84f23af8dcdaec75c80",
+      "loss": "8ee05e69bb981464f2c5877a3558b739e2044efefc8a6665a5e1f51a355a8b62",
+      "controls": "272c08f6a7a3f7940d78593790ba15af5dffc927c9ebf25f12702d56946bb945",
+      "support_gates": "522a2a163d65924e226b05232a7ba2f4e41938dc582aaeff57146621dbaea395",
+      "acceptance": "c0957c2e543c1e73b8f19475f29cba9d8d3b3d1e5dc1eb9271daa287fbad5269",
+      "required_reports": "19e6b0c465461ca9f8eb1936e01edaa6aeea22625d9d0f53e3805546adea3de9",
+      "synthetic_acceptance": "b33f2012fad2aee22f4e8146f446d9af9248c892e0f15bbf643fc8292f8cd0c2"
+    },
+    "numeric_core": "src/geosplat_r/relative_diagnostics.py",
+    "numeric_core_sha256": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "model_source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "weights_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "weights_download_bytes": 0,
+    "batch_size": 1,
+    "precision": "float32",
+    "seed": 42,
+    "working_wh": [
+      1008,
+      672
+    ],
+    "network_NCHW": [
+      1,
+      3,
+      518,
+      784
+    ],
+    "raw_output": "float32 nonnegative raw relative q, zero valid; upstream infer_image unchanged",
+    "GT_fitting": false,
+    "model_passes_if_later_authorized": 3,
+    "all_three_sealed_before_any_GT_analysis": true,
+    "grid": [
+      12,
+      9
+    ],
+    "nodes_cap_per_cell": 64,
+    "local_candidate_cap_per_cell": 256,
+    "cross_draws_per_source_cell": 256,
+    "GT_contrast_ratio_min": 1.1,
+    "shuffle_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "node_rng_seed": "42+108*image_index+cell_index",
+    "local_rng_seed": "100000+108*image_index+cell_index",
+    "cross_rng_seed": "200000+108*image_index+cell_index",
+    "shuffle_image_seed": "seed+1000*image_index",
+    "scene_aggregation": "per-cell macro; local/cross half each; all three images equally; report each scene separately",
+    "constant_loss": 0.5,
+    "oracle_loss": 0,
+    "minimum_nodes_per_image": 1024,
+    "minimum_eligible_pairs_per_included_cell": 16,
+    "minimum_included_cells_per_stratum": 12,
+    "minimum_eligible_pairs_per_stratum": 256,
+    "maximum_invalid_node_fraction": 0.01,
+    "maximum_invalid_pair_fraction": 0.02,
+    "maximum_each_stratum_and_image_loss": 0.4,
+    "maximum_scene_macro_loss": 0.35,
+    "minimum_improvement_over_own_shuffle_mean_each_image": 0.05
+  },
+  "implementation_gate": {
+    "current_entry_accepts_second_scene": false,
+    "blocking_locations": [
+      "scripts/run_relative_diagnostic.py: frozen PLAN_SHA admission",
+      "src/geosplat_r/relative_io.py: exact terrace protocol and selected names",
+      "src/geosplat_r/relative_diagnostics.py: terrace seal identity constant"
+    ],
+    "allowed_future_design": "Separate reviewed manifest/IO adapter with explicit data/source/model/weight/output arguments and its own plan identity; reuse existing numerical functions unchanged; retain terrace entry and old seals byte-exact.",
+    "forbidden_shortcuts": [
+      "rename delivery_area files to terrace names",
+      "edit old frozen plan or weaken hash/identity validation",
+      "mutate PLAN_SHA at runtime",
+      "reuse old plan SHA for a different scene"
+    ],
+    "before_real_execution": [
+      "separate explicit implementation authorization after input identity intake",
+      "CPU synthetic mapping/order/contrast/tie/invalid/control and new manifest tests",
+      "cross-scene mismatch/name/third-prediction corruption rejects before any GT access",
+      "read-only whitelist isolation on CPU and WSL GPU, no labels/archives/other views in predictor",
+      "review source/argv hashes and actual required preflight scope before any formal forwards"
+    ]
+  },
+  "isolation": {
+    "intake": "all archives, weights, logs and raw output external, fresh no-overwrite directories; list/CRC and hash approved scope, extract only three selected RGB/GT plus metadata needed to export three camera records; no points3D, masks or other views passed on",
+    "predictor": "three selected RGBs and selected camera manifest; frozen model/source/weights; no GT/masks/reference counts, whole archives, full camera tables or other views",
+    "evaluator": "CPU only, all-three seals checked first; three selected native GT buffers and sealed raw predictions; no model or optimizer",
+    "reserved": "four reserved views and all remaining RGB/GT not decoded",
+    "evaluation_outputs": "never feed oracle, support masks, pair samples, errors or GT-derived fitting back to prediction/training"
+  },
+  "resources": {
+    "CPU_threads_max": 4,
+    "CPU_RSS_GiB": 2,
+    "CPU_evaluation_timeout_seconds": 600,
+    "GPU_budget_GiB": 12,
+    "batch": 1,
+    "precision": "float32",
+    "intake_working_storage_budget_GiB": 10,
+    "diagnostic_new_output_budget_GiB": 1,
+    "extra_weight_download_bytes": 0,
+    "no_paid_cloud": true,
+    "overflow": "stop; no automatic expanded extraction, additional archives or altered resolution"
+  },
+  "acceptance": {
+    "engineering": "source lengths/ETags current verified, full approved hashes/integrity, input/coordinate/mapping and CPU/isolation gates passed before any inference",
+    "data_support": "evaluate frozen nodes/pairs only after sealing; use unchanged ordinal support gates; no added >=1% coverage rule or scene/image replacement",
+    "research": "all three second-scene image/stratum validity, support and direction gates must pass; then call it a two-scene development ordinal replication only",
+    "combined_report": "retain terrace unchanged, publish second scene separately and six-image/two-scene equal-weight secondary mean; aggregate cannot rescue a failed image or scene",
+    "failure": "unknown support -> blocked; invalid/prediction/order failure -> fail; keep every failure and stop, no sign/contrast/seed/model retuning, new scene substitution or extra inference",
+    "success": "may review a separate falsifiable error-risk hypothesis; not release reliability weights or GS training"
+  },
+  "release_order": [
+    "current: metadata/static planning only; completed with source-reachability gate blocked",
+    "next recommendation: restore verified official HEAD (archive origin final200 and exact Content-Length/ETag); drift requires renewed inventory review",
+    "only after exact-file/size user approval: download two named archives and CPU metadata/identity intake, freeze names/manifests; no GT pair/error analysis or GPU",
+    "after separate authorization: minimal scene-specific IO admission/seal adapter and CPU synthetic/isolation checks preserving numerical core and terrace paths",
+    "only after explicit forward release: three predictions, complete seal, one unified native GT evaluation; retain all unknowns/failures and stop"
+  ],
+  "external_evidence_key": "second-scene-ordinal-review-20261021T071600Z",
+  "cumulative_contribution": "Terrace relative-order positive screen plus auditable second-scene replication design; previous anchor/D1/D2/Cauchy failures unchanged; no reliability or novel algorithm/training benefit demonstrated"
+}

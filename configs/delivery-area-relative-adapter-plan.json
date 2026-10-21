@@ -1,0 +1,37 @@
+{
+  "protocol": "delivery-area-relative-adapter-v1",
+  "date": "2026-10-21",
+  "scope": "CPU IO, sealing and synthetic/isolation checks only; no GPU/model/real GT analysis",
+  "scene": "delivery_area",
+  "input_manifest_sha256": "e74cfbddaba6b5a451bd40901c550e974543d860bf09e0f2135bddebd003c867",
+  "base_plan_sha256": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+  "review_plan_sha256": "058f84c0b417e745daa9d89e98b21da1c51e530e08e569b6b8f1b0fccabe88f8",
+  "numerical_core_sha256": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+  "legacy_IO_sha256": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+  "inherited_semantic_sections_sha256": {
+    "mapping": "c6e2de84b2513959521070237e7fe2e2e73f8bb4a77bb6d6e8296d01696c6602",
+    "sampling": "52b405770dd5e6cd1831f3c7dd518ba07ab766f96cfd9a876da163b4e3e47148",
+    "pairs": "811dd06b01a6c1a133cc74760c662bf17cf2e6e7ce24b84f23af8dcdaec75c80",
+    "loss": "8ee05e69bb981464f2c5877a3558b739e2044efefc8a6665a5e1f51a355a8b62",
+    "controls": "272c08f6a7a3f7940d78593790ba15af5dffc927c9ebf25f12702d56946bb945",
+    "support_gates": "522a2a163d65924e226b05232a7ba2f4e41938dc582aaeff57146621dbaea395",
+    "acceptance": "c0957c2e543c1e73b8f19475f29cba9d8d3b3d1e5dc1eb9271daa287fbad5269",
+    "required_reports": "19e6b0c465461ca9f8eb1936e01edaa6aeea22625d9d0f53e3805546adea3de9",
+    "synthetic_acceptance": "b33f2012fad2aee22f4e8146f446d9af9248c892e0f15bbf643fc8292f8cd0c2"
+  },
+  "selected_names": [
+    "dslr_images/DSC_0675.JPG",
+    "dslr_images/DSC_0696.JPG",
+    "dslr_images/DSC_0718.JPG"
+  ],
+  "native_wh": [
+    6048,
+    4032
+  ],
+  "work_wh": [
+    1008,
+    672
+  ],
+  "prediction_seal": "independent delivery_area protocol/plan/input/source identities; old terrace seal rejected",
+  "real_execution_authorized": false
+}

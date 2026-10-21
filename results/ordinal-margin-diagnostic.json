@@ -1,0 +1,2427 @@
+{
+  "protocol": "ordinal-margin-frozen-diagnostic-v1",
+  "status": "passed_development_margin_screen",
+  "evidence_key": "ordinal-margin-diagnostic-20261021T132107Z",
+  "plan_sha256": "3fb84489f24f97ec137ba85158c935771981a527ae7bf12bdf823ecf16e82ebb",
+  "source_sha256": {
+    "ordinal_margin.py": "a532ca10b707014966e708fcbb38bdfb04f6ad1bc381e52d126fcc42d2d519d4",
+    "relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "run_ordinal_margin_cpu.py": "a822035291ea9cb452865fe881c00987740b80729d5727c50b0cbe3b94b08ef8",
+    "prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1"
+  },
+  "descriptor_seal_sha256": "184259003be3cf9d41f73ff2eb4a3f1634aa802ff897fa9c4d9cb51c7107c41f",
+  "images": [
+    {
+      "scene": "terrace",
+      "image_index": 0,
+      "name": "dslr_images/DSC_0259.JPG",
+      "support": {
+        "unique_wrong_pairs": 315,
+        "error_source_cells": 58,
+        "error_incident_nodes": 539,
+        "max_node_error_incidence_fraction": 0.01904761904761905,
+        "passed": true
+      },
+      "baseline_R100": 0.007871930585148894,
+      "margin_R50": 0.0002587991718426501,
+      "relative_risk_reduction": 0.9671237990422707,
+      "shuffle_mean_R50": 0.008140648768061969,
+      "shuffle_min_R50": 0.00724119421404545,
+      "shuffle_max_R50": 0.008772855866652118,
+      "ratio_to_shuffle_mean": 0.03179097627427329,
+      "constant_R50": 0.007871930585148894,
+      "oracle_R50": 0.0,
+      "curves": {
+        "margin": {
+          "0.25": 0.0,
+          "0.5": 0.0002587991718426501,
+          "0.75": 0.0005256783912910395,
+          "1.0": 0.007871930585148894
+        },
+        "constant": {
+          "0.25": 0.007871930585148894,
+          "0.5": 0.007871930585148894,
+          "0.75": 0.007871930585148894,
+          "1.0": 0.007871930585148894
+        },
+        "oracle": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.007871930585148894
+        }
+      },
+      "shuffle_curves": {
+        "shuffle_mean": {
+          "0.25": 0.008075137803455975,
+          "0.5": 0.008140648768061969,
+          "0.75": 0.007947385041632019,
+          "1.0": 0.007871930585148896
+        },
+        "shuffle_min": {
+          "0.25": 0.00671617851093534,
+          "0.5": 0.00724119421404545,
+          "0.75": 0.007319919779604764,
+          "1.0": 0.007871930585148894
+        },
+        "shuffle_max": {
+          "0.25": 0.009977304198357543,
+          "0.5": 0.008772855866652118,
+          "0.75": 0.00859425208194741,
+          "1.0": 0.007871930585148894
+        }
+      },
+      "error_cell_membership_concentration": [
+        {
+          "stratum": "local",
+          "cell": 20,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "local",
+          "cell": 43,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "local",
+          "cell": 55,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 1,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 2,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 3,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 8,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 9,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 10,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 11,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 12,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 13,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 14,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 15,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 20,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 21,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 22,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 23,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 24,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 25,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 26,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 27,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 31,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 32,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 33,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 34,
+          "wrong_memberships": 17
+        },
+        {
+          "stratum": "cross",
+          "cell": 36,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 37,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 38,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 39,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 43,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 44,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 46,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 48,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 49,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 50,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 52,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 54,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 55,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 56,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 57,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 58,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 60,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 61,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 62,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 63,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 64,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 65,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 68,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 69,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 70,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 73,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 74,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 75,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 76,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 77,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 78,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 79,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 80,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 81,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 82,
+          "wrong_memberships": 3
+        }
+      ],
+      "max_cell_wrong_membership_fraction": 0.05396825396825397,
+      "source_sha256": "4897e8cec6a191c459d36ee207e06aff01be6bf99ba4d5594f0ecc709f55ca18"
+    },
+    {
+      "scene": "terrace",
+      "image_index": 1,
+      "name": "dslr_images/DSC_0271.JPG",
+      "support": {
+        "unique_wrong_pairs": 252,
+        "error_source_cells": 48,
+        "error_incident_nodes": 365,
+        "max_node_error_incidence_fraction": 0.027777777777777776,
+        "passed": true
+      },
+      "baseline_R100": 0.007866764507014772,
+      "margin_R50": 0.001831755367655243,
+      "relative_risk_reduction": 0.7671526373998012,
+      "shuffle_mean_R50": 0.007964808599347268,
+      "shuffle_min_R50": 0.0067968241234227155,
+      "shuffle_max_R50": 0.008839238790415616,
+      "ratio_to_shuffle_mean": 0.22998109054439286,
+      "constant_R50": 0.007866764507014772,
+      "oracle_R50": 0.0,
+      "curves": {
+        "margin": {
+          "0.25": 0.0,
+          "0.5": 0.001831755367655243,
+          "0.75": 0.0035689691431196376,
+          "1.0": 0.007866764507014772
+        },
+        "constant": {
+          "0.25": 0.007866764507014772,
+          "0.5": 0.007866764507014772,
+          "0.75": 0.007866764507014772,
+          "1.0": 0.007866764507014772
+        },
+        "oracle": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.00030736390178465076,
+          "1.0": 0.007866764507014772
+        }
+      },
+      "shuffle_curves": {
+        "shuffle_mean": {
+          "0.25": 0.007926544456484637,
+          "0.5": 0.007964808599347268,
+          "0.75": 0.007825530335524761,
+          "1.0": 0.00786676450701477
+        },
+        "shuffle_min": {
+          "0.25": 0.005616542799152883,
+          "0.5": 0.0067968241234227155,
+          "0.75": 0.007323219863378956,
+          "1.0": 0.007866764507014772
+        },
+        "shuffle_max": {
+          "0.25": 0.009716634496125701,
+          "0.5": 0.008839238790415616,
+          "0.75": 0.00868391139615567,
+          "1.0": 0.007866764507014772
+        }
+      },
+      "error_cell_membership_concentration": [
+        {
+          "stratum": "local",
+          "cell": 6,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "local",
+          "cell": 18,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "local",
+          "cell": 72,
+          "wrong_memberships": 26
+        },
+        {
+          "stratum": "local",
+          "cell": 73,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 1,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 2,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 3,
+          "wrong_memberships": 21
+        },
+        {
+          "stratum": "cross",
+          "cell": 4,
+          "wrong_memberships": 53
+        },
+        {
+          "stratum": "cross",
+          "cell": 5,
+          "wrong_memberships": 23
+        },
+        {
+          "stratum": "cross",
+          "cell": 7,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 8,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 9,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 10,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 11,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 17,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 18,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 19,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 20,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 21,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 25,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 28,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 30,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 32,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 33,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 34,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 36,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 41,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 42,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 43,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 44,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 45,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 54,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 55,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 56,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 60,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 67,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 68,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 72,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 75,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 76,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 77,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 78,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 79,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 80,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 84,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 85,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 87,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 88,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 89,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 93,
+          "wrong_memberships": 1
+        }
+      ],
+      "max_cell_wrong_membership_fraction": 0.21031746031746032,
+      "source_sha256": "92811c6d73114567cb5304f98882514a3de78f5023d0d484bbdf2297060858bb"
+    },
+    {
+      "scene": "terrace",
+      "image_index": 2,
+      "name": "dslr_images/DSC_0285.JPG",
+      "support": {
+        "unique_wrong_pairs": 588,
+        "error_source_cells": 76,
+        "error_incident_nodes": 945,
+        "max_node_error_incidence_fraction": 0.011904761904761904,
+        "passed": true
+      },
+      "baseline_R100": 0.013603150187753701,
+      "margin_R50": 8.583849101090481e-05,
+      "relative_risk_reduction": 0.9936898078881624,
+      "shuffle_mean_R50": 0.01355640232428088,
+      "shuffle_min_R50": 0.01194642495055094,
+      "shuffle_max_R50": 0.014396555480566346,
+      "ratio_to_shuffle_mean": 0.00633195216234911,
+      "constant_R50": 0.013603150187753701,
+      "oracle_R50": 0.0,
+      "curves": {
+        "margin": {
+          "0.25": 0.0,
+          "0.5": 8.583849101090481e-05,
+          "0.75": 0.0016363050162633587,
+          "1.0": 0.013603150187753701
+        },
+        "constant": {
+          "0.25": 0.013603150187753701,
+          "0.5": 0.013603150187753701,
+          "0.75": 0.013603150187753701,
+          "1.0": 0.013603150187753701
+        },
+        "oracle": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.013603150187753701
+        }
+      },
+      "shuffle_curves": {
+        "shuffle_mean": {
+          "0.25": 0.013619535245986752,
+          "0.5": 0.01355640232428088,
+          "0.75": 0.013673038597855855,
+          "1.0": 0.013603150187753701
+        },
+        "shuffle_min": {
+          "0.25": 0.010866638879788686,
+          "0.5": 0.01194642495055094,
+          "0.75": 0.013059777327254524,
+          "1.0": 0.013603150187753701
+        },
+        "shuffle_max": {
+          "0.25": 0.015260023549043123,
+          "0.5": 0.014396555480566346,
+          "0.75": 0.014212753620954383,
+          "1.0": 0.013603150187753701
+        }
+      },
+      "error_cell_membership_concentration": [
+        {
+          "stratum": "local",
+          "cell": 21,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "local",
+          "cell": 44,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "local",
+          "cell": 56,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "local",
+          "cell": 57,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "local",
+          "cell": 62,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "local",
+          "cell": 69,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "local",
+          "cell": 82,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 0,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 1,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 2,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 8,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 9,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 10,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 11,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 12,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 13,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 15,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 20,
+          "wrong_memberships": 17
+        },
+        {
+          "stratum": "cross",
+          "cell": 21,
+          "wrong_memberships": 16
+        },
+        {
+          "stratum": "cross",
+          "cell": 22,
+          "wrong_memberships": 15
+        },
+        {
+          "stratum": "cross",
+          "cell": 23,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 24,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 25,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 26,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 27,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 32,
+          "wrong_memberships": 14
+        },
+        {
+          "stratum": "cross",
+          "cell": 33,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 34,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 35,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 36,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 37,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 39,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 40,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 44,
+          "wrong_memberships": 16
+        },
+        {
+          "stratum": "cross",
+          "cell": 45,
+          "wrong_memberships": 16
+        },
+        {
+          "stratum": "cross",
+          "cell": 46,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 47,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 48,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 49,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 50,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 51,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 52,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 54,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 55,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 56,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 57,
+          "wrong_memberships": 22
+        },
+        {
+          "stratum": "cross",
+          "cell": 58,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 59,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 60,
+          "wrong_memberships": 16
+        },
+        {
+          "stratum": "cross",
+          "cell": 61,
+          "wrong_memberships": 13
+        },
+        {
+          "stratum": "cross",
+          "cell": 62,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 63,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 64,
+          "wrong_memberships": 13
+        },
+        {
+          "stratum": "cross",
+          "cell": 65,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 66,
+          "wrong_memberships": 20
+        },
+        {
+          "stratum": "cross",
+          "cell": 67,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 68,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 69,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 70,
+          "wrong_memberships": 13
+        },
+        {
+          "stratum": "cross",
+          "cell": 71,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 72,
+          "wrong_memberships": 20
+        },
+        {
+          "stratum": "cross",
+          "cell": 73,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 74,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 75,
+          "wrong_memberships": 13
+        },
+        {
+          "stratum": "cross",
+          "cell": 76,
+          "wrong_memberships": 14
+        },
+        {
+          "stratum": "cross",
+          "cell": 77,
+          "wrong_memberships": 16
+        },
+        {
+          "stratum": "cross",
+          "cell": 78,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 79,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 80,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 81,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 82,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 83,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 84,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 85,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 86,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 87,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 88,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 89,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 90,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 91,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 92,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 93,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 94,
+          "wrong_memberships": 3
+        }
+      ],
+      "max_cell_wrong_membership_fraction": 0.03741496598639456,
+      "source_sha256": "f417604e38e45ffb934cc4ff3a90a93595c1ea5ba0e79978edc7342dbe2aeabf"
+    },
+    {
+      "scene": "delivery_area",
+      "image_index": 0,
+      "name": "dslr_images/DSC_0675.JPG",
+      "support": {
+        "unique_wrong_pairs": 96,
+        "error_source_cells": 31,
+        "error_incident_nodes": 139,
+        "max_node_error_incidence_fraction": 0.0625,
+        "passed": true
+      },
+      "baseline_R100": 0.01854718023977689,
+      "margin_R50": 0.0019707267954112272,
+      "relative_risk_reduction": 0.8937452070916558,
+      "shuffle_mean_R50": 0.018563371577973824,
+      "shuffle_min_R50": 0.016034789835901,
+      "shuffle_max_R50": 0.021436839329695423,
+      "ratio_to_shuffle_mean": 0.10616211538584794,
+      "constant_R50": 0.01854718023977689,
+      "oracle_R50": 0.0,
+      "curves": {
+        "margin": {
+          "0.25": 0.00040485829959514174,
+          "0.5": 0.0019707267954112272,
+          "0.75": 0.005953849877227748,
+          "1.0": 0.01854718023977689
+        },
+        "constant": {
+          "0.25": 0.01854718023977689,
+          "0.5": 0.01854718023977689,
+          "0.75": 0.01854718023977689,
+          "1.0": 0.01854718023977689
+        },
+        "oracle": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0009534706331045002,
+          "1.0": 0.01854718023977689
+        }
+      },
+      "shuffle_curves": {
+        "shuffle_mean": {
+          "0.25": 0.01720197739223723,
+          "0.5": 0.018563371577973824,
+          "0.75": 0.018858592886154026,
+          "1.0": 0.018547180239776882
+        },
+        "shuffle_min": {
+          "0.25": 0.013075358288598467,
+          "0.5": 0.016034789835901,
+          "0.75": 0.016602476970943376,
+          "1.0": 0.01854718023977689
+        },
+        "shuffle_max": {
+          "0.25": 0.02071082617347455,
+          "0.5": 0.021436839329695423,
+          "0.75": 0.0205226706589475,
+          "1.0": 0.01854718023977689
+        }
+      },
+      "error_cell_membership_concentration": [
+        {
+          "stratum": "cross",
+          "cell": 0,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 1,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 2,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 3,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 4,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 5,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 6,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 7,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 11,
+          "wrong_memberships": 13
+        },
+        {
+          "stratum": "cross",
+          "cell": 48,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 49,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 50,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 52,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 53,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 57,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 60,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 62,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 63,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 66,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 68,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 69,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 70,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 71,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 74,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 76,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 77,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 78,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 79,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 80,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 81,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 86,
+          "wrong_memberships": 1
+        }
+      ],
+      "max_cell_wrong_membership_fraction": 0.13541666666666666,
+      "source_sha256": "244115e9a2a9385b3d23ce3a65b8ea9394900f67276661cb03fb12fe4b1c5d2e"
+    },
+    {
+      "scene": "delivery_area",
+      "image_index": 1,
+      "name": "dslr_images/DSC_0696.JPG",
+      "support": {
+        "unique_wrong_pairs": 417,
+        "error_source_cells": 71,
+        "error_incident_nodes": 653,
+        "max_node_error_incidence_fraction": 0.02158273381294964,
+        "passed": true
+      },
+      "baseline_R100": 0.01136238113663766,
+      "margin_R50": 0.0014087907498760211,
+      "relative_risk_reduction": 0.8760127183787721,
+      "shuffle_mean_R50": 0.0112998858806774,
+      "shuffle_min_R50": 0.00994794316873697,
+      "shuffle_max_R50": 0.012175797709509627,
+      "ratio_to_shuffle_mean": 0.12467300685620443,
+      "constant_R50": 0.01136238113663766,
+      "oracle_R50": 0.0,
+      "curves": {
+        "margin": {
+          "0.25": 0.0018518518518518517,
+          "0.5": 0.0014087907498760211,
+          "0.75": 0.0028707468513100116,
+          "1.0": 0.01136238113663766
+        },
+        "constant": {
+          "0.25": 0.01136238113663766,
+          "0.5": 0.01136238113663766,
+          "0.75": 0.01136238113663766,
+          "1.0": 0.01136238113663766
+        },
+        "oracle": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.01136238113663766
+        }
+      },
+      "shuffle_curves": {
+        "shuffle_mean": {
+          "0.25": 0.010979367529159881,
+          "0.5": 0.0112998858806774,
+          "0.75": 0.011409900713923955,
+          "1.0": 0.011362381136637659
+        },
+        "shuffle_min": {
+          "0.25": 0.00899517253487227,
+          "0.5": 0.00994794316873697,
+          "0.75": 0.01041924644376786,
+          "1.0": 0.01136238113663766
+        },
+        "shuffle_max": {
+          "0.25": 0.013642674568574164,
+          "0.5": 0.012175797709509627,
+          "0.75": 0.012030637656596553,
+          "1.0": 0.01136238113663766
+        }
+      },
+      "error_cell_membership_concentration": [
+        {
+          "stratum": "local",
+          "cell": 0,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "local",
+          "cell": 6,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "local",
+          "cell": 8,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "local",
+          "cell": 12,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "local",
+          "cell": 18,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "local",
+          "cell": 20,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "local",
+          "cell": 23,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "local",
+          "cell": 26,
+          "wrong_memberships": 17
+        },
+        {
+          "stratum": "local",
+          "cell": 28,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "local",
+          "cell": 56,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 0,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 1,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 2,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 3,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 4,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 7,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 8,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 9,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 10,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 12,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 13,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 14,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 15,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 16,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 17,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 18,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 19,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 20,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 21,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 22,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 23,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 25,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 26,
+          "wrong_memberships": 14
+        },
+        {
+          "stratum": "cross",
+          "cell": 27,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 31,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 32,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 33,
+          "wrong_memberships": 14
+        },
+        {
+          "stratum": "cross",
+          "cell": 34,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 35,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 36,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 37,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 38,
+          "wrong_memberships": 24
+        },
+        {
+          "stratum": "cross",
+          "cell": 43,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 44,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 45,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 46,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 47,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 48,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 49,
+          "wrong_memberships": 23
+        },
+        {
+          "stratum": "cross",
+          "cell": 50,
+          "wrong_memberships": 30
+        },
+        {
+          "stratum": "cross",
+          "cell": 51,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 52,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 53,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 55,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 56,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 57,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 58,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 59,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 60,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 61,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 62,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 63,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 64,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 65,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 66,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 67,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 68,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 69,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 70,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 71,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 74,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 81,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 84,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 85,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 86,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 87,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 92,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 93,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 96,
+          "wrong_memberships": 1
+        }
+      ],
+      "max_cell_wrong_membership_fraction": 0.07194244604316546,
+      "source_sha256": "19eee01e3ce3c0e2222c7850d416c0c89b3954449ccb8b5442d35d7b2694f01f"
+    },
+    {
+      "scene": "delivery_area",
+      "image_index": 2,
+      "name": "dslr_images/DSC_0718.JPG",
+      "support": {
+        "unique_wrong_pairs": 430,
+        "error_source_cells": 82,
+        "error_incident_nodes": 741,
+        "max_node_error_incidence_fraction": 0.009302325581395349,
+        "passed": true
+      },
+      "baseline_R100": 0.009667237472825647,
+      "margin_R50": 0.00018467220683287164,
+      "relative_risk_reduction": 0.9808971066085859,
+      "shuffle_mean_R50": 0.009787324289673674,
+      "shuffle_min_R50": 0.008743371959393106,
+      "shuffle_max_R50": 0.010580931031043673,
+      "ratio_to_shuffle_mean": 0.018868508017836294,
+      "constant_R50": 0.009667237472825647,
+      "oracle_R50": 0.0,
+      "curves": {
+        "margin": {
+          "0.25": 0.0,
+          "0.5": 0.00018467220683287164,
+          "0.75": 0.0003077870113881194,
+          "1.0": 0.009667237472825647
+        },
+        "constant": {
+          "0.25": 0.009667237472825647,
+          "0.5": 0.009667237472825647,
+          "0.75": 0.009667237472825647,
+          "1.0": 0.009667237472825647
+        },
+        "oracle": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.009667237472825647
+        }
+      },
+      "shuffle_curves": {
+        "shuffle_mean": {
+          "0.25": 0.009837969098519946,
+          "0.5": 0.009787324289673674,
+          "0.75": 0.009857164014137018,
+          "1.0": 0.009667237472825645
+        },
+        "shuffle_min": {
+          "0.25": 0.00801347347563526,
+          "0.5": 0.008743371959393106,
+          "0.75": 0.009477023625579697,
+          "1.0": 0.009667237472825647
+        },
+        "shuffle_max": {
+          "0.25": 0.01156118070365089,
+          "0.5": 0.010580931031043673,
+          "0.75": 0.010255075751324014,
+          "1.0": 0.009667237472825647
+        }
+      },
+      "error_cell_membership_concentration": [
+        {
+          "stratum": "local",
+          "cell": 1,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "local",
+          "cell": 14,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "local",
+          "cell": 26,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "local",
+          "cell": 34,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "local",
+          "cell": 55,
+          "wrong_memberships": 16
+        },
+        {
+          "stratum": "cross",
+          "cell": 0,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 1,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 2,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 3,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 4,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 5,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 6,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 7,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 8,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 9,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 10,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 11,
+          "wrong_memberships": 13
+        },
+        {
+          "stratum": "cross",
+          "cell": 12,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 14,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 15,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 16,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 17,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 18,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 19,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 20,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 21,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 22,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 23,
+          "wrong_memberships": 11
+        },
+        {
+          "stratum": "cross",
+          "cell": 24,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 25,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 27,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 28,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 29,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 31,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 32,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 33,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 34,
+          "wrong_memberships": 4
+        },
+        {
+          "stratum": "cross",
+          "cell": 35,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 36,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 37,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 38,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 39,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 40,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 41,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 45,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 46,
+          "wrong_memberships": 8
+        },
+        {
+          "stratum": "cross",
+          "cell": 47,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 48,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 49,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 50,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 51,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 52,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 57,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 58,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 61,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 62,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 63,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 64,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 68,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 69,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 70,
+          "wrong_memberships": 3
+        },
+        {
+          "stratum": "cross",
+          "cell": 71,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 72,
+          "wrong_memberships": 1
+        },
+        {
+          "stratum": "cross",
+          "cell": 73,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 74,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 75,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 76,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 77,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 78,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 79,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 80,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 81,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 82,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 83,
+          "wrong_memberships": 2
+        },
+        {
+          "stratum": "cross",
+          "cell": 85,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 86,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 87,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 88,
+          "wrong_memberships": 10
+        },
+        {
+          "stratum": "cross",
+          "cell": 89,
+          "wrong_memberships": 9
+        },
+        {
+          "stratum": "cross",
+          "cell": 90,
+          "wrong_memberships": 12
+        },
+        {
+          "stratum": "cross",
+          "cell": 91,
+          "wrong_memberships": 6
+        },
+        {
+          "stratum": "cross",
+          "cell": 92,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 93,
+          "wrong_memberships": 5
+        },
+        {
+          "stratum": "cross",
+          "cell": 94,
+          "wrong_memberships": 7
+        },
+        {
+          "stratum": "cross",
+          "cell": 95,
+          "wrong_memberships": 1
+        }
+      ],
+      "max_cell_wrong_membership_fraction": 0.037209302325581395,
+      "source_sha256": "da41b76c63efe05592021e705695afed1ed0243e6b5c140e112aff4f5b3abd55"
+    }
+  ],
+  "scenes": {
+    "terrace": {
+      "baseline_R100": 0.009780615093305788,
+      "margin_R50": 0.0007254643435029326,
+      "relative_risk_reduction": 0.9258263067729281,
+      "shuffle_mean_R50": 0.009887286563896707,
+      "ratio_to_shuffle_mean": 0.07337345173669343,
+      "risk": {
+        "0.25": 0.0,
+        "0.5": 0.0007254643435029326,
+        "0.75": 0.0019103175168913454,
+        "1.0": 0.009780615093305788
+      },
+      "scene_gate_passed": true
+    },
+    "delivery_area": {
+      "baseline_R100": 0.013192266283080066,
+      "margin_R50": 0.0011880632507067065,
+      "relative_risk_reduction": 0.9099424446707481,
+      "shuffle_mean_R50": 0.013216860582774966,
+      "ratio_to_shuffle_mean": 0.08988997373968402,
+      "risk": {
+        "0.25": 0.0007522367171489977,
+        "0.5": 0.0011880632507067065,
+        "0.75": 0.003044127913308626,
+        "1.0": 0.013192266283080066
+      },
+      "scene_gate_passed": true
+    }
+  },
+  "checks": {
+    "image_gates_passed": 6,
+    "scene_gates_passed": 2,
+    "strata_no_harm_passed": 12,
+    "unknown_strata": [
+      {
+        "scene": "delivery_area",
+        "image_index": 0,
+        "stratum": "local",
+        "reason": "zero_baseline_error"
+      }
+    ],
+    "full_coverage_max_absolute_difference": 0,
+    "constant_curves_equal_baseline": true,
+    "score_only_shuffles_each_image": 20,
+    "descriptor_semantic_evaluator_reads": 0,
+    "evaluator_semantic_reads": 12,
+    "all_six_descriptors_sealed_before_evaluation": true,
+    "original_files_unchanged": 163
+  },
+  "resources": {
+    "describe": {
+      "returncode": 0,
+      "wall_seconds": 0.30243343099573394,
+      "sampled_process_tree_RSS_KiB": 85492,
+      "stop_reason": null,
+      "expected_failure": false
+    },
+    "evaluate": {
+      "returncode": 0,
+      "wall_seconds": 2.5637904969989904,
+      "sampled_process_tree_RSS_KiB": 149056,
+      "stop_reason": null,
+      "expected_failure": false
+    }
+  },
+  "boundaries": {
+    "GPU": false,
+    "inference": false,
+    "training": false,
+    "download": false,
+    "commit": false,
+    "push": false
+  },
+  "interpretation": "Positive fixed ambiguity screen on two observed development scenes; not independent geometric confidence, calibrated probabilities, novelty, or reconstruction/training gain.",
+  "recommendation": "Review a separately unopened scene and frozen independent confirmation protocol/files/costs using metadata only; do not download, infer, train, weight, reverse score or tune automatically.",
+  "cumulative_contribution": "Baseline reproduction, matched multi-scene depth experiments and preserved negative diagnostics, plus an isolated prediction-only ordinal-margin screen with six-image development evidence."
+}

@@ -1,0 +1,420 @@
+{
+  "protocol": "terrace-sensor-diagnostic-plan-v1",
+  "date": "2026-10-21",
+  "status": "review_frozen_before_any_new_features_predictions_or_errors",
+  "stage": "independent_sensor_reference_diagnostic_design_only",
+  "authorization": {
+    "current_review_only": true,
+    "CPU_implementation": false,
+    "feature_extraction_matching_triangulation": false,
+    "model_inference": false,
+    "training": false,
+    "downloads": false,
+    "commits_or_push": false
+  },
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "intake_result_sha256": "4a114d9085db13665776538c7e3d379932dae43684cf752004219e025ea32f1c",
+  "purpose": "test metric viability of three-RGB-only anchor alignment against sensor depth, before designing any reliability score",
+  "hypothesis": "fixed train-anchor OLS inverse-depth alignment beats a per-view anchor-median constant-depth control on independently measured GT in all three selected views",
+  "non_claims": [
+    "not a new reliability module",
+    "not a new H1/D1/D2 experiment",
+    "not estimated-pose three-view reconstruction",
+    "not a final blind-test dataset",
+    "not comparable to historical LLFF 504x378 GS runs"
+  ],
+  "dataset": {
+    "scene": "ETH3D terrace public training/development",
+    "image_count": 23,
+    "selected_ranks": [
+      0,
+      11,
+      22
+    ],
+    "selected_names": [
+      "dslr_images/DSC_0259.JPG",
+      "dslr_images/DSC_0271.JPG",
+      "dslr_images/DSC_0285.JPG"
+    ],
+    "reserved_ranks": [
+      3,
+      7,
+      15,
+      19
+    ],
+    "reserved_names": [
+      "dslr_images/DSC_0262.JPG",
+      "dslr_images/DSC_0267.JPG",
+      "dslr_images/DSC_0275.JPG",
+      "dslr_images/DSC_0279.JPG"
+    ],
+    "native_wh": [
+      6048,
+      4032
+    ],
+    "inputs": [
+      {
+        "role": "predictor_rgb",
+        "image": "dslr_images/DSC_0259.JPG",
+        "archive_member": "terrace/images/dslr_images/DSC_0259.JPG",
+        "bytes": 10229993,
+        "sha256": "8952ec1b0ea4cf52cfd75839ea63ae08a548f2088f7ee696a01906f9d6cb003d"
+      },
+      {
+        "role": "evaluator_GT",
+        "image": "dslr_images/DSC_0259.JPG",
+        "archive_member": "terrace/ground_truth_depth/dslr_images/DSC_0259.JPG",
+        "bytes": 97542144,
+        "sha256": "8cef3b84c21d9fe5a26f0e883cee5b19f2006fd6617aec58c0fa2d745cf4670b"
+      },
+      {
+        "role": "predictor_rgb",
+        "image": "dslr_images/DSC_0271.JPG",
+        "archive_member": "terrace/images/dslr_images/DSC_0271.JPG",
+        "bytes": 9597477,
+        "sha256": "a5b4ad448ab75e38b972770d70f03cfe19f913b7d86d0516970e0bc4badee834"
+      },
+      {
+        "role": "evaluator_GT",
+        "image": "dslr_images/DSC_0271.JPG",
+        "archive_member": "terrace/ground_truth_depth/dslr_images/DSC_0271.JPG",
+        "bytes": 97542144,
+        "sha256": "995718c5f937d8bcbdf2407f44fc0f3fa15bf987ddaefc04aa487425dc14ff99"
+      },
+      {
+        "role": "predictor_rgb",
+        "image": "dslr_images/DSC_0285.JPG",
+        "archive_member": "terrace/images/dslr_images/DSC_0285.JPG",
+        "bytes": 11498087,
+        "sha256": "e41b4ce0768f96c080c7b7d99c1b0ef3174258f6b80d1d8540151525f24367c7"
+      },
+      {
+        "role": "evaluator_GT",
+        "image": "dslr_images/DSC_0285.JPG",
+        "archive_member": "terrace/ground_truth_depth/dslr_images/DSC_0285.JPG",
+        "bytes": 97542144,
+        "sha256": "22b7337685ab67dfdf05cfef2c630ce83a1a4263262da6b8e8d725e1b6f3f0c3"
+      },
+      {
+        "role": "predictor_cameras",
+        "path": "train/cameras.json",
+        "bytes": 1857,
+        "sha256": "4897cfd275c4c6875d3e31ea16e0149c81d9f4f68621ca335fb3c3f50c6024bc"
+      }
+    ],
+    "forbidden_predictor_inputs": [
+      "GT and valid masks",
+      "whole archives",
+      "full-scene calibration tables and tracks",
+      "upstream points3D",
+      "reserved or other RGB views",
+      "previous diagnostic errors and oracle outputs"
+    ]
+  },
+  "camera_adapter": {
+    "working_wh": [
+      1008,
+      672
+    ],
+    "resize": "cv2.INTER_AREA exactly 1/6, no crop, no undistortion, no EXIF transpose",
+    "model": "THIN_PRISM_FISHEYE",
+    "parameter_order": "fx fy cx cy k1 k2 p1 p2 k3 k4 sx1 sy1",
+    "camera_API": "pycolmap 4.2.1 in dedicated CPU environment, not legacy gsplat parser",
+    "scale_intrinsics": "fx fy cx cy divided by 6; distortion unchanged",
+    "opencv_measurement_to_COLMAP_work": "(x+0.5,y+0.5)",
+    "native_GT_pixel_center_to_work_index": "((i+0.5)/6-0.5,(j+0.5)/6-0.5)",
+    "work_measurement_to_native_corner": "(6*(x+0.5),6*(y+0.5))",
+    "pose": "normalize original rounded quaternion then Hamilton wxyz world-to-camera; never optimize poses or intrinsics",
+    "scene_units": "original meters; no scene normalization, GT fit or ICP",
+    "Z": "axial camera Z; do not normalize the lifted (u,v,1) ray"
+  },
+  "anchors": {
+    "status": "proposed future CPU implementation; not run",
+    "feature_backend": "OpenCV 4.11.0 SIFT CPU",
+    "grayscale": "cv2.cvtColor BGR2GRAY after fixed resize",
+    "sift": {
+      "nfeatures": 8192,
+      "nOctaveLayers": 3,
+      "contrastThreshold": 0.04,
+      "edgeThreshold": 10,
+      "sigma": 1.6,
+      "enable_precise_upscale": false
+    },
+    "cv2_threads": 4,
+    "seed": 42,
+    "pairs": "all three unordered pairs, lexicographic names",
+    "matching": "BF L2, KNN k=2 in both directions; strict distance ratio<0.8 in both directions and reciprocal best match; no learned matcher, RANSAC pose estimation or guided retry",
+    "tracks": "union accepted pair edges; reject entire component with multiple features from same image; keep tracks with 2 or 3 distinct selected images",
+    "triangulation": "float64 homogeneous DLT SVD from measured keypoints and known poses after full-model ray lifting; no refinement",
+    "filters": {
+      "finite_homogeneous_point": true,
+      "positive_Z_every_observation": true,
+      "minimum_maximum_pair_ray_angle_degrees": 1.5,
+      "maximum_reprojection_error_work_px": 2.0,
+      "measurement_border_work_px": 2
+    },
+    "coordinates_exported": "actual SIFT measurement indices, never fitted reprojections",
+    "collision": "per-image floor(measurement+0.5) pixel: keep smallest positive Z; ties stable track signature",
+    "minimum_anchors_per_image": 60,
+    "minimum_work_grid_cells_with_anchor_per_image": 12,
+    "spatial_grid": [
+      12,
+      9
+    ],
+    "gate_before_inference": true,
+    "on_insufficient_support": "blocked_anchor_support; retain artifacts, stop without changing images, filters or features"
+  },
+  "model": {
+    "name": "Depth Anything V2 Small relative inverse depth",
+    "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "source_files": [
+      {
+        "path": "LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+      },
+      {
+        "path": "README.md",
+        "bytes": 9904,
+        "sha256": "987d1ab991c1b149276a0426bec7d8f3472d85c29ec976d96ea657aa960fad50",
+        "git_blob": "c3bb68dd1b8798ac17b02b9181c431953be1cfae"
+      },
+      {
+        "path": "depth_anything_v2/dinov2.py",
+        "bytes": 15178,
+        "sha256": "d22df8d0da44c8525ebed898fd9c33b3acfcda919a84d577cc2a08bfd3d50ac1",
+        "git_blob": "83d250818c721c6df3b30d3f4352945527701615"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/__init__.py",
+        "bytes": 382,
+        "sha256": "e3c28c7b775165b6844000eb69f44d104d6c3803ac7da5d59f6ac3ecfb46d9d8",
+        "git_blob": "8120f4bc83066cb3f825ce32daa3b437f88486f1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/attention.py",
+        "bytes": 2343,
+        "sha256": "0d2410ce8b8b4499a6b0cdab939ae2bceab8971efd8660d999b0f3088f28cbf7",
+        "git_blob": "815a2bf53dbec496f6a184ed7d03bcecb7124262"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/block.py",
+        "bytes": 9332,
+        "sha256": "093266ea08084c7cce7b8ddd779ecfaaa13055735faa8a7d68b5924f385b395b",
+        "git_blob": "25488f57cc0ad3c692f86b62555f6668e2a66db1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/drop_path.py",
+        "bytes": 1160,
+        "sha256": "949100aac4d9c19c9d65319dbd362886c5d46a72d7586ba4fd500e9f1d51570c",
+        "git_blob": "af05625984dd14682cc96a63bf0c97bab1f123b1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/layer_scale.py",
+        "bytes": 823,
+        "sha256": "356817b5d1390737128cbcc03a5333fd3060b73beae478772282ccb851d0ef85",
+        "git_blob": "ca5daa52bd81d3581adeb2198ea5b7dba2a3aea1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/mlp.py",
+        "bytes": 1272,
+        "sha256": "c18c5b3f021408597a473bb710070ec3fb3b39f5a2e42e88ae83ced425a608b5",
+        "git_blob": "5e4b315f972f9a9f54aef1e4ef4e81b52976f018"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/patch_embed.py",
+        "bytes": 2832,
+        "sha256": "b3f82e19926c9cfb63f10136aca5e8a723bde1ad62dae1d04f90d405f9439baf",
+        "git_blob": "574abe41175568d700a389b8b96d1ba554914779"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/swiglu_ffn.py",
+        "bytes": 1859,
+        "sha256": "df81d9901240214edc1831ce1b77558dcd6227b29a2f000fc5f546df55d2d09a",
+        "git_blob": "b3324b266fb0a50ccf8c3a0ede2ae10ac4dfa03e"
+      },
+      {
+        "path": "depth_anything_v2/dpt.py",
+        "bytes": 7391,
+        "sha256": "7cc9a29b41d31e1628e5c8b8705e25ae95bc6490f779dbb695297ce2341566f5",
+        "git_blob": "18d3e6f8b5c973aea5d4927ef783d43053ba6429"
+      },
+      {
+        "path": "depth_anything_v2/util/blocks.py",
+        "bytes": 3987,
+        "sha256": "351aa24b8af4bef923ebe3bed5e5e8503b08e39bf06ee045d6444a485a2036a8",
+        "git_blob": "382ea183a40264056142afffc201c992a2b01d37"
+      },
+      {
+        "path": "depth_anything_v2/util/transform.py",
+        "bytes": 6075,
+        "sha256": "a97df1dbb687457a40c387fdc3482edee7ddc5c142c7d2735ca6235a8ae2885f",
+        "git_blob": "b14aacd44ea086b01725a9ca68bb49eadcf37d73"
+      },
+      {
+        "path": "requirements.txt",
+        "bytes": 69,
+        "sha256": "e24ea3bab22d643e58f8e400fc383d2db1a9c6fd6d24ab161b2b9516e74d159e",
+        "git_blob": "53b004a743f96f976384705a5f00dd65a16a0a69"
+      }
+    ],
+    "weights_bytes": 99218434,
+    "weights_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "batch_size": 1,
+    "precision": "float32",
+    "input_size": 518,
+    "expected_NCHW": [
+      1,
+      3,
+      518,
+      784
+    ],
+    "output_wh": [
+      1008,
+      672
+    ],
+    "upstream_image2tensor_and_infer_image_unchanged": true,
+    "output_upsampling": "upstream bilinear align_corners=True; do not replace with a new decoder",
+    "seed": 42,
+    "xformers": false,
+    "passes_per_view": 1,
+    "download_fallback": false
+  },
+  "alignment": {
+    "form": "q_pred=a*q_raw+b, q=1/Z",
+    "fit": "per-image unweighted float64 OLS on raw prediction bilinearly sampled at measured training anchor coordinates",
+    "target": "1/triangulated camera-axis Z in meters",
+    "ground_truth_used": false,
+    "positive_slope_required": true,
+    "minimum_raw_anchor_sample_std": 1e-06,
+    "positive_prediction_threshold_inverse_m": 1e-06,
+    "minimum_positive_work_interior_fraction": 0.5,
+    "reuse_old_Perspective_entry": false,
+    "after_invalid_alignment": "failed_alignment; no sign flip, robust fitting, oracle fit, clipping fallback or GT-based anchor rejection"
+  },
+  "controls": {
+    "constant": "per-image q_const=median(1/Z_anchor), Z_const=1/q_const; same anchors and fixed evaluation domain",
+    "spatial_gradient_rank": "lower score first; sqrt(central_dx(q_pred)^2+central_dy(q_pred)^2)/median(1/Z_anchor), central work-grid step1; invalid score +infinity; no GT or feature confidence; if any central-difference contributor is invalid, score +infinity; score-unavailable is distinct from prediction-invalid",
+    "gradient_interpolation": "evaluate centered differences at work pixels then bilinearly sample scores at native GT centers",
+    "random_ranks": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "algorithm": "NumPy PCG64 permutation of per-image GT-valid fixed-domain native pixels in row-major order; evaluator-only; report every seed and mean range"
+    },
+    "oracle_rank": "ascending capped per-pixel error, evaluator-only, never exported to predictor",
+    "tie_break": "native row-major index ascending; invalid gradient scores rank last",
+    "coverage_fractions": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "retained_count": "ceil(fraction*N_GT_valid_in_fixed_domain)",
+    "interpretation": "gradient, random and oracle are descriptive controls; no new reliability-score success gate"
+  },
+  "evaluation": {
+    "run_after": "all three predictions/anchors/constants and predictor access manifests hash-sealed; no per-view GT feedback before predictions finish",
+    "depth_read": "native little-endian float32; finite positive GT only; no filling, resizing or GT interpolation",
+    "fixed_domain": "native pixels whose mapped work centers satisfy 2<=x<=W_work-3 and 2<=y<=H_work-3; domain independent of prediction validity",
+    "mapping": "bilinear sample aligned inverse-Z q at mapped center, invert only after sampling; all four contributors finite and positive, otherwise invalid",
+    "invalid_prediction": "nonfinite or q<=1e-6 or any invalid bilinear contributor; primary error penalty1, never dropped",
+    "primary_error": "mean min(abs(Z_pred-Z_GT)/Z_GT,1); invalid predictions contribute1",
+    "primary_aggregation": "compute each image mean then equally average all three images; never pool pixels across images",
+    "secondary": [
+      "uncapped AbsRel on valid predictions alongside invalid rate and denominator",
+      "mean absolute inverse-Z error normalized by train median inverse-Z on valid predictions; invalid rate separate",
+      "per-image 12x9 block counts and means, zero-support blocks unknown",
+      "per-coverage capped error, invalid count, retained GT count for every gradient/random/oracle ranking",
+      "raw anchor GT residual at native floor(native_corner_coordinate) only if that exact native pixel has valid GT; no nearest-valid search; minimum30 per view for an interpreted anchor-reference summary"
+    ],
+    "minimum_domain_GT_per_image": 5000,
+    "minimum_domain_cells_with_20_GT_per_image": 30,
+    "unknowns": "GT unavailable stays unknown; spatially excluded counts and predictor-invalid counts reported separately",
+    "no_per_image_GT_affine_or_oracle_alignment": true,
+    "inference_unit": "one development scene; three correlated images; no iid-pixel significance or generalization claim"
+  },
+  "acceptance": {
+    "engineering": "all camera, leakage, schema and artifact checks pass, all original evidence retained; a negative metric result can still be a completed diagnostic",
+    "minimum_stage_A_positive_interior": 0.5,
+    "max_evaluation_invalid_prediction_fraction_each_image": 0.05,
+    "accuracy_macro_relative_capped_error_reduction_min": 0.05,
+    "accuracy_each_image_must_strictly_improve_over_constant": true,
+    "risk_curve": "descriptive only; do not flip gradient direction or tune gates from GT",
+    "thresholds_are_operational_not_statistical_power": true,
+    "failure_labels": [
+      "blocked_isolation",
+      "blocked_anchor_support",
+      "blocked_evaluation_support",
+      "failed_alignment",
+      "failed_prediction_validity",
+      "failed_accuracy_gate",
+      "inconclusive_anchor_GT_support",
+      "inconclusive_floor"
+    ],
+    "on_accuracy_failure": "stop this fixed pilot; do not tune or add scenes/runs automatically",
+    "on_success": "supports reviewing external-scene confirmation and a separately falsifiable geometric-score hypothesis; does not authorize reliability weighting or GS training",
+    "any_image_constant_zero_error": "inconclusive_floor: strict per-image improvement is unattainable; no division by zero or success claim"
+  },
+  "isolation": {
+    "predictor_mounts": "bubblewrap allowlist: only selected train RGB/camera export, fixed source/weights, required runtime/libs, and new output; no parent-wide data/artifact mounts",
+    "evaluator_process": "separate CPU process with read-only sealed predictions and evaluator-only native GT; output separate",
+    "CPU_helper_environments": "OpenCV main env extracts features; separate pycolmap 4.2.1 CPU helper only consumes selected cameras/keypoints for ray math; never load a Reconstruction containing upstream points",
+    "bwrap_installed_version": "0.9.0",
+    "namespace_and_GPU_mount_availability": "not yet tested; mandatory synthetic isolation preflight before use",
+    "old_audit_hook_sufficient": false,
+    "old_audit_hook_limit": "scoped to data.parent and not a native-code security sandbox; current sibling evaluator layout must not rely on it",
+    "mandatory_denial_tests": [
+      "sentinel evaluator label cannot be opened by Python, os.open, NumPy or OpenCV in predictor wrapper",
+      "archive/full calibration/other-view paths unavailable",
+      "output overwrite refused",
+      "changing evaluator labels does not change predictor input manifest or synthetic outputs"
+    ],
+    "on_unavailable_isolation": "blocked_isolation; stop, no broad mount fallback"
+  },
+  "resources": {
+    "CPU_threads_max": 4,
+    "CPU_RSS_budget_GiB": 2,
+    "CPU_anchor_timeout_seconds": 600,
+    "GPU_budget_GiB": 12,
+    "GPU_forward_preflight": "future explicit approval only, unchanged shape/precision; OOM or anomaly stops, no auto retry or image shrink",
+    "no_paid_cloud": true,
+    "predictions_runs_max": 3,
+    "extra_download_bytes": 0,
+    "new_output_budget_GiB": 2,
+    "report_actual_timing_CPU_RSS_GPU_allocated_reserved_and_board_memory": true,
+    "CPU_evaluation_timeout_seconds": 1800
+  },
+  "release_order": [
+    "this step: plan review and freeze only",
+    "next separate authorization: minimal CPU adapter, synthetic camera/geometry/masking/isolation checks and one three-RGB anchor-support preparation; no weights load or inference",
+    "only after CPU gates and explicit authorization: GPU forward preflight and exactly one Small pass per view, then unified CPU GT evaluation",
+    "stop and report all negative and unknown outcomes; no reliability weighting or training"
+  ],
+  "cumulative_contribution": "independent sensor-reference protocol and falsifiable metric-viability check; no new method or measured gain established",
+  "runtime": {
+    "feature_and_model": "existing Python3.10.22, OpenCV4.11.0.86, NumPy1.26.4, torch2.4.1+cu124",
+    "camera_helper": "existing Python3.12.3, pycolmap4.2.1, NumPy2.2.6",
+    "evaluator": "existing Python3.10.22, NumPy1.26.4; no CUDA or model import; PCG64 version fixed"
+  }
+}

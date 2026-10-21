@@ -1,0 +1,94 @@
+{
+  "protocol": "delivery-area-adapter-CPU-acceptance-v1",
+  "date": "2026-10-21",
+  "status": "passed_CPU_adapter_and_isolation_only",
+  "external_evidence_key": "delivery-area-adapter-CPU-20261021T074000Z",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "source_sha256": {
+    "src/geosplat_r/delivery_relative_io.py": "ff13ff660181098ed2671e7339bc1805399d9d63e58502702cec861360d26441",
+    "scripts/check_delivery_adapter_cpu.py": "790e8419318e0f8cd635d2b300f65ce4eded22b620d87395cff3a0426657d836",
+    "tests/test_delivery_relative_io.py": "16a0019e64396fc2c95fc27312b4bd6cf2c1ab25029322806d0a708ac7ef6585",
+    "configs/delivery-area-relative-adapter-plan.json": "8d8ad3a455aa7f454dc4ccc88204ecbb4edc2d1e0c69a4432eed2cc96f220ed1"
+  },
+  "numeric_core_sha256": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+  "legacy_IO_sha256": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+  "input_manifest_sha256": "e74cfbddaba6b5a451bd40901c550e974543d860bf09e0f2135bddebd003c867",
+  "adapter_plan_sha256": "8d8ad3a455aa7f454dc4ccc88204ecbb4edc2d1e0c69a4432eed2cc96f220ed1",
+  "CPU_tests": {
+    "unique_cases": 50,
+    "new_delivery_cases": 18,
+    "legacy_cases": 32,
+    "host_final_passed": 50,
+    "isolated_final_passed": 50,
+    "skipped": 0,
+    "isolated_real_data_mounted": false,
+    "isolated_torch_imported": false
+  },
+  "CPU_real_input_admission": {
+    "predictor_files": 4,
+    "final_forbidden_read_probes_refused": 32,
+    "GT_read": false,
+    "model_loaded": false,
+    "GPU_exposed": false,
+    "process": {
+      "returncode": 0,
+      "wall_seconds": 0.10120424399792682,
+      "sampled_process_tree_RSS_KiB": 37716,
+      "stop_reason": null,
+      "expected_failure": false
+    }
+  },
+  "synthetic_integration": {
+    "reference": "generated little-endian raw float32 labels only,36x36 with6x6 predictions",
+    "result": "blocked_relative_support retained as expected",
+    "source": "test_synthetic_raw_IO_and_existing_output_refusal",
+    "all_three_prediction_validation_before_any_label_read": true
+  },
+  "retained_failure": {
+    "stage": "first isolated regression packaging",
+    "tests": 50,
+    "passed": 48,
+    "errors": 2,
+    "reason": "Missing legacy check_relative_evaluator_cpu.py in staged fixture, not an adapter/numerical failure.",
+    "correction": "New complete staged directory includes byte-exact missing dependency; all50 pass. Original failed bundle/log retained."
+  },
+  "resources": {
+    "threads_max": 4,
+    "CPU_RSS_budget_GiB": 2,
+    "isolated_final": {
+      "returncode": 0,
+      "wall_seconds": 1.257276278000063,
+      "sampled_process_tree_RSS_KiB": 84788,
+      "stop_reason": null,
+      "expected_failure": false
+    }
+  },
+  "scope": {
+    "seal_identity": "Independent protocol/plan/input/base/source digests; never modifies legacy PLAN_SHA",
+    "predictor": "Explicit frozen RGB/camera admission only",
+    "evaluator": "Callable CPU bridge, synthetic-tested only; no real GT evaluation CLI exposed in this stage",
+    "old_terrace_entry_and_core_unchanged": true,
+    "no_existing_output_overwrite": true
+  },
+  "execution_counts": {
+    "real_input_CPU_admission_runs": 2,
+    "real_GT_value_analyses": 0,
+    "model_loads": 0,
+    "GPU_calls": 0,
+    "training_updates": 0,
+    "downloads": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "preservation": {
+    "preexisting_repository_files_unchanged": 141
+  },
+  "limitations": [
+    "No second-scene predictions or GT support/accuracy result.",
+    "GPU prediction/preflight and independent real-GT evaluation process entry remain unimplemented and untested for delivery_area.",
+    "CPU input isolation does not certify future GPU mount/decoder/model execution.",
+    "Synthetic small arrays test IO and unknown-support propagation; not a real geometry performance result."
+  ],
+  "decision": "CPU adapter acceptance passed. Recommend next prepare and review the separate staged prediction/preflight/evaluation entry, keeping CPU-tested numerical core and old terrace path unchanged; only after its checks and separate authorization consider one synthetic GPU isolation/forward preflight. No formal inference, real GT evaluation, reliability weighting or training release.",
+  "cumulative_contribution": "Second-scene identity, sealed prediction admission, native raw-label CPU bridge and legacy-compatible tests implemented; no new algorithm/accuracy/training gain."
+}

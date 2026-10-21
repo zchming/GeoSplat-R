@@ -40,10 +40,12 @@ jobs:
         run: python -W error::ResourceWarning scripts/check_cpu_ci.py --group depth --output "$RUNNER_TEMP/depth-checks.json"
       - name: Run protocol CPU regressions in a separate process
         run: python -W error::ResourceWarning scripts/check_cpu_ci.py --group protocol --output "$RUNNER_TEMP/protocol-checks.json"
+      - name: Run generated-data geometry CPU regressions without model imports
+        run: python -W error::ResourceWarning scripts/check_geometry_cpu_ci.py --output "$RUNNER_TEMP/geometry-checks.json"
       - name: Report checks and explicit skips
         if: always()
         run: |
-          for report in "$RUNNER_TEMP/depth-checks.json" "$RUNNER_TEMP/protocol-checks.json"; do
+          for report in "$RUNNER_TEMP/depth-checks.json" "$RUNNER_TEMP/protocol-checks.json" "$RUNNER_TEMP/geometry-checks.json"; do
             if [ -f "$report" ]; then
               cat "$report" >> "$GITHUB_STEP_SUMMARY"
             fi

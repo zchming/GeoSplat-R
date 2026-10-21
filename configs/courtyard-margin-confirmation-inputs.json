@@ -1,0 +1,174 @@
+{
+  "confirmation_plan_sha256": "1cc7e92c2dad2bdda859ca4f6c7d9a216116f56f8ad21f437a8ea657387f41f2",
+  "names": [
+    "dslr_images/DSC_0286.JPG",
+    "dslr_images/DSC_0304.JPG",
+    "dslr_images/DSC_0323.JPG"
+  ],
+  "native_wh": [
+    6048,
+    4032
+  ],
+  "work_wh": [
+    1008,
+    672
+  ],
+  "inputs": {
+    "cameras.json": {
+      "bytes": 1855,
+      "sha256": "b201fb1dffe5d5ecc45d16514ad0326bfca9cf0e12e1f5b8c544ad00c1857fd7"
+    },
+    "rgb/dslr_images/DSC_0286.JPG": {
+      "bytes": 9394505,
+      "sha256": "9845401d5f7196a298adaaf72bf59b6814db51389e72781d9a450dfd70aa850e"
+    },
+    "rgb/dslr_images/DSC_0323.JPG": {
+      "bytes": 12895928,
+      "sha256": "6b0362341462a436a928f18d6ddd7c0569115b33f29a9f0ccd2b07de505b52b5"
+    },
+    "rgb/dslr_images/DSC_0304.JPG": {
+      "bytes": 10612544,
+      "sha256": "a598be46910e33b79f9bedfa0f069d1a8d59660c4139edf0c40aaa131bb0eed9"
+    }
+  },
+  "input_sha256": {
+    "cameras.json": "b201fb1dffe5d5ecc45d16514ad0326bfca9cf0e12e1f5b8c544ad00c1857fd7",
+    "rgb/dslr_images/DSC_0286.JPG": "9845401d5f7196a298adaaf72bf59b6814db51389e72781d9a450dfd70aa850e",
+    "rgb/dslr_images/DSC_0323.JPG": "6b0362341462a436a928f18d6ddd7c0569115b33f29a9f0ccd2b07de505b52b5",
+    "rgb/dslr_images/DSC_0304.JPG": "a598be46910e33b79f9bedfa0f069d1a8d59660c4139edf0c40aaa131bb0eed9"
+  },
+  "labels": [
+    {
+      "image": "dslr_images/DSC_0286.JPG",
+      "bytes": 97542144,
+      "sha256": "62068397540c840ca914119d1b70664511e55bd6d2bb725ee4ea89f31d3b0b36"
+    },
+    {
+      "image": "dslr_images/DSC_0304.JPG",
+      "bytes": 97542144,
+      "sha256": "272cc6ea6d27280abaa2afc82a4b8311a0a89e046463a2ef08d27a8b79d89414"
+    },
+    {
+      "image": "dslr_images/DSC_0323.JPG",
+      "bytes": 97542144,
+      "sha256": "862d7b6636945bf339418ac7cb2b85c41855aaafa33c382fc3d0219b708f4c1f"
+    }
+  ],
+  "model": {
+    "name": "Depth Anything V2 Small relative inverse depth",
+    "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "source_files": [
+      {
+        "path": "LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+      },
+      {
+        "path": "README.md",
+        "bytes": 9904,
+        "sha256": "987d1ab991c1b149276a0426bec7d8f3472d85c29ec976d96ea657aa960fad50",
+        "git_blob": "c3bb68dd1b8798ac17b02b9181c431953be1cfae"
+      },
+      {
+        "path": "depth_anything_v2/dinov2.py",
+        "bytes": 15178,
+        "sha256": "d22df8d0da44c8525ebed898fd9c33b3acfcda919a84d577cc2a08bfd3d50ac1",
+        "git_blob": "83d250818c721c6df3b30d3f4352945527701615"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/__init__.py",
+        "bytes": 382,
+        "sha256": "e3c28c7b775165b6844000eb69f44d104d6c3803ac7da5d59f6ac3ecfb46d9d8",
+        "git_blob": "8120f4bc83066cb3f825ce32daa3b437f88486f1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/attention.py",
+        "bytes": 2343,
+        "sha256": "0d2410ce8b8b4499a6b0cdab939ae2bceab8971efd8660d999b0f3088f28cbf7",
+        "git_blob": "815a2bf53dbec496f6a184ed7d03bcecb7124262"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/block.py",
+        "bytes": 9332,
+        "sha256": "093266ea08084c7cce7b8ddd779ecfaaa13055735faa8a7d68b5924f385b395b",
+        "git_blob": "25488f57cc0ad3c692f86b62555f6668e2a66db1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/drop_path.py",
+        "bytes": 1160,
+        "sha256": "949100aac4d9c19c9d65319dbd362886c5d46a72d7586ba4fd500e9f1d51570c",
+        "git_blob": "af05625984dd14682cc96a63bf0c97bab1f123b1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/layer_scale.py",
+        "bytes": 823,
+        "sha256": "356817b5d1390737128cbcc03a5333fd3060b73beae478772282ccb851d0ef85",
+        "git_blob": "ca5daa52bd81d3581adeb2198ea5b7dba2a3aea1"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/mlp.py",
+        "bytes": 1272,
+        "sha256": "c18c5b3f021408597a473bb710070ec3fb3b39f5a2e42e88ae83ced425a608b5",
+        "git_blob": "5e4b315f972f9a9f54aef1e4ef4e81b52976f018"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/patch_embed.py",
+        "bytes": 2832,
+        "sha256": "b3f82e19926c9cfb63f10136aca5e8a723bde1ad62dae1d04f90d405f9439baf",
+        "git_blob": "574abe41175568d700a389b8b96d1ba554914779"
+      },
+      {
+        "path": "depth_anything_v2/dinov2_layers/swiglu_ffn.py",
+        "bytes": 1859,
+        "sha256": "df81d9901240214edc1831ce1b77558dcd6227b29a2f000fc5f546df55d2d09a",
+        "git_blob": "b3324b266fb0a50ccf8c3a0ede2ae10ac4dfa03e"
+      },
+      {
+        "path": "depth_anything_v2/dpt.py",
+        "bytes": 7391,
+        "sha256": "7cc9a29b41d31e1628e5c8b8705e25ae95bc6490f779dbb695297ce2341566f5",
+        "git_blob": "18d3e6f8b5c973aea5d4927ef783d43053ba6429"
+      },
+      {
+        "path": "depth_anything_v2/util/blocks.py",
+        "bytes": 3987,
+        "sha256": "351aa24b8af4bef923ebe3bed5e5e8503b08e39bf06ee045d6444a485a2036a8",
+        "git_blob": "382ea183a40264056142afffc201c992a2b01d37"
+      },
+      {
+        "path": "depth_anything_v2/util/transform.py",
+        "bytes": 6075,
+        "sha256": "a97df1dbb687457a40c387fdc3482edee7ddc5c142c7d2735ca6235a8ae2885f",
+        "git_blob": "b14aacd44ea086b01725a9ca68bb49eadcf37d73"
+      },
+      {
+        "path": "requirements.txt",
+        "bytes": 69,
+        "sha256": "e24ea3bab22d643e58f8e400fc383d2db1a9c6fd6d24ab161b2b9516e74d159e",
+        "git_blob": "53b004a743f96f976384705a5f00dd65a16a0a69"
+      }
+    ],
+    "weights_bytes": 99218434,
+    "weights_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "batch_size": 1,
+    "precision": "float32",
+    "input_size": 518,
+    "expected_NCHW": [
+      1,
+      3,
+      518,
+      784
+    ],
+    "output_wh": [
+      1008,
+      672
+    ],
+    "upstream_image2tensor_and_infer_image_unchanged": true,
+    "output_upsampling": "upstream bilinear align_corners=True; do not replace with a new decoder",
+    "seed": 42,
+    "xformers": false,
+    "passes_per_view": 1,
+    "download_fallback": false
+  }
+}

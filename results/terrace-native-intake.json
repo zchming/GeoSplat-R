@@ -1,0 +1,698 @@
+{
+  "protocol": "terrace-native-intake-v1",
+  "date": "2026-10-21",
+  "status": "passed_engineering_and_fixed_support_gates",
+  "scope": "two approved archives and CPU intake only; no model inference, reconstruction, training, weighting or held-out-view decoding",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "frozen_feasibility_config_sha256": "60911ab81a333ef1df45bac555a7eca37c96e75e02189d51444ced768bd75931",
+  "external_evidence_key": "eth3d-terrace-intake-20261021T020649Z",
+  "archives": [
+    {
+      "file": "terrace_dslr_jpg.7z",
+      "returncode": 0,
+      "expected_bytes": 233760734,
+      "actual_bytes": 233760734,
+      "wall_seconds": 115.979793511,
+      "sha256": "7b0e31d726fe2d085f5b17b58fb73faa38bfcda1ff00367e841b492fc3192afb",
+      "url": "https://www.eth3d.net/data/terrace_dslr_jpg.7z",
+      "whole_archive_expanded_bytes": 237874317,
+      "members_including_directories": 30,
+      "integrity": "all file streams read without libarchive errors; individual SHA256 stored externally",
+      "published_SHA256_available": false
+    },
+    {
+      "file": "terrace_dslr_depth.7z",
+      "returncode": 0,
+      "expected_bytes": 376720366,
+      "actual_bytes": 376720366,
+      "wall_seconds": 118.87415047100001,
+      "sha256": "eadb9463742d3fcf8824938804c91f0e43591b775f6feb7ccfede770ee4819ea",
+      "url": "https://www.eth3d.net/data/terrace_dslr_depth.7z",
+      "whole_archive_expanded_bytes": 2243469312,
+      "members_including_directories": 26,
+      "integrity": "all file streams read without libarchive errors; individual SHA256 stored externally",
+      "published_SHA256_available": false
+    }
+  ],
+  "total_compressed_payload_bytes": 610481100,
+  "whole_archives_expanded_bytes": 2481343629,
+  "selected_extracted_RGB_GT_bytes": 323951989,
+  "image_count": 23,
+  "calibration_camera_count": 4,
+  "selected_before_GT_decoding": true,
+  "selected": [
+    {
+      "name": "dslr_images/DSC_0259.JPG",
+      "rank_zero_based": 0,
+      "image_id": 1,
+      "camera_id": 2
+    },
+    {
+      "name": "dslr_images/DSC_0271.JPG",
+      "rank_zero_based": 11,
+      "image_id": 12,
+      "camera_id": 3
+    },
+    {
+      "name": "dslr_images/DSC_0285.JPG",
+      "rank_zero_based": 22,
+      "image_id": 23,
+      "camera_id": 2
+    }
+  ],
+  "reserved_same_scene_RGB_evaluation": [
+    {
+      "name": "dslr_images/DSC_0262.JPG",
+      "rank_zero_based": 3
+    },
+    {
+      "name": "dslr_images/DSC_0267.JPG",
+      "rank_zero_based": 7
+    },
+    {
+      "name": "dslr_images/DSC_0275.JPG",
+      "rank_zero_based": 15
+    },
+    {
+      "name": "dslr_images/DSC_0279.JPG",
+      "rank_zero_based": 19
+    }
+  ],
+  "reserved_views_extracted_or_decoded": false,
+  "coordinate_contract": {
+    "camera_model": "THIN_PRISM_FISHEYE",
+    "parameter_order": "fx fy cx cy k1 k2 p1 p2 k3 k4 sx1 sy1",
+    "pixel_center": "array (i,j) corresponds to calibration (i+0.5,j+0.5)",
+    "pose": "world-to-camera Hamilton qw qx qy qz; Xcam=R Xworld+t",
+    "raw_text_quaternions_preserved": true,
+    "quaternions_normalized_for_rotation_checks": true,
+    "depth": "native little-endian headerless float32 axial Z",
+    "units": "meters per ETH3D source contract; not independently physically remeasured",
+    "unknown": "positive infinity; no filling",
+    "masks": "no separate mask members in approved archives; generated depth already contains upstream visibility/mask filtering"
+  },
+  "per_image_support": [
+    {
+      "name": "dslr_images/DSC_0259.JPG",
+      "image_id": 1,
+      "camera_id": 2,
+      "rank_zero_based": 0,
+      "width": 6048,
+      "height": 4032,
+      "RGB_EXIF_orientation": 1,
+      "depth_bytes": 97542144,
+      "depth_dtype": "little-endian float32, headerless, C row-major",
+      "counts": {
+        "valid": 5324921,
+        "positive_infinity": 19060615,
+        "negative_infinity": 0,
+        "nan": 0,
+        "zero": 0,
+        "finite_negative": 0
+      },
+      "valid_fraction": 0.2183639104754556,
+      "depth_positive_min_m": 2.771307945251465,
+      "depth_positive_max_m": 46.00709915161133,
+      "depth_stride8_quantiles_m": {
+        "p01": 2.8995521163940428,
+        "p50": 6.302614212036133,
+        "p99": 40.97491958618162
+      },
+      "quantiles_are_subsampled": true,
+      "spatial_grid_counts": [
+        [
+          51838,
+          59527,
+          32049,
+          6021,
+          0,
+          0,
+          0,
+          0,
+          192,
+          6712,
+          5354,
+          1634
+        ],
+        [
+          108361,
+          63369,
+          32997,
+          4170,
+          0,
+          0,
+          0,
+          0,
+          23534,
+          42147,
+          10369,
+          54
+        ],
+        [
+          89145,
+          106724,
+          30666,
+          4997,
+          3619,
+          4443,
+          4986,
+          21895,
+          57912,
+          38409,
+          9029,
+          0
+        ],
+        [
+          87576,
+          80417,
+          39412,
+          28072,
+          39148,
+          45098,
+          46079,
+          32310,
+          10430,
+          26347,
+          4823,
+          0
+        ],
+        [
+          91614,
+          64912,
+          25276,
+          26869,
+          28371,
+          27358,
+          30139,
+          26123,
+          31583,
+          32682,
+          6674,
+          0
+        ],
+        [
+          112145,
+          81678,
+          28336,
+          37597,
+          38035,
+          36084,
+          32490,
+          25451,
+          102301,
+          65642,
+          19076,
+          0
+        ],
+        [
+          99774,
+          75120,
+          106647,
+          121103,
+          134616,
+          124231,
+          99967,
+          67120,
+          49303,
+          62855,
+          30384,
+          911
+        ],
+        [
+          99633,
+          151442,
+          59123,
+          53561,
+          168557,
+          184979,
+          130346,
+          95541,
+          74550,
+          55796,
+          32878,
+          9350
+        ],
+        [
+          119280,
+          148249,
+          148338,
+          140416,
+          103248,
+          84702,
+          71035,
+          56406,
+          45715,
+          37637,
+          30018,
+          21789
+        ]
+      ],
+      "cells_with_at_least_20_valid": 96,
+      "support_gate_passed": true
+    },
+    {
+      "name": "dslr_images/DSC_0271.JPG",
+      "image_id": 12,
+      "camera_id": 3,
+      "rank_zero_based": 11,
+      "width": 6048,
+      "height": 4032,
+      "RGB_EXIF_orientation": 1,
+      "depth_bytes": 97542144,
+      "depth_dtype": "little-endian float32, headerless, C row-major",
+      "counts": {
+        "valid": 9265988,
+        "positive_infinity": 15119548,
+        "negative_infinity": 0,
+        "nan": 0,
+        "zero": 0,
+        "finite_negative": 0
+      },
+      "valid_fraction": 0.37997885303812884,
+      "depth_positive_min_m": 2.794292449951172,
+      "depth_positive_max_m": 10.307160377502441,
+      "depth_stride8_quantiles_m": {
+        "p01": 2.9262071323394774,
+        "p50": 5.2008349895477295,
+        "p99": 9.87170003890991
+      },
+      "quantiles_are_subsampled": true,
+      "spatial_grid_counts": [
+        [
+          60690,
+          50397,
+          21936,
+          6240,
+          4222,
+          4738,
+          14994,
+          30974,
+          37212,
+          54501,
+          51184,
+          42683
+        ],
+        [
+          170768,
+          204566,
+          191150,
+          172804,
+          97972,
+          53436,
+          25307,
+          58968,
+          72261,
+          70797,
+          63276,
+          53235
+        ],
+        [
+          178051,
+          205457,
+          201650,
+          208851,
+          198340,
+          146232,
+          97401,
+          73036,
+          37680,
+          23580,
+          75397,
+          64658
+        ],
+        [
+          40185,
+          57849,
+          102725,
+          135281,
+          145941,
+          64805,
+          83276,
+          74011,
+          29975,
+          32781,
+          80705,
+          74213
+        ],
+        [
+          33033,
+          28369,
+          33623,
+          76694,
+          154507,
+          71944,
+          79339,
+          76333,
+          19090,
+          21919,
+          79341,
+          77191
+        ],
+        [
+          108618,
+          109695,
+          78780,
+          77895,
+          108550,
+          62989,
+          77200,
+          80601,
+          37795,
+          38710,
+          74050,
+          70316
+        ],
+        [
+          27614,
+          52186,
+          73586,
+          127073,
+          116361,
+          111890,
+          86000,
+          82534,
+          78682,
+          79007,
+          73598,
+          61101
+        ],
+        [
+          74795,
+          54794,
+          90485,
+          201348,
+          169168,
+          132141,
+          116299,
+          107352,
+          96306,
+          72610,
+          55592,
+          44417
+        ],
+        [
+          130162,
+          122521,
+          106603,
+          84461,
+          70865,
+          75243,
+          95580,
+          119757,
+          154964,
+          170121,
+          131831,
+          95968
+        ]
+      ],
+      "cells_with_at_least_20_valid": 108,
+      "support_gate_passed": true
+    },
+    {
+      "name": "dslr_images/DSC_0285.JPG",
+      "image_id": 23,
+      "camera_id": 2,
+      "rank_zero_based": 22,
+      "width": 6048,
+      "height": 4032,
+      "RGB_EXIF_orientation": 1,
+      "depth_bytes": 97542144,
+      "depth_dtype": "little-endian float32, headerless, C row-major",
+      "counts": {
+        "valid": 960438,
+        "positive_infinity": 23425098,
+        "negative_infinity": 0,
+        "nan": 0,
+        "zero": 0,
+        "finite_negative": 0
+      },
+      "valid_fraction": 0.03938556035840262,
+      "depth_positive_min_m": 2.6438698768615723,
+      "depth_positive_max_m": 42.51459884643555,
+      "depth_stride8_quantiles_m": {
+        "p01": 2.85570529460907,
+        "p50": 8.044393539428711,
+        "p99": 37.97930568695068
+      },
+      "quantiles_are_subsampled": true,
+      "spatial_grid_counts": [
+        [
+          9798,
+          7058,
+          9361,
+          5148,
+          0,
+          0,
+          0,
+          0,
+          10249,
+          5922,
+          8949,
+          2330
+        ],
+        [
+          9594,
+          8046,
+          9880,
+          7619,
+          0,
+          0,
+          0,
+          0,
+          8032,
+          6306,
+          2432,
+          2083
+        ],
+        [
+          11484,
+          6609,
+          10350,
+          8935,
+          437,
+          720,
+          4101,
+          9289,
+          14082,
+          5508,
+          992,
+          2199
+        ],
+        [
+          12155,
+          11106,
+          10425,
+          11104,
+          20338,
+          32253,
+          34445,
+          33226,
+          20371,
+          3954,
+          605,
+          2086
+        ],
+        [
+          11476,
+          7844,
+          10486,
+          10863,
+          22445,
+          24601,
+          21271,
+          17282,
+          17058,
+          5538,
+          7382,
+          8713
+        ],
+        [
+          6156,
+          3537,
+          3728,
+          3483,
+          5024,
+          5255,
+          3415,
+          2409,
+          5695,
+          5752,
+          17945,
+          11264
+        ],
+        [
+          14853,
+          16649,
+          20248,
+          19882,
+          15320,
+          19023,
+          15745,
+          11055,
+          5085,
+          8431,
+          12813,
+          11233
+        ],
+        [
+          11204,
+          11725,
+          14551,
+          13397,
+          11238,
+          8657,
+          7865,
+          7143,
+          5564,
+          4940,
+          4413,
+          5922
+        ],
+        [
+          9057,
+          9149,
+          8447,
+          7794,
+          7404,
+          6035,
+          3921,
+          3958,
+          3439,
+          2186,
+          2063,
+          1826
+        ]
+      ],
+      "cells_with_at_least_20_valid": 100,
+      "support_gate_passed": true
+    }
+  ],
+  "fixed_support_gate": {
+    "min_valid": 5000,
+    "min_fraction": 0.01,
+    "grid": [
+      12,
+      9
+    ],
+    "min_cells_with_20": 30
+  },
+  "camera_checks": {
+    "status": "passed",
+    "pycolmap": "4.2.1",
+    "synthetic_forward_max_error": 0.0,
+    "selected_camera_checks": [
+      {
+        "name": "dslr_images/DSC_0259.JPG",
+        "grid_points": 108,
+        "raw_quaternion_norm": 0.9999996615309428,
+        "quaternion_normalized_for_rotation": true,
+        "api_roundtrip_pixel_max_error": 7.812836884113494e-07,
+        "independent_forward_pixel_max_error": 7.812836884113494e-07,
+        "half_pixel_ray_max_error": 0.0,
+        "quaternion_API_max_error": 0.0,
+        "world_camera_inverse_max_error": 1.1102230246251565e-15,
+        "camera_center_m": [
+          0.7395590628864749,
+          -1.1267114345850733,
+          -3.5662379734766336
+        ],
+        "rotation_determinant": 0.9999999999999998
+      },
+      {
+        "name": "dslr_images/DSC_0271.JPG",
+        "grid_points": 108,
+        "raw_quaternion_norm": 1.0000001385559905,
+        "quaternion_normalized_for_rotation": true,
+        "api_roundtrip_pixel_max_error": 8.032202458707616e-07,
+        "independent_forward_pixel_max_error": 8.032202458707616e-07,
+        "half_pixel_ray_max_error": 0.0,
+        "quaternion_API_max_error": 0.0,
+        "world_camera_inverse_max_error": 3.219646771412954e-15,
+        "camera_center_m": [
+          -4.869719940627276,
+          -1.0848820143952598,
+          -3.627372147767409
+        ],
+        "rotation_determinant": 0.9999999999999993
+      },
+      {
+        "name": "dslr_images/DSC_0285.JPG",
+        "grid_points": 108,
+        "raw_quaternion_norm": 0.9999998961824946,
+        "quaternion_normalized_for_rotation": true,
+        "api_roundtrip_pixel_max_error": 7.812836884113494e-07,
+        "independent_forward_pixel_max_error": 7.812836884113494e-07,
+        "half_pixel_ray_max_error": 0.0,
+        "quaternion_API_max_error": 0.0,
+        "world_camera_inverse_max_error": 3.552713678800501e-15,
+        "camera_center_m": [
+          -5.693548132981096,
+          -0.18638984627290922,
+          -3.6123839147069985
+        ],
+        "rotation_determinant": 1.0000000000000004
+      }
+    ],
+    "pairwise_camera_baselines_m": [
+      5.609768090297481,
+      6.501630743964245,
+      1.2191003706932575
+    ],
+    "units": "meters per ETH3D source contract; plausible scale only, no independent physical remeasurement"
+  },
+  "verification": {
+    "checks_passed": 32,
+    "skipped": 0,
+    "preexisting_repo_files_preserved": 112,
+    "independent_IEEE754_support_crosscheck": "passed",
+    "manual_visual_inspection": "passed plausibility only; no quantified physical registration certification"
+  },
+  "resources": {
+    "download_wall_seconds_max_of_parallel_transfers": 118.87415047100001,
+    "integrity_and_extraction_wall_seconds": 25.712183616999994,
+    "support_analysis_wall_seconds": 1.198276485000008,
+    "measured_max_process_RSS_KiB": 261192,
+    "working_files_bytes_before_final_reports": 940533695,
+    "thread_limit": 4,
+    "GPU_used": false
+  },
+  "execution_sources_sha256": {
+    "analyze_support.py": "fb29953717596b1bbeedfbda2b1439d0aa471dc780ca5950ab59a4502eb1c886",
+    "archive_access.py": "8c952b423c02a5bcc46fdd61821e5f5ddb0e931c3709d38d7ec92aca3446e9cc",
+    "check_cameras.py": "26cb4cb25093e31a69020bb5bf312382a2b02575db90690c8f930c1e2e5d96b3",
+    "extract_verify.py": "c099fc536f289dada48cb9da2804e18467caff89cc87ebe8cdd8ab866df08099",
+    "freeze_selection.py": "11da08f4a5b62ccbb25dfeb8ff25cba0ad7eb9a438713faffa827bc68bc07e09",
+    "list_and_metadata.py": "2ec0e45c06875ace3dc944e912c3a09511a4b2bbcf091b3b20f3c8c8283c32ce",
+    "verify_intake.py": "a99021984e707e5067e7c48cf209e121d37ab9d6ae7c9923a27409f2870bfeff"
+  },
+  "primary_sources": [
+    {
+      "url": "https://github.com/ETH3D/dataset-pipeline",
+      "commit": "e09275b39b30c9c59abf535b849fcc539dc03efd"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/colmap/colmap/4.0.2/src/colmap/sensor/models.h",
+      "sha256": "4717edcd4f7e71f1bc4978bf7dd7b8cf0f5739bb3ffb2748ce0d748c17c654fe"
+    }
+  ],
+  "retained_tooling_failures": [
+    {
+      "event": "legacy gsplat pycolmap API cannot instantiate full camera model",
+      "effect": "exploratory check failed before data access; used existing pycolmap 4.2.1 dedicated environment; no install or settings change"
+    },
+    {
+      "event": "initial independent verifier used system Python without NumPy",
+      "effect": "stopped at import before data access; rerun in existing COLMAP environment passed; original failure log retained"
+    }
+  ],
+  "limitations": [
+    "engineering support acceptance is not accuracy or research-performance acceptance",
+    "DSC_0285 has only 3.94% native GT coverage; unknown space remains unknown",
+    "given cameras use full-dataset laser/image alignment, not a three-view pose recovery benchmark",
+    "no raw scan, physical unit remeasurement, pixel registration ground truth or official surface evaluation included",
+    "no original distorted-to-pinhole adaptation or model prediction performed",
+    "terrace is a development scene; no pretrained-model blind-test claim"
+  ],
+  "decision": "worth reviewing one frozen sensor-truth diagnostic and its original-camera adapter; inference not yet released; no reliability weighting or training",
+  "cumulative_contribution": "adds an independently measured sensor-reference intake and fixed support evidence to prior failed score/loss diagnostics; no new accuracy gain or method novelty established"
+}

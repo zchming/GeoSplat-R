@@ -1,0 +1,62 @@
+{
+  "protocol": "leaves-raw-track-sensitivity-proposal-v1",
+  "status": "reviewed_not_executed",
+  "execution_authorized": false,
+  "plan_sha256": "116ece1a1a4547200bb32df5a058a4fbb8a7a10fa8fc30f894e4fbb63ff06bf3",
+  "baseline_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "source_noise_std_px": 1.0,
+  "finite_difference_step_px": 0.001,
+  "cpu_threads_max": 4,
+  "rss_budget_gib": 2,
+  "timeout_seconds": 600,
+  "output_budget_mib": 50,
+  "acceptance": {
+    "valid_distinct_tracks_per_image_min": 60,
+    "valid_fraction_of_three_view_tracks_min": 0.5,
+    "valid_per_fold_min": 10,
+    "spearman_per_image_min": 0.2,
+    "positive_folds_per_image_min": 4,
+    "high_minus_low_mean_residual_strictly_positive_per_image": true,
+    "quantile_method": "linear",
+    "third_groups_min": 10
+  },
+  "no_new_training_or_weights": true,
+  "inputs": [
+    {
+      "root": "train",
+      "path": "cameras.json",
+      "bytes": 2660,
+      "sha256": "6d88f993c980cdfc146178fc246318b5ba3012b256d01cd7f1f18b69f0993346"
+    },
+    {
+      "root": "train",
+      "path": "input-manifest.json",
+      "bytes": 730,
+      "sha256": "0a97f127f3d94082fa6ca954c60568d3597f539526b5a4be05a95516b4cf9e42"
+    },
+    {
+      "root": "train",
+      "path": "triangulated/cameras.bin",
+      "bytes": 64,
+      "sha256": "778634ec11d5bd37c1c77a6b5a058336ea0bcf1eb822150e79934690ff448363"
+    },
+    {
+      "root": "train",
+      "path": "triangulated/images.bin",
+      "bytes": 335303,
+      "sha256": "49d5132d0d8a7f5e3729dc6dda6c0cb6f5fd37f7c34872ef4fbb76d5446f4c23"
+    },
+    {
+      "root": "train",
+      "path": "triangulated/points3D.bin",
+      "bytes": 19342,
+      "sha256": "b57cb672da616f95e9e35c516aa3e1f01486b99be32a789dec860830621ec26f"
+    },
+    {
+      "root": "preparation",
+      "path": "preparation.json",
+      "bytes": 5191,
+      "sha256": "c75d6a7271aaa2e388dd077e1e7bd89c032cf903b48ebd4ba7e8b2ddbae93c18"
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "protocol": "terrace-anchor-free-relative-plan-v1",
+  "date": "2026-10-21",
+  "status": "design_review_frozen_before_new_predictions_or_errors",
+  "authorization": {
+    "review_only": true,
+    "CPU_implementation": false,
+    "real_GT_pair_preparation": false,
+    "GPU_preflight": false,
+    "model_inference": false,
+    "training": false,
+    "downloads": false,
+    "commit_push": false
+  },
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "previous_anchor_result_sha256": "b435ac89eaaf87e809b17ca212bfa890c9e3fcdbfabc85ece5edce2bb9e84831",
+  "previous_anchor_route": "stopped at blocked_anchor_support; unchanged, not retried or superseded as a successful metric-depth experiment",
+  "question": "Does a fixed Small-model raw relative inverse-depth map preserve independently measured within-image near/far relations on this development triple, without anchor or GT affine alignment?",
+  "limits": [
+    "ordinal structure only, no metric-Z accuracy or scale/shift calibration",
+    "no evidence of reliability-score ranking or weighting benefit",
+    "not evidence for three-view pose/initialization feasibility",
+    "not comparable to old AbsRel/GS metrics",
+    "terrace GT coverage and RGB already inspected; development diagnostic, not blind testing"
+  ],
+  "dataset": {
+    "scene": "ETH3D terrace public training/development",
+    "image_count": 23,
+    "selected_ranks": [
+      0,
+      11,
+      22
+    ],
+    "selected_names": [
+      "dslr_images/DSC_0259.JPG",
+      "dslr_images/DSC_0271.JPG",
+      "dslr_images/DSC_0285.JPG"
+    ],
+    "reserved_ranks": [
+      3,
+      7,
+      15,
+      19
+    ],
+    "reserved_names": [
+      "dslr_images/DSC_0262.JPG",
+      "dslr_images/DSC_0267.JPG",
+      "dslr_images/DSC_0275.JPG",
+      "dslr_images/DSC_0279.JPG"
+    ],
+    "native_wh": [
+      6048,
+      4032
+    ],
+    "inputs": [
+      {
+        "role": "predictor_rgb",
+        "image": "dslr_images/DSC_0259.JPG",
+        "archive_member": "terrace/images/dslr_images/DSC_0259.JPG",
+        "bytes": 10229993,
+        "sha256": "8952ec1b0ea4cf52cfd75839ea63ae08a548f2088f7ee696a01906f9d6cb003d"
+      },
+      {
+        "role": "evaluator_GT",
+        "image": "dslr_images/DSC_0259.JPG",
+        "archive_member": "terrace/ground_truth_depth/dslr_images/DSC_0259.JPG",
+        "bytes": 97542144,
+        "sha256": "8cef3b84c21d9fe5a26f0e883cee5b19f2006fd6617aec58c0fa2d745cf4670b"
+      },
+      {
+        "role": "predictor_rgb",
+        "image": "dslr_images/DSC_0271.JPG",
+        "archive_member": "terrace/images/dslr_images/DSC_0271.JPG",
+        "bytes": 9597477,
+        "sha256": "a5b4ad448ab75e38b972770d70f03cfe19f913b7d86d0516970e0bc4badee834"
+      },
+      {
+        "role": "evaluator_GT",
+        "image": "dslr_images/DSC_0271.JPG",
+        "archive_member": "terrace/ground_truth_depth/dslr_images/DSC_0271.JPG",
+        "bytes": 97542144,
+        "sha256": "995718c5f937d8bcbdf2407f44fc0f3fa15bf987ddaefc04aa487425dc14ff99"
+      },
+      {
+        "role": "predictor_rgb",
+        "image": "dslr_images/DSC_0285.JPG",
+        "archive_member": "terrace/images/dslr_images/DSC_0285.JPG",
+        "bytes": 11498087,
+        "sha256": "e41b4ce0768f96c080c7b7d99c1b0ef3174258f6b80d1d8540151525f24367c7"
+      },
+      {
+        "role": "evaluator_GT",
+        "image": "dslr_images/DSC_0285.JPG",
+        "archive_member": "terrace/ground_truth_depth/dslr_images/DSC_0285.JPG",
+        "bytes": 97542144,
+        "sha256": "22b7337685ab67dfdf05cfef2c630ce83a1a4263262da6b8e8d725e1b6f3f0c3"
+      },
+      {
+        "role": "predictor_cameras",
+        "path": "train/cameras.json",
+        "bytes": 1857,
+        "sha256": "4897cfd275c4c6875d3e31ea16e0149c81d9f4f68621ca335fb3c3f50c6024bc"
+      }
+    ],
+    "forbidden_predictor_inputs": [
+      "GT and valid masks",
+      "whole archives",
+      "full-scene calibration tables and tracks",
+      "upstream points3D",
+      "reserved or other RGB views",
+      "previous diagnostic errors and oracle outputs"
+    ]
+  },
+  "prediction": {
+    "input_assets": "only three frozen RGBs plus selected camera/size manifest; no features, anchors, GT or full archives",
+    "working_wh": [
+      1008,
+      672
+    ],
+    "resize": "cv2.INTER_AREA exactly1/6, no crop/undistortion",
+    "model": {
+      "name": "Depth Anything V2 Small relative inverse depth",
+      "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+      "source_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+        },
+        {
+          "path": "README.md",
+          "bytes": 9904,
+          "sha256": "987d1ab991c1b149276a0426bec7d8f3472d85c29ec976d96ea657aa960fad50",
+          "git_blob": "c3bb68dd1b8798ac17b02b9181c431953be1cfae"
+        },
+        {
+          "path": "depth_anything_v2/dinov2.py",
+          "bytes": 15178,
+          "sha256": "d22df8d0da44c8525ebed898fd9c33b3acfcda919a84d577cc2a08bfd3d50ac1",
+          "git_blob": "83d250818c721c6df3b30d3f4352945527701615"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/__init__.py",
+          "bytes": 382,
+          "sha256": "e3c28c7b775165b6844000eb69f44d104d6c3803ac7da5d59f6ac3ecfb46d9d8",
+          "git_blob": "8120f4bc83066cb3f825ce32daa3b437f88486f1"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/attention.py",
+          "bytes": 2343,
+          "sha256": "0d2410ce8b8b4499a6b0cdab939ae2bceab8971efd8660d999b0f3088f28cbf7",
+          "git_blob": "815a2bf53dbec496f6a184ed7d03bcecb7124262"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/block.py",
+          "bytes": 9332,
+          "sha256": "093266ea08084c7cce7b8ddd779ecfaaa13055735faa8a7d68b5924f385b395b",
+          "git_blob": "25488f57cc0ad3c692f86b62555f6668e2a66db1"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/drop_path.py",
+          "bytes": 1160,
+          "sha256": "949100aac4d9c19c9d65319dbd362886c5d46a72d7586ba4fd500e9f1d51570c",
+          "git_blob": "af05625984dd14682cc96a63bf0c97bab1f123b1"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/layer_scale.py",
+          "bytes": 823,
+          "sha256": "356817b5d1390737128cbcc03a5333fd3060b73beae478772282ccb851d0ef85",
+          "git_blob": "ca5daa52bd81d3581adeb2198ea5b7dba2a3aea1"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/mlp.py",
+          "bytes": 1272,
+          "sha256": "c18c5b3f021408597a473bb710070ec3fb3b39f5a2e42e88ae83ced425a608b5",
+          "git_blob": "5e4b315f972f9a9f54aef1e4ef4e81b52976f018"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/patch_embed.py",
+          "bytes": 2832,
+          "sha256": "b3f82e19926c9cfb63f10136aca5e8a723bde1ad62dae1d04f90d405f9439baf",
+          "git_blob": "574abe41175568d700a389b8b96d1ba554914779"
+        },
+        {
+          "path": "depth_anything_v2/dinov2_layers/swiglu_ffn.py",
+          "bytes": 1859,
+          "sha256": "df81d9901240214edc1831ce1b77558dcd6227b29a2f000fc5f546df55d2d09a",
+          "git_blob": "b3324b266fb0a50ccf8c3a0ede2ae10ac4dfa03e"
+        },
+        {
+          "path": "depth_anything_v2/dpt.py",
+          "bytes": 7391,
+          "sha256": "7cc9a29b41d31e1628e5c8b8705e25ae95bc6490f779dbb695297ce2341566f5",
+          "git_blob": "18d3e6f8b5c973aea5d4927ef783d43053ba6429"
+        },
+        {
+          "path": "depth_anything_v2/util/blocks.py",
+          "bytes": 3987,
+          "sha256": "351aa24b8af4bef923ebe3bed5e5e8503b08e39bf06ee045d6444a485a2036a8",
+          "git_blob": "382ea183a40264056142afffc201c992a2b01d37"
+        },
+        {
+          "path": "depth_anything_v2/util/transform.py",
+          "bytes": 6075,
+          "sha256": "a97df1dbb687457a40c387fdc3482edee7ddc5c142c7d2735ca6235a8ae2885f",
+          "git_blob": "b14aacd44ea086b01725a9ca68bb49eadcf37d73"
+        },
+        {
+          "path": "requirements.txt",
+          "bytes": 69,
+          "sha256": "e24ea3bab22d643e58f8e400fc383d2db1a9c6fd6d24ab161b2b9516e74d159e",
+          "git_blob": "53b004a743f96f976384705a5f00dd65a16a0a69"
+        }
+      ],
+      "weights_bytes": 99218434,
+      "weights_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+      "batch_size": 1,
+      "precision": "float32",
+      "input_size": 518,
+      "expected_NCHW": [
+        1,
+        3,
+        518,
+        784
+      ],
+      "output_wh": [
+        1008,
+        672
+      ],
+      "upstream_image2tensor_and_infer_image_unchanged": true,
+      "output_upsampling": "upstream bilinear align_corners=True; do not replace with a new decoder",
+      "seed": 42,
+      "xformers": false,
+      "passes_per_view": 1,
+      "download_fallback": false
+    },
+    "output": "one native-work-grid nonnegative float32 raw relative inverse-depth map per image; never align, invert to Z, normalize by GT, or change sign",
+    "no_new_feature_matching_triangulation": true,
+    "all_three_predictions_hash_sealed_before_GT_access": true
+  },
+  "mapping": {
+    "native_center_to_work": "((i+0.5)/6-0.5,(j+0.5)/6-0.5)",
+    "native_fixed_domain": "2<=x_work<=1005 and 2<=y_work<=669",
+    "GT": "native little-endian float32 axial Z, finite positive only; no interpolation or filling",
+    "sample_prediction": "float64 bilinear interpolation of raw q at native centers; all four contributors finite and >=0, including zero-weight neighbors",
+    "zero_prediction": "valid, including all-zero constant maps; exact ties carry loss0.5",
+    "invalid_prediction": "negative/nonfinite contributor or out-of-domain sampling; pair loss1 if either endpoint invalid",
+    "old_sample_inverse_z_reusable": false,
+    "old_helper_difference": "old helper rejects q<=1e-6 and assumes positive aligned inverse-Z; must not use that mask for relative raw maps"
+  },
+  "sampling": {
+    "runtime": "NumPy1.26.4 PCG64; integer seeds and native row-major ordering explicit",
+    "grid": [
+      12,
+      9
+    ],
+    "native_cell_edges": "floor(k*width/12), floor(k*height/9), half-open cells",
+    "image_index": "0/1/2 in lexicographic frozen selected-name order",
+    "GT_samples": "within each cell and fixed domain enumerate positive finite native GT indices ascending; if count>64 select first64 of rng.permutation(count), else all; sort selected native linear indices",
+    "max_nodes_per_cell": 64,
+    "max_nodes_per_image": 6912,
+    "node_rng_seed": "42+108*image_index+cell_index; cell_index=row*12+column",
+    "no_prediction_based_sampling": true,
+    "prepare_only_after_predictions_sealed": true
+  },
+  "pairs": {
+    "GT_contrast_ratio_min": 1.1,
+    "eligibility": "max(Za,Zb)/min(Za,Zb)>=1.10 in float64; fixed 10% contrast filter, not a sensor-uncertainty guarantee",
+    "local": {
+      "pool": "all unordered pairs of selected nodes within each cell, lexicographic native index pairs",
+      "candidate_cap_per_cell": 256,
+      "draw": "if pool>256 take first256 of PCG64 permutation(pool size); otherwise all; then apply GT contrast; no refill",
+      "seed": "100000+108*image_index+cell_index"
+    },
+    "cross": {
+      "source_cell": "each nonempty selected-node cell",
+      "target_cells": "nonempty cells at Chebyshev cell distance>=3, ascending cell index",
+      "draw": "256 draws with replacement; each draw uses source-node index then target-cell index then target-node index, each rng.integers; source/target lists sorted; canonicalize endpoint order and deduplicate within source cell, then GT contrast; no refill",
+      "candidate_draws_per_source_cell": 256,
+      "seed": "200000+108*image_index+cell_index",
+      "cross_source_duplicates": "retain source-cell memberships for equal source-cell aggregation; report canonical unique count and repeated-pair count; no independence claim"
+    }
+  },
+  "loss": {
+    "target_order": "higher q means smaller Z, fixed sign before evaluation",
+    "correct": "(qa-qb)*(Za-Zb)<0 =>0, use sign comparison rather than overflow-prone products in implementation",
+    "wrong": "opposite order =>1",
+    "exact_prediction_tie": "qa==qb =>0.5; no learned or scale-dependent epsilon",
+    "invalid_either_endpoint": 1.0,
+    "aggregation": "per eligible cell mean; each stratum mean over cells with>=16 contrast-eligible pairs; image loss=(local_cell_macro+cross_source_cell_macro)/2; scene loss=mean of all three image losses",
+    "no_pooling": "do not pool pixels, pairs, cells or images into iid inference",
+    "invalid_fraction_denominators": "nodes: all sampled GT nodes; pair endpoint invalid: eligible pairs in included cells of each primary stratum; excluded-cell invalid counts also reported"
+  },
+  "controls": {
+    "constant": "q=1 everywhere: every eligible pair loss0.5; finite all-zero raw model also loss0.5, not excluded",
+    "shuffled": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "image_seed": "seed+1000*image_index",
+      "order": "one PCG64 permutation of finite nonnegative sampled-node q values in native-index ascending order, keeping invalid-node mask fixed; reuse resulting node values across all local/cross pairs",
+      "report": "every seed, each stratum/image loss, mean/min/max; no p-value or significance claim"
+    },
+    "oracle": "q=1/Z at sampled reference nodes in evaluator only; all eligible pairs must have loss0; never exported as predictions or weights",
+    "no_confidence_or_risk_curve": "no candidate reliability score here; old confidence/risk curves not carried over or tuned",
+    "direction": "never select the negative-sign result or shuffle seed after seeing GT"
+  },
+  "support_gates": {
+    "minimum_sampled_GT_nodes_each_image": 1024,
+    "minimum_eligible_pairs_per_included_cell": 16,
+    "minimum_included_cells_each_stratum_each_image": 12,
+    "minimum_eligible_pairs_across_included_cells_each_stratum_each_image": 256,
+    "on_failure": "blocked_relative_support; report every empty/low-contrast/insufficient cell and stop acceptance; preserve computed image summaries; do not alter margin/grid/sampling or omit an image"
+  },
+  "acceptance": {
+    "engineering": "all synthetic mapping, order/tie/invalid, determinism, independent arithmetic and CPU/GPU isolation checks passed; all inputs/code/predictions sealed",
+    "maximum_invalid_node_fraction_each_image": 0.01,
+    "maximum_invalid_endpoint_pair_fraction_each_stratum_each_image": 0.02,
+    "maximum_image_loss_each": 0.4,
+    "maximum_scene_macro_loss": 0.35,
+    "minimum_loss_improvement_over_shuffle_mean_each_image": 0.05,
+    "meaning": "operational screen for usable ordinal signal only; not statistical significance, calibrated geometric error or research-performance acceptance",
+    "on_failure": "stop fixed relative pilot; do not tune sign, contrast, sample size or add inference/scenes",
+    "on_success": "supports reviewing whether a separate relative-error target and falsifiable score are worth studying; never directly releases metric alignment, reliability weighting or GS training",
+    "maximum_each_stratum_loss_each_image": 0.4
+  },
+  "required_reports": [
+    "native GT coverage, fixed-domain exclusions, sampled-node counts and identities",
+    "all candidate, duplicate, contrast-excluded, low-support and retained pair/cell counts",
+    "local/cross per-cell losses and image/scene equal-weight means",
+    "invalid node and invalid endpoint-pair counts, exact prediction ties, all denominators",
+    "constant, every shuffled control, evaluator-only oracle",
+    "secondary Spearman on sampled valid nodes with average ranks; ties/constant =>unknown; valid-only denominator explicit; never replaces primary loss",
+    "sampled ordinal errors are pair relations; do not paint them as dense per-pixel metric residuals",
+    "GPU actual allocated/reserved/board peak, inference time, CPU wall/RSS, all failures and unknowns"
+  ],
+  "synthetic_acceptance": [
+    "known correct and reversed near/far relations, repeated nodes/cells and canonical pair handling",
+    "all-zero and positive constants valid with loss0.5; invalid endpoints loss1 never dropped",
+    "nonlinear strictly increasing q transforms can score perfectly despite wrong metric depth; explicit counterexample",
+    "positive affine order invariance; monotone endpoint-value order invariance on valid nonnegative examples (not invariance of nonlinear image transforms before interpolation); no sign flip accepted",
+    "native/work half-pixel mapping and four-contributor interpolation; zero neighbor valid, negative/nonfinite invalid",
+    "GT ties and below/exact/above1.10 contrast, empty cells, insufficient local/cross support, frozen RNG reproducibility",
+    "changing predictions cannot alter node/pair membership or GT eligibility; changing evaluator labels cannot alter predictor manifest or synthetic predictions",
+    "prediction sealing before real GT read; no output overwrite or source/input digest drift",
+    "constant and oracle closed-form losses; one node permutation reused across correlated pairs"
+  ],
+  "isolation": {
+    "CPU": "reuse reviewed bubblewrap white-list design after independent new-entry tests; old audit hook alone insufficient",
+    "GPU": "not yet validated; future preflight must expose necessary local CUDA device/runtime only while GT/archives/other views remain invisible; fail closed if unavailable",
+    "predictor_reads": "three RGBs/camera export, frozen model code/weights and necessary runtime only",
+    "evaluator_reads": "separate CPU process: sealed raw predictions and three evaluator GT files; no model, weights, anchors or feature caches",
+    "evaluator_outputs_cannot_reenter_predictor": true,
+    "no_ground_truth_oracle_export": true
+  },
+  "resources": {
+    "extra_download_bytes": 0,
+    "CPU_threads_max": 4,
+    "CPU_RSS_budget_GiB": 2,
+    "CPU_evaluation_timeout_seconds": 600,
+    "streaming": "one image/cell/control seed at a time, no native all-pairs enumeration",
+    "GPU_budget_GiB": 12,
+    "future_model_passes": 3,
+    "batch": 1,
+    "precision": "float32",
+    "network_NCHW": [
+      1,
+      3,
+      518,
+      784
+    ],
+    "no_paid_cloud": true,
+    "new_output_budget_GiB": 1,
+    "anomaly": "stop and preserve; no automatic retry or resolution/precision change"
+  },
+  "release_order": [
+    "current: design/provenance/consistency review only; no executable implementation or new GT/prediction results",
+    "next separate authorization: minimal CPU ordinal evaluator and synthetic/isolation checks only, no real GT analysis or GPU/model call",
+    "after CPU acceptance and separate authorization: GPU-isolation/forward preflight and exactly three Small passes; seal all outputs, then one unified CPU evaluation",
+    "stop with complete comparison, failed/unknown evidence and next-stage judgment; no reliability or training release"
+  ],
+  "cumulative_contribution": "independent sensor-reference intake and a falsifiable ordinal-only fallback after genuine anchor-support failure; no new accuracy, confidence ranking or method novelty established",
+  "primary_semantics_source": {
+    "url": "https://arxiv.org/html/2406.09414v2#S7.SS2",
+    "verified_claim": "official paper describes basic model output as affine-invariant inverse depth; metric fine-tuning is separate",
+    "does_not_support": "our thresholds, ETH3D performance, ordinal evaluation acceptance or novelty"
+  }
+}

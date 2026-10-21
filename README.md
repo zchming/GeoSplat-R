@@ -4,6 +4,21 @@
 
 工程集成：[CPU 检查与主分支保护](docs/cpu-ci.md)。
 
+当前研究验收：**冻结 margin 歧义候选在未开启场景确认失败，停止该候选；不进入可靠性加权或新训练。**
+两已观察开发场景在保留低风险50%配对时，错误风险分别下降92.6%与91.0%；
+独立 courtyard 场景均值下降35.2%，但 DSC_0304 未通过单图门，local层错误风险增加34.6%。
+场景均值不能覆盖单图/分层失败，这些数字也不是PSNR或三维重建收益。
+历史D1/D2/H1、Cauchy及绝对深度锚点的负结果和支持不足均继续保留。
+
+- [两开发场景完整对比](docs/ordinal-margin-diagnostic.md) · [未开启场景确认及停止判断](docs/courtyard-margin-confirmation.md)
+- [CPU入口与隔离验收](docs/ordinal-margin-cpu.md) · [冻结确认方案](configs/courtyard-margin-confirmation-plan.json)
+- [原始轨迹H1](docs/leaves-raw-track-diagnostic.md) · [独立几何数据可行性](docs/independent-geometry-feasibility.md)
+- [terrace序关系诊断](docs/terrace-relative-diagnostic.md) · [delivery_area序关系诊断](docs/delivery-area-relative-diagnostic.md)
+
+几何回归检查使用生成数据，不加载模型或真实数据：
+`python scripts/check_geometry_cpu_ci.py --output <新的结果JSON路径>`。
+CPU持续集成另外保留原有depth/protocol两组；真实GPU、外部资产与训练不属于CI。
+
 Geometry-Reliability Guided Sparse-View 3D Gaussian Splatting.
 
 稀疏视角三维重建工程研究项目，基于固定版本 gsplat v1.5.3。
