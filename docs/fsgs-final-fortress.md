@@ -52,6 +52,21 @@ python scripts/check_fsgs_renderer.py --checkpoint "$CONVERTED_CHECKPOINT" \
   --weights "$METRIC_WEIGHTS" --output "$NEW_DIAGNOSTIC_OUTPUT"
 ```
 
+## 完整评价和可视化交付
+
+兼容规则已接入现有 `evaluate_baseline.py` 的显式 `--render-profile fsgs-native` 选项，统一应用到 RGB、RGB+ED 深度和48帧新视角视频。输出指标记录 profile 和实际近裁规则；该模式要求完整的 FSGS 转换检查点。`standard` 仍是默认模式，原冻结评价结果不变。
+
+```bash
+python scripts/evaluate_baseline.py --checkpoint "$CONVERTED_CHECKPOINT" \
+  --train-data "$NEW_PREPARED/train" --test-data "$NEW_PREPARED/test" \
+  --weights "$METRIC_WEIGHTS" --output "$NEW_COMPATIBLE_EVALUATION" \
+  --render-profile fsgs-native
+```
+
+同一 fortress 检查点已完成3张训练图、6张测试图的完整交付验证，包括 RGB/GT/误差/深度/alpha/有效区图、三维点图、PLY和48帧视频。RGB+ED 与前次 RGB 兼容诊断的逐图 PSNR、SSIM完全一致，LPIPS最大差为5.96e-7；模型参数没有更新。结果与增量预算见[交付记录](../results/fsgs-renderer-delivery.json)和[运行配置](../configs/fsgs-renderer-delivery.json)。
+
+本步工作进程用时9.337779秒，继承9318.381970秒后累计9327.719749/9856.843380秒。独立场景验证上表的0.01主对照、原生/默认输出、所有历史文件均保留；新输出位于独立目录 `fsgs-renderer-delivery-20261023T120214Z`，没有追加训练。
+
 ## 复现
 
 [固定运行配置](../configs/fsgs-final-fortress.json)记录矩阵、预算、判据与源码身份；[输入配置](../configs/fsgs-final-fortress-input.json)固定ZIP成员和视角。沿用[room 的准备和清单生成命令](fsgs-generalization.md#复现入口)，将配置路径和 `--scene` 改为本轮 fortress；所有输出使用新目录。原生训练、转换与独立评价仍使用[同一组入口](fsgs-reference.md#接入与复现)。原来的开发场景下载及既有图像、相机、权重和失败证据保持不变。

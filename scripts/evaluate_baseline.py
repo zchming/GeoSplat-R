@@ -58,6 +58,18 @@ def evaluate(args):
         raise ValueError('Explicit verified AlexNet weights are required; no automatic network download')
     data=torch.load(args.checkpoint,map_location='cuda',weights_only=True)
     params=data['splats']
+    profile=getattr(args,'render_profile','standard')
+    if profile=='fsgs-native':
+        from geosplat_r.fsgs_render import NATIVE_NEAR_PLANE,render_native_compatible
+        if data.get('method')!='FSGS native training; gsplat rendering':
+            raise ValueError('fsgs-native requires an explicitly converted FSGS checkpoint')
+        def render_view(view,depth=False):
+            return render_native_compatible(data,view,depth=depth)
+        visibility={'near_plane':NATIVE_NEAR_PLANE,'center_cull':'Z <= float32(0.2)'}
+    else:
+        def render_view(view,depth=False):
+            return render(params,view,depth=depth)
+        visibility={'near_plane':.01,'center_cull':'Z < 0.01'}
     train_views=load_views(args.train_data);test_views=load_views(args.test_data)
     assert {v['name'] for v in train_views}.isdisjoint(v['name'] for v in test_views)
     lpips=LearnedPerceptualImagePatchSimilarity(net_type='alex',normalize=True).cuda().eval()
@@ -74,10 +86,10 @@ def evaluate(args):
             records=[]
             for v in views:
                 output=args.output/split/Path(v['name']).stem;output.mkdir(parents=True)
-                for _ in range(3):render(params,v,depth=True)
+                for _ in range(3):render_view(v,depth=True)
                 torch.cuda.synchronize()  # warm-up excluded from 20-pass rendering mean
                 begin=time.perf_counter()
-                for _ in range(20):rgb_depth,alpha,_=render(params,v,depth=True)
+                for _ in range(20):rgb_depth,alpha,_=render_view(v,depth=True)
                 torch.cuda.synchronize()
                 render_seconds=(time.perf_counter()-begin)/20
                 rgb=rgb_depth[...,:3].clamp(0,1);gt=v['pixels'].cuda()[None]
@@ -136,12 +148,13 @@ def evaluate(args):
             for t in np.linspace(0,1,16,endpoint=False):
                 c2w=np.eye(4);c2w[:3,:3]=rotations(t).as_matrix();c2w[:3,3]=(1-t)*a[:3,3]+t*b[:3,3]
                 v={**train_views[0],'view':torch.linalg.inv(torch.tensor(c2w,dtype=torch.float32,device='cuda'))[None]}
-                frame=render(params,v)[0][0].clamp(0,1).cpu().numpy()
+                frame=render_view(v)[0][0].clamp(0,1).cpu().numpy()
                 frames.append((frame*255).round().astype(np.uint8))
         imageio.mimsave(args.output/'novel-view-path.mp4',frames,fps=12,macro_block_size=1)
         lpips_file=Path(__import__('torchmetrics').__file__).parent/'functional/image/lpips_models/alex.pth'
         results.update({'checkpoint_sha256':sha256(args.checkpoint),'optimizer_updates':data['optimizer_updates'],
             'method_label':getattr(args,'label','Vanilla 3DGS'),
+            'render_profile':profile,'render_visibility':visibility,
             'evaluation_seconds':time.perf_counter()-tic,
             'versions':{p:version(p) for p in ['torch','torchvision','gsplat','torchmetrics','numpy']},
             'metric_protocol':{'rgb':'sRGB [0,1], clamp prediction, no mask/crop',
@@ -162,5 +175,10 @@ if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
     for field in ['checkpoint','train-data','test-data','weights','output']:
         ap.add_argument('--'+field,type=Path,required=True)
-    ap.add_argument('--label',default='Vanilla 3DGS',help='Display label only; does not change metrics or rendering')
-    evaluate(ap.parse_args())
+    ap.add_argument('--label',help='Display label only; does not change metrics or rendering')
+    ap.add_argument('--render-profile',choices=['standard','fsgs-native'],default='standard',
+                    help='Explicit visibility rule for all RGB/depth/video rendering; standard preserves old evaluation')
+    args=ap.parse_args()
+    if args.label is None:
+        args.label='FSGS native-compatible gsplat' if args.render_profile=='fsgs-native' else 'Vanilla 3DGS'
+    evaluate(args)
