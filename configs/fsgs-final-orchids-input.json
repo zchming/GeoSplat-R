@@ -1,0 +1,176 @@
+{
+  "protocol": "llff-fixed-independent-input-v1",
+  "scene": {
+    "scene": "orchids",
+    "url": "https://huggingface.co/datasets/nerfbaselines/nerfbaselines-data/resolve/6a638951a007c8b47eb8a0301d48b04d18e955cf/llff/orchids.zip",
+    "revision": "6a638951a007c8b47eb8a0301d48b04d18e955cf",
+    "archive_bytes": 183958040,
+    "image_count": 25,
+    "image_names": [
+      "image000.png",
+      "image001.png",
+      "image002.png",
+      "image003.png",
+      "image004.png",
+      "image005.png",
+      "image006.png",
+      "image007.png",
+      "image008.png",
+      "image009.png",
+      "image010.png",
+      "image011.png",
+      "image012.png",
+      "image013.png",
+      "image014.png",
+      "image015.png",
+      "image016.png",
+      "image017.png",
+      "image018.png",
+      "image019.png",
+      "image020.png",
+      "image021.png",
+      "image022.png",
+      "image023.png",
+      "image024.png"
+    ],
+    "train_indices": [
+      1,
+      12,
+      23
+    ],
+    "test_indices": [
+      0,
+      8,
+      16,
+      24
+    ],
+    "unused_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "train_names": [
+      "image001.png",
+      "image012.png",
+      "image023.png"
+    ],
+    "test_names": [
+      "image000.png",
+      "image008.png",
+      "image016.png",
+      "image024.png"
+    ],
+    "selected_members": [
+      {
+        "name": "orchids/images_8/image023.png",
+        "compressed_bytes": 428296,
+        "raw_bytes": 428226,
+        "crc32": "7f0fafb4",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 132645927
+      },
+      {
+        "name": "orchids/images_8/image008.png",
+        "compressed_bytes": 418165,
+        "raw_bytes": 418114,
+        "crc32": "e6bfb1e5",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 133502659
+      },
+      {
+        "name": "orchids/images_8/image024.png",
+        "compressed_bytes": 431368,
+        "raw_bytes": 431334,
+        "crc32": "8fb56678",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 136037954
+      },
+      {
+        "name": "orchids/images_8/image016.png",
+        "compressed_bytes": 434165,
+        "raw_bytes": 434120,
+        "crc32": "64f65479",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 136469409
+      },
+      {
+        "name": "orchids/images_8/image001.png",
+        "compressed_bytes": 414816,
+        "raw_bytes": 414758,
+        "crc32": "53156a16",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 138161950
+      },
+      {
+        "name": "orchids/images_8/image000.png",
+        "compressed_bytes": 412356,
+        "raw_bytes": 412291,
+        "crc32": "1b8c3f6e",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 139434883
+      },
+      {
+        "name": "orchids/images_8/image012.png",
+        "compressed_bytes": 422356,
+        "raw_bytes": 422291,
+        "crc32": "e8fc761a",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 142811478
+      },
+      {
+        "name": "orchids/sparse/0/cameras.bin",
+        "compressed_bytes": 43,
+        "raw_bytes": 64,
+        "crc32": "544c7578",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 143241622
+      },
+      {
+        "name": "orchids/sparse/0/images.bin",
+        "compressed_bytes": 2540749,
+        "raw_bytes": 7078965,
+        "crc32": "26213aa3",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 143241751
+      },
+      {
+        "name": "orchids/poses_bounds.npy",
+        "compressed_bytes": 2935,
+        "raw_bytes": 3480,
+        "crc32": "400779ad",
+        "method": 8,
+        "flags": 0,
+        "local_header_offset": 146489586
+      }
+    ]
+  },
+  "download_cap_bytes": 16000000,
+  "selected_transfer_bytes": 5505549,
+  "selection": "original every8 test plus three rounded evenly spaced non-test views; frozen before any RGB payload",
+  "source_pointcloud": "never fetched; source observations skipped by calibration parser",
+  "rights": "same pinned LLFF mirror; no dataset redistribution"
+}

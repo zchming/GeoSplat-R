@@ -1,4 +1,4 @@
-"""Fetch the explicitly frozen, small LLFF room or fortress subset.
+"""Fetch the explicitly frozen, small, explicitly selected LLFF subsets.
 
 The earlier flower/leaves command and its approved-plan hash remain unchanged.
 Only selected RGBs, public camera metadata and poses are fetched via ZIP ranges.
@@ -18,7 +18,10 @@ def main():
     plan = json.loads(args.plan.read_text())
     scene = plan["scene"]
     supported = {("llff-fixed-generalization-input-v1", "room"),
-                 ("llff-fixed-independent-input-v1", "fortress")}
+                 ("llff-fixed-independent-input-v1", "fortress"),
+                 ("llff-fixed-independent-input-v1", "horns"),
+                 ("llff-fixed-independent-input-v1", "orchids"),
+                 ("llff-fixed-independent-input-v1", "trex")}
     if (plan["protocol"], scene["scene"]) not in supported or len(scene["train_indices"]) != 3:
         raise ValueError("Explicit approved three-view scene plan required")
     if set(scene["train_indices"]) & set(scene["test_indices"]):
@@ -30,8 +33,9 @@ def main():
     if len(members) != len(expected) or {entry["name"] for entry in members} != expected:
         raise ValueError("ZIP member list differs from the frozen RGB/calibration subset")
     transfer = sum(entry["compressed_bytes"] + 30 for entry in members)
-    if transfer > min(plan["download_cap_bytes"], 8_000_000):
-        raise ValueError("Subset exceeds the 8 MB transfer cap")
+    limit = 16_000_000 if prefix in {"horns", "orchids", "trex"} else 8_000_000
+    if transfer > min(plan["download_cap_bytes"], limit):
+        raise ValueError(f"Subset exceeds the {limit}-byte transfer cap")
     fetch_scene(scene, args.output)
 
 
