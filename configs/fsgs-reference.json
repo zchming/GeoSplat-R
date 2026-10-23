@@ -1,0 +1,58 @@
+{
+  "protocol": "fsgs-native-sparse-leaves-v1",
+  "source": {
+    "repository": "https://github.com/VITA-Group/FSGS",
+    "commit": "a536a64c5b366b1088be64eeadf9e791ca26897c",
+    "archive_sha256": "ab8cd7c87ddacf5a90d04a7c5d29573f6df7f57d2d897b1aa9b771b01232463d",
+    "runtime_patches": [
+      "Add missing #include <cstdint> in rasterizer_impl.h for CUDA 12 compilation",
+      "Remove unused Open3D imports from scene/gaussian_model.py and scene/dataset_readers.py"
+    ]
+  },
+  "depth_model": {
+    "source": "https://github.com/isl-org/MiDaS/tree/v3_1",
+    "source_archive_sha256": "e426feb317ac44bc82bc2337a1d8a5f11e4819dc0b414732918412d5905ae5b3",
+    "model": "DPT_Hybrid",
+    "weight_url": "https://github.com/isl-org/MiDaS/releases/download/v3/dpt_hybrid_384.pt",
+    "weight_bytes": 492757791,
+    "weight_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+    "loading": "Explicit local source and strict checkpoint loading; no automatic hub downloads",
+    "timm": "0.9.12"
+  },
+  "scene": "leaves",
+  "seed": 44,
+  "resolution": [504, 378],
+  "train_images": ["image001.png", "image012.png", "image025.png"],
+  "test_images": ["image000.png", "image008.png", "image016.png", "image024.png"],
+  "initialization": {
+    "points": 274,
+    "source": "Frozen train-only sparse SfM cloud; no dense MVS initialization",
+    "points_npz_sha256": "dcda6a8fb0f337fce2bac8b060abf6340b86d7c9016317d88aa1edab3de32394",
+    "cameras_json_sha256": "6d88f993c980cdfc146178fc246318b5ba3012b256d01cd7f1f18b69f0993346"
+  },
+  "pseudo_camera_bounds": "Per-train-view positive Z of projected in-frustum frozen SfM points, percentiles [0.1,99.9]; no occlusion estimate",
+  "raster_pixel_origin": "Native samples integer indices; shift native projected means by -0.5 pixel on both real and pseudo cameras to match frozen gsplat rays sampled at pixel index +0.5",
+  "native_iterations": 10000,
+  "native_optimizer_steps": 9999,
+  "sample_pseudo_interval": 1,
+  "other_optimizer_and_loss_settings": "Pinned upstream defaults",
+  "evaluation": "Independent process after successful completion; native FSGS renderer with the existing SSIM/LPIPS-Alex metric definitions",
+  "baseline": "Preserved uniform L1 A1/A2, each 30000 updates; results/correlation-four-arm.json",
+  "decision_rule": "Before opening new test metrics: advance as a single-scene quality candidate only if all three test means improve over the best corresponding L1 bookend mean. Keep every per-view comparison. This is not multi-scene acceptance.",
+  "gsplat_integration": "After native evaluation, convert the final Gaussian tensors without changing values and run the unchanged project evaluator. Report both renderers; require the same three-mean rule for deployment through gsplat. No retraining or selecting the better renderer after evaluation.",
+  "comparison_scope": "Complete method engineering comparison. Renderer, optimizer, schedules and depth model differ; no isolated component attribution or paper reproduction claim.",
+  "resources": {
+    "total_seconds": 5400,
+    "inherited_charged_seconds": 3653.19891280107,
+    "training_worker_cap_seconds": 1656.80108719893,
+    "evaluation_reserve_seconds": 90,
+    "board_vram_limit_mib": 11500,
+    "automatic_retry": false
+  },
+  "pixel_origin_correction": {
+    "first_training_attempt_seconds": 557.8615723750008,
+    "recovery_inherited_charged_seconds": 4211.060485176071,
+    "recovery_training_worker_cap_seconds": 1098.9395148239291,
+    "reason": "Detected actual raster pixel-origin mismatch; first run terminated and retained without evaluation; corrected run starts in a new directory with inherited budget"
+  }
+}
