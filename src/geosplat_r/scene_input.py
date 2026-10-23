@@ -1,4 +1,4 @@
-"""Explicit train-only input manifests for the approved LLFF development scenes."""
+"""Explicit train-only input manifests for the approved LLFF scenes."""
 import hashlib
 import json
 from collections import Counter
@@ -6,10 +6,12 @@ from pathlib import Path
 
 import numpy as np
 
-SCENE_TRAINS = {'flower':['image001.png','image017.png','image033.png'],
+SCENE_TRAINS = {'fortress':['image001.png', 'image021.png', 'image041.png'],
+                'flower':['image001.png','image017.png','image033.png'],
                 'leaves':['image001.png','image012.png','image025.png'],
                 'room':['DJI_20200226_143851_396.png','DJI_20200226_143918_576.png','DJI_20200226_143946_704.png']}
-SCENE_TESTS = {'flower':['image000.png','image008.png','image016.png','image024.png','image032.png'],
+SCENE_TESTS = {'fortress':['image000.png', 'image008.png', 'image016.png', 'image024.png', 'image032.png', 'image040.png'],
+               'flower':['image000.png','image008.png','image016.png','image024.png','image032.png'],
                'leaves':['image000.png','image008.png','image016.png','image024.png'],
                'room':['DJI_20200226_143850_006.png','DJI_20200226_143901_419.png','DJI_20200226_143912_008.png','DJI_20200226_143926_241.png','DJI_20200226_143938_168.png','DJI_20200226_143948_113.png']}
 

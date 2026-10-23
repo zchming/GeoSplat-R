@@ -1,4 +1,4 @@
-"""Fetch the explicitly frozen, small LLFF room generalization subset.
+"""Fetch the explicitly frozen, small LLFF room or fortress subset.
 
 The earlier flower/leaves command and its approved-plan hash remain unchanged.
 Only selected RGBs, public camera metadata and poses are fetched via ZIP ranges.
@@ -16,15 +16,16 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
-    if plan["protocol"] != "llff-fixed-generalization-input-v1":
-        raise ValueError("Explicit generalization input plan required")
     scene = plan["scene"]
-    if scene["scene"] != "room" or len(scene["train_indices"]) != 3:
-        raise ValueError("Only the approved three-view room subset is supported")
+    supported = {("llff-fixed-generalization-input-v1", "room"),
+                 ("llff-fixed-independent-input-v1", "fortress")}
+    if (plan["protocol"], scene["scene"]) not in supported or len(scene["train_indices"]) != 3:
+        raise ValueError("Explicit approved three-view scene plan required")
     if set(scene["train_indices"]) & set(scene["test_indices"]):
         raise ValueError("Train and test selections overlap")
-    expected = {f"room/images_8/{name}" for name in scene["train_names"] + scene["test_names"]}
-    expected |= {"room/poses_bounds.npy", "room/sparse/0/cameras.bin", "room/sparse/0/images.bin"}
+    prefix = scene["scene"]
+    expected = {f"{prefix}/images_8/{name}" for name in scene["train_names"] + scene["test_names"]}
+    expected |= {f"{prefix}/poses_bounds.npy", f"{prefix}/sparse/0/cameras.bin", f"{prefix}/sparse/0/images.bin"}
     members = scene["selected_members"]
     if len(members) != len(expected) or {entry["name"] for entry in members} != expected:
         raise ValueError("ZIP member list differs from the frozen RGB/calibration subset")
