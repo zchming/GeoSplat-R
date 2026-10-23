@@ -1,4 +1,4 @@
-"""Apply the frozen fern remapping rule to audited flower/leaves subsets."""
+"""Apply the frozen fern remapping rule to explicitly selected LLFF subsets."""
 import argparse
 import hashlib
 import json
@@ -21,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for key in ['source','plan','output']:
         parser.add_argument('--'+key,type=Path,required=True)
-    parser.add_argument('--scene',choices=['flower','leaves'],required=True)
+    parser.add_argument('--scene',choices=['flower','leaves','room'],required=True)
     args = parser.parse_args()
     args.output.mkdir(parents=True,exist_ok=False)
     selection = next(s for s in json.loads(args.plan.read_text())['scenes'] if s['scene']==args.scene)

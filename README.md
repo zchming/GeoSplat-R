@@ -2,12 +2,12 @@
 
 稀疏视角 3D Gaussian Splatting 的几何可靠性优化。
 
-**2026-10-23 工程结果：[FSGS 接入与三开发场景确认](docs/fsgs-reference.md)已完成。**
-同一 seed44、冻结三视角输入下，FSGS 训练的模型直接导入现有 gsplat 评价/可视化；
-相对预选统一 L1 对照，fern/flower/leaves 的测试 PSNR 分别提高 6.296/5.076/5.070 dB，
-12 张测试图的 PSNR、SSIM、LPIPS 全部改善。[全部逐图结果与资源](results/fsgs-development-confirmation.json)。
-这是完整训练配方对照（FSGS 9,999 更新、L1 30k）；fern/flower 对照为历史同协议模型。
-当前覆盖三个开发场景、一个 FSGS seed，最终未调参场景和多种子确认尚未完成。旧路线和全部失败记录继续保留。
+**2026-10-23 工程结果：[FSGS 新场景与多种子确认](docs/fsgs-generalization.md)已完成。**
+在既有三开发场景接入基础上，新增 room 同阶段对照与 leaves seed42/43；
+leaves 三种子 FSGS 测试 PSNR 为 17.754 ± 0.351 dB，
+room 相对统一 L1 的 PSNR 变化为 +5.374 dB。
+完整配方比较为 FSGS 9,999 更新、L1 30k；测试集和所有逐图结果保留。
+此前[三开发场景结果](docs/fsgs-reference.md)及旧路线、失败记录继续保留；更广泛最终 benchmark 尚未执行。
 
 工程集成：[CPU 检查与主分支保护](docs/cpu-ci.md)。
 
