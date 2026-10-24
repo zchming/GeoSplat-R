@@ -116,4 +116,4 @@ python3 scripts/run_geosplat.py evaluate --mode fsgs --config "$CONFIG" \
 
 预算按全部子进程墙时累加，包含 CPU 准备和失败进程，不清零继承消耗；首次编译也会占用该次进程时限。超时、超显存或工作进程失败即结束本次流程，无自动重训。普通中断会终止子进程组并写回账本；若系统强制终止监督器，保留的 `running` 记录及 `reserved_until_seconds` 表示预算尚未结算，确认子进程状态前按该上限保守继承。显存是周期采样值，连续峰值以模型自身 Torch 记录另行报告。
 
-需要查看命令时在上述命令后附加 `--plan`：不创建输出、不初始化 CUDA，不作为运行前置环节。新增流程的 CPU 检查为 `python3 -m unittest discover -s tests -p test_workflow.py`；交付验收见[工程收尾](engineering-closeout.md)。
+需要查看命令时在上述命令后附加 `--plan`：不创建输出、不初始化 CUDA，不作为运行前置环节。新增流程的 CPU 检查为 `python3 -m unittest discover -s tests -p test_workflow.py`。
