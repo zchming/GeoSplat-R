@@ -1,0 +1,568 @@
+{
+  "protocol": "leaves-raw-track-sensitivity-v1",
+  "date": "2026-10-20",
+  "engineering_acceptance": "passed",
+  "observability_acceptance": "passed",
+  "direction_acceptance": "failed",
+  "decision": "stop_fixed_H1_no_weights_no_training_no_cross_scene_expansion",
+  "execution": {
+    "input_acceptance_processes": 1,
+    "formal_diagnostic_attempts": 1,
+    "completed": 1,
+    "failed_attempts": 0,
+    "real_diagnostic_retries": 0
+  },
+  "proposal_sha256": "116ece1a1a4547200bb32df5a058a4fbb8a7a10fa8fc30f894e4fbb63ff06bf3",
+  "plan_sha256": "b3d4830ae4fb7e92f79c1ff4f793459376c2219a3113bf7d07083d1722e49c77",
+  "input_inventory": {
+    "accepted": true,
+    "registered_images": [
+      "image001.png",
+      "image012.png",
+      "image025.png"
+    ],
+    "points": 274,
+    "raw_feature_counts": {
+      "image001.png": 4652,
+      "image012.png": 4580,
+      "image025.png": 4728
+    },
+    "track_length_counts": {
+      "2": 152,
+      "3": 122
+    },
+    "linked_observations": 670,
+    "raw_measurement_source": "images.bin points2D.xy",
+    "ignored_as_numeric_input": [
+      "points3D XYZ",
+      "RGB",
+      "fitted reprojection error"
+    ],
+    "reference_limit": "Fixed public cameras and SfM-selected tracks, not an unbiased full-pipeline holdout"
+  },
+  "input_files": [
+    {
+      "root": "train",
+      "path": "cameras.json",
+      "bytes": 2660,
+      "sha256": "6d88f993c980cdfc146178fc246318b5ba3012b256d01cd7f1f18b69f0993346"
+    },
+    {
+      "root": "train",
+      "path": "input-manifest.json",
+      "bytes": 730,
+      "sha256": "0a97f127f3d94082fa6ca954c60568d3597f539526b5a4be05a95516b4cf9e42"
+    },
+    {
+      "root": "train",
+      "path": "triangulated/cameras.bin",
+      "bytes": 64,
+      "sha256": "778634ec11d5bd37c1c77a6b5a058336ea0bcf1eb822150e79934690ff448363"
+    },
+    {
+      "root": "train",
+      "path": "triangulated/images.bin",
+      "bytes": 335303,
+      "sha256": "49d5132d0d8a7f5e3729dc6dda6c0cb6f5fd37f7c34872ef4fbb76d5446f4c23"
+    },
+    {
+      "root": "train",
+      "path": "triangulated/points3D.bin",
+      "bytes": 19342,
+      "sha256": "b57cb672da616f95e9e35c516aa3e1f01486b99be32a789dec860830621ec26f"
+    },
+    {
+      "root": "preparation",
+      "path": "preparation.json",
+      "bytes": 5191,
+      "sha256": "c75d6a7271aaa2e388dd077e1e7bd89c032cf903b48ebd4ba7e8b2ddbae93c18"
+    }
+  ],
+  "all_asset_reads_match_allowlist": true,
+  "record_counts": {
+    "total": 822,
+    "available": 366,
+    "unknown_missing_third_observation": 456,
+    "distinct_three_view_tracks": 122,
+    "distinct_two_view_tracks": 152,
+    "shared_track_fraction_of_all": 0.44525547445255476
+  },
+  "results": {
+    "image001.png": {
+      "all_tracks": 274,
+      "three_view_tracks": 122,
+      "score": {
+        "n": 122,
+        "correlation": {
+          "n": 122,
+          "rho": 0.09162949010277256,
+          "reason": null
+        },
+        "contrast": {
+          "n": 122,
+          "low": {
+            "n": 41,
+            "mean": 0.34953240959996745,
+            "median": 0.3215437582794476,
+            "p90": 0.548094645949846
+          },
+          "high": {
+            "n": 42,
+            "mean": 0.4855012076262074,
+            "median": 0.34260947068230146,
+            "p90": 0.9675977921773418
+          },
+          "high_minus_low_mean": 0.13596879802623996,
+          "reason": null,
+          "q1": 1.543991250673864,
+          "q2": 1.5539660214368944
+        },
+        "folds": {
+          "0": {
+            "n": 25,
+            "rho": -0.09,
+            "reason": null
+          },
+          "1": {
+            "n": 21,
+            "rho": 0.2584415584415584,
+            "reason": null
+          },
+          "2": {
+            "n": 26,
+            "rho": 0.07692307692307691,
+            "reason": null
+          },
+          "3": {
+            "n": 17,
+            "rho": 0.40441176470588236,
+            "reason": null
+          },
+          "4": {
+            "n": 33,
+            "rho": 0.08689839572192513,
+            "reason": null
+          }
+        }
+      },
+      "angle_control": {
+        "n": 122,
+        "correlation": {
+          "n": 122,
+          "rho": 0.05997818974918211,
+          "reason": null
+        },
+        "contrast": {
+          "n": 122,
+          "low": {
+            "n": 42,
+            "mean": 0.4003151794949922,
+            "median": 0.3805925575384446,
+            "p90": 0.7539877684888824
+          },
+          "high": {
+            "n": 41,
+            "mean": 0.48903667243583077,
+            "median": 0.3936810125484371,
+            "p90": 0.8450881588000485
+          },
+          "high_minus_low_mean": 0.08872149294083859,
+          "reason": null,
+          "q1": 6.268339865976896,
+          "q2": 39.94985497141812
+        },
+        "folds": {
+          "0": {
+            "n": 25,
+            "rho": -0.22923076923076924,
+            "reason": null
+          },
+          "1": {
+            "n": 21,
+            "rho": 0.051948051948051945,
+            "reason": null
+          },
+          "2": {
+            "n": 26,
+            "rho": 0.305982905982906,
+            "reason": null
+          },
+          "3": {
+            "n": 17,
+            "rho": 0.18627450980392157,
+            "reason": null
+          },
+          "4": {
+            "n": 33,
+            "rho": 0.2503342245989305,
+            "reason": null
+          }
+        }
+      },
+      "status_counts": {
+        "missing_three_view_track": 152,
+        "available": 122
+      },
+      "angle_status_counts": {
+        "available": 122
+      },
+      "included_residuals": {
+        "n": 122,
+        "mean": 0.4551960715561689,
+        "median": 0.3527309864239692,
+        "p90": 0.8402805823327861
+      },
+      "excluded_residuals": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p90": null
+      },
+      "score_missing_but_reference_available": 0,
+      "positive_folds": 4,
+      "observability_passed": true,
+      "direction_passed": false,
+      "same_subset_control": {
+        "n": 122,
+        "rho_score_minus_angle": 0.03165130035359045
+      }
+    },
+    "image012.png": {
+      "all_tracks": 274,
+      "three_view_tracks": 122,
+      "score": {
+        "n": 122,
+        "correlation": {
+          "n": 122,
+          "rho": -0.15234129737946533,
+          "reason": null
+        },
+        "contrast": {
+          "n": 122,
+          "low": {
+            "n": 41,
+            "mean": 0.3613376507452691,
+            "median": 0.28679097608942744,
+            "p90": 0.7011694884783856
+          },
+          "high": {
+            "n": 41,
+            "mean": 0.3296399314226097,
+            "median": 0.18773213688069557,
+            "p90": 0.5144492972646842
+          },
+          "high_minus_low_mean": -0.03169771932265936,
+          "reason": null,
+          "q1": 1.0701170230947086,
+          "q2": 1.079702993219798
+        },
+        "folds": {
+          "0": {
+            "n": 25,
+            "rho": -0.06384615384615384,
+            "reason": null
+          },
+          "1": {
+            "n": 21,
+            "rho": -0.23766233766233766,
+            "reason": null
+          },
+          "2": {
+            "n": 26,
+            "rho": -0.02017094017094017,
+            "reason": null
+          },
+          "3": {
+            "n": 17,
+            "rho": 0.12990196078431374,
+            "reason": null
+          },
+          "4": {
+            "n": 33,
+            "rho": -0.365975935828877,
+            "reason": null
+          }
+        }
+      },
+      "angle_control": {
+        "n": 122,
+        "correlation": {
+          "n": 122,
+          "rho": -0.014811143055417865,
+          "reason": null
+        },
+        "contrast": {
+          "n": 122,
+          "low": {
+            "n": 41,
+            "mean": 0.30938496659135223,
+            "median": 0.2548106631443439,
+            "p90": 0.6282698167384161
+          },
+          "high": {
+            "n": 41,
+            "mean": 0.31615391946268534,
+            "median": 0.23667528728823714,
+            "p90": 0.6657219218371441
+          },
+          "high_minus_low_mean": 0.0067689528713331115,
+          "reason": null,
+          "q1": 4.782026323781952,
+          "q2": 29.355892514534933
+        },
+        "folds": {
+          "0": {
+            "n": 25,
+            "rho": -0.2823076923076923,
+            "reason": null
+          },
+          "1": {
+            "n": 21,
+            "rho": -0.06363636363636363,
+            "reason": null
+          },
+          "2": {
+            "n": 26,
+            "rho": 0.10085470085470086,
+            "reason": null
+          },
+          "3": {
+            "n": 17,
+            "rho": -0.019607843137254905,
+            "reason": null
+          },
+          "4": {
+            "n": 33,
+            "rho": 0.07052139037433156,
+            "reason": null
+          }
+        }
+      },
+      "status_counts": {
+        "missing_three_view_track": 152,
+        "available": 122
+      },
+      "angle_status_counts": {
+        "available": 122
+      },
+      "included_residuals": {
+        "n": 122,
+        "mean": 0.3345906947243542,
+        "median": 0.24606613448578138,
+        "p90": 0.6646348918417148
+      },
+      "excluded_residuals": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p90": null
+      },
+      "score_missing_but_reference_available": 0,
+      "positive_folds": 1,
+      "observability_passed": true,
+      "direction_passed": false,
+      "same_subset_control": {
+        "n": 122,
+        "rho_score_minus_angle": -0.13753015432404747
+      }
+    },
+    "image025.png": {
+      "all_tracks": 274,
+      "three_view_tracks": 122,
+      "score": {
+        "n": 122,
+        "correlation": {
+          "n": 122,
+          "rho": 0.012266613793331351,
+          "reason": null
+        },
+        "contrast": {
+          "n": 122,
+          "low": {
+            "n": 41,
+            "mean": 0.9633137142389816,
+            "median": 0.7673222003954441,
+            "p90": 1.973343421336527
+          },
+          "high": {
+            "n": 41,
+            "mean": 0.8779126487661004,
+            "median": 0.6550615692510493,
+            "p90": 1.6151132251333218
+          },
+          "high_minus_low_mean": -0.08540106547288118,
+          "reason": null,
+          "q1": 4.295143238410586,
+          "q2": 4.48029321955566
+        },
+        "folds": {
+          "0": {
+            "n": 25,
+            "rho": 0.1776923076923077,
+            "reason": null
+          },
+          "1": {
+            "n": 21,
+            "rho": 0.33896103896103896,
+            "reason": null
+          },
+          "2": {
+            "n": 26,
+            "rho": -0.19931623931623932,
+            "reason": null
+          },
+          "3": {
+            "n": 17,
+            "rho": 0.20098039215686278,
+            "reason": null
+          },
+          "4": {
+            "n": 33,
+            "rho": -0.2165775401069519,
+            "reason": null
+          }
+        }
+      },
+      "angle_control": {
+        "n": 122,
+        "correlation": {
+          "n": 122,
+          "rho": -0.10992366412213742,
+          "reason": null
+        },
+        "contrast": {
+          "n": 122,
+          "low": {
+            "n": 41,
+            "mean": 0.8342058124241168,
+            "median": 0.6953794329191207,
+            "p90": 1.613091191542721
+          },
+          "high": {
+            "n": 41,
+            "mean": 0.9040673025549754,
+            "median": 0.699901737115247,
+            "p90": 1.49157816842958
+          },
+          "high_minus_low_mean": 0.06986149013085852,
+          "reason": null,
+          "q1": 17.007649155359577,
+          "q2": 97.83298961292532
+        },
+        "folds": {
+          "0": {
+            "n": 25,
+            "rho": -0.17384615384615384,
+            "reason": null
+          },
+          "1": {
+            "n": 21,
+            "rho": -0.13896103896103898,
+            "reason": null
+          },
+          "2": {
+            "n": 26,
+            "rho": 0.03863247863247863,
+            "reason": null
+          },
+          "3": {
+            "n": 17,
+            "rho": -0.3137254901960785,
+            "reason": null
+          },
+          "4": {
+            "n": 33,
+            "rho": -0.10360962566844921,
+            "reason": null
+          }
+        }
+      },
+      "status_counts": {
+        "missing_three_view_track": 152,
+        "available": 122
+      },
+      "angle_status_counts": {
+        "available": 122
+      },
+      "included_residuals": {
+        "n": 122,
+        "mean": 0.8788656505592186,
+        "median": 0.6661592758138356,
+        "p90": 1.7635110813716701
+      },
+      "excluded_residuals": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p90": null
+      },
+      "score_missing_but_reference_available": 0,
+      "positive_folds": 3,
+      "observability_passed": true,
+      "direction_passed": false,
+      "same_subset_control": {
+        "n": 122,
+        "rho_score_minus_angle": 0.12219027791546877
+      }
+    }
+  },
+  "resources": {
+    "elapsed_wall_seconds": 1.6691384315490723,
+    "elapsed_perf_counter_seconds": 1.6691381370001181,
+    "peak_rss_mib": 63.48046875,
+    "rss_method": "Linux ru_maxrss KiB/1024, process high-water RSS",
+    "device": "CPU",
+    "threads_max": 4,
+    "model_inference": false,
+    "rendering": false,
+    "optimizer_updates": 0,
+    "cuda_initialized": false
+  },
+  "checks": {
+    "new_synthetic_and_isolation_before_execution": 23,
+    "new_checks_including_completed_evidence_after_execution": 25,
+    "historical_D1_D2_regressions": 33,
+    "distinct_checks_total": 58,
+    "combined_regression_log_tests": 56,
+    "combined_regression_includes_23_repeated_new_tests": true,
+    "skips_with_explicit_completed_evidence": 0,
+    "independent_audit": {
+      "raw_image_binary_independently_parsed": true,
+      "track_counts_independently_verified": {
+        "2": 152,
+        "3": 122
+      },
+      "all_records": 822,
+      "available_records": 366,
+      "unknown_records": 456,
+      "independent_triangulation_backend": "cv2.triangulatePoints, no production kernel imports",
+      "max_abs_difference": {
+        "xyz": 2.3248958314070478e-11,
+        "projection": 7.254641332110623e-12,
+        "jacobian": 2.1174173525650986e-09,
+        "score": 5.982445649976853e-10,
+        "angle": 3.268496584496461e-12,
+        "residual": 4.728994973390854e-12
+      },
+      "all_approved_input_hashes_unchanged": true
+    }
+  },
+  "execution_source_hashes": {
+    "configs/leaves-raw-track-plan.json": "b3d4830ae4fb7e92f79c1ff4f793459376c2219a3113bf7d07083d1722e49c77",
+    "docs/geometry-reliability-hypothesis-review.md": "116ece1a1a4547200bb32df5a058a4fbb8a7a10fa8fc30f894e4fbb63ff06bf3",
+    "src/geosplat_r/raw_track_diagnostics.py": "6a30dcc8f38edcf6471692a605dd4e59a60a627e4ec2e28359f3d765d425b548",
+    "scripts/diagnose_raw_tracks.py": "e25c29a1d22e24ecea32cca09902819b45baed47919ea86353c2a532c4f19c0f",
+    "tests/test_raw_track_diagnostics.py": "8d5afd6b9bc237c10365bfc42758f53c7cc73b966cef342f6b48a82c624db8bc",
+    "src/geosplat_r/train_diagnostics.py": "0502533f35a22600af6a2cad7569afce67427e12ca93ed952d4c3b8b66b5f1e3"
+  },
+  "post_execution_evidence_test_sha256": "f74c413c4f86df08fa04896b47ce1678d394943be9de582e042ba093c5862c1e",
+  "limitations": [
+    "Public fixed cameras may derive from all-view calibration",
+    "Tracks already selected by SfM; not unbiased holdout for the full pipeline",
+    "Reprojection error is not independent dense depth/surface truth",
+    "122 shared points, not 366 independent observations",
+    "Sensitivity assumes unit independent source-pixel noise and omits camera uncertainty",
+    "Two-view tracks cannot support this third-observation test; unknowns are not known failures"
+  ],
+  "evidence_root": "~/.local/share/geosplat-r/raw-track-diagnostic-20261020T133308Z"
+}

@@ -1,0 +1,374 @@
+{
+  "protocol": "independent-geometry-feasibility-v1",
+  "date": "2026-10-20",
+  "status": "metadata_and_protocol_review_only",
+  "downloads_authorized": false,
+  "training_authorized": false,
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "recommended_dataset": "ETH3D high-resolution multi-view public training data, terrace",
+  "recommended_initial_download_files": [
+    {
+      "file": "terrace_dslr_jpg.7z",
+      "url": "https://www.eth3d.net/data/terrace_dslr_jpg.7z",
+      "bytes": 233760734,
+      "etag": "\"5934a757-deee7de\"",
+      "size_source": "HTTP HEAD final 200 Content-Length",
+      "dataset_payload_read_bytes": 0,
+      "content_sha256": null,
+      "role": "original distorted RGB, supplied cameras/poses, expected masks",
+      "archive_members_inspected": false,
+      "uncompressed_bytes": null
+    },
+    {
+      "file": "terrace_dslr_depth.7z",
+      "url": "https://www.eth3d.net/data/terrace_dslr_depth.7z",
+      "bytes": 376720366,
+      "etag": "\"5ad10d4f-16744bee\"",
+      "size_source": "HTTP HEAD final 200 Content-Length",
+      "dataset_payload_read_bytes": 0,
+      "content_sha256": null,
+      "role": "evaluator-only laser-scan axial-Z maps and invalid support",
+      "archive_members_inspected": false,
+      "uncompressed_bytes": null
+    }
+  ],
+  "recommended_initial_compressed_bytes": 610481100,
+  "recommended_initial_MiB": 582.2001457214355,
+  "optional_pinhole_asset": {
+    "file": "terrace_dslr_undistorted.7z",
+    "url": "https://www.eth3d.net/data/terrace_dslr_undistorted.7z",
+    "bytes": 277898146,
+    "etag": "\"5934a73d-109063a2\"",
+    "size_source": "HTTP HEAD final 200 Content-Length",
+    "dataset_payload_read_bytes": 0,
+    "content_sha256": null,
+    "role": "optional later pinhole images/calibration; do not pair with raw depth without coordinate conversion",
+    "archive_members_inspected": false,
+    "uncompressed_bytes": null
+  },
+  "total_with_optional_pinhole_bytes": 888379246,
+  "eth3d_candidates": {
+    "terrace": {
+      "role": "engineering feasibility pilot",
+      "assets": [
+        {
+          "file": "terrace_dslr_jpg.7z",
+          "url": "https://www.eth3d.net/data/terrace_dslr_jpg.7z",
+          "bytes": 233760734,
+          "etag": "\"5934a757-deee7de\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "original distorted RGB, supplied cameras/poses, expected masks",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        },
+        {
+          "file": "terrace_dslr_depth.7z",
+          "url": "https://www.eth3d.net/data/terrace_dslr_depth.7z",
+          "bytes": 376720366,
+          "etag": "\"5ad10d4f-16744bee\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "evaluator-only laser-scan axial-Z maps and invalid support",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        }
+      ],
+      "total_bytes": 610481100
+    },
+    "courtyard": {
+      "role": "future development/confirmation candidate; not authorized",
+      "assets": [
+        {
+          "file": "courtyard_dslr_jpg.7z",
+          "url": "https://www.eth3d.net/data/courtyard_dslr_jpg.7z",
+          "bytes": 425492376,
+          "etag": "\"59347bbf-195c7f98\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "original distorted RGB, supplied cameras/poses, expected masks",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        },
+        {
+          "file": "courtyard_dslr_depth.7z",
+          "url": "https://www.eth3d.net/data/courtyard_dslr_depth.7z",
+          "bytes": 428289105,
+          "etag": "\"5ad0ce7d-19872c51\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "evaluator-only laser-scan axial-Z maps and invalid support",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        }
+      ],
+      "total_bytes": 853781481
+    },
+    "delivery_area": {
+      "role": "future development/confirmation candidate; not authorized",
+      "assets": [
+        {
+          "file": "delivery_area_dslr_jpg.7z",
+          "url": "https://www.eth3d.net/data/delivery_area_dslr_jpg.7z",
+          "bytes": 372958192,
+          "etag": "\"59347f4c-163ae3f0\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "original distorted RGB, supplied cameras/poses, expected masks",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        },
+        {
+          "file": "delivery_area_dslr_depth.7z",
+          "url": "https://www.eth3d.net/data/delivery_area_dslr_depth.7z",
+          "bytes": 388144128,
+          "etag": "\"5ad0d0d4-17229c00\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "evaluator-only laser-scan axial-Z maps and invalid support",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        }
+      ],
+      "total_bytes": 761102320
+    }
+  },
+  "eth3d_three_candidate_total_bytes": 2225364901,
+  "other_candidates": {
+    "DTU": {
+      "assets": [
+        {
+          "file": "SampleSet.zip",
+          "url": "https://roboimagedata2.compute.dtu.dk/data/MVS/SampleSet.zip",
+          "bytes": 6905656531,
+          "etag": "\"19b9bf4d3-5652d3a88539d\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "backup sample package, official documentation says set1/set6 and calibration/evaluation material",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        },
+        {
+          "file": "Points.zip",
+          "url": "https://roboimagedata2.compute.dtu.dk/data/MVS/Points.zip",
+          "bytes": 6966262016,
+          "etag": "\"19f38b900-5652d41ecd173\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "optional later all-scene STL reference point clouds; not required for sample-first intake",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        }
+      ],
+      "sample_first_bytes": 6905656531,
+      "both_archives_bytes": 13871918547,
+      "coordinate_units_status": "ReadMe/MATLAB payload not inspected; do not assume mm vs m"
+    },
+    "TUM_RGBD": {
+      "assets": [
+        {
+          "file": "rgbd_dataset_freiburg1_xyz.tgz",
+          "url": "https://cvg.cit.tum.de/rgbd/dataset/freiburg1/rgbd_dataset_freiburg1_xyz.tgz",
+          "bytes": 448204271,
+          "etag": "\"1ab70def-4ae2a1dc2ae80\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "RGB-D codec/unit/association fallback",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        },
+        {
+          "file": "rgbd_dataset_freiburg3_long_office_household.tgz",
+          "url": "https://cvg.cit.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_long_office_household.tgz",
+          "bytes": 1483556251,
+          "etag": "\"586d459b-4c6b17c31eb80\"",
+          "size_source": "HTTP HEAD final 200 Content-Length",
+          "dataset_payload_read_bytes": 0,
+          "content_sha256": null,
+          "role": "optional Freiburg3 pre-undistorted static-office sequence candidate",
+          "archive_members_inspected": false,
+          "uncompressed_bytes": null
+        }
+      ],
+      "depth_png_scale": 5000,
+      "missing_depth": 0,
+      "pose_quaternion_order": "qx qy qz qw",
+      "pose_direction": "camera-to-world; timestamps must be associated",
+      "caveat": "Sensor noise, temporal association and registration; not independent surface-accuracy certification"
+    },
+    "BlendedMVS": {
+      "source": "https://api.github.com/repos/YoYo000/BlendedMVS/releases/tags/v1.0.0",
+      "release_tag": "v1.0.0",
+      "assets": [
+        {
+          "file": "BlendedMVS.z01",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z01",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z02",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z02",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z03",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z03",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z04",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z04",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z05",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z05",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z06",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z06",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z07",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z07",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z08",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z08",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z09",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z09",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z10",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z10",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z11",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z11",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z12",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z12",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z13",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z13",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z14",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z14",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.z15",
+          "bytes": 1950000000,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.z15",
+          "content_sha256": null
+        },
+        {
+          "file": "BlendedMVS.zip",
+          "bytes": 281708973,
+          "url": "https://github.com/YoYo000/BlendedMVS/releases/download/v1.0.0/BlendedMVS.zip",
+          "content_sha256": null
+        }
+      ],
+      "total_bytes": 29531708973,
+      "requires_all_split_parts": true,
+      "ground_truth_kind": "Rendered reconstructed-mesh depth, not an independent physical sensor measurement",
+      "decision": "not primary independent-sensor validation"
+    }
+  },
+  "eth3d_coordinate_contract": {
+    "ground_truth_kind": "laser scan projected with visibility/mask filtering; sparse or semi-dense support, not guaranteed dense",
+    "depth_quantity": "positive camera-axis Z, not ray length",
+    "invalid_value": "infinity in official generation source",
+    "depth_file_encoding": "raw float32 image-sized buffer; .JPG suffix does not imply JPEG encoding; actual endian/header/size must be checked at intake",
+    "original_camera_model": "THIN_PRISM_FISHEYE",
+    "undistorted_camera_model": "PINHOLE",
+    "pose_format": "COLMAP world-to-camera, Hamilton qw qx qy qz then tx ty tz",
+    "pixel_origin": "top-left corner in calibration; array center (i,j) maps to (i+0.5,j+0.5)",
+    "provided_cameras": "known-pose evaluation condition, calibration uses scan/image alignment; not independent 3-view camera recovery",
+    "no_SfM_points_as_GT": true,
+    "identifier_policy": "Non-contiguous identifiers, zero is valid; do not reuse leaves positive-ID/PINHOLE-only parser"
+  },
+  "upstream_source": {
+    "repository": "https://github.com/ETH3D/dataset-pipeline",
+    "commit": "e09275b39b30c9c59abf535b849fcc539dc03efd",
+    "files": {
+      "eth-ground-truth-creator.cc": "af94b0baf1f692352b3804afde7e8b2eec92689da11060838faf0dec5dd0e600",
+      "eth-colmap-model.cc": "d1a7169961bfd3c501015b5e445b1353474bddd3930cb2a613476a9ca69c1e48"
+    }
+  },
+  "pending_intake_gates": [
+    "actual archive/member names, extracted sizes and content hashes",
+    "RGB/GT filenames and camera ID mapping",
+    "per-frame resolution, depth endianness/byte count and finite-positive support",
+    "pose/camera pixel-center/axis/unit round trips",
+    "deterministic selected three filenames before GT inspection",
+    "no evaluator labels/masks/full SfM points in prediction or training inputs"
+  ],
+  "initial_split_rule": {
+    "expected_scene_images": 23,
+    "ordering": "lexicographic full relative image name from calibration; names not yet known",
+    "three_training_ranks_zero_based": [
+      0,
+      11,
+      22
+    ],
+    "reserved_within_scene_evaluation_ranks_zero_based": [
+      3,
+      7,
+      15,
+      19
+    ],
+    "remaining_images": "unread outside documented intake; not used for training",
+    "scene_is_development_not_final_blind_test": true
+  },
+  "intake_support_gate_proposed": {
+    "minimum_valid_GT_samples_per_selected_image": 5000,
+    "minimum_native_valid_fraction": 0.01,
+    "spatial_grid": [
+      12,
+      9
+    ],
+    "minimum_grid_cells_with_at_least_20_valid_points": 30,
+    "these_are_operational_budget_gates_not_power_or_accuracy_guarantees": true
+  },
+  "decision": "conditionally_worth_one_bounded_sensor_GT_data_intake; no reliability weighting or GS training released",
+  "payload_downloaded_bytes": 0,
+  "metadata_only": true
+}

@@ -1,0 +1,257 @@
+{
+  "protocol": "delivery-area-native-intake-v1",
+  "date": "2026-10-21",
+  "status": "passed_bounded_CPU_input_intake_GT_semantics_deferred",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "external_evidence_key": "delivery-area-native-intake-20261021T072613Z",
+  "input_manifest": "configs/delivery-area-relative-inputs.json",
+  "archives": [
+    {
+      "file": "delivery_area_dslr_jpg.7z",
+      "bytes": 372958192,
+      "sha256": "f8190ebdf670935fb93ed2a6e66210a2bcc4633b6f698033855a75cac254f973",
+      "etag": "\"59347f4c-163ae3f0\"",
+      "wall_seconds": 52.50864930699754
+    },
+    {
+      "file": "delivery_area_dslr_depth.7z",
+      "bytes": 388144128,
+      "sha256": "e6edc65b5b6de343876382040c839405eef79abed33319aa377883f4ddc5775a",
+      "etag": "\"5ad0d0d4-17229c00\"",
+      "wall_seconds": 54.47784349199719,
+      "transport": "urllib direct HTTPS default certificate verification; If-Match checked before body"
+    }
+  ],
+  "archive_members": {
+    "delivery_area_dslr_jpg.7z": {
+      "all_members": 51,
+      "regular_files": 47,
+      "expanded_payload_bytes": 382678986
+    },
+    "delivery_area_dslr_depth.7z": {
+      "all_members": 47,
+      "regular_files": 44,
+      "expanded_payload_bytes": 4291854336
+    }
+  },
+  "archive_integrity": {
+    "method": "libarchive7zip full member streams decompressed/hash-checked with error/CRC checks; no 7z CLI installed",
+    "all_regular_member_streams": 91,
+    "all_regular_member_SHA256_retained_external": true,
+    "full_archives_materialized": false
+  },
+  "selected_names": [
+    "dslr_images/DSC_0675.JPG",
+    "dslr_images/DSC_0696.JPG",
+    "dslr_images/DSC_0718.JPG"
+  ],
+  "reserved_names": [
+    "dslr_images/DSC_0682.JPG",
+    "dslr_images/DSC_0689.JPG",
+    "dslr_images/DSC_0703.JPG",
+    "dslr_images/DSC_0710.JPG"
+  ],
+  "selected_extracted_bytes": 316417992,
+  "predictor_file_count": 4,
+  "evaluator_file_count": 3,
+  "input_checks_passed": 31,
+  "CPU_isolation": {
+    "status": "passed",
+    "roles": [
+      {
+        "role": "predictor",
+        "allowed_files": 4,
+        "forbidden_reads_refused": 32,
+        "GPU_exposed": false
+      },
+      {
+        "role": "evaluator",
+        "allowed_files": 3,
+        "forbidden_reads_refused": 32,
+        "GPU_exposed": false
+      }
+    ],
+    "process_network_isolated": true
+  },
+  "camera_checks": {
+    "status": "passed",
+    "pycolmap": "4.2.1",
+    "synthetic_forward_max_error": 0.0,
+    "selected_camera_checks": [
+      {
+        "name": "dslr_images/DSC_0675.JPG",
+        "grid_points": 108,
+        "raw_quaternion_norm": 0.9999998827549931,
+        "quaternion_normalized_for_rotation": true,
+        "api_roundtrip_pixel_max_error": 7.775170161039568e-07,
+        "independent_forward_pixel_max_error": 7.775170161039568e-07,
+        "half_pixel_ray_max_error": 0.0,
+        "quaternion_API_max_error": 0.0,
+        "world_camera_inverse_max_error": 2.220446049250313e-15,
+        "camera_center_m": [
+          1.7639551587979394,
+          0.26997929679219596,
+          -3.4692760148594024
+        ],
+        "rotation_determinant": 1.0000000000000007
+      },
+      {
+        "name": "dslr_images/DSC_0696.JPG",
+        "grid_points": 108,
+        "raw_quaternion_norm": 1.0000001930539815,
+        "quaternion_normalized_for_rotation": true,
+        "api_roundtrip_pixel_max_error": 7.775170161039568e-07,
+        "independent_forward_pixel_max_error": 7.775170161039568e-07,
+        "half_pixel_ray_max_error": 0.0,
+        "quaternion_API_max_error": 0.0,
+        "world_camera_inverse_max_error": 1.3322676295501878e-15,
+        "camera_center_m": [
+          -0.7135465310609503,
+          4.119321450610258,
+          -3.469395830852121
+        ],
+        "rotation_determinant": 1.0
+      },
+      {
+        "name": "dslr_images/DSC_0718.JPG",
+        "grid_points": 108,
+        "raw_quaternion_norm": 1.0000003207769486,
+        "quaternion_normalized_for_rotation": true,
+        "api_roundtrip_pixel_max_error": 7.775170161039568e-07,
+        "independent_forward_pixel_max_error": 7.775170161039568e-07,
+        "half_pixel_ray_max_error": 0.0,
+        "quaternion_API_max_error": 0.0,
+        "world_camera_inverse_max_error": 1.9984014443252818e-15,
+        "camera_center_m": [
+          1.1427431711950926,
+          -0.44994958103319993,
+          -3.483427825223314
+        ],
+        "rotation_determinant": 0.9999999999999993
+      }
+    ],
+    "pairwise_camera_baselines_m": [
+      4.5777122730431845,
+      0.9510006290244972,
+      4.931961690461914
+    ],
+    "units": "meters per ETH3D source contract; plausible scale only, no independent physical remeasurement",
+    "wall_seconds": 0.0009515560013824143,
+    "max_RSS_KiB": 84212
+  },
+  "resources": {
+    "CPU_threads_max": 4,
+    "measured_peak_RSS_KiB": 204464,
+    "download_transfer_seconds": [
+      52.50864930699754,
+      54.47784349199719
+    ],
+    "processes": {
+      "predictor-isolation": {
+        "returncode": 0,
+        "wall_seconds": 0.1017074320006941,
+        "sampled_process_tree_RSS_KiB": 55796,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "freeze-selection": {
+        "returncode": 0,
+        "wall_seconds": 0.050341091002337635,
+        "sampled_process_tree_RSS_KiB": 192,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "integrity-selective-extraction": {
+        "returncode": 0,
+        "wall_seconds": 30.317358221000177,
+        "sampled_process_tree_RSS_KiB": 43776,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "complete-inventory": {
+        "returncode": 0,
+        "wall_seconds": 0.050360706001811195,
+        "sampled_process_tree_RSS_KiB": 204,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "evaluator-isolation": {
+        "returncode": 0,
+        "wall_seconds": 0.2020117760002904,
+        "sampled_process_tree_RSS_KiB": 65044,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "camera-checks": {
+        "returncode": 1,
+        "wall_seconds": 0.30127279899897985,
+        "sampled_process_tree_RSS_KiB": 63364,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "input-validation": {
+        "returncode": 0,
+        "wall_seconds": 0.6525124949985184,
+        "sampled_process_tree_RSS_KiB": 162380,
+        "stop_reason": null,
+        "expected_failure": false
+      },
+      "camera-checks-official-runtime": {
+        "returncode": 0,
+        "wall_seconds": 0.10056150599848479,
+        "sampled_process_tree_RSS_KiB": 48820,
+        "stop_reason": null,
+        "expected_failure": false
+      }
+    },
+    "actual_working_file_bytes": 1083815745,
+    "storage_budget_GiB": 10,
+    "CPU_RSS_budget_GiB": 2,
+    "GPU_used": false
+  },
+  "retained_failures": [
+    {
+      "kind": "intermittent HTTPS connection",
+      "details": "Initial RGB HEAD failed; depth HEAD probes, one curl GET handshake, and Windows HEAD also failed before payload. Direct curl completed RGB; direct urllib with normal certificate checks completed depth after valid status/length/ETag. No interrupted nonzero payload or payload resume/retry.",
+      "root_cause": "unknown; no claimed HTTP-version causal fix"
+    },
+    {
+      "kind": "camera check interpreter/API mismatch",
+      "details": "First check used main GS environment pure-Python pycolmap Camera(type_,width_,height_,params), failed at synthetic camera construction. Corrected to existing official pycolmap4.2.1 colmap environment; same camera audit source then passed. Both process records preserved.",
+      "correction": {
+        "initial_failure": "Main GS environment imports a different pure-Python pycolmap package with Camera(type_,width_,height_,params), not official pycolmap API; failed during synthetic fixture before real camera computation.",
+        "correction": "Use existing geosplat-r-colmap environment with official pycolmap4.2.1, same API/version as prior terrace camera audit; no package install or environment mutation.",
+        "camera_numpy": "2.2.6",
+        "prediction_and_ordinal_numpy": "1.26.4",
+        "old_failure_retained": true,
+        "GT_access": false,
+        "camera_environment": "geosplat-r-colmap",
+        "prediction_and_ordinal_environment": "geosplat-r"
+      }
+    }
+  ],
+  "deferred_unknowns": [
+    "Actual GT values, empirical endian/numeric validity and support remain uninspected; later frozen evaluator after all predictions sealed must report failures/unknowns rather than silently repair.",
+    "Second-scene ordinal losses, model predictions and cross-scene consistency not measured.",
+    "Existing terrace-only entry cannot admit this manifest; independent adapter and CPU checks remain unimplemented.",
+    "Sensor-source independence does not establish pretrained-data independence or final blind testing."
+  ],
+  "execution_counts": {
+    "completed_archive_downloads": 2,
+    "total_completed_download_bytes": 761102320,
+    "unique_RGB_decoded": 3,
+    "unselected_RGB_or_GT_decoded": 0,
+    "GT_value_analyses": 0,
+    "feature_matching_or_SfM": 0,
+    "model_forwards": 0,
+    "training_updates": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "preservation": {
+    "preexisting_repo_files_unchanged": 138,
+    "all_failed_attempts_retained": true
+  },
+  "decision": "Pass bounded input/metadata preparation only. Recommend next authorization for separate delivery_area manifest IO/seal adapter plus synthetic/isolation and terrace regression CPU checks. Do not release GPU preflight, inference, GT analysis, training or reliability weighting.",
+  "cumulative_contribution": "Two approved sensor-reference archives and fixed second-scene input identity are now auditable and isolated; earlier terrace ordinal evidence and anchor/D1/D2/Cauchy failures unchanged; no new algorithm, accuracy or training gain."
+}

@@ -1,0 +1,659 @@
+{
+  "protocol": "phase2-cumulative-acceptance-v1",
+  "status": "completed_minimal_depth_baseline_with_qualified_research_findings",
+  "phase": 2,
+  "authoritative_scope": "Original project Phase 2: uniform depth baseline, matched comparisons, train/test isolation and prior-error analysis. Completing this scope does not require inventing a successful reliability method.",
+  "scenes": {
+    "fern": {
+      "test_arm_aggregates": {
+        "rgb_only": {
+          "psnr": {
+            "mean": 14.740324020385742,
+            "sample_sd": 0.19063858269061532,
+            "median": 14.757390975952148,
+            "min": 14.541725794474283,
+            "max": 14.921855290730795,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.3707062204678853,
+            "sample_sd": 0.005168935401182707,
+            "median": 0.37350207070509595,
+            "min": 0.3647415339946747,
+            "max": 0.3738750567038854,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.4618953333960639,
+            "sample_sd": 0.010775090412179078,
+            "median": 0.46711867054303485,
+            "min": 0.4495040873686473,
+            "max": 0.4690632422765096,
+            "n_seeds": 3
+          }
+        },
+        "rgb_ed_zero": {
+          "psnr": {
+            "mean": 14.241560618082682,
+            "sample_sd": 0.384854785415415,
+            "median": 14.163925806681315,
+            "min": 13.90144157409668,
+            "max": 14.659314473470053,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.3456094082858827,
+            "sample_sd": 0.012857291109953609,
+            "median": 0.34228452543417615,
+            "min": 0.33474113543828327,
+            "max": 0.3598025639851888,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.4780745969878303,
+            "sample_sd": 0.0016436047306364351,
+            "median": 0.47742506861686707,
+            "min": 0.47685500979423523,
+            "max": 0.4799437125523885,
+            "n_seeds": 3
+          }
+        },
+        "uniform": {
+          "psnr": {
+            "mean": 15.573152224222818,
+            "sample_sd": 0.4466275421512927,
+            "median": 15.65136432647705,
+            "min": 15.092584609985352,
+            "max": 15.975507736206055,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.3866551104519102,
+            "sample_sd": 0.009940807901130173,
+            "median": 0.3906864523887634,
+            "min": 0.3753318687280019,
+            "max": 0.39394701023896533,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.43583331174320644,
+            "sample_sd": 0.011065610092276162,
+            "median": 0.43612069884936017,
+            "min": 0.4246268073717753,
+            "max": 0.4467524290084839,
+            "n_seeds": 3
+          }
+        }
+      },
+      "uniform_minus_rgb_only": {
+        "psnr": {
+          "delta": {
+            "mean": 0.8328282038370768,
+            "sample_sd": 0.5565341007739197,
+            "median": 0.7295090357462559,
+            "min": 0.3351936340332031,
+            "max": 1.4337819417317714,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "ssim": {
+          "delta": {
+            "mean": 0.015948889984024883,
+            "sample_sd": 0.004860051808402057,
+            "median": 0.017184381683667482,
+            "min": 0.010590334733327211,
+            "max": 0.020071953535079956,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "lpips_alex": {
+          "delta": {
+            "mean": -0.026062021652857443,
+            "sample_sd": 0.004463114380301215,
+            "median": -0.024877279996871948,
+            "min": -0.030997971693674686,
+            "max": -0.022310813268025698,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        }
+      },
+      "uniform_minus_zero": {
+        "psnr": {
+          "delta": {
+            "mean": 1.3315916061401367,
+            "sample_sd": 0.8314259406425271,
+            "median": 1.4874385197957363,
+            "min": 0.4332701365152989,
+            "max": 2.074066162109375,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "ssim": {
+          "delta": {
+            "mean": 0.04104570216602749,
+            "sample_sd": 0.022748543367869734,
+            "median": 0.04840192695458728,
+            "min": 0.01552930474281311,
+            "max": 0.05920587480068207,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "lpips_alex": {
+          "delta": {
+            "mean": -0.042241285244623804,
+            "sample_sd": 0.010864482074401745,
+            "median": -0.043823013703028324,
+            "min": -0.0522282024224599,
+            "max": -0.03067263960838318,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        }
+      },
+      "degraded_seed_view_records_vs_RGB": 2,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "training_views": 3,
+      "updates": 30000
+    },
+    "flower": {
+      "test_arm_aggregates": {
+        "rgb_only": {
+          "psnr": {
+            "mean": 15.157482401529949,
+            "sample_sd": 0.25876506458687587,
+            "median": 15.020147323608398,
+            "min": 14.996337699890137,
+            "max": 15.455962181091309,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.34512903094291686,
+            "sample_sd": 0.007407532128395808,
+            "median": 0.34541151225566863,
+            "min": 0.33758429884910585,
+            "max": 0.35239128172397616,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.38272479772567747,
+            "sample_sd": 0.002168997333361313,
+            "median": 0.38395780622959136,
+            "min": 0.38022035360336304,
+            "max": 0.38399623334407806,
+            "n_seeds": 3
+          }
+        },
+        "rgb_ed_zero": {
+          "psnr": {
+            "mean": 15.23676389058431,
+            "sample_sd": 0.17998442099112485,
+            "median": 15.239976119995116,
+            "min": 15.055194854736328,
+            "max": 15.415120697021484,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.34559008677800496,
+            "sample_sd": 0.008600554868140162,
+            "median": 0.34604825675487516,
+            "min": 0.3367696046829224,
+            "max": 0.3539523988962173,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.39322323302427925,
+            "sample_sd": 0.004341025297185986,
+            "median": 0.3927182376384735,
+            "min": 0.3891567915678024,
+            "max": 0.39779466986656187,
+            "n_seeds": 3
+          }
+        },
+        "uniform": {
+          "psnr": {
+            "mean": 16.000034713745116,
+            "sample_sd": 0.2617969651111989,
+            "median": 16.048746490478514,
+            "min": 15.71730308532715,
+            "max": 16.234054565429688,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.37063033183415733,
+            "sample_sd": 0.00835806639479995,
+            "median": 0.3734889805316925,
+            "min": 0.36121800243854524,
+            "max": 0.3771840125322342,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.37860799928506217,
+            "sample_sd": 0.00662338380467016,
+            "median": 0.3765706330537796,
+            "min": 0.3732426345348358,
+            "max": 0.38601073026657107,
+            "n_seeds": 3
+          }
+        }
+      },
+      "uniform_minus_rgb_only": {
+        "psnr": {
+          "delta": {
+            "mean": 0.8425523122151688,
+            "sample_sd": 0.3461785928801669,
+            "median": 0.6971557617187507,
+            "min": 0.5927843093872056,
+            "max": 1.23771686553955,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "ssim": {
+          "delta": {
+            "mean": 0.025501300891240437,
+            "sample_sd": 0.012492924181941811,
+            "median": 0.021097698807716336,
+            "min": 0.01580649018287661,
+            "max": 0.03959971368312837,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "lpips_alex": {
+          "delta": {
+            "mean": -0.004116798440615336,
+            "sample_sd": 0.005313802808605944,
+            "median": -0.006977719068527233,
+            "min": -0.007387173175811779,
+            "max": 0.002014496922493003,
+            "n_seeds": 3
+          },
+          "improved_seeds": 2,
+          "degraded_seeds": 1,
+          "tied_seeds": 0
+        }
+      },
+      "uniform_minus_zero": {
+        "psnr": {
+          "delta": {
+            "mean": 0.7632708231608074,
+            "sample_sd": 0.2003919439024966,
+            "median": 0.662108230590821,
+            "min": 0.6336257934570302,
+            "max": 0.994078445434571,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "ssim": {
+          "delta": {
+            "mean": 0.02504024505615236,
+            "sample_sd": 0.005822192251531633,
+            "median": 0.024448397755622853,
+            "min": 0.01953658163547517,
+            "max": 0.031135755777359053,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "lpips_alex": {
+          "delta": {
+            "mean": -0.014615233739217118,
+            "sample_sd": 0.002454749338927469,
+            "median": -0.015914157032966614,
+            "min": -0.016147604584693942,
+            "max": -0.0117839395999908,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        }
+      },
+      "degraded_seed_view_records_vs_RGB": 5,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "training_views": 3,
+      "updates": 30000
+    },
+    "leaves": {
+      "test_arm_aggregates": {
+        "rgb_only": {
+          "psnr": {
+            "mean": 12.058512846628824,
+            "sample_sd": 0.19631773720263723,
+            "median": 12.130054712295532,
+            "min": 11.836457252502441,
+            "max": 12.209026575088501,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.19702854131658873,
+            "sample_sd": 0.012744824263973583,
+            "median": 0.20137614756822586,
+            "min": 0.18267876654863358,
+            "max": 0.20703070983290672,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.3819663921991984,
+            "sample_sd": 0.007869006505103346,
+            "median": 0.3813895210623741,
+            "min": 0.3744016960263252,
+            "max": 0.3901079595088959,
+            "n_seeds": 3
+          }
+        },
+        "rgb_ed_zero": {
+          "psnr": {
+            "mean": 12.120734214782715,
+            "sample_sd": 0.035427349959097895,
+            "median": 12.13576340675354,
+            "min": 12.080269813537598,
+            "max": 12.146169424057007,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.2036757841706276,
+            "sample_sd": 0.004395222456250479,
+            "median": 0.20573195442557335,
+            "min": 0.19862935319542885,
+            "max": 0.20666604489088058,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.3784710094332695,
+            "sample_sd": 0.0034185302931625,
+            "median": 0.37810981273651123,
+            "min": 0.37524741888046265,
+            "max": 0.3820557966828346,
+            "n_seeds": 3
+          }
+        },
+        "uniform": {
+          "psnr": {
+            "mean": 12.24539319674174,
+            "sample_sd": 0.04345499997316717,
+            "median": 12.220644235610962,
+            "min": 12.219966173171997,
+            "max": 12.29556918144226,
+            "n_seeds": 3
+          },
+          "ssim": {
+            "mean": 0.21558872113625208,
+            "sample_sd": 0.00300422542595247,
+            "median": 0.21428392082452774,
+            "min": 0.21345750987529755,
+            "max": 0.21902473270893097,
+            "n_seeds": 3
+          },
+          "lpips_alex": {
+            "mean": 0.37130532910426456,
+            "sample_sd": 0.006062011061635554,
+            "median": 0.3744855895638466,
+            "min": 0.3643149733543396,
+            "max": 0.37511542439460754,
+            "n_seeds": 3
+          }
+        }
+      },
+      "uniform_minus_rgb_only": {
+        "psnr": {
+          "delta": {
+            "mean": 0.18688035011291504,
+            "sample_sd": 0.23909946053955225,
+            "median": 0.09058952331542969,
+            "min": 0.010939598083496094,
+            "max": 0.45911192893981934,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "ssim": {
+          "delta": {
+            "mean": 0.018560179819663365,
+            "sample_sd": 0.015590972006171874,
+            "median": 0.012081362307071686,
+            "min": 0.0072532109916210175,
+            "max": 0.036345966160297394,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "lpips_alex": {
+          "delta": {
+            "mean": -0.010661063094933828,
+            "sample_sd": 0.004074773282564188,
+            "median": -0.010086722671985626,
+            "min": -0.01499253511428833,
+            "max": -0.006903931498527527,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        }
+      },
+      "uniform_minus_zero": {
+        "psnr": {
+          "delta": {
+            "mean": 0.12465898195902507,
+            "sample_sd": 0.04510675574153158,
+            "median": 0.14037442207336426,
+            "min": 0.07379674911499023,
+            "max": 0.1598057746887207,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "ssim": {
+          "delta": {
+            "mean": 0.01191293696562449,
+            "sample_sd": 0.0073462080288458475,
+            "median": 0.007725555449724197,
+            "min": 0.007617875933647156,
+            "max": 0.02039537951350212,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        },
+        "lpips_alex": {
+          "delta": {
+            "mean": -0.007165680329004924,
+            "sample_sd": 0.003984459738514706,
+            "median": -0.007570207118988037,
+            "min": -0.010932445526123047,
+            "max": -0.0029943883419036865,
+            "n_seeds": 3
+          },
+          "improved_seeds": 3,
+          "degraded_seeds": 0,
+          "tied_seeds": 0
+        }
+      },
+      "degraded_seed_view_records_vs_RGB": 4,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "training_views": 3,
+      "updates": 30000
+    }
+  },
+  "main_matrix": {
+    "complete_models": 27,
+    "distinct_seeds_per_scene": 3,
+    "paths_per_seed": 3,
+    "training_wall_seconds_sum": 12136.76535987854,
+    "training_wall_seconds_range": [
+      320.3684883117676,
+      655.1061754226685
+    ],
+    "whole_board_peak_MiB": 3733,
+    "scope": "27 selected matrix models only; supplemental and interrupted attempts remain separate"
+  },
+  "supplemental": {
+    "development_matrix_execution": {
+      "training_attempts": 19,
+      "complete_30k_models": 18,
+      "interrupted_attempts": 1,
+      "evaluation_attempts": 18,
+      "evaluation_failures": 0,
+      "oom_messages_observed": 0,
+      "training_wall_seconds_complete_sum": 8991.365535259247,
+      "process_wall_seconds_complete_sum": 9098.602972269058,
+      "interrupted_last_observed_training_wall_seconds_lower_bound": 664.1425940990448,
+      "evaluation_process_wall_seconds_sum": 147.40283298492432,
+      "whole_board_training_peak_mib": 3733,
+      "sampling_period_ms": 200,
+      "gpu": "RTX 4070 SUPER 12282 MiB",
+      "resource_profile": "Single GPU, sequential, batch1, float32, fixed 504x378. No optimization or protocol change.",
+      "interruption": {
+        "cell": "leaves/seed44/uniform",
+        "original_directory": "leaves/seed44-uniform-30k",
+        "replacement_directory": "leaves/seed44-uniform-30k-retry1",
+        "last_observed_updates": 27000,
+        "original_checkpoint_present": false,
+        "exact_cause": "Unverified execution-environment reboot/interruption; no OOM message in retained log.",
+        "recovery": "All 24 source and 121 input hashes plus 17 checkpoints checked, runtime checked, CUDA forward/gradient sanity check passed. Full 30k retry from matching initialization before any evaluation.",
+        "comparability_limit": "First 17 models pre-reboot; final uniform model post-reboot. Driver was not recorded in initial preflight; post-reboot 617.42. Environment influence has not been isolated."
+      }
+    },
+    "same_boot_repeat": {
+      "attempts": 4,
+      "complete_models": 3,
+      "interrupted_attempts": 1,
+      "interrupted_last_observed_updates": 21000,
+      "original_freeze_sha256": "61282df117dfbddebd333f6b1c1c2d9630897d0d6d4e7dd1cecc4e3bb84727b5",
+      "active_freeze_sha256": "52f504a7447baad322eece9e122cb25b2dfa2123834a99fb756c0a575fa60f07",
+      "complete_training_wall_seconds": 2130.32164311409,
+      "interrupted_training_last_observed_wall_seconds_lower_bound": 506.1350095272064,
+      "interrupted_sampled_board_peak_mib": 4323,
+      "complete_sampled_board_peak_mib": 4310,
+      "reason": "Intentional chat-turn interruption stopped the original uniform process; retry explicitly approved and run from initialization in a fresh directory."
+    },
+    "robust_pilot_execution": {
+      "order": [
+        "A1_l1",
+        "B_weak_l1",
+        "C_cauchy",
+        "A2_l1_repeat"
+      ],
+      "complete_runs": 4,
+      "updates_total": 120000,
+      "training_failures": 0,
+      "OOMs": 0,
+      "automatic_training_retries": 0,
+      "pre_training_supervisor_failure": {
+        "count": 1,
+        "training_started": false,
+        "cause": "Supervisor metadata lookup used system interpreter instead of frozen venv; corrected and interpreter identity checked before first training. Original script/log/anomaly retained."
+      },
+      "boot_driver_sources_inputs_verified_before_after_each": true,
+      "initialization_and_full_view_order_match_all_four": true,
+      "all_training_completed_before_any_new_evaluation": true,
+      "test_paths_not_passed_to_training": true,
+      "training_actual_directory_reads": [
+        "cameras.json",
+        "points.npz",
+        "input-manifest.json",
+        "images/image001.png",
+        "images/image012.png",
+        "images/image025.png"
+      ],
+      "priors": "Original three train-only caches and their manifest, hash-validated by unchanged loader; no D1/D2 scores or new prior generation.",
+      "outer_inventory": "Independent supervisor hashes evaluator assets for provenance; training processes receive neither their paths nor metrics."
+    },
+    "robust_pilot_resources": {
+      "training_wall_seconds_sum": 2626.1412477493286,
+      "training_perf_seconds_sum": 2407.400518946999,
+      "CUDA_seconds_sum": 2626.32125,
+      "whole_board_sampled_peak_mib_max": 3382,
+      "clock_sources_not_interchangeable": true
+    }
+  },
+  "scope_acceptance": {
+    "uniform_depth_implementation": "passed",
+    "alignment_and_isolation": "passed_for_frozen_train_only_protocol_not_absolute_depth_accuracy",
+    "matched_vanilla_zero_weight_uniform_comparison": "passed_three_development_scenes_three_seeds",
+    "prior_error_analysis": "completed_with_negative_and_unknown_results",
+    "research": "qualified_positive_uniform_depth_development_signal_only",
+    "Phase3_release": "not_recommended_no_validated_reliability_score",
+    "final_project_performance_success": "not_established_against_uniform_baseline_on_unseen_NVS_scenes"
+  },
+  "stopped_candidates": {
+    "D1": "mixed/no stable error-distance signal",
+    "D2": "failed fixed score direction",
+    "raw_track_H1": "failed fixed diagnostic",
+    "Cauchy": "failed four-run direction screen",
+    "metric_sensor_anchors": "blocked_anchor_support",
+    "ordinal_margin": "positive_on_observed_scenes_but_failed_unopened_courtyard_confirmation"
+  },
+  "limits": [
+    "Uniform-depth gains are from integrating an existing pretrained prior, not an independent reliability contribution.",
+    "All three NVS scenes are development; no Phase4 final test or robustness benchmark completed.",
+    "RGB-only and RGB+ED-zero are empirically different; preserve both references and do not choose the weaker one per seed.",
+    "Sparse train-anchor affine inverse-depth alignment is not a proof of dense metric depth accuracy.",
+    "One model per seed/path and interruptions/nondeterminism limit causal and stability claims.",
+    "Do not reuse observed ordinal/GT results as training weights."
+  ],
+  "decision": "Close Phase2; preserve uniform baseline and all failures, no further automatic seeds/scenes/loss tuning/training or Phase3 weighting.",
+  "next_recommendation": "A separate review must define a falsifiable reliability mechanism and training-target correspondence before any Phase3 implementation; original project success criteria remain unmet.",
+  "source_sha256": {
+    "results/fern-3view-rgb-path-check.json": "f145c9a6c54055d4f6f84b5c9df96786dc7811439a3c65c0b49d9581dd362546",
+    "results/flower-leaves-depth-controls.json": "8a8e36de3b8252a9ba0dd8487982cecd74d6ab78d510c4570dec9f5d927b65b3",
+    "results/leaves-seed44-postboot-controls.json": "73da0e444686bcfe6705907230ef63137d90de71e22a3d8084286b7e4286bc3d",
+    "results/leaves-robust-depth-pilot.json": "17814336b94fdd2cb1ef2fb249ff7cc8da40e1c4a7af93ac71671d68b8437ccf",
+    "results/leaves-train-error-coverage-d1.json": "9bffa1f9322a41a00c3da542560becbc29767a6dd42be834de21a35f274e67dd",
+    "results/leaves-crossview-prior-d2.json": "20924c3bf9bbe3a33a47d79c449eba75b681e1cb7b27ad46327a1a0e230da24e",
+    "results/leaves-raw-track-diagnostic.json": "400d474242e33f248803aed6e35b8a24a79267b4e412e895b1f18d54cb8fa98f",
+    "results/terrace-cpu-anchors.json": "b435ac89eaaf87e809b17ca212bfa890c9e3fcdbfabc85ece5edce2bb9e84831",
+    "results/ordinal-margin-diagnostic.json": "32f5bc1b389bf2b1c3d07e9e1050350c4517780b36534325e11b42c16a25fc3d",
+    "results/courtyard-margin-confirmation.json": "4549eadeec1b6c08266bada344138ebf0b1d77dd18260b3d40f95960cba4caa0",
+    "configs/fern-3view-rgb-path-check.json": "ccee6a82be8474845505d2297857e414196e7f16a431604a2605c3429b219efd",
+    "configs/flower-leaves-phase2-plan.json": "9997c5bdf334313730e1527beedadd6e50611d954cc9f101ddfc92fd19e53a5b"
+  },
+  "evidence_key": "phase2-closeout-20261021T135432Z",
+  "cumulative_contribution": "Reproducible train-only aligned uniform inverse-depth regularization; three-path/three-seed/three-scene paired evidence; fair robust-loss controls and independent diagnostics that stop unsupported reliability routes."
+}

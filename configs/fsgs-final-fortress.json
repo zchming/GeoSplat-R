@@ -1,0 +1,53 @@
+{
+  "protocol": "fsgs-final-independent-fortress-v1",
+  "training_parent_commit": "ea0966eaaf222114da3630cd2fcaa7e7588f694a",
+  "scene": "fortress",
+  "scene_selection": "first still-unopened scene in original final LLFF scene list in docs/phase0.md; fixed before reading RGB",
+  "seed": 44,
+  "resolution": [
+    504,
+    378
+  ],
+  "train_views": 3,
+  "test_rule": "all sorted image indices divisible by 8",
+  "train_rule": "remaining indices at rint(linspace(0,M-1,3))",
+  "inherited_charged_seconds": 8450.481523709064,
+  "cumulative_cap_seconds": 9856.843380160068,
+  "stage_limit_seconds": 1406.3618564510034,
+  "matrix": [
+    {
+      "method": "uniform_L1",
+      "optimizer_updates": 30000,
+      "depth_lambda": 0.01,
+      "depth_start": 1000
+    },
+    {
+      "method": "FSGS",
+      "native_iterations": 10000,
+      "optimizer_updates": 9999,
+      "recipe": "unchanged pinned native recipe; existing MiDaS and pixel-origin correction"
+    }
+  ],
+  "quality_gate": "all three per-image-mean test metrics improve over same-stage uniform L1; retain every per-view drop",
+  "engineering_metrics": [
+    "training worker wall time",
+    "sampled board VRAM",
+    "final Gaussians",
+    "same gsplat RGB+ED render time"
+  ],
+  "order": "priors, complete L1, complete FSGS; only then native and common gsplat evaluation",
+  "budget_policy": "existing cumulative cap unchanged; L1 gets remaining minus 795 seconds (up to600); reserve native training750 and evaluation45; charge failures too; stop incomplete without step/scene changes",
+  "board_limit_mib": 11500,
+  "automatic_training_retry": false,
+  "broader_final_suite": "horns/orchids/trex not included under remaining budget; room already observed and excluded from independent aggregate",
+  "no_paid_resources": true,
+  "input_config": "configs/fsgs-final-fortress-input.json",
+  "execution_source": {
+    "parent_commit": "ea0966eaaf222114da3630cd2fcaa7e7588f694a",
+    "extensions": {
+      "scripts/fetch_llff_scene.py": "91bf405a7a990aed5d30cdc33bfb6e1b72cd20121dbf6d9359ed530584a36448",
+      "scripts/undistort_llff_subset.py": "12dd1fba9e04e628b5e591f72bb7ed885a8ccbe197b136fb3dea12713e620784",
+      "src/geosplat_r/scene_input.py": "bff2848cc71f2a627d59d6ce14a8abd28c16bc1edfbf2c14ce8c0a71459ea9ad"
+    }
+  }
+}

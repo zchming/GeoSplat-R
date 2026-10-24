@@ -329,3 +329,21 @@
 - Use the public repository's standard CPU Actions runner only; no paid runner,
   GPU training, data/model downloads, new algorithm or reliability work.
 - Preserve existing branches and commit histories. No force push or deletion.
+
+## Phase 2 delegated execution and closeout (2026-10-21)
+
+- User clarified that autonomy and reduced reporting apply until the entire
+  Phase 2 ends, including decisions to execute, accept, commit and push within
+  that phase. Do not seek repeated approval for those authorized decisions.
+- Phase 2 means the original minimal uniform-depth baseline, matched Vanilla
+  comparisons, train-only alignment/isolation and analysis of prior limitations.
+  It does not require creating a successful reliability method before closure.
+- Phase 2 has completed with engineering/protocol acceptance and qualified
+  development-scene benefit. See docs/phase2-acceptance.md and its result index.
+  Preserve the three-scene matrix, all interrupted attempts and all stopped
+  diagnostics. No additional seeds/scenes/tuning/training merely to seek success.
+- Do not enter Phase 3 weighting, implement a new mechanism or start Phase 4
+  final benchmarking under this closeout authorization. A new stage decision
+  must first assess a falsifiable mechanism and its training-target relevance.
+- Publication may update the reviewed Phase 2 PR; retain main protection and
+  existing branch/history. Do not automatically merge, squash, delete or archive.

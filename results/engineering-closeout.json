@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-24",
+  "status": "engineering-closeout-passed",
+  "source_parent_commit": "1caff118d4893ac815534590881db5d38962d091",
+  "entry": "scripts/run_geosplat.py",
+  "modes": {
+    "fsgs": {
+      "optimizer_updates": 9999,
+      "render_profile": "fsgs-native"
+    },
+    "l1": {
+      "optimizer_updates": 30000,
+      "depth_lambda": 0.01,
+      "depth_start": 1000,
+      "render_profile": "standard"
+    }
+  },
+  "validation": {
+    "cpu_tests_passed": 8,
+    "real_subprocess_failure_timeout_and_descendant_cleanup": true,
+    "cuda_training_rerun": false,
+    "existing_model_evaluation": {
+      "scene": "horns",
+      "checkpoint_sha256": "6cc3d5ba7a9ced768d3f2e6f8d85f3e7e3c207faa09d543c73c4838a604ab2ea",
+      "test_mean": {
+        "psnr": 20.34878647327423,
+        "ssim": 0.6986863911151886,
+        "lpips_alex": 0.18417910113930702
+      },
+      "delta_from_preserved_result": {
+        "psnr": 0.0,
+        "ssim": 0.0,
+        "lpips_alex": 0.0
+      },
+      "video_frames": 48,
+      "video_resolution": [
+        504,
+        378
+      ],
+      "worker_wall_seconds": 10.953148831998988,
+      "board_peak_sampled_mib": 1414,
+      "board_samples": 12
+    },
+    "compatibility_patch_matches_existing_runtime_files": 3
+  },
+  "budget": {
+    "inherited_seconds": 12464.805662577053,
+    "charged_seconds": 12475.758811409052,
+    "cumulative_cap_seconds": 12927.719748778056,
+    "remaining_seconds": 451.96093736900366
+  },
+  "evidence_namespace": "workflow-closeout-20261023T165048Z",
+  "scope": "Prepared LLFF 3-view calibrated inputs; established underlying training entry points reused; no new training or matrix rerun"
+}

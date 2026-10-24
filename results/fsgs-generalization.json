@@ -1,0 +1,864 @@
+{
+  "protocol": "fsgs-generalization-and-seed-stability-v1",
+  "all_preselected_mean_gates_pass": true,
+  "rows": [
+    {
+      "scene": "leaves",
+      "seed": 42,
+      "baseline_source": "results/flower-leaves-depth-controls.json",
+      "baseline_relation": "historical same-protocol uniform L1, same seed",
+      "baseline_mean": {
+        "psnr": 12.219966173171997,
+        "ssim": 0.21428392082452774,
+        "lpips_alex": 0.3744855895638466
+      },
+      "fsgs_mean": {
+        "psnr": 18.0542254447937,
+        "ssim": 0.6121219247579575,
+        "lpips_alex": 0.1567569449543953
+      },
+      "native_mean": {
+        "psnr": 18.054142951965332,
+        "ssim": 0.6121340692043304,
+        "lpips_alex": 0.15676141530275345
+      },
+      "delta": {
+        "psnr": 5.834259271621704,
+        "ssim": 0.3978380039334297,
+        "lpips_alex": -0.2177286446094513
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "image000.png",
+          "baseline": {
+            "psnr": 12.379488945007324,
+            "ssim": 0.2315875142812729,
+            "lpips_alex": 0.35361427068710327
+          },
+          "fsgs": {
+            "psnr": 18.371646881103516,
+            "ssim": 0.6544625163078308,
+            "lpips_alex": 0.15047496557235718
+          },
+          "delta": {
+            "psnr": 5.992157936096191,
+            "ssim": 0.4228750020265579,
+            "lpips_alex": -0.2031393051147461
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image008.png",
+          "baseline": {
+            "psnr": 12.745750427246094,
+            "ssim": 0.23179368674755096,
+            "lpips_alex": 0.3376269042491913
+          },
+          "fsgs": {
+            "psnr": 18.876798629760742,
+            "ssim": 0.645931601524353,
+            "lpips_alex": 0.13026268780231476
+          },
+          "delta": {
+            "psnr": 6.131048202514648,
+            "ssim": 0.41413791477680206,
+            "lpips_alex": -0.20736421644687653
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image016.png",
+          "baseline": {
+            "psnr": 11.818900108337402,
+            "ssim": 0.20168371498584747,
+            "lpips_alex": 0.40588849782943726
+          },
+          "fsgs": {
+            "psnr": 17.135669708251953,
+            "ssim": 0.5542352199554443,
+            "lpips_alex": 0.18070979416370392
+          },
+          "delta": {
+            "psnr": 5.316769599914551,
+            "ssim": 0.35255150496959686,
+            "lpips_alex": -0.22517870366573334
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image024.png",
+          "baseline": {
+            "psnr": 11.935725212097168,
+            "ssim": 0.19207076728343964,
+            "lpips_alex": 0.40081268548965454
+          },
+          "fsgs": {
+            "psnr": 17.832786560058594,
+            "ssim": 0.5938583612442017,
+            "lpips_alex": 0.16558033227920532
+          },
+          "delta": {
+            "psnr": 5.897061347961426,
+            "ssim": 0.401787593960762,
+            "lpips_alex": -0.23523235321044922
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 42,
+        "wall_seconds": 664.9900201400014,
+        "peak_torch_allocated_bytes": 2564552704,
+        "peak_torch_reserved_bytes": 2967470080,
+        "checkpoint_sha256": "1fe81d13cf551fae37759c7439efab9502130a1328ed93bc9548a738ac3d8764",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 387403,
+      "gsplat_render_seconds": 0.001911331612518552,
+      "metrics_sha256": "ec2189b99e80eac723716914ec370a579f96f8d848fef66e2a8b64f4fefd91e6",
+      "checkpoint_sha256": "af9a3ef95dacee8aa766acfd2fcf59aa073b46ac5ad1317bcf7733de919e48df",
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.000141143798828125,
+        "ssim": 1.537799835205078e-05,
+        "lpips_alex": 1.5079975128173828e-05
+      },
+      "training_resources": {
+        "stage": "leaves-FSGS-seed42-training",
+        "seconds": 669.7829092609973,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3988
+      }
+    },
+    {
+      "scene": "leaves",
+      "seed": 43,
+      "baseline_source": "results/flower-leaves-depth-controls.json",
+      "baseline_relation": "historical same-protocol uniform L1, same seed",
+      "baseline_mean": {
+        "psnr": 12.220644235610962,
+        "ssim": 0.21345750987529755,
+        "lpips_alex": 0.3643149733543396
+      },
+      "fsgs_mean": {
+        "psnr": 17.838058471679688,
+        "ssim": 0.6065721958875656,
+        "lpips_alex": 0.16178369522094727
+      },
+      "native_mean": {
+        "psnr": 17.837738037109375,
+        "ssim": 0.6065700054168701,
+        "lpips_alex": 0.1617782972753048
+      },
+      "delta": {
+        "psnr": 5.617414236068726,
+        "ssim": 0.39311468601226807,
+        "lpips_alex": -0.20253127813339233
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "image000.png",
+          "baseline": {
+            "psnr": 12.567411422729492,
+            "ssim": 0.2454984486103058,
+            "lpips_alex": 0.33666932582855225
+          },
+          "fsgs": {
+            "psnr": 18.328750610351562,
+            "ssim": 0.6524028182029724,
+            "lpips_alex": 0.1533685028553009
+          },
+          "delta": {
+            "psnr": 5.76133918762207,
+            "ssim": 0.4069043695926666,
+            "lpips_alex": -0.18330082297325134
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image008.png",
+          "baseline": {
+            "psnr": 12.564364433288574,
+            "ssim": 0.2263149917125702,
+            "lpips_alex": 0.32964110374450684
+          },
+          "fsgs": {
+            "psnr": 18.801959991455078,
+            "ssim": 0.6485527157783508,
+            "lpips_alex": 0.13641181588172913
+          },
+          "delta": {
+            "psnr": 6.237595558166504,
+            "ssim": 0.42223772406578064,
+            "lpips_alex": -0.1932292878627777
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image016.png",
+          "baseline": {
+            "psnr": 11.704964637756348,
+            "ssim": 0.19063052535057068,
+            "lpips_alex": 0.4020853042602539
+          },
+          "fsgs": {
+            "psnr": 16.82453727722168,
+            "ssim": 0.5401181578636169,
+            "lpips_alex": 0.18602286279201508
+          },
+          "delta": {
+            "psnr": 5.119572639465332,
+            "ssim": 0.34948763251304626,
+            "lpips_alex": -0.21606244146823883
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image024.png",
+          "baseline": {
+            "psnr": 12.045836448669434,
+            "ssim": 0.19138607382774353,
+            "lpips_alex": 0.3888641595840454
+          },
+          "fsgs": {
+            "psnr": 17.39698600769043,
+            "ssim": 0.5852150917053223,
+            "lpips_alex": 0.17133159935474396
+          },
+          "delta": {
+            "psnr": 5.351149559020996,
+            "ssim": 0.39382901787757874,
+            "lpips_alex": -0.21753256022930145
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 43,
+        "wall_seconds": 673.3364747770029,
+        "peak_torch_allocated_bytes": 2682522112,
+        "peak_torch_reserved_bytes": 3103784960,
+        "checkpoint_sha256": "71075c4376ec119d20caec43d086363a7445beb39fc473190d56188942150c52",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 452434,
+      "gsplat_render_seconds": 0.0020411582000633643,
+      "metrics_sha256": "f6a9055bd71dbc947aeb1d19ea201120ea46c2ac6ffbe264b868c7168d9cafa4",
+      "checkpoint_sha256": "c8f3f8637f16a388a1d693d659b31886fe6fb45f3641215a0c1f982bc4dd23ed",
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.000919342041015625,
+        "ssim": 2.384185791015625e-05,
+        "lpips_alex": 1.4483928680419922e-05
+      },
+      "training_resources": {
+        "stage": "leaves-FSGS-seed43-training",
+        "seconds": 677.3576260869995,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 4042
+      }
+    },
+    {
+      "scene": "leaves",
+      "seed": 44,
+      "baseline_source": "results/correlation-four-arm.json",
+      "baseline_relation": "existing same-boot L1 bookend mean",
+      "baseline_mean": {
+        "psnr": 12.298660159111023,
+        "ssim": 0.2170382533222437,
+        "lpips_alex": 0.37036264687776566
+      },
+      "fsgs_mean": {
+        "psnr": 17.368537425994873,
+        "ssim": 0.5660350322723389,
+        "lpips_alex": 0.17168303579092026
+      },
+      "native_mean": {
+        "psnr": 17.36848545074463,
+        "ssim": 0.5660415291786194,
+        "lpips_alex": 0.17166662216186523
+      },
+      "delta": {
+        "psnr": 5.06987726688385,
+        "ssim": 0.3489967789500952,
+        "lpips_alex": -0.1986796110868454
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "image000.png",
+          "baseline": {
+            "psnr": 12.467427253723145,
+            "ssim": 0.24117643386125565,
+            "lpips_alex": 0.3503677248954773
+          },
+          "fsgs": {
+            "psnr": 17.728330612182617,
+            "ssim": 0.61869877576828,
+            "lpips_alex": 0.16526052355766296
+          },
+          "delta": {
+            "psnr": 5.260903358459473,
+            "ssim": 0.3775223419070244,
+            "lpips_alex": -0.18510720133781433
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image008.png",
+          "baseline": {
+            "psnr": 12.691193103790283,
+            "ssim": 0.2298424243927002,
+            "lpips_alex": 0.342597097158432
+          },
+          "fsgs": {
+            "psnr": 18.39754867553711,
+            "ssim": 0.6263526082038879,
+            "lpips_alex": 0.13945555686950684
+          },
+          "delta": {
+            "psnr": 5.706355571746826,
+            "ssim": 0.39651018381118774,
+            "lpips_alex": -0.20314154028892517
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image016.png",
+          "baseline": {
+            "psnr": 11.924425601959229,
+            "ssim": 0.2014632746577263,
+            "lpips_alex": 0.3926393985748291
+          },
+          "fsgs": {
+            "psnr": 16.571348190307617,
+            "ssim": 0.4992756247520447,
+            "lpips_alex": 0.19683198630809784
+          },
+          "delta": {
+            "psnr": 4.646922588348389,
+            "ssim": 0.2978123500943184,
+            "lpips_alex": -0.19580741226673126
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image024.png",
+          "baseline": {
+            "psnr": 12.111594676971436,
+            "ssim": 0.19567088037729263,
+            "lpips_alex": 0.3958463668823242
+          },
+          "fsgs": {
+            "psnr": 16.77692222595215,
+            "ssim": 0.5198131203651428,
+            "lpips_alex": 0.1851840764284134
+          },
+          "delta": {
+            "psnr": 4.665327548980713,
+            "ssim": 0.3241422399878502,
+            "lpips_alex": -0.21066229045391083
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 44,
+        "wall_seconds": 679.700328308998,
+        "peak_torch_allocated_bytes": 2528433152,
+        "peak_torch_reserved_bytes": 3055550464,
+        "checkpoint_sha256": "85251a838a4390a504cc2ef8ba02319f725ae536d04cbc164a8e61d608a3e75b",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 359092,
+      "gsplat_render_seconds": 0.0019863474125941137,
+      "metrics_sha256": "a4d72342434a3f3a26800bb1d60e83295cefd3aa17c086bf5eb6251c95adaf39",
+      "checkpoint_sha256": "45ae467541208f46ff12e103a7906bb8224d360787efc7c4fe90ba3bf4bb7ba8",
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.0001735687255859375,
+        "ssim": 1.5974044799804688e-05,
+        "lpips_alex": 4.106760025024414e-05
+      },
+      "training_resources": null
+    },
+    {
+      "scene": "room",
+      "seed": 44,
+      "baseline_source": "room-L1-seed44-evaluation/metrics.json",
+      "baseline_relation": "same-stage seed44 uniform L1, identical assets",
+      "baseline_mean": {
+        "psnr": 15.39607016245524,
+        "ssim": 0.46148714423179626,
+        "lpips_alex": 0.5229054888089498
+      },
+      "fsgs_mean": {
+        "psnr": 20.76961326599121,
+        "ssim": 0.8049118518829346,
+        "lpips_alex": 0.17061752825975418
+      },
+      "native_mean": {
+        "psnr": 20.76975218454997,
+        "ssim": 0.8049223820368449,
+        "lpips_alex": 0.17062593499819437
+      },
+      "delta": {
+        "psnr": 5.373543103535971,
+        "ssim": 0.3434247076511383,
+        "lpips_alex": -0.35228796054919564
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "DJI_20200226_143850_006.png",
+          "baseline": {
+            "psnr": 16.75847625732422,
+            "ssim": 0.5258252620697021,
+            "lpips_alex": 0.46295809745788574
+          },
+          "fsgs": {
+            "psnr": 23.094804763793945,
+            "ssim": 0.8389807939529419,
+            "lpips_alex": 0.13476674258708954
+          },
+          "delta": {
+            "psnr": 6.336328506469727,
+            "ssim": 0.31315553188323975,
+            "lpips_alex": -0.3281913548707962
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "DJI_20200226_143901_419.png",
+          "baseline": {
+            "psnr": 14.709197998046875,
+            "ssim": 0.40769433975219727,
+            "lpips_alex": 0.5578585267066956
+          },
+          "fsgs": {
+            "psnr": 20.275943756103516,
+            "ssim": 0.799225389957428,
+            "lpips_alex": 0.16226042807102203
+          },
+          "delta": {
+            "psnr": 5.566745758056641,
+            "ssim": 0.3915310502052307,
+            "lpips_alex": -0.3955980986356735
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "DJI_20200226_143912_008.png",
+          "baseline": {
+            "psnr": 12.449809074401855,
+            "ssim": 0.36017826199531555,
+            "lpips_alex": 0.6269349455833435
+          },
+          "fsgs": {
+            "psnr": 17.913082122802734,
+            "ssim": 0.7158398032188416,
+            "lpips_alex": 0.24366210401058197
+          },
+          "delta": {
+            "psnr": 5.463273048400879,
+            "ssim": 0.355661541223526,
+            "lpips_alex": -0.38327284157276154
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "DJI_20200226_143926_241.png",
+          "baseline": {
+            "psnr": 16.155319213867188,
+            "ssim": 0.495787113904953,
+            "lpips_alex": 0.5210933089256287
+          },
+          "fsgs": {
+            "psnr": 20.23021697998047,
+            "ssim": 0.8228859305381775,
+            "lpips_alex": 0.18282754719257355
+          },
+          "delta": {
+            "psnr": 4.074897766113281,
+            "ssim": 0.3270988166332245,
+            "lpips_alex": -0.3382657617330551
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "DJI_20200226_143938_168.png",
+          "baseline": {
+            "psnr": 15.497054100036621,
+            "ssim": 0.448172390460968,
+            "lpips_alex": 0.4961414635181427
+          },
+          "fsgs": {
+            "psnr": 20.481595993041992,
+            "ssim": 0.8053082823753357,
+            "lpips_alex": 0.14983826875686646
+          },
+          "delta": {
+            "psnr": 4.984541893005371,
+            "ssim": 0.3571358919143677,
+            "lpips_alex": -0.34630319476127625
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "DJI_20200226_143948_113.png",
+          "baseline": {
+            "psnr": 16.806564331054688,
+            "ssim": 0.5312654972076416,
+            "lpips_alex": 0.47244659066200256
+          },
+          "fsgs": {
+            "psnr": 22.62203598022461,
+            "ssim": 0.8472309112548828,
+            "lpips_alex": 0.15035007894039154
+          },
+          "delta": {
+            "psnr": 5.815471649169922,
+            "ssim": 0.3159654140472412,
+            "lpips_alex": -0.322096511721611
+          },
+          "improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 44,
+        "wall_seconds": 614.8688863239986,
+        "peak_torch_allocated_bytes": 1883487744,
+        "peak_torch_reserved_bytes": 2273312768,
+        "checkpoint_sha256": "21e10a4a778df8de1c3f97a35d2658ec9233c94aea429f5b1fc2db7188ce2d64",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 48822,
+      "gsplat_render_seconds": 0.0011819505999483225,
+      "metrics_sha256": "8d40fdfbbc50b1ef983a5e2269aaf9cd2d952268fd709ac2dd77b4223995a06a",
+      "checkpoint_sha256": "313224a1c297cc3895ffc38aef4e2c125260be8492e314bbcdd78cbeac775630",
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.0005054473876953125,
+        "ssim": 1.9788742065429688e-05,
+        "lpips_alex": 2.7164816856384277e-05
+      },
+      "training_resources": {
+        "stage": "room-FSGS-seed44-training",
+        "seconds": 619.4077382370015,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3325
+      }
+    }
+  ],
+  "leaves_three_seed_summary": {
+    "baseline": {
+      "psnr": {
+        "mean": 12.246423522631327,
+        "sample_std": 0.045239524590800974,
+        "min": 12.219966173171997,
+        "max": 12.298660159111023
+      },
+      "ssim": {
+        "mean": 0.21492656134068966,
+        "sample_std": 0.0018748789382175004,
+        "min": 0.21345750987529755,
+        "max": 0.2170382533222437
+      },
+      "lpips_alex": {
+        "mean": 0.36972106993198395,
+        "sample_std": 0.005115571742561188,
+        "min": 0.3643149733543396,
+        "max": 0.3744855895638466
+      }
+    },
+    "fsgs": {
+      "psnr": {
+        "mean": 17.753607114156086,
+        "sample_std": 0.3505581815073637,
+        "min": 17.368537425994873,
+        "max": 18.0542254447937
+      },
+      "ssim": {
+        "mean": 0.5949097176392873,
+        "sample_std": 0.02515969920157861,
+        "min": 0.5660350322723389,
+        "max": 0.6121219247579575
+      },
+      "lpips_alex": {
+        "mean": 0.16340789198875427,
+        "sample_std": 0.007594442591162611,
+        "min": 0.1567569449543953,
+        "max": 0.17168303579092026
+      }
+    }
+  },
+  "improved_image_metric_pairs": 54,
+  "image_metric_pairs": 54,
+  "decision_rule": {
+    "quality_rule": "Before any new evaluation: retain FSGS as preferred engineering recipe if room seed44 and leaves seeds42/43 each improve all three test-image-mean metrics over the preselected corresponding uniform L1 control. Report every per-image change, including drops. Prior seed44 leaves comparison retained.",
+    "room_control": "same-stage uniform L1 seed44, identical assets; complete recipes, 30000 vs9999 updates",
+    "leaves_control": "historical fixed same-protocol uniform L1 seed42/43; seed44 existing same-boot L1 bookends",
+    "no_retuning": true,
+    "failure_action": "retain all completed and failed runs; no retries, additional seeds or scene substitution"
+  },
+  "new_stage_image_metric_pairs": 42,
+  "inherited_image_metric_pairs": 12,
+  "room_initial_points": 128,
+  "room_train_anchors": [
+    55,
+    108,
+    112
+  ],
+  "resource_ledger": {
+    "stage_limit_seconds": 3600,
+    "stage_used_seconds": 2193.6381435489966,
+    "inherited_seconds": 6256.843380160068,
+    "charged_seconds": 8450.481523709064,
+    "cumulative_cap_seconds": 9856.843380160068,
+    "entries": [
+      {
+        "stage": "room-priors",
+        "seconds": 4.168598264001048,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1389
+      },
+      {
+        "stage": "room-L1-seed44-training",
+        "seconds": 177.21364482300123,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1532
+      },
+      {
+        "stage": "leaves-FSGS-seed42-training",
+        "seconds": 669.7829092609973,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3988
+      },
+      {
+        "stage": "leaves-FSGS-seed43-training",
+        "seconds": 677.3576260869995,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 4042
+      },
+      {
+        "stage": "room-FSGS-seed44-training",
+        "seconds": 619.4077382370015,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3325
+      },
+      {
+        "stage": "room-L1-seed44-evaluation",
+        "seconds": 8.27978401799919,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1435
+      },
+      {
+        "stage": "leaves-FSGS-seed42-native-evaluation",
+        "seconds": 3.1486387939985434,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1385
+      },
+      {
+        "stage": "leaves-FSGS-seed42-conversion",
+        "seconds": 2.098017380998499,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 888
+      },
+      {
+        "stage": "leaves-FSGS-seed42-evaluation",
+        "seconds": 7.264060433997656,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1595
+      },
+      {
+        "stage": "leaves-FSGS-seed43-native-evaluation",
+        "seconds": 3.144110004999675,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1435
+      },
+      {
+        "stage": "leaves-FSGS-seed43-conversion",
+        "seconds": 2.090240981000534,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 888
+      },
+      {
+        "stage": "leaves-FSGS-seed43-evaluation",
+        "seconds": 7.229940509001608,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1657
+      },
+      {
+        "stage": "room-FSGS-seed44-native-evaluation",
+        "seconds": 3.127989446002175,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1147
+      },
+      {
+        "stage": "room-FSGS-seed44-conversion",
+        "seconds": 1.0473044329992263,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 889
+      },
+      {
+        "stage": "room-FSGS-seed44-evaluation",
+        "seconds": 8.277540875998966,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1257
+      }
+    ]
+  },
+  "evidence_keys": [
+    "fsgs-generalization-20261023T080252Z",
+    "fsgs-integration-20261023T031053Z",
+    "fsgs-development-confirmation-20261023T071143Z"
+  ],
+  "limitations": [
+    "Complete recipes: FSGS 9999 optimizer updates versus uniform L1 30000; not isolated module attribution",
+    "One new fixed room scene and leaves seeds42/43; no broad final benchmark",
+    "Leaves L1 seed42/43 controls are historical; room L1 is same stage",
+    "Leaves seed44 inherited from previous comparison; no additional seed44 training"
+  ],
+  "source_result_sha256": {
+    "results/flower-leaves-depth-controls.json": "8a8e36de3b8252a9ba0dd8487982cecd74d6ab78d510c4570dec9f5d927b65b3",
+    "results/correlation-four-arm.json": "f692eddbe9a072c92ea7b11757bab0416d21f9345e4c41556e49af7a7e551bab",
+    "results/fsgs-reference.json": "fb062386e1489a4ec15f78b4d764bbb42839c082e637654b83bf168e61011696"
+  },
+  "room_same_stage_cost": {
+    "baseline_final_gaussians": 169635,
+    "fsgs_final_gaussians": 48822,
+    "baseline_test_render_seconds": 0.0014311104083086926,
+    "fsgs_test_render_seconds": 0.0011819505999483225,
+    "baseline_training_worker_seconds": 177.21364482300123,
+    "fsgs_training_worker_seconds": 619.4077382370015
+  },
+  "training_parent_commit": "a3f6d4b4fed6cddbfdbdc5e9f027522ec5a51c6b",
+  "publication_state_at_experiment_completion": {
+    "committed": false,
+    "pushed": false
+  }
+}

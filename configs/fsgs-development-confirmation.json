@@ -1,0 +1,174 @@
+{
+  "protocol": "fsgs-fixed-development-confirmation-v1",
+  "parent": "results/fsgs-reference.json",
+  "scenes": [
+    "fern",
+    "flower"
+  ],
+  "seed": 44,
+  "native_iterations": 10000,
+  "optimizer_updates": 9999,
+  "resolution": [
+    504,
+    378
+  ],
+  "training_views": 3,
+  "source_commit": "a536a64c5b366b1088be64eeadf9e791ca26897c",
+  "settings": "Identical FSGS recipe and pixel-origin adapter as successful leaves run; no searches",
+  "order": "train fern, train flower; then native evaluation, conversion, unchanged gsplat evaluation for both",
+  "decision_rule": "Report all mean/per-view metrics; advance engineering candidate only when all three scene means improve over their preselected uniform-L1 comparison; no tuning on results",
+  "baseline": "preserved same-protocol seed44 uniform L1; historical environments, not same-boot repeats",
+  "resources": {
+    "new_stage_limit_seconds": 1800,
+    "inherited_charged_seconds": 4911.19036687707,
+    "total_cumulative_cap_seconds": 6711.19036687707,
+    "first_training_cap_seconds": 850,
+    "second_training_cap": "remaining stage seconds minus 60",
+    "board_cap_mib": 11500
+  },
+  "input_identity": {
+    "fern": {
+      "protocol": "fsgs-train-only-sparse-adapter-v1",
+      "scene": "fern",
+      "source_manifest_sha256": "45753938b1eed06493b3cb0b56f2dab002aa6cdd4ac18d7a2e338ee94b625ff8",
+      "train_views": [
+        {
+          "name": "image001.png",
+          "visible_train_points": 488,
+          "near_far": [
+            6.990381257253402,
+            28.729892018525685
+          ],
+          "principal_offset_from_upstream_center": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "image010.png",
+          "visible_train_points": 487,
+          "near_far": [
+            7.123276185551498,
+            30.563781315503498
+          ],
+          "principal_offset_from_upstream_center": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "image019.png",
+          "visible_train_points": 483,
+          "near_far": [
+            6.701630325840869,
+            29.913918576831776
+          ],
+          "principal_offset_from_upstream_center": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "test_images_present": false,
+      "initial_point_count": 488,
+      "initialization": "existing sparse train-only SfM; no MVS",
+      "bounds": "per-view visible train-SfM Z percentiles [0.1,99.9]",
+      "upstream_cli": [
+        "--images",
+        "images",
+        "--resolution",
+        "1",
+        "--n_views",
+        "3"
+      ],
+      "eval_flag": "omit: this directory already contains only frozen training views",
+      "raster_origin_adapter": "run_fsgs_reference.py shifts native projections by -0.5 pixel to match gsplat sampling at pixel index +0.5",
+      "requires_exact_principal_point_adapter": false,
+      "output_sha256": {
+        "3_views/dense/fused.ply": "b28f6b67dfc3f7f758e8f82e756dcc2b93e5e8b2caffacef48570f7efbac8652",
+        "images/image001.png": "a150f8f7f2dd62d52a59820d0195a5ae66267df0a1d8a8893392dc1cd03d1b17",
+        "images/image010.png": "f557c43c92d72df2ac573e1fe7f3c8f744b40cfb6cc87bd6a60e8c937e19a34d",
+        "images/image019.png": "ffdb260f616ff5e31f13855b287dfec6995047f00afe2a502b8fc4356fcc7e35",
+        "poses_bounds.npy": "c5437c26a54063940b8431e8260f1b747b7148de0f607c105ff4ef6a862c90c6",
+        "sparse/0/cameras.txt": "3c2ad81b3189059bda8f20ab639f15bfe54f498523bce6cdfdff48bd83bcc251",
+        "sparse/0/images.txt": "9e945cc749972ddbf3398e8d62aaddcf87cea08e46aef63c3063438888a6e80c",
+        "sparse/0/points3D.txt": "fc252d965d1574df348428060fe22d79d35f4c6a21f0aed35ef637caaf51e3fc"
+      }
+    },
+    "flower": {
+      "protocol": "fsgs-train-only-sparse-adapter-v1",
+      "scene": "flower",
+      "source_manifest_sha256": "471aa4f5cfde03b4137c6a6ce21e8cfeccd826b28498c97100812dde18babe7a",
+      "train_views": [
+        {
+          "name": "image001.png",
+          "visible_train_points": 1196,
+          "near_far": [
+            7.239575593147727,
+            52.38144561814547
+          ],
+          "principal_offset_from_upstream_center": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "image017.png",
+          "visible_train_points": 1285,
+          "near_far": [
+            7.580937342356605,
+            53.93802275110108
+          ],
+          "principal_offset_from_upstream_center": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "image033.png",
+          "visible_train_points": 1259,
+          "near_far": [
+            8.134368987451843,
+            54.327172612178224
+          ],
+          "principal_offset_from_upstream_center": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "test_images_present": false,
+      "initial_point_count": 1285,
+      "initialization": "existing sparse train-only SfM; no MVS",
+      "bounds": "per-view visible train-SfM Z percentiles [0.1,99.9]",
+      "upstream_cli": [
+        "--images",
+        "images",
+        "--resolution",
+        "1",
+        "--n_views",
+        "3"
+      ],
+      "eval_flag": "omit: this directory already contains only frozen training views",
+      "raster_origin_adapter": "run_fsgs_reference.py shifts native projections by -0.5 pixel to match gsplat sampling at pixel index +0.5",
+      "requires_exact_principal_point_adapter": false,
+      "output_sha256": {
+        "3_views/dense/fused.ply": "4037508900d6d821a8eef07e80280963eb63e129c479d6709ea1d4f5e4e38969",
+        "images/image001.png": "9c50684e4fb6b6f7aefa520fab1476624705f31f3afda990d017126b4a2941aa",
+        "images/image017.png": "92aed040c9713dbe8218f6ee8af94f8da3ade0344376674db37da77620fe2deb",
+        "images/image033.png": "d597c25f10b433d89a3fcebee484281c1bedd1be6cad39658fbace2c6ab830a8",
+        "poses_bounds.npy": "51493ada3f78677b3a84c0d44e1aa6f0d67e6fe37200d3b9d67d0a4761744815",
+        "sparse/0/cameras.txt": "7ea818a58dd30427440c8f4db1516e1e2c7a8f81d361b39366c8e216f0493541",
+        "sparse/0/images.txt": "1884a61c4f1c8a646f56fa683bbc991abd365d59a7679e4e09aeb3f3bd247d8e",
+        "sparse/0/points3D.txt": "fc252d965d1574df348428060fe22d79d35f4c6a21f0aed35ef637caaf51e3fc"
+      }
+    }
+  },
+  "worker_sha256": {
+    "run_fsgs_reference.py": "f5d3a6e4d10289ac78fff0990ec1b3ec092cd31ed59f0171347cc4fd1e779950",
+    "evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9",
+    "prepare_fsgs_scene.py": "e42205c685009b1b447622c066dea3dfdc4578ee57d6eb6083350be232e70999",
+    "convert_fsgs_checkpoint.py": "4cd9349308b5dc1d19b8cc5d12416e3b8a67fc83ca48357f5b5d209a603132aa"
+  },
+  "no_commit_or_push": true
+}

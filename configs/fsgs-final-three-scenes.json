@@ -1,0 +1,89 @@
+{
+  "protocol": "fsgs-final-horns-orchids-trex-v1",
+  "parent_commit": "e59bfa1f0fde7271b58487664b1c36fbe82f98a2",
+  "scenes": [
+    "horns",
+    "orchids",
+    "trex"
+  ],
+  "seed": 44,
+  "resolution": [
+    504,
+    378
+  ],
+  "train_views": 3,
+  "test_rule": "all sorted image indices divisible by8",
+  "train_rule": "three non-test indices at rint(linspace(0,M-1,3))",
+  "inherited_charged_seconds": 9327.719748778056,
+  "previous_cumulative_cap_seconds": 9856.843380160068,
+  "stage_limit_seconds": 3600,
+  "cumulative_cap_seconds": 12927.719748778056,
+  "budget_extension_policy": "user permits reasonable increases; only extend before test metrics if observed worker timings show pending frozen matrix needs more time; retain old plan/ledger and announce actual increase; no budget reset",
+  "matrix_per_scene": [
+    {
+      "method": "uniform_L1",
+      "optimizer_updates": 30000,
+      "depth_lambda": 0.01,
+      "depth_start": 1000,
+      "render_profile": "standard"
+    },
+    {
+      "method": "FSGS",
+      "native_iterations": 10000,
+      "optimizer_updates": 9999,
+      "recipe": "unchanged pinned native recipe; same MiDaS weights, train-only sparse initialization and pixel-origin correction",
+      "primary_render_profile": "fsgs-native",
+      "secondary_render_profile": "standard"
+    }
+  ],
+  "evaluation_order": "all feasible training workers across all three scenes finish before opening any new test scores; then baseline standard, FSGS native, conversion, FSGS fsgs-native primary and FSGS standard secondary",
+  "quality_policy": {
+    "meaningful_gain_any_of": {
+      "mean_PSNR_delta_dB_at_least": 0.5,
+      "mean_SSIM_delta_at_least": 0.02,
+      "mean_LPIPS_delta_at_most": -0.02,
+      "Gaussian_parameter_bytes_reduction_fraction_at_least": 0.2
+    },
+    "acceptable_scene_mean_regressions": {
+      "PSNR_delta_dB_at_least": -0.3,
+      "SSIM_delta_at_least": -0.015,
+      "LPIPS_delta_at_most": 0.02
+    },
+    "acceptable_worst_view_regressions": {
+      "PSNR_delta_dB_at_least": -1.0,
+      "SSIM_delta_at_least": -0.05,
+      "LPIPS_delta_at_most": 0.05
+    },
+    "recommendation": "recommend per scene when any meaningful gain with bounded losses fits measured resource budget; otherwise report conditional use or no recommendation, retaining every negative; not all metrics must improve",
+    "single_seed_limit": "one seed per scene; sample statistics, not population guarantees"
+  },
+  "board_limit_mib": 11500,
+  "default_training_worker_caps_seconds": {
+    "uniform_L1": 1000,
+    "FSGS": 900
+  },
+  "automatic_training_retry": false,
+  "preparation_failure_policy": "preserve failed scene; do not substitute views, random initialization or another scene; continue other fixed scenes",
+  "no_paid_resources": true,
+  "native_compatible_profile_fixed_before_RGB": true,
+  "profile_comparability": "fortress primary used standard FSGS rendering; do not silently pool differently-profiled means; retain standard secondary for all three scenes",
+  "input_configs": {
+    "horns": "configs/fsgs-final-horns-input.json",
+    "orchids": "configs/fsgs-final-orchids-input.json",
+    "trex": "configs/fsgs-final-trex-input.json"
+  },
+  "execution_source": {
+    "parent_commit": "e59bfa1f0fde7271b58487664b1c36fbe82f98a2",
+    "extensions": {
+      "scripts/fetch_llff_scene.py": "ec7450ffd7a26b564d68030b80d0d4bcd150d88200baa1f6b025d85f5e3ee2c4",
+      "scripts/undistort_llff_subset.py": "230ca23bc998ebf99e9b3cf6270b91fef47846946ef704e068de00114c337841",
+      "src/geosplat_r/scene_input.py": "298ed6cc51747735d4eea27fe56fe0a6b587b87d36a80a611e824be6cea648a0"
+    }
+  },
+  "execution_order": [
+    "orchids",
+    "trex",
+    "horns"
+  ],
+  "execution_order_reason": "horns network recovery runs independently; orchids/trex preparation already complete; all training still precedes any test scores; no data/algorithm changes"
+}

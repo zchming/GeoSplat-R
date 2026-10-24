@@ -2,7 +2,42 @@
 
 稀疏视角 3D Gaussian Splatting 的几何可靠性优化。
 
+**直接使用：[FSGS 质量路径 / L1 快训流程](docs/usage.md)** · [环境配置模板](configs/runtime.example.json) · [统一入口](scripts/run_geosplat.py)
+
+| 选项 | 适用目标 | 已验证配方 | 评价方式 |
+|---|---|---|---|
+| `--mode fsgs` | 优先提升新视角质量 | 原生 10k 循环，9,999 次更新 | 自动选择 `fsgs-native` |
+| `--mode l1` | 优先缩短训练等待 | 统一深度 L1，30,000 次更新 | 保留 `standard` |
+
+入口从已准备的 `train/`、`test/` 开始，串联训练、模型转换和独立评价；输出包含图像、深度、点云与新视角视频。
+两条路径共用显式环境配置、新输出目录和累计预算记录。工程收尾已完成；下文保留各阶段原始结论与复现证据。
+
+**2026-10-24 工程结果：[horns、orchids、trex 独立工程验证](docs/fsgs-final-three-scenes.md)已完成。**
+三场景完整矩阵完成。FSGS 原生兼容主结果相对统一 L1，场景等权 ΔPSNR +4.456dB、ΔSSIM +0.234、ΔLPIPS -0.172。
+逐图退化、训练/渲染成本和按场景推荐均已披露；同时保留 standard 入口敏感性结果。
+此前 [fortress 独立验证](docs/fsgs-final-fortress.md)、[多种子确认](docs/fsgs-generalization.md)、旧路线与全部失败记录继续保留。
+
 工程集成：[CPU 检查与主分支保护](docs/cpu-ci.md)。
+
+**[Phase 2 总验收](docs/phase2-acceptance.md)：最小统一深度基线已完成，工程与对照协议通过，研究结论有条件通过。**
+fern/flower/leaves各三seed的统一深度相对预选RGB-only基线，测试PSNR平均分别提高
+0.8328/0.8426/0.1869 dB；逐视角退化、环境中断和感知质量限制均保留。
+收益来自接入既有深度先验，不代表几何可靠性贡献或最终独立场景目标达成；Phase 3 尚未放行。
+
+当前研究验收：**冻结 margin 歧义候选在未开启场景确认失败，停止该候选；不进入可靠性加权或新训练。**
+两已观察开发场景在保留低风险50%配对时，错误风险分别下降92.6%与91.0%；
+独立 courtyard 场景均值下降35.2%，但 DSC_0304 未通过单图门，local层错误风险增加34.6%。
+场景均值不能覆盖单图/分层失败，这些数字也不是PSNR或三维重建收益。
+历史D1/D2/H1、Cauchy及绝对深度锚点的负结果和支持不足均继续保留。
+
+- [两开发场景完整对比](docs/ordinal-margin-diagnostic.md) · [未开启场景确认及停止判断](docs/courtyard-margin-confirmation.md)
+- [CPU入口与隔离验收](docs/ordinal-margin-cpu.md) · [冻结确认方案](configs/courtyard-margin-confirmation-plan.json)
+- [原始轨迹H1](docs/leaves-raw-track-diagnostic.md) · [独立几何数据可行性](docs/independent-geometry-feasibility.md)
+- [terrace序关系诊断](docs/terrace-relative-diagnostic.md) · [delivery_area序关系诊断](docs/delivery-area-relative-diagnostic.md)
+
+几何回归检查使用生成数据，不加载模型或真实数据：
+`python scripts/check_geometry_cpu_ci.py --output <新的结果JSON路径>`。
+CPU持续集成另外保留原有depth/protocol两组；真实GPU、外部资产与训练不属于CI。
 
 Geometry-Reliability Guided Sparse-View 3D Gaussian Splatting.
 

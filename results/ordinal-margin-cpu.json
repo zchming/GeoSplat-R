@@ -1,0 +1,163 @@
+{
+  "protocol": "ordinal-margin-CPU-implementation-v1",
+  "status": "passed_engineering_and_metadata_only",
+  "evidence_key": "ordinal-margin-CPU-20261021T125523Z",
+  "branch": "experiment/geometry-reliability-review",
+  "plan_sha256": "3fb84489f24f97ec137ba85158c935771981a527ae7bf12bdf823ecf16e82ebb",
+  "source_sha256": {
+    "src/geosplat_r/ordinal_margin.py": "a532ca10b707014966e708fcbb38bdfb04f6ad1bc381e52d126fcc42d2d519d4",
+    "src/geosplat_r/relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "scripts/run_ordinal_margin_cpu.py": "a822035291ea9cb452865fe881c00987740b80729d5727c50b0cbe3b94b08ef8",
+    "scripts/prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1"
+  },
+  "test_source_sha256": "9cb7df66e2b7625f5a62ce04c9313ab6cc4848191543550605f734656166a8b5",
+  "tests": {
+    "unique_cases": 86,
+    "new_cases": 26,
+    "legacy_cases": 60,
+    "host": {
+      "passed": 86,
+      "failed": 0,
+      "skipped": 0
+    },
+    "isolated": {
+      "tests": 86,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "real_data_mounted": false,
+      "torch_imported": false
+    },
+    "initial_failure": {
+      "log": "new-tests-1.log",
+      "passed": 24,
+      "failed": 1,
+      "reason": "Exact floating-point test assertion differed by 5.551115123125783e-17; assertion changed to rtol=0, atol=1e-15. Algorithm and operational gates unchanged."
+    }
+  },
+  "generated_process_smoke": {
+    "status": "passed_generated_process_integration",
+    "roles": [
+      {
+        "stage": "describe",
+        "generated_only": true,
+        "status": "passed_descriptors",
+        "allowed_files": 8,
+        "forbidden_reads_refused": 124,
+        "semantic_cache_reads": 0,
+        "process": {
+          "returncode": 0,
+          "wall_seconds": 0.2522014990026946,
+          "sampled_process_tree_RSS_KiB": 96040,
+          "stop_reason": null,
+          "expected_failure": false
+        }
+      },
+      {
+        "stage": "evaluate",
+        "generated_only": true,
+        "status": "failed_margin_direction_gate",
+        "allowed_files": 22,
+        "forbidden_reads_refused": 12,
+        "semantic_cache_reads": 12,
+        "process": {
+          "returncode": 0,
+          "wall_seconds": 2.965457243997662,
+          "sampled_process_tree_RSS_KiB": 153364,
+          "stop_reason": null,
+          "expected_failure": false
+        }
+      }
+    ],
+    "real_data_used": false,
+    "public_real_identity_admission_bypassed_only_for_generated_worker_fixture": true
+  },
+  "real_metadata_gate": {
+    "status": "passed_metadata_only",
+    "files": 22,
+    "scorer_files": 8,
+    "scorer_bytes": 16265437,
+    "evaluator_additional_files": 14,
+    "evaluator_additional_bytes": 9692527,
+    "prediction_headers": 6,
+    "prediction_shape": [
+      672,
+      1008
+    ],
+    "prediction_dtype": "float32",
+    "prediction_seals": 2,
+    "forbidden_reads_refused": 16,
+    "preprobe_forbidden_reads_refused": 16,
+    "semantic_evaluator_reads": 0,
+    "descriptor_computed": false,
+    "evaluator_payload_deserialized": false,
+    "scope": "Opaque hashes for all 22 files, six NPY headers and two prediction seals only. Cache bytes are hashed, never interpreted."
+  },
+  "resources": {
+    "limits": {
+      "CPU_threads": 4,
+      "RSS_bytes": 2147483648,
+      "stage_timeout_seconds": 600,
+      "output_bytes": 268435456
+    },
+    "isolated_suite": {
+      "returncode": 0,
+      "wall_seconds": 5.07765344499785,
+      "sampled_process_tree_RSS_KiB": 160680,
+      "stop_reason": null,
+      "expected_failure": false
+    },
+    "generated_describe": {
+      "returncode": 0,
+      "wall_seconds": 0.2522014990026946,
+      "sampled_process_tree_RSS_KiB": 96040,
+      "stop_reason": null,
+      "expected_failure": false
+    },
+    "generated_evaluate": {
+      "returncode": 0,
+      "wall_seconds": 2.965457243997662,
+      "sampled_process_tree_RSS_KiB": 153364,
+      "stop_reason": null,
+      "expected_failure": false
+    },
+    "real_metadata": {
+      "returncode": 0,
+      "wall_seconds": 0.1524995450017741,
+      "sampled_process_tree_RSS_KiB": 66504,
+      "stop_reason": null,
+      "expected_failure": false
+    },
+    "GPU_used": false,
+    "model_loaded": false
+  },
+  "preservation": {
+    "original_files_unchanged": 158,
+    "frozen_plan_unchanged": true,
+    "old_numeric_core_unchanged": true,
+    "staged_changes": false,
+    "commit": false,
+    "push": false,
+    "downloads": false,
+    "training": false
+  },
+  "acceptance": {
+    "engineering": "passed",
+    "real_hypothesis": "unknown_not_run",
+    "exact_error_support": "unknown_not_computed",
+    "reliability_weighting": "not_authorized",
+    "cumulative_contribution": "Adds an isolated, reproducible CPU ambiguity diagnostic and validation coverage; establishes no geometric reliability, novelty or reconstruction gain."
+  },
+  "recommendation": {
+    "decision": "recommend_one_frozen_CPU_diagnostic_subject_to_next_authorization",
+    "scope": "Six existing predictions from terrace and delivery_area; seal all six descriptors before unified evaluation. Preserve support failures and negative/unknown gates. No new inference, fitting, score reversal, tuning, GPU, training or publication.",
+    "gates": "Use the unchanged ordinal-error-margin-plan.json. These are development scenes; even a pass needs independent scene confirmation."
+  },
+  "candidate_files": [
+    "src/geosplat_r/ordinal_margin.py",
+    "scripts/run_ordinal_margin_cpu.py",
+    "tests/test_ordinal_margin.py",
+    "docs/ordinal-margin-cpu.md",
+    "results/ordinal-margin-cpu.json"
+  ]
+}

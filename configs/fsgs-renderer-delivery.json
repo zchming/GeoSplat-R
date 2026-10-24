@@ -1,0 +1,15 @@
+{
+  "protocol": "fsgs-full-evaluator-profile-v1",
+  "parent_commit": "9dddc69104b652b12fc402a2d17bae75ec773f0a",
+  "scope": "full existing evaluator with explicit FSGS-native clipping; evaluate existing fortress checkpoint including RGB+ED, plots and48-frame video; no training or new scenes",
+  "inherited_charged_seconds": 9318.381969978056,
+  "cumulative_cap_seconds": 9856.843380160068,
+  "stage_limit_seconds": 538.4614101820116,
+  "worker_cap_seconds": 60,
+  "render_profile": "fsgs-native",
+  "old_default": "standard near0.01 unchanged; frozen results retained",
+  "comparison": "same checkpoint versus previous zero-update RGB diagnostic and native evaluator; report compatibility separately from primary gains",
+  "board_limit_mib": 11500,
+  "automatic_retry": false,
+  "no_checkpoint_updates": true
+}

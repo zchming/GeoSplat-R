@@ -1,0 +1,58 @@
+{
+  "protocol": "fsgs-generalization-stage-v1",
+  "parent_commit": "a3f6d4b4fed6cddbfdbdc5e9f027522ec5a51c6b",
+  "inherited_charged_seconds": 6256.843380160068,
+  "new_stage_GPU_worker_limit_seconds": 3600,
+  "cumulative_cap_seconds": 9856.843380160068,
+  "matrix": [
+    {
+      "scene": "room",
+      "method": "uniform_L1",
+      "seed": 44,
+      "updates": 30000
+    },
+    {
+      "scene": "leaves",
+      "method": "FSGS",
+      "seed": 42,
+      "updates": 9999
+    },
+    {
+      "scene": "leaves",
+      "method": "FSGS",
+      "seed": 43,
+      "updates": 9999
+    },
+    {
+      "scene": "room",
+      "method": "FSGS",
+      "seed": 44,
+      "updates": 9999
+    }
+  ],
+  "room_source": "configs/fsgs-room-input.json",
+  "candidate": "same source/weights/pixel-origin correction and native 10k recipe; no tuning",
+  "baseline": "existing uniform L1 lambda0.01 start1000, fixed train-only Small priors",
+  "evaluation": "only after every training run completes; same existing gsplat evaluator",
+  "stop": "preserve failures; no automatic training retries or changed image counts, resolution or loss settings",
+  "board_limit_mib": 11500,
+  "large_dataset_download": false,
+  "push_authorized": false,
+  "decision_rule": {
+    "quality_rule": "Before any new evaluation: retain FSGS as preferred engineering recipe if room seed44 and leaves seeds42/43 each improve all three test-image-mean metrics over the preselected corresponding uniform L1 control. Report every per-image change, including drops. Prior seed44 leaves comparison retained.",
+    "room_control": "same-stage uniform L1 seed44, identical assets; complete recipes, 30000 vs9999 updates",
+    "leaves_control": "historical fixed same-protocol uniform L1 seed42/43; seed44 existing same-boot L1 bookends",
+    "no_retuning": true,
+    "failure_action": "retain all completed and failed runs; no retries, additional seeds or scene substitution"
+  },
+  "execution_source": {
+    "commit": "a3f6d4b4fed6cddbfdbdc5e9f027522ec5a51c6b",
+    "extensions": {
+      "scripts/fetch_llff_scene.py": "ddd8203c6528e62d14d7187fa9e2d62961d01e56637de0f5ec5abe60d682643a",
+      "scripts/undistort_llff_subset.py": "7d4adcbd74dcaf9048fded2301993312d9d4b04f133e72057a87eca4a9225ba7",
+      "src/geosplat_r/scene_input.py": "0a133210633bc7407906c15b4115a2497210ac5ed9f05819f1a66582ca425fc7"
+    },
+    "stage_plan_sha256": "34d9055f005d78f7a2758300690d768db5d7b274e721fe370d7822a153bb255b",
+    "room_input_plan_sha256": "d4d5d8f66ccf3a7c45813887a5ebc805e90e685b5554e4da1cd9d8fc0d2c065e"
+  }
+}
