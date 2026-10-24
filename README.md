@@ -2,6 +2,16 @@
 
 稀疏视角 3D Gaussian Splatting 的几何可靠性优化。
 
+**直接使用：[FSGS 质量路径 / L1 快训流程](docs/usage.md)** · [环境配置模板](configs/runtime.example.json) · [统一入口](scripts/run_geosplat.py)
+
+| 选项 | 适用目标 | 已验证配方 | 评价方式 |
+|---|---|---|---|
+| `--mode fsgs` | 优先提升新视角质量 | 原生 10k 循环，9,999 次更新 | 自动选择 `fsgs-native` |
+| `--mode l1` | 优先缩短训练等待 | 统一深度 L1，30,000 次更新 | 保留 `standard` |
+
+入口从已准备的 `train/`、`test/` 开始，串联训练、模型转换和独立评价；输出包含图像、深度、点云与新视角视频。
+两条路径共用显式环境配置、新输出目录和累计预算记录。工程收尾已完成；下文保留各阶段原始结论与复现证据。
+
 **2026-10-24 工程结果：[horns、orchids、trex 独立工程验证](docs/fsgs-final-three-scenes.md)已完成。**
 三场景完整矩阵完成。FSGS 原生兼容主结果相对统一 L1，场景等权 ΔPSNR +4.456dB、ΔSSIM +0.234、ΔLPIPS -0.172。
 逐图退化、训练/渲染成本和按场景推荐均已披露；同时保留 standard 入口敏感性结果。

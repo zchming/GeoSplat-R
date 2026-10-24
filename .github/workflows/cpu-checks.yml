@@ -42,6 +42,8 @@ jobs:
         run: python -W error::ResourceWarning scripts/check_cpu_ci.py --group protocol --output "$RUNNER_TEMP/protocol-checks.json"
       - name: Run generated-data geometry CPU regressions without model imports
         run: python -W error::ResourceWarning scripts/check_geometry_cpu_ci.py --output "$RUNNER_TEMP/geometry-checks.json"
+      - name: Check workflow subprocess supervision without CUDA or model imports
+        run: python -W error::ResourceWarning -m unittest discover -s tests -p test_workflow.py
       - name: Report checks and explicit skips
         if: always()
         run: |
