@@ -1,0 +1,19 @@
+--- a/scene/dataset_readers.py
++++ b/scene/dataset_readers.py
+@@ -27,3 +27,3 @@
+ import torch
+-import open3d as o3d
++# Unused Open3D import omitted by local runtime adapter.
+ from tqdm import tqdm
+--- a/scene/gaussian_model.py
++++ b/scene/gaussian_model.py
+@@ -22,3 +22,3 @@
+ from utils.general_utils import strip_symmetric, build_scaling_rotation, chamfer_dist
+-import open3d as o3d
++# Unused Open3D import omitted by local runtime adapter.
+ from torch.optim.lr_scheduler import MultiStepLR
+--- a/submodules/diff-gaussian-rasterization-confidence/cuda_rasterizer/rasterizer_impl.h
++++ b/submodules/diff-gaussian-rasterization-confidence/cuda_rasterizer/rasterizer_impl.h
+@@ -1 +1,2 @@
++#include <cstdint>
+ /*

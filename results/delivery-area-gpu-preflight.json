@@ -1,0 +1,129 @@
+{
+  "protocol": "delivery-area-GPU-preflight-v1",
+  "date": "2026-10-21",
+  "status": "passed_single_synthetic_GPU_preflight",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "external_evidence_key": "delivery-area-GPU-preflight-20261021T080102Z",
+  "entry_review_sha256": "0d69860352b23dd8f88e24d2295fd5b88ffdcb6269c0ac7e38f338426da15e04",
+  "source_sha256": {
+    "scripts/run_delivery_relative_diagnostic.py": "41b45583260cdd5c8aed733466c108ede9a05862563bbfb674390aab5d47c557",
+    "tests/test_delivery_execution_entry.py": "2d519db2fed5e23a4f00668087e6ab1093df34828317165e3294d255d6c9a2f0",
+    "src/geosplat_r/delivery_relative_io.py": "ff13ff660181098ed2671e7339bc1805399d9d63e58502702cec861360d26441",
+    "src/geosplat_r/relative_io.py": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+    "src/geosplat_r/relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "scripts/prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+    "scripts/run_relative_diagnostic.py": "a6db23867c18f5c974f7d0609641e144256d9c633b99580de9d9c077c67aa616",
+    "configs/delivery-area-relative-adapter-plan.json": "8d8ad3a455aa7f454dc4ccc88204ecbb4edc2d1e0c69a4432eed2cc96f220ed1",
+    "configs/delivery-area-relative-inputs.json": "e74cfbddaba6b5a451bd40901c550e974543d860bf09e0f2135bddebd003c867",
+    "configs/terrace-relative-diagnostic-plan.json": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+    "configs/second-scene-ordinal-review.json": "058f84c0b417e745daa9d89e98b21da1c51e530e08e569b6b8f1b0fccabe88f8"
+  },
+  "executed_bundle_sha256": {
+    "delivery_relative_io.py": "ff13ff660181098ed2671e7339bc1805399d9d63e58502702cec861360d26441",
+    "relative_io.py": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+    "relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+    "run_delivery_relative_diagnostic.py": "41b45583260cdd5c8aed733466c108ede9a05862563bbfb674390aab5d47c557"
+  },
+  "model_identity": {
+    "revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "source_files_verified": 15,
+    "weight_bytes": 99218434,
+    "weight_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "weights_loaded_by_GPU_worker": true
+  },
+  "GPU_preflight": {
+    "status": "passed_synthetic_forward",
+    "synthetic_only": true,
+    "forward_count": 1,
+    "forward_shapes": [
+      [
+        1,
+        3,
+        518,
+        784
+      ]
+    ],
+    "output_stats": {
+      "shape": [
+        672,
+        1008
+      ],
+      "dtype": "float32",
+      "nonfinite": 0,
+      "negative": 0,
+      "zero": 0,
+      "minimum": 2.2192232608795166,
+      "maximum": 5.006351470947266,
+      "inference_seconds": 0.5409983829995326
+    },
+    "real_RGB_decoded": 0,
+    "GT_read": false,
+    "formal_predictions_written": 0,
+    "torch_version": "2.4.1+cu124",
+    "CUDA_build": "12.4",
+    "GPU_name": "NVIDIA GeForce RTX 4070 SUPER",
+    "GPU_total_bytes": 12878086144,
+    "peak_allocated_MiB": 331.5322265625,
+    "peak_reserved_MiB": 440.0,
+    "matmul_TF32": false,
+    "cudnn_TF32": true,
+    "training_mode": false,
+    "optimizer_created": false,
+    "network_downloads_possible": false,
+    "forbidden_reads_refused_count": 24
+  },
+  "whole_board_memory": {
+    "samples": 34,
+    "sampled_whole_board_peak_MiB": 1576,
+    "sampling_period_ms": 100
+  },
+  "CPU_worker_resources": {
+    "wall_seconds": 3.0023023300018394,
+    "max_RSS_KiB": 1046536,
+    "error": null
+  },
+  "total_preflight_wall_seconds": 3.8399347350023163,
+  "isolation": {
+    "CPU_forbidden_reads_refused": 24,
+    "GPU_forbidden_reads_refused": 24,
+    "network_namespace_isolated": true,
+    "WSL_device": "/dev/dxg",
+    "CPU_probe_device_exposed": false,
+    "real_RGB_camera_label_or_archive_payload_mounts": false,
+    "readonly_system_runtime_and_model_mounts": true,
+    "GT_accesses": 0
+  },
+  "inherited_CPU_tests": {
+    "previous_review_host_passed": 60,
+    "previous_review_isolated_passed": 60,
+    "skipped": 0,
+    "rerun_this_step": false,
+    "reason": "All frozen sources unchanged; this stage executes required CPU/GPU probes and one forward only."
+  },
+  "execution_counts": {
+    "synthetic_GPU_forwards": 1,
+    "formal_predictions": 0,
+    "real_GT_evaluations": 0,
+    "training_updates": 0,
+    "automatic_retries": 0,
+    "downloads": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "preservation": {
+    "preexisting_files_unchanged": 152,
+    "old_evidence_unchanged": true
+  },
+  "retained_expected_warnings": [
+    "OpenCV cannot open forbidden inputs during probes",
+    "xFormers not available, matching frozen no-xformers setting"
+  ],
+  "limitations": [
+    "Synthetic image only; no delivery_area geometry accuracy, GT support, ordinal result or training gain established.",
+    "100ms whole-board sampled peak is not a guaranteed instantaneous maximum; includes desktop/driver occupancy.",
+    "Actual native label values/endian/support remain unknown until later sealed-prediction evaluation."
+  ],
+  "decision": "Recommend release only three frozen delivery_area Small predictions, one forward per image, then one independent CPU native-GT ordinal evaluation after all three predictions have been sealed. Keep all failures/unknowns. No reliability weighting or training release.",
+  "cumulative_contribution": "Reviewed second-scene staged entry now demonstrates isolated WSL CUDA access and frozen single-forward execution with measured resources; no new accuracy, novelty or training benefit."
+}

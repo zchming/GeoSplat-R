@@ -1,0 +1,14 @@
+{
+  "python": "/absolute/path/to/gsplat-env/bin/python",
+  "fsgs_python": "/absolute/path/to/fsgs-env/bin/python",
+  "colmap_python": "/absolute/path/to/colmap-env/bin/python",
+  "cuda_home": "/absolute/path/to/cuda-12.4.1",
+  "gsplat_source": "/absolute/path/to/gsplat",
+  "fsgs_source": "/absolute/path/to/patched-FSGS",
+  "midas_source": "/absolute/path/to/MiDaS-3_1",
+  "midas_weights": "/absolute/path/to/dpt_hybrid_384.pt",
+  "small_source": "/absolute/path/to/depth-anything-v2-a561b849ebae",
+  "small_source_manifest": "/absolute/path/to/source-selection.json",
+  "small_weights": "/absolute/path/to/depth_anything_v2_vits.pth",
+  "metric_weights": "/absolute/path/to/metric-weights"
+}

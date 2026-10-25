@@ -1,0 +1,638 @@
+{
+  "protocol": "fsgs-final-independent-fortress-result-v1",
+  "scene": "fortress",
+  "seed": 44,
+  "status": "quality_pass",
+  "decision_rule": "all three per-image-mean test metrics improve over same-stage uniform L1; retain every per-view drop",
+  "training_parent_commit": "ea0966eaaf222114da3630cd2fcaa7e7588f694a",
+  "input_manifest": {
+    "scene": "fortress",
+    "protocol": "fortress-undistorted-v1",
+    "split": "train",
+    "train_images": [
+      {
+        "name": "image001.png",
+        "sha256": "656bb327d478e29fd9b13f291632dee34e318649744f16ed08ee2458d329c7c8"
+      },
+      {
+        "name": "image021.png",
+        "sha256": "91e1edc14b01dbef953d353dcf9806d1307d7132f10084cad1055442173d62b3"
+      },
+      {
+        "name": "image041.png",
+        "sha256": "59e8f56620e40f6a60bacfbc97310c42f442ea5065f2564cfe371b815ed312db"
+      }
+    ],
+    "resolution": [
+      504,
+      378
+    ],
+    "cameras_sha256": "2c3646eadf5c30b6e575e69d4d106fc446c4b6b96b5cdd54d65468d15c6a0698",
+    "points_sha256": "bbafeb090973d1782e247560848f24655b912a059b78e78d21b0b078e97fa71d",
+    "initial_point_count": 1094
+  },
+  "train_anchor_counts": [
+    735,
+    944,
+    471
+  ],
+  "resource_ledger": {
+    "stage_limit_seconds": 1406.3618564510034,
+    "stage_used_seconds": 867.9004462689918,
+    "inherited_seconds": 8450.481523709064,
+    "charged_seconds": 9318.381969978056,
+    "cumulative_cap_seconds": 9856.843380160068,
+    "entries": [
+      {
+        "stage": "fortress-priors",
+        "seconds": 4.171599459994468,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1722
+      },
+      {
+        "stage": "fortress-L1-seed44-training",
+        "seconds": 169.72333485400304,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1646
+      },
+      {
+        "stage": "fortress-FSGS-seed44-training",
+        "seconds": 665.7078988239955,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3729
+      },
+      {
+        "stage": "fortress-L1-seed44-evaluation",
+        "seconds": 10.44419661899883,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1419
+      },
+      {
+        "stage": "fortress-FSGS-seed44-native-evaluation",
+        "seconds": 4.222711027003243,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1518
+      },
+      {
+        "stage": "fortress-FSGS-seed44-conversion",
+        "seconds": 1.0552135269972496,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1047
+      },
+      {
+        "stage": "fortress-FSGS-seed44-evaluation",
+        "seconds": 8.310638713999651,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1403
+      },
+      {
+        "stage": "near-clip-compatibility",
+        "seconds": 4.2648532439998235,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1231
+      }
+    ]
+  },
+  "evidence_key": "fsgs-final-fortress-20261023T113618Z",
+  "scope": "One previously unopened final-list LLFF scene, one seed, fixed 3-view native504x378; not the full final suite",
+  "evaluation_protocol": "unchanged gsplat evaluator, all six frozen test images; no crop/mask; per-image PSNR/SSIM/LPIPS then arithmetic image mean",
+  "comparison_scope": "full recipes: uniform L1 30000 optimizer updates versus FSGS9999; public calibrated cameras, train-only triangulation and normalization",
+  "remaining_final_scenes": [
+    "horns",
+    "orchids",
+    "trex"
+  ],
+  "room_status": "already observed in generalization; excluded from final independent aggregate",
+  "publication_state_at_experiment_completion": {
+    "committed": false,
+    "pushed": false
+  },
+  "baseline_test": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 19.275705337524414,
+        "ssim": 0.5839256644248962,
+        "lpips_alex": 0.1804412603378296,
+        "rgb_depth_render_seconds": 0.0016623012499621837,
+        "valid_depth_fraction_alpha_0_5": 0.99813660031914,
+        "depth_visualization_percentile_2_98": [
+          3.3446160888671876,
+          10.336263542175294
+        ]
+      },
+      {
+        "image": "image008.png",
+        "psnr": 21.72910499572754,
+        "ssim": 0.5913504362106323,
+        "lpips_alex": 0.21393859386444092,
+        "rgb_depth_render_seconds": 0.0014859572002023924,
+        "valid_depth_fraction_alpha_0_5": 0.996897833207357,
+        "depth_visualization_percentile_2_98": [
+          3.5101412296295167,
+          8.51701774597168
+        ]
+      },
+      {
+        "image": "image016.png",
+        "psnr": 20.225534439086914,
+        "ssim": 0.6071010828018188,
+        "lpips_alex": 0.2212028205394745,
+        "rgb_depth_render_seconds": 0.0014515602502797264,
+        "valid_depth_fraction_alpha_0_5": 0.9962154614932393,
+        "depth_visualization_percentile_2_98": [
+          3.5582112789154055,
+          9.258962440490716
+        ]
+      },
+      {
+        "image": "image024.png",
+        "psnr": 16.057668685913086,
+        "ssim": 0.5058903694152832,
+        "lpips_alex": 0.2780369520187378,
+        "rgb_depth_render_seconds": 0.0013349867000215453,
+        "valid_depth_fraction_alpha_0_5": 0.9866097673637356,
+        "depth_visualization_percentile_2_98": [
+          3.3528789043426515,
+          12.906284523010253
+        ]
+      },
+      {
+        "image": "image032.png",
+        "psnr": 20.65833854675293,
+        "ssim": 0.607366681098938,
+        "lpips_alex": 0.16561263799667358,
+        "rgb_depth_render_seconds": 0.0015179101999819977,
+        "valid_depth_fraction_alpha_0_5": 0.9871294196691022,
+        "depth_visualization_percentile_2_98": [
+          3.201921763420105,
+          12.464306869506837
+        ]
+      },
+      {
+        "image": "image040.png",
+        "psnr": 21.91982078552246,
+        "ssim": 0.626419723033905,
+        "lpips_alex": 0.1566859930753708,
+        "rgb_depth_render_seconds": 0.0014247274499211925,
+        "valid_depth_fraction_alpha_0_5": 0.9930713025951121,
+        "depth_visualization_percentile_2_98": [
+          3.0181086540222166,
+          11.21923334121704
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 19.97769546508789,
+      "ssim": 0.5870089928309122,
+      "lpips_alex": 0.20265304297208786,
+      "rgb_depth_render_seconds": 0.001479573841728173
+    }
+  },
+  "fsgs_test": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 26.78828239440918,
+        "ssim": 0.7474358677864075,
+        "lpips_alex": 0.07960017025470734,
+        "rgb_depth_render_seconds": 0.0013751000500633382,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          3.357914252281189,
+          8.201549167633056
+        ]
+      },
+      {
+        "image": "image008.png",
+        "psnr": 25.414093017578125,
+        "ssim": 0.7462454438209534,
+        "lpips_alex": 0.09365835785865784,
+        "rgb_depth_render_seconds": 0.0012631492998480098,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          3.1932501935958864,
+          9.058853168487548
+        ]
+      },
+      {
+        "image": "image016.png",
+        "psnr": 25.168678283691406,
+        "ssim": 0.7526634335517883,
+        "lpips_alex": 0.0938078761100769,
+        "rgb_depth_render_seconds": 0.0012712807500065537,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          3.071326217651367,
+          9.800450172424316
+        ]
+      },
+      {
+        "image": "image024.png",
+        "psnr": 19.662031173706055,
+        "ssim": 0.6703956127166748,
+        "lpips_alex": 0.15996193885803223,
+        "rgb_depth_render_seconds": 0.0012929296997754136,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          2.070886187553406,
+          9.462158508300782
+        ]
+      },
+      {
+        "image": "image032.png",
+        "psnr": 21.229862213134766,
+        "ssim": 0.7404249310493469,
+        "lpips_alex": 0.11793692409992218,
+        "rgb_depth_render_seconds": 0.0013038877499639057,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          1.9041823291778563,
+          9.592539310455322
+        ]
+      },
+      {
+        "image": "image040.png",
+        "psnr": 25.786733627319336,
+        "ssim": 0.7553932070732117,
+        "lpips_alex": 0.08341483771800995,
+        "rgb_depth_render_seconds": 0.0012958028499269858,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          2.1999638986587526,
+          10.964017887115478
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 24.008280118306477,
+      "ssim": 0.7354264159997305,
+      "lpips_alex": 0.1047300174832344,
+      "rgb_depth_render_seconds": 0.0013003583999307013
+    }
+  },
+  "fsgs_native_test": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 26.78907585144043,
+        "ssim": 0.747458815574646,
+        "lpips_alex": 0.07960259914398193
+      },
+      {
+        "image": "image008.png",
+        "psnr": 25.317089080810547,
+        "ssim": 0.741260290145874,
+        "lpips_alex": 0.0945555567741394
+      },
+      {
+        "image": "image016.png",
+        "psnr": 25.58462142944336,
+        "ssim": 0.7454952597618103,
+        "lpips_alex": 0.09408442676067352
+      },
+      {
+        "image": "image024.png",
+        "psnr": 21.675451278686523,
+        "ssim": 0.6725574731826782,
+        "lpips_alex": 0.1452437937259674
+      },
+      {
+        "image": "image032.png",
+        "psnr": 24.272289276123047,
+        "ssim": 0.7415894269943237,
+        "lpips_alex": 0.10517378896474838
+      },
+      {
+        "image": "image040.png",
+        "psnr": 25.786441802978516,
+        "ssim": 0.7553550004959106,
+        "lpips_alex": 0.0834239274263382
+      }
+    ],
+    "mean": {
+      "psnr": 24.90416145324707,
+      "ssim": 0.7339527110258738,
+      "lpips_alex": 0.10034734879930814
+    },
+    "wall_seconds": 0.5439643499994418,
+    "point_count": 97745,
+    "checkpoint_sha256": "1932f5440b8144bb58eba617b819d3b7323d5a9faa220041f7abf9143e94572d",
+    "renderer": "FSGS native CUDA",
+    "metric_protocol": "same float RGB, torchmetrics SSIM options and LPIPS-Alex normalize=True as baseline"
+  },
+  "delta": {
+    "psnr": 4.030584653218586,
+    "ssim": 0.14841742316881823,
+    "lpips_alex": -0.09792302548885345
+  },
+  "mean_gates": {
+    "psnr": true,
+    "ssim": true,
+    "lpips_alex": true
+  },
+  "per_image": [
+    {
+      "image": "image000.png",
+      "baseline": {
+        "psnr": 19.275705337524414,
+        "ssim": 0.5839256644248962,
+        "lpips_alex": 0.1804412603378296
+      },
+      "fsgs": {
+        "psnr": 26.78828239440918,
+        "ssim": 0.7474358677864075,
+        "lpips_alex": 0.07960017025470734
+      },
+      "delta": {
+        "psnr": 7.512577056884766,
+        "ssim": 0.16351020336151123,
+        "lpips_alex": -0.10084109008312225
+      },
+      "improved": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      }
+    },
+    {
+      "image": "image008.png",
+      "baseline": {
+        "psnr": 21.72910499572754,
+        "ssim": 0.5913504362106323,
+        "lpips_alex": 0.21393859386444092
+      },
+      "fsgs": {
+        "psnr": 25.414093017578125,
+        "ssim": 0.7462454438209534,
+        "lpips_alex": 0.09365835785865784
+      },
+      "delta": {
+        "psnr": 3.684988021850586,
+        "ssim": 0.15489500761032104,
+        "lpips_alex": -0.12028023600578308
+      },
+      "improved": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      }
+    },
+    {
+      "image": "image016.png",
+      "baseline": {
+        "psnr": 20.225534439086914,
+        "ssim": 0.6071010828018188,
+        "lpips_alex": 0.2212028205394745
+      },
+      "fsgs": {
+        "psnr": 25.168678283691406,
+        "ssim": 0.7526634335517883,
+        "lpips_alex": 0.0938078761100769
+      },
+      "delta": {
+        "psnr": 4.943143844604492,
+        "ssim": 0.14556235074996948,
+        "lpips_alex": -0.12739494442939758
+      },
+      "improved": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      }
+    },
+    {
+      "image": "image024.png",
+      "baseline": {
+        "psnr": 16.057668685913086,
+        "ssim": 0.5058903694152832,
+        "lpips_alex": 0.2780369520187378
+      },
+      "fsgs": {
+        "psnr": 19.662031173706055,
+        "ssim": 0.6703956127166748,
+        "lpips_alex": 0.15996193885803223
+      },
+      "delta": {
+        "psnr": 3.6043624877929688,
+        "ssim": 0.1645052433013916,
+        "lpips_alex": -0.11807501316070557
+      },
+      "improved": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      }
+    },
+    {
+      "image": "image032.png",
+      "baseline": {
+        "psnr": 20.65833854675293,
+        "ssim": 0.607366681098938,
+        "lpips_alex": 0.16561263799667358
+      },
+      "fsgs": {
+        "psnr": 21.229862213134766,
+        "ssim": 0.7404249310493469,
+        "lpips_alex": 0.11793692409992218
+      },
+      "delta": {
+        "psnr": 0.5715236663818359,
+        "ssim": 0.13305824995040894,
+        "lpips_alex": -0.047675713896751404
+      },
+      "improved": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      }
+    },
+    {
+      "image": "image040.png",
+      "baseline": {
+        "psnr": 21.91982078552246,
+        "ssim": 0.626419723033905,
+        "lpips_alex": 0.1566859930753708
+      },
+      "fsgs": {
+        "psnr": 25.786733627319336,
+        "ssim": 0.7553932070732117,
+        "lpips_alex": 0.08341483771800995
+      },
+      "delta": {
+        "psnr": 3.866912841796875,
+        "ssim": 0.12897348403930664,
+        "lpips_alex": -0.07327115535736084
+      },
+      "improved": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      }
+    }
+  ],
+  "improved_image_metric_pairs": 18,
+  "image_metric_pairs": 18,
+  "metrics_sha256": {
+    "baseline": "ccce4ba3d39183fd5f8be3c2cbeea1d78e290338c4c8108228fa1e33a83f8281",
+    "fsgs": "c05d679c089b7ddb289444bee4ac712670d1428869da4175e8f106fbe2f01e54"
+  },
+  "checkpoint_sha256": {
+    "baseline": "6f2d4d43c68e076e49634cd61fc7dcb8fffdba5e3421150e3ff211bb06a69064",
+    "fsgs": "338aea89ce84d64d78ffc13c2d137f072a8d8aa0a9d023d9bbd4768bff9e8314"
+  },
+  "final_gaussians": {
+    "baseline": 136781,
+    "fsgs": 97745
+  },
+  "baseline_training": {
+    "status": "passed",
+    "error": null,
+    "elapsed_perf_counter_seconds": 166.3336004599987,
+    "elapsed_wall_clock_seconds": 179.32061219215393,
+    "torch_peak_allocated_mib": 238.89013671875,
+    "torch_peak_reserved_mib": 344.0,
+    "whole_board_sampled_peak_mib": 1662,
+    "sampling_period_ms": 200,
+    "samples": 828,
+    "sampler_error": null,
+    "gpu_timestamp_sampling_span_seconds": 179.22,
+    "gpu_utilization_mean_percent": 71.10990338164251,
+    "gpu_utilization_peak_percent": 81,
+    "training_perf_counter_seconds": 166.30002652099938,
+    "training_wall_clock_seconds": 179.28703808784485,
+    "cuda_stream_elapsed_seconds": 180.089515625,
+    "optimizer_updates": 30000,
+    "final_gaussians": 136781,
+    "initial_gaussians": 1094,
+    "initial_parameters_sha256": "a2192a277bd993e2c6d6522e38b3ef705eddbd97722691a6fb23d9aa2c8e9571"
+  },
+  "fsgs_training": {
+    "completed": true,
+    "native_iterations": 10000,
+    "optimizer_steps": 9999,
+    "seed": 44,
+    "wall_seconds": 660.9541309380002,
+    "peak_torch_allocated_bytes": 2044066304,
+    "peak_torch_reserved_bytes": 2545942528,
+    "checkpoint_sha256": "1932f5440b8144bb58eba617b819d3b7323d5a9faa220041f7abf9143e94572d",
+    "test_views_loaded": 0,
+    "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+    "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+  },
+  "test_render_seconds": {
+    "baseline": 0.001479573841728173,
+    "fsgs": 0.0013003583999307013
+  },
+  "max_native_gsplat_metric_difference": {
+    "psnr": 3.0424270629882812,
+    "ssim": 0.007168173789978027,
+    "lpips_alex": 0.01471814513206482
+  },
+  "post_evaluation_compatibility": {
+    "reason": "actual native/gsplat max PSNR discrepancy3.042427dB; source inspection found native centerZ<=0.2 versus standard near0.01",
+    "classification": "secondary zero-update renderer repair; primary default-renderer measurements retained",
+    "diagnostic": {
+      "scope": "post-evaluation compatibility diagnostic; original scores retained",
+      "native_rule": "CUDA in_frustum: reject center Z <= 0.2",
+      "gsplat_near_plane": 0.20000001788139343,
+      "checkpoint_sha256": "338aea89ce84d64d78ffc13c2d137f072a8d8aa0a9d023d9bbd4768bff9e8314",
+      "per_image": [
+        {
+          "image": "image000.png",
+          "psnr": 26.78828239440918,
+          "ssim": 0.7474358677864075,
+          "lpips_alex": 0.0796002671122551,
+          "centers_between_standard_and_native_clip": 75,
+          "absolute_metric_difference_vs_native": {
+            "psnr": 0.00079345703125,
+            "ssim": 2.294778823852539e-05,
+            "lpips_alex": 2.332031726837158e-06
+          }
+        },
+        {
+          "image": "image008.png",
+          "psnr": 25.318214416503906,
+          "ssim": 0.7412946820259094,
+          "lpips_alex": 0.09452405571937561,
+          "centers_between_standard_and_native_clip": 55,
+          "absolute_metric_difference_vs_native": {
+            "psnr": 0.001125335693359375,
+            "ssim": 3.439188003540039e-05,
+            "lpips_alex": 3.1501054763793945e-05
+          }
+        },
+        {
+          "image": "image016.png",
+          "psnr": 25.585216522216797,
+          "ssim": 0.745525598526001,
+          "lpips_alex": 0.09409549832344055,
+          "centers_between_standard_and_native_clip": 47,
+          "absolute_metric_difference_vs_native": {
+            "psnr": 0.0005950927734375,
+            "ssim": 3.0338764190673828e-05,
+            "lpips_alex": 1.1071562767028809e-05
+          }
+        },
+        {
+          "image": "image024.png",
+          "psnr": 21.675739288330078,
+          "ssim": 0.6725552678108215,
+          "lpips_alex": 0.14525553584098816,
+          "centers_between_standard_and_native_clip": 53,
+          "absolute_metric_difference_vs_native": {
+            "psnr": 0.0002880096435546875,
+            "ssim": 2.205371856689453e-06,
+            "lpips_alex": 1.1742115020751953e-05
+          }
+        },
+        {
+          "image": "image032.png",
+          "psnr": 24.27250099182129,
+          "ssim": 0.7416025996208191,
+          "lpips_alex": 0.105174720287323,
+          "centers_between_standard_and_native_clip": 50,
+          "absolute_metric_difference_vs_native": {
+            "psnr": 0.0002117156982421875,
+            "ssim": 1.3172626495361328e-05,
+            "lpips_alex": 9.313225746154785e-07
+          }
+        },
+        {
+          "image": "image040.png",
+          "psnr": 25.786733627319336,
+          "ssim": 0.7553932070732117,
+          "lpips_alex": 0.08341474831104279,
+          "centers_between_standard_and_native_clip": 55,
+          "absolute_metric_difference_vs_native": {
+            "psnr": 0.0002918243408203125,
+            "ssim": 3.820657730102539e-05,
+            "lpips_alex": 9.179115295410156e-06
+          }
+        }
+      ],
+      "mean": {
+        "psnr": 24.90444787343343,
+        "ssim": 0.7339678704738617,
+        "lpips_alex": 0.10034413759907086
+      },
+      "max_absolute_metric_difference_vs_native": {
+        "psnr": 0.001125335693359375,
+        "ssim": 3.820657730102539e-05,
+        "lpips_alex": 3.1501054763793945e-05
+      }
+    },
+    "source_sha256": {
+      "src/geosplat_r/fsgs_render.py": "c17a344bddbbfd9eb0418a595d40eba15a3c7851507f3f4070168cfdb7d4bc64",
+      "scripts/check_fsgs_renderer.py": "86a383aaf5657c2ea35172724caaa4890e7e235c2d925171aec0eb63ec1a486d"
+    }
+  }
+}

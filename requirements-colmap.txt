@@ -1,0 +1,4 @@
+# Separate initialization environment; do not replace the gsplat example parser fork.
+# Python 3.12.3
+pycolmap==4.2.1
+numpy==2.2.6

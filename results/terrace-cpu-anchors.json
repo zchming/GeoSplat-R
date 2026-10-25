@@ -1,0 +1,585 @@
+{
+  "protocol": "terrace-sensor-CPU-anchors-v1",
+  "frozen_diagnostic_plan_sha256": "63179fd0127e668a1586038afe57f1994a6a0e49ceeed0e6da519cef204e6352",
+  "date": "2026-10-21",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "status": "blocked_anchor_support",
+  "engineering_checks": "passed_for_executed_scope",
+  "research_accuracy": "not_evaluated; no model predictions or GT evaluation",
+  "external_evidence_key": "terrace-cpu-anchors-20261021T023114Z",
+  "formal_preparations": 1,
+  "formal_retries": 0,
+  "scope": "CPU adapter, synthetic/isolation checks, exactly one fixed three-RGB feature/match/known-camera triangulation preparation",
+  "input_assets": [
+    {
+      "path": "cameras.json",
+      "bytes": 1857,
+      "sha256": "4897cfd275c4c6875d3e31ea16e0149c81d9f4f68621ca335fb3c3f50c6024bc"
+    },
+    {
+      "path": "rgb/dslr_images/DSC_0259.JPG",
+      "bytes": 10229993,
+      "sha256": "8952ec1b0ea4cf52cfd75839ea63ae08a548f2088f7ee696a01906f9d6cb003d"
+    },
+    {
+      "path": "rgb/dslr_images/DSC_0271.JPG",
+      "bytes": 9597477,
+      "sha256": "a5b4ad448ab75e38b972770d70f03cfe19f913b7d86d0516970e0bc4badee834"
+    },
+    {
+      "path": "rgb/dslr_images/DSC_0285.JPG",
+      "bytes": 11498087,
+      "sha256": "e41b4ce0768f96c080c7b7d99c1b0ef3174258f6b80d1d8540151525f24367c7"
+    }
+  ],
+  "source_sha256": {
+    "src/geosplat_r/sensor_geometry.py": "0ae8e5dd595862fa2d9b50b1125b9b98b5630681ed1a160db9e23f912f203f27",
+    "scripts/prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+    "tests/test_sensor_geometry.py": "cf1cd4a2ec8efe1a77390d0e5492427332afa43bbfdf798355990387006fedaf"
+  },
+  "synthetic_tests": {
+    "passed": 14,
+    "skipped": 0,
+    "scope": "camera/coordinate geometry, cheirality, parallax, reprojection, track conflict, measured coordinates, collision/support, invalid inverse-depth sampling, asset isolation and overwrite/protocol refusal"
+  },
+  "isolation": {
+    "sandbox": "bubblewrap0.9.0, unshare-all, readonly selected data and code/runtime allowlist, fresh writable stage output, no GPU devices or network",
+    "synthetic_probes_passed": 3,
+    "forbidden_reads_refused": 66,
+    "methods": [
+      "Python read_bytes",
+      "os.open",
+      "NumPy load",
+      "OpenCV native imread"
+    ],
+    "synthetic_evaluator_label_change_output_invariance": true,
+    "output_overwrite_test": "expected nonzero exit, original result hash unchanged; log retained",
+    "native_camera_helper": "pycolmap4.2.1 separate environment; exact source and selected feature files only",
+    "full_archives_GT_full_calibration_other_views_visible": false,
+    "scope_limit": "probes establish this allowlist and fixed trusted CPU code path; GPU device isolation not tested"
+  },
+  "features": [
+    {
+      "name": "dslr_images/DSC_0259.JPG",
+      "features": 1372
+    },
+    {
+      "name": "dslr_images/DSC_0271.JPG",
+      "features": 1408
+    },
+    {
+      "name": "dslr_images/DSC_0285.JPG",
+      "features": 1971
+    }
+  ],
+  "pair_matching": [
+    {
+      "images": [
+        "dslr_images/DSC_0259.JPG",
+        "dslr_images/DSC_0271.JPG"
+      ],
+      "forward_ratio": 57,
+      "reverse_ratio": 96,
+      "reciprocal": 16
+    },
+    {
+      "images": [
+        "dslr_images/DSC_0259.JPG",
+        "dslr_images/DSC_0285.JPG"
+      ],
+      "forward_ratio": 173,
+      "reverse_ratio": 220,
+      "reciprocal": 126
+    },
+    {
+      "images": [
+        "dslr_images/DSC_0271.JPG",
+        "dslr_images/DSC_0285.JPG"
+      ],
+      "forward_ratio": 79,
+      "reverse_ratio": 67,
+      "reciprocal": 17
+    }
+  ],
+  "candidate_components": 148,
+  "conflict_components": 0,
+  "accepted_tracks": 80,
+  "rejected_tracks": {
+    "reprojection_above_2px": 50,
+    "nonpositive_Z": 16,
+    "angle_below_1_5deg": 2
+  },
+  "per_image": [
+    {
+      "name": "dslr_images/DSC_0259.JPG",
+      "candidate_observations": 80,
+      "collisions_removed": 8,
+      "anchor_count": 72,
+      "grid_counts": [
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8,
+          13,
+          8,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          9,
+          8,
+          2,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "occupied_cells": 20,
+      "support_passed": true
+    },
+    {
+      "name": "dslr_images/DSC_0271.JPG",
+      "candidate_observations": 0,
+      "collisions_removed": 0,
+      "anchor_count": 0,
+      "grid_counts": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "occupied_cells": 0,
+      "support_passed": false
+    },
+    {
+      "name": "dslr_images/DSC_0285.JPG",
+      "candidate_observations": 80,
+      "collisions_removed": 7,
+      "anchor_count": 73,
+      "grid_counts": [
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          8,
+          12,
+          5,
+          3,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5,
+          6,
+          6,
+          1,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          3,
+          5,
+          1,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "occupied_cells": 24,
+      "support_passed": true
+    }
+  ],
+  "support_gate": {
+    "minimum_anchors_each": 60,
+    "minimum_occupied_cells_each": 12,
+    "grid": [
+      12,
+      9
+    ]
+  },
+  "camera_checks": [
+    {
+      "name": "dslr_images/DSC_0259.JPG",
+      "grid_points": 108,
+      "independent_forward_pixel_error": 1.205457351716177e-07,
+      "API_pixel_error": 1.205457351716177e-07
+    },
+    {
+      "name": "dslr_images/DSC_0271.JPG",
+      "grid_points": 108,
+      "independent_forward_pixel_error": 1.375831288896734e-07,
+      "API_pixel_error": 1.375831288896734e-07
+    },
+    {
+      "name": "dslr_images/DSC_0285.JPG",
+      "grid_points": 108,
+      "independent_forward_pixel_error": 1.205457351716177e-07,
+      "API_pixel_error": 1.205457351716177e-07
+    }
+  ],
+  "independent_artifact_check": {
+    "status": "passed",
+    "accepted_tracks": 80,
+    "accepted_observations": 160,
+    "independent_pycolmap_max_reprojection_px": 1.7573745578787816,
+    "independent_pycolmap_max_Z_error_m": 7.105427357601002e-15,
+    "all_coordinates_exactly_equal_saved_measured_keypoints": true,
+    "all_track_rejections_accounted": true,
+    "accepted_track_image_sets": {
+      "(0, 2)": 80
+    },
+    "GT_read": false,
+    "no_new_features_matches_or_triangulation": true
+  },
+  "resources": {
+    "preparation_and_internal_preflights_wall_seconds": 1.7378251600000567,
+    "features_wall_seconds": 0.648843233999969,
+    "geometry_wall_seconds": 0.08019301099989207,
+    "maximum_worker_RSS_KiB": 381844,
+    "CPU_threads_max": 4,
+    "GPU_used": false,
+    "weights_loaded": false,
+    "GT_read": false
+  },
+  "failure_preservation": "all pair edges, measured features/descriptors, accepted tracks, collision selections, aggregate rejection reasons, exact executed source, runtime logs and expected negative isolation probes retained externally; rejected tracks recoverable from complete inputs and frozen code",
+  "interpretation": "given this exact triple, SIFT and frozen geometry gates, DSC_0271 yields zero valid anchors; sensor GT availability alone did not establish three-view anchor-alignment feasibility",
+  "unknowns": [
+    "sensor accuracy of retained anchors",
+    "Small-model prediction/metric-alignment quality",
+    "whether another pre-reviewed triple or method would work",
+    "GPU forward/device isolation"
+  ],
+  "decision": "do not release GPU preflight, inference, reliability weighting or training; stop the fixed anchor-aligned pilot",
+  "next_recommendation": "review a separately specified anchor-free relative-geometry diagnostic and its claim limits; no automatic replacement triple, threshold tuning, learned matching, inference or download",
+  "cumulative_contribution": "adds full original-camera CPU adaptation and input-process isolation; establishes a reproducible observability failure before GPU work; no new depth accuracy, ranking benefit or novelty demonstrated"
+}

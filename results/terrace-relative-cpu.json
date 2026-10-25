@@ -1,0 +1,109 @@
+{
+  "protocol": "terrace-relative-CPU-acceptance-v1",
+  "date": "2026-10-21",
+  "status": "passed_CPU_synthetic_and_isolation_acceptance",
+  "scope": "synthetic fixtures only; not an ETH3D/model performance evaluation",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "plan_sha256": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+  "external_evidence_key": "terrace-relative-cpu-20261021T025722Z",
+  "source_sha256": {
+    "src/geosplat_r/relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "scripts/check_relative_evaluator_cpu.py": "daa40b4a6159cb21694972a96b6391623a68e0f110837419f4d1f8853217e79c",
+    "tests/test_relative_diagnostics.py": "41beebdf79e2a7115a2ce5df2483886509f9dab19fb0861f9f067d739149920f"
+  },
+  "frozen_runtime_dependency_sha256": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+  "tests": {
+    "unique_unit_checks_passed": 21,
+    "skipped": 0,
+    "development_passes": "16/19/20/21 checks, all passed; new tests accompanied entry schema/inventory hardening",
+    "integration_runs": 2,
+    "expected_negative_exits": [
+      "existing output refused without overwrite",
+      "corrupt third prediction rejected before any label access"
+    ],
+    "integration_recheck_reason": "both synthetic integrations passed; second verified worker-level schema, exact-three-file input inventories and pre-read synthetic-label size guard; no real/model run",
+    "numerical_reports_identical_across_integrations": true,
+    "latest_integration": "integration-2"
+  },
+  "isolation": {
+    "sandbox": "bubblewrap white-list, separate synthetic predictor/evaluator namespaces, no network or GPU devices",
+    "forbidden_reads_refused": 56,
+    "read_methods": [
+      "Python",
+      "os.open",
+      "NumPy",
+      "OpenCV native"
+    ],
+    "changed_synthetic_evaluator_labels_preserve_input_and_prediction_seals": true,
+    "corrupt_third_prediction_label_attempts": [],
+    "real_data_mounts": 0,
+    "model_or_weight_mounts": 0,
+    "forbidden_reads_refused_across_both_integrations": 112
+  },
+  "synthetic_examples": [
+    {
+      "fixture": "synthetic-0",
+      "sampled_nodes": 6912,
+      "local_pairs": 22414,
+      "cross_pairs": 22497,
+      "synthetic_expected_prediction_loss": 0.0,
+      "synthetic_constant_loss": 0.5,
+      "synthetic_oracle_loss": 0.0,
+      "synthetic_shuffle_mean": 0.5009852022496049
+    },
+    {
+      "fixture": "synthetic-1",
+      "sampled_nodes": 6912,
+      "local_pairs": 22307,
+      "cross_pairs": 22197,
+      "synthetic_expected_prediction_loss": 0.0,
+      "synthetic_constant_loss": 0.5,
+      "synthetic_oracle_loss": 0.0,
+      "synthetic_shuffle_mean": 0.49850124242673266
+    },
+    {
+      "fixture": "synthetic-2",
+      "sampled_nodes": 6912,
+      "local_pairs": 22308,
+      "cross_pairs": 22313,
+      "synthetic_expected_prediction_loss": 0.0,
+      "synthetic_constant_loss": 0.5,
+      "synthetic_oracle_loss": 0.0,
+      "synthetic_shuffle_mean": 0.5000089148785233
+    }
+  ],
+  "independent_scalar_check": {
+    "status": "passed",
+    "maximum_macro_difference": 1.1102230246251565e-16,
+    "scope": "independent scalar direction/tie losses, GT contrast decisions and cell/stratum macro means; sampler reused after separate OpenCV cross-check"
+  },
+  "resources": {
+    "integration_wall_seconds": 1.835851706000085,
+    "synthetic_evaluator_body_seconds": 1.2776153509998949,
+    "maximum_worker_RSS_KiB": 62168,
+    "CPU_threads_max": 4,
+    "GPU_used": false
+  },
+  "implemented": [
+    "array-only raw-q sampler with zero ties and invalid penalties",
+    "deterministic native-node/local/cross pairing and fixed GT contrast/support gates",
+    "cell/stratum/image macro losses, constant/oracle20-shuffle controls and secondary tie-aware Spearman",
+    "all-three prediction seal verifier and synthetic-only isolated CPU entry"
+  ],
+  "not_executed": [
+    "real GT/RGB/weights/model-output reads",
+    "feature/matching/triangulation regeneration",
+    "neural model load or inference",
+    "GPU calls or device-isolation checks",
+    "real relative-depth accuracy calculation",
+    "training, new downloads, commit or push"
+  ],
+  "limitations": [
+    "synthetic outcome proves expected arithmetic, not real model quality",
+    "standalone acceptance entry deliberately accepts small tagged synthetic .npy fixtures only; real native raw-GT/forward pipeline still needs separate implementation review",
+    "CPU namespaces do not validate CUDA/WSL device exposure",
+    "ordinal structure cannot establish metric depth or reliability-weighting benefit"
+  ],
+  "decision": "CPU engineering gate passed; recommend prepare/review real prediction and unified evaluation entry, then GPU-isolation/forward preflight; no formal three-image inference or training released by this step",
+  "cumulative_contribution": "adds a reproducible and isolated ordinal evaluation core after the failed anchor-support pilot; all negative historical findings retained; no new accuracy, confidence ranking or algorithm novelty evidence"
+}

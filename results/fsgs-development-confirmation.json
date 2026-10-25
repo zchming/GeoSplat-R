@@ -1,0 +1,539 @@
+{
+  "protocol": "fsgs-fixed-three-development-scenes-result-v1",
+  "seed": 44,
+  "scenes": {
+    "fern": {
+      "baseline_source": "results/fern-3view-rgb-path-check.json",
+      "baseline_relation": "historical seed44 uniform L1; not same-boot repeat",
+      "baseline_mean": {
+        "psnr": 15.65136432647705,
+        "ssim": 0.3906864523887634,
+        "lpips_alex": 0.4246268073717753
+      },
+      "fsgs_gsplat_mean": {
+        "psnr": 21.946962356567383,
+        "ssim": 0.6909628907839457,
+        "lpips_alex": 0.20320270955562592
+      },
+      "fsgs_native_mean": {
+        "psnr": 21.941609700520832,
+        "ssim": 0.6908499201138815,
+        "lpips_alex": 0.20324998100598654
+      },
+      "delta": {
+        "psnr": 6.295598030090332,
+        "ssim": 0.30027643839518225,
+        "lpips_alex": -0.2214240978161494
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "image000.png",
+          "baseline": {
+            "psnr": 17.914539337158203,
+            "ssim": 0.4868617057800293,
+            "lpips_alex": 0.35316354036331177
+          },
+          "fsgs": {
+            "psnr": 23.398609161376953,
+            "ssim": 0.7535767555236816,
+            "lpips_alex": 0.15571729838848114
+          },
+          "delta": {
+            "psnr": 5.48406982421875,
+            "ssim": 0.26671504974365234,
+            "lpips_alex": -0.19744624197483063
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image008.png",
+          "baseline": {
+            "psnr": 17.719797134399414,
+            "ssim": 0.4647882282733917,
+            "lpips_alex": 0.34057337045669556
+          },
+          "fsgs": {
+            "psnr": 23.87493896484375,
+            "ssim": 0.7505978941917419,
+            "lpips_alex": 0.14498597383499146
+          },
+          "delta": {
+            "psnr": 6.155141830444336,
+            "ssim": 0.2858096659183502,
+            "lpips_alex": -0.1955873966217041
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image016.png",
+          "baseline": {
+            "psnr": 11.319756507873535,
+            "ssim": 0.22040942311286926,
+            "lpips_alex": 0.5801435112953186
+          },
+          "fsgs": {
+            "psnr": 18.567338943481445,
+            "ssim": 0.5687140226364136,
+            "lpips_alex": 0.30890485644340515
+          },
+          "delta": {
+            "psnr": 7.24758243560791,
+            "ssim": 0.3483045995235443,
+            "lpips_alex": -0.27123865485191345
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 44,
+        "wall_seconds": 653.6060499439991,
+        "peak_torch_allocated_bytes": 2098221568,
+        "peak_torch_reserved_bytes": 3042967552,
+        "checkpoint_sha256": "7a208c192947434fa5fff1bcbaf257b25c35e9d57d5716876e55f2ea2185d19a",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 115352,
+      "resources": {
+        "stage": "fern-training",
+        "seconds": 659.5054607510028,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 4059
+      },
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.015123367309570312,
+        "ssim": 0.0003330707550048828,
+        "lpips_alex": 0.00011578202247619629
+      }
+    },
+    "flower": {
+      "baseline_source": "results/flower-leaves-depth-controls.json",
+      "baseline_relation": "historical seed44 uniform L1; not same-boot repeat",
+      "baseline_mean": {
+        "psnr": 16.234054565429688,
+        "ssim": 0.3771840125322342,
+        "lpips_alex": 0.3765706330537796
+      },
+      "fsgs_gsplat_mean": {
+        "psnr": 21.31016731262207,
+        "ssim": 0.6567156851291657,
+        "lpips_alex": 0.1746674321591854
+      },
+      "fsgs_native_mean": {
+        "psnr": 21.31028347015381,
+        "ssim": 0.6567184448242187,
+        "lpips_alex": 0.17466477751731874
+      },
+      "delta": {
+        "psnr": 5.076112747192383,
+        "ssim": 0.27953167259693146,
+        "lpips_alex": -0.20190320089459418
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "image000.png",
+          "baseline": {
+            "psnr": 18.878570556640625,
+            "ssim": 0.5074009895324707,
+            "lpips_alex": 0.23753874003887177
+          },
+          "fsgs": {
+            "psnr": 25.5595703125,
+            "ssim": 0.8259515166282654,
+            "lpips_alex": 0.07058652490377426
+          },
+          "delta": {
+            "psnr": 6.680999755859375,
+            "ssim": 0.3185505270957947,
+            "lpips_alex": -0.1669522151350975
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image008.png",
+          "baseline": {
+            "psnr": 12.245243072509766,
+            "ssim": 0.1830012947320938,
+            "lpips_alex": 0.533710777759552
+          },
+          "fsgs": {
+            "psnr": 14.911837577819824,
+            "ssim": 0.3813354969024658,
+            "lpips_alex": 0.3533996343612671
+          },
+          "delta": {
+            "psnr": 2.6665945053100586,
+            "ssim": 0.198334202170372,
+            "lpips_alex": -0.1803111433982849
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image016.png",
+          "baseline": {
+            "psnr": 20.803604125976562,
+            "ssim": 0.5802196264266968,
+            "lpips_alex": 0.220013827085495
+          },
+          "fsgs": {
+            "psnr": 26.95819664001465,
+            "ssim": 0.8611987829208374,
+            "lpips_alex": 0.051470328122377396
+          },
+          "delta": {
+            "psnr": 6.154592514038086,
+            "ssim": 0.2809791564941406,
+            "lpips_alex": -0.1685434989631176
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image024.png",
+          "baseline": {
+            "psnr": 12.295282363891602,
+            "ssim": 0.1852525770664215,
+            "lpips_alex": 0.5365159511566162
+          },
+          "fsgs": {
+            "psnr": 15.4697847366333,
+            "ssim": 0.42639800906181335,
+            "lpips_alex": 0.31427425146102905
+          },
+          "delta": {
+            "psnr": 3.174502372741699,
+            "ssim": 0.24114543199539185,
+            "lpips_alex": -0.22224169969558716
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image032.png",
+          "baseline": {
+            "psnr": 16.947572708129883,
+            "ssim": 0.43004557490348816,
+            "lpips_alex": 0.35507386922836304
+          },
+          "fsgs": {
+            "psnr": 23.651447296142578,
+            "ssim": 0.7886946201324463,
+            "lpips_alex": 0.08360642194747925
+          },
+          "delta": {
+            "psnr": 6.703874588012695,
+            "ssim": 0.35864904522895813,
+            "lpips_alex": -0.2714674472808838
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 44,
+        "wall_seconds": 659.2292473669986,
+        "peak_torch_allocated_bytes": 2250800640,
+        "peak_torch_reserved_bytes": 2803892224,
+        "checkpoint_sha256": "d2ec4ce25b71fcf5220f055b69afd2a2c5d537266edcb0bf87e0da7615627917",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 232051,
+      "resources": {
+        "stage": "flower-training",
+        "seconds": 663.2883965959991,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3831
+      },
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.000347137451171875,
+        "ssim": 2.0444393157958984e-05,
+        "lpips_alex": 1.735985279083252e-05
+      }
+    },
+    "leaves": {
+      "baseline_source": "results/correlation-four-arm.json",
+      "baseline_relation": "same-boot seed44 L1 bookends mean",
+      "baseline_mean": {
+        "psnr": 12.298660159111023,
+        "ssim": 0.2170382533222437,
+        "lpips_alex": 0.37036264687776566
+      },
+      "fsgs_gsplat_mean": {
+        "psnr": 17.368537425994873,
+        "ssim": 0.5660350322723389,
+        "lpips_alex": 0.17168303579092026
+      },
+      "fsgs_native_mean": {
+        "psnr": 17.36848545074463,
+        "ssim": 0.5660415291786194,
+        "lpips_alex": 0.17166662216186523
+      },
+      "delta": {
+        "psnr": 5.06987726688385,
+        "ssim": 0.3489967789500952,
+        "lpips_alex": -0.1986796110868454
+      },
+      "mean_gates": {
+        "psnr": true,
+        "ssim": true,
+        "lpips_alex": true
+      },
+      "per_image": [
+        {
+          "image": "image000.png",
+          "baseline": {
+            "psnr": 12.467427253723145,
+            "ssim": 0.24117643386125565,
+            "lpips_alex": 0.3503677248954773
+          },
+          "fsgs": {
+            "psnr": 17.728330612182617,
+            "ssim": 0.61869877576828,
+            "lpips_alex": 0.16526052355766296
+          },
+          "delta": {
+            "psnr": 5.260903358459473,
+            "ssim": 0.3775223419070244,
+            "lpips_alex": -0.18510720133781433
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image008.png",
+          "baseline": {
+            "psnr": 12.691193103790283,
+            "ssim": 0.2298424243927002,
+            "lpips_alex": 0.342597097158432
+          },
+          "fsgs": {
+            "psnr": 18.39754867553711,
+            "ssim": 0.6263526082038879,
+            "lpips_alex": 0.13945555686950684
+          },
+          "delta": {
+            "psnr": 5.706355571746826,
+            "ssim": 0.39651018381118774,
+            "lpips_alex": -0.20314154028892517
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image016.png",
+          "baseline": {
+            "psnr": 11.924425601959229,
+            "ssim": 0.2014632746577263,
+            "lpips_alex": 0.3926393985748291
+          },
+          "fsgs": {
+            "psnr": 16.571348190307617,
+            "ssim": 0.4992756247520447,
+            "lpips_alex": 0.19683198630809784
+          },
+          "delta": {
+            "psnr": 4.646922588348389,
+            "ssim": 0.2978123500943184,
+            "lpips_alex": -0.19580741226673126
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        },
+        {
+          "image": "image024.png",
+          "baseline": {
+            "psnr": 12.111594676971436,
+            "ssim": 0.19567088037729263,
+            "lpips_alex": 0.3958463668823242
+          },
+          "fsgs": {
+            "psnr": 16.77692222595215,
+            "ssim": 0.5198131203651428,
+            "lpips_alex": 0.1851840764284134
+          },
+          "delta": {
+            "psnr": 4.665327548980713,
+            "ssim": 0.3241422399878502,
+            "lpips_alex": -0.21066229045391083
+          },
+          "direction_improved": {
+            "psnr": true,
+            "ssim": true,
+            "lpips_alex": true
+          }
+        }
+      ],
+      "training": {
+        "completed": true,
+        "native_iterations": 10000,
+        "optimizer_steps": 9999,
+        "seed": 44,
+        "wall_seconds": 679.700328308998,
+        "peak_torch_allocated_bytes": 2528433152,
+        "peak_torch_reserved_bytes": 3055550464,
+        "checkpoint_sha256": "85251a838a4390a504cc2ef8ba02319f725ae536d04cbc164a8e61d608a3e75b",
+        "test_views_loaded": 0,
+        "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+        "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+      },
+      "point_count": 359092,
+      "resources": {
+        "successful_training_worker_seconds": 684.551253013,
+        "successful_training_board_peak_mib": 4071,
+        "interrupted_attempt_seconds": 557.8615723750008,
+        "total_charged_seconds": 4911.19036687707,
+        "total_limit_seconds": 5400,
+        "whole_project_cost": false
+      },
+      "max_native_gsplat_metric_difference": {
+        "psnr": 0.0001735687255859375,
+        "ssim": 1.5974044799804688e-05,
+        "lpips_alex": 4.106760025024414e-05
+      }
+    }
+  },
+  "macro_mean_delta": {
+    "psnr": 5.480529348055522,
+    "ssim": 0.3096016299807363,
+    "lpips_alex": -0.20733563659919632
+  },
+  "all_scene_mean_gates_pass": true,
+  "improved_image_metric_pairs": 36,
+  "image_metric_pairs": 36,
+  "completed_native_optimizer_updates": 29997,
+  "resource_ledger": {
+    "stage_limit_seconds": 1800,
+    "stage_used_seconds": 1345.6530132829976,
+    "inherited_seconds": 4911.19036687707,
+    "charged_seconds": 6256.843380160068,
+    "total_cumulative_cap_seconds": 6711.19036687707,
+    "entries": [
+      {
+        "stage": "fern-training",
+        "seconds": 659.5054607510028,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 4059
+      },
+      {
+        "stage": "flower-training",
+        "seconds": 663.2883965959991,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 3831
+      },
+      {
+        "stage": "fern-native-evaluation",
+        "seconds": 3.1390812719982932,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1183
+      },
+      {
+        "stage": "fern-conversion",
+        "seconds": 1.050422497002728,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 885
+      },
+      {
+        "stage": "fern-gsplat-evaluation",
+        "seconds": 7.266444121996756,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1327
+      },
+      {
+        "stage": "flower-native-evaluation",
+        "seconds": 3.1247695879974344,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1346
+      },
+      {
+        "stage": "flower-conversion",
+        "seconds": 1.0433830080000916,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 888
+      },
+      {
+        "stage": "flower-gsplat-evaluation",
+        "seconds": 7.235055449000356,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1410
+      }
+    ]
+  },
+  "evidence_keys": [
+    "fsgs-integration-20261023T031053Z",
+    "fsgs-development-confirmation-20261023T071143Z"
+  ],
+  "limits": [
+    "Three existing development scenes, one FSGS seed; no final unseen benchmark",
+    "Fern/flower controls are historical same-protocol seed44 runs; leaves uses same-boot bookends",
+    "Complete recipe differences; no individual component attribution",
+    "Native recipe 9999 optimizer steps versus L1 30000; no equal-step speed claim"
+  ],
+  "committed_or_pushed": false
+}

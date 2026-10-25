@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "protocol": "leaves-robust-depth-pilot-plan-v1",
+  "date": "2026-10-20",
+  "reference_commit": "9987bf46a03f923e408fd44b64754feb604de923",
+  "status": "proposal_reviewed_not_implemented",
+  "implementation_authorized": false,
+  "training_authorized": false,
+  "evaluation_authorized": false,
+  "scope": "Phase 2 residual-robust depth control proposal, not geometric reliability. This step inspects sources and hashes only.",
+  "hypothesis": "Does one fixed Cauchy-shaped residual penalty offer evidence beyond both existing L1 and a fixed weaker-L1 control, exceeding observed bookend variability?",
+  "evidence_boundary": "Post-D1/D2 development proposal on already-known leaves; no independent final-test or novelty claims. Distance/cross-view score routes remain stopped.",
+  "references": [
+    {
+      "title": "SciPy least_squares: robust loss shapes and scale",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html",
+      "used_for": "Standard log(1+z) Cauchy shape and caution about optimization; no SciPy runtime dependency. Our peak-gradient normalization is separately derived, not a default SciPy setting."
+    }
+  ],
+  "baseline_source_hashes": {
+    "src/geosplat_r/depth.py": "16d1face707030be2b36ac921930d9ccd7ec9b19bcbbc4a0f95cd94d5e2d15d0",
+    "src/geosplat_r/baseline.py": "bbd64b6f85a4580977cbb59fbbb7ed2d463f7ef62f86c486f609bcd7a64f2c9e",
+    "src/geosplat_r/scene_input.py": "4c6ddc16c2a465bf42060c89cb89d6f8bdca5c7bdf55b9587afaa933e829b047",
+    "src/geosplat_r/isolation.py": "f8a42e2068fc21b372afad08525fc76ce9374febc25ff446dd1f16b588314887",
+    "scripts/train_baseline.py": "9725cfce85f2a06b4cb68c0feeaa0fb123aaf53ad372904052e11a5a471ad91d",
+    "scripts/evaluate_baseline.py": "9517b824e68cd5e94ca4dc9f1a6469ebe7bdd395b4e8609a16099eeb38d35cb9"
+  },
+  "input_contract": {
+    "path": "configs/leaves-train-error-coverage-plan.json",
+    "sha256": "ad66abed47aa5942531a5c4b9f202f002af919ab7550afad7041d531c946607a",
+    "approved_provenance_inventory_files": 14,
+    "approved_provenance_inventory_bytes": 6409262,
+    "trainer_data_files": 10,
+    "trainer_data_roots": [
+      "train",
+      "priors"
+    ],
+    "anchors": "Four anchor files are provenance-audit inputs, not loaded as new training targets. Use original full-data aligned prior caches, never D1/D2 held-out fits or scores.",
+    "test_policy": "No test asset opened in this planning step. Before a separately approved training pilot, independently freeze evaluator-only four test RGBs and cameras.json hashes. Never give their paths/metrics to the trainer."
+  },
+  "frozen_training_protocol": {
+    "scene": "leaves",
+    "train_images": [
+      "image001.png",
+      "image012.png",
+      "image025.png"
+    ],
+    "test_names_for_later_independent_evaluation": [
+      "image000.png",
+      "image008.png",
+      "image016.png",
+      "image024.png"
+    ],
+    "seed": 44,
+    "resolution": [
+      504,
+      378
+    ],
+    "optimizer_updates": 30000,
+    "batch_size": 1,
+    "precision": "float32",
+    "depth_start_zero_based_step": 1000,
+    "first_depth_active_update_one_based": 1001,
+    "render_mode": "RGB+ED for all four processes, including pre-activation updates",
+    "rgb_loss": "0.8 L1 + 0.2 (1-fused SSIM valid)",
+    "upstream_sha": "937e29912570c372bed6747a5c9bf85fed877bae",
+    "strategy": "Unchanged gsplat DefaultStrategy, optimizers, densification and full 30k schedules; no camera/appearance/exposure changes",
+    "source_preflight": "Explicit clean pinned gsplat source directory and future modified local source hashes required before execution. Source path verification is pending; planning is not an execution-ready environment audit."
+  },
+  "residual_and_reduction": {
+    "signed_residual": "r=(1/ED-target_inverse_z)/median_train_anchor_inverse_z",
+    "valid": "Same cached positive/border mask, detached alpha>=0.5, finite ED and detached ED>1e-6; no residual-dependent pixel exclusion.",
+    "reduction": "mean over currently valid pixels, denominator=count_valid.clamp_min(1); empty mask returns finite zero loss and zero gradient",
+    "aggregation": "Average rho(r) before multiplying lambda; no division by sum of robust influence factors",
+    "note": "Per-trajectory alpha/masks may later differ because optimization differs; report valid counts rather than forcing shared post-hoc masks."
+  },
+  "candidate_loss": {
+    "name": "Cauchy shape, explicitly normalized to maximum residual-gradient magnitude one",
+    "formula": "rho_c(r)=c*log(1+(r/c)^2)",
+    "scale_c": 0.1,
+    "scale_meaning": "10% of the per-image training-anchor inverse-Z median; not 10% relative error at each pixel",
+    "derivative": "rho_prime(r)=2*(r/c)/(1+(r/c)^2)",
+    "derivative_abs_bound": 1,
+    "derivative_peak_at_abs_r": 0.1,
+    "large_residual_behavior": "Influence tends to zero as abs(r) grows; nonconvex outside abs(r)>c",
+    "selection_policy": "One declared scale and formula, no c/lambda sweep. Declared after historical development results; not selected from new test metrics or fitted to dense truth.",
+    "caution": "Peak-gradient normalization does not match average objective/gradient strength to L1; weak-L1 control is necessary and still not an exact strength match."
+  },
+  "future_pilot_order": [
+    {
+      "id": "A1_l1",
+      "loss": "L1",
+      "lambda": 0.01,
+      "role": "Fresh full-strength reference before candidate"
+    },
+    {
+      "id": "B_weak_l1",
+      "loss": "L1",
+      "lambda": 0.005,
+      "role": "Fixed half-strength scalar control; explicitly new arm, does not revise old uniform settings"
+    },
+    {
+      "id": "C_cauchy",
+      "loss": "Cauchy",
+      "lambda": 0.01,
+      "c": 0.1,
+      "role": "Only residual shape candidate"
+    },
+    {
+      "id": "A2_l1_repeat",
+      "loss": "L1",
+      "lambda": 0.01,
+      "role": "Bookend repeat: same seed/code/inputs, retain both A models"
+    }
+  ],
+  "future_pilot_runs": 4,
+  "matching": {
+    "execution": "Sequential same-boot processes; record boot ID/driver/source/input hashes before and after each. Any change stops and preserves attempts.",
+    "initialization": "All four identical initial parameter SHA256 and view-order hashes; old runs are historical context only, never replace fresh controls.",
+    "preactivation": "For steps <1000 use the original L1 computation path in all arms, weight zero; dispatch Cauchy only after activation. Diagnostics must not consume RNG.",
+    "legacy": "Default L1 value/gradient/mask/reduction and historical fern entry must remain identical; protect frozen source copies and all old runs."
+  },
+  "future_logging": {
+    "cadence": "Existing 1000-update records plus first active update 1001; no new scoring/selection feedback",
+    "quantities": [
+      "actual depth objective and kind",
+      "raw normalized L1 residual mean in every arm",
+      "valid count/fraction",
+      "lambda and fixed c where applicable",
+      "residual magnitude p50/p90/p99",
+      "analytic influence-factor summary, diagnostics only",
+      "lambda-weighted mean/sum absolute d(depth objective)/d(ED), including valid-count, normalizer and ED^-2 factors",
+      "initialization/view order/source/input/boot hashes",
+      "Gaussian count, wall/perf/CUDA clocks, allocated/reserved/full-card sampled memory"
+    ],
+    "semantic_guard": "Do not relabel Cauchy objective as depth_normalized_l1. Influence diagnostics never form a confidence map, change masks, renormalize weights, tune c or choose checkpoints."
+  },
+  "cpu_implementation_gate": [
+    "Keep original L1 path/default exactly: forward, expected-Z derivative, mask, empty-mask behavior and normalization",
+    "Check analytic Cauchy value/gradient against autograd and finite differences on positive/negative/zero and small/large residuals, including z-chain rule; no GPU needed",
+    "Verify nonnegative/even objective, zero at zero, derivative bound one and decay at large residuals; use stable algebra without silent clipping or epsilon changes",
+    "All three loss profiles share eligibility and valid-count denominator on identical fixtures; weaker L1 gradients exactly half of full L1",
+    "No residual-based selection, all-empty finite zero, no invalid ED reciprocals leaking NaN gradients",
+    "CLI rejects unknown loss/invalid c/invalid lambda or absent priors before CUDA; explicit directories and no overwrite",
+    "Frozen original function/source snapshot parity, backward-compatible CLI, metadata fields truthful; no test/metric/score asset loading or network calls"
+  ],
+  "release_gates": {
+    "now": "Proposal review only. No loss implementation, autograd tests, GPU initialization, rendering, training or new evaluation in this step.",
+    "next_recommended": "Separately authorize minimal loss plumbing and CPU value/gradient/isolation checks only. It does not release GPU preflight or the four runs.",
+    "before_any_training": "Review actual implementation/test results; freeze future sources/upstream/evaluator assets/weights and exact commands; obtain separate approval for all four 30k runs and zero-update GPU preflight.",
+    "failure": "Preserve failed checks and attempts; investigate first. No automatic rerun, coefficient/scale sweep, shortening/resizing/precision changes or use of old controls to complete matrix."
+  },
+  "evaluation_after_all_four_complete": {
+    "process": "Separate unchanged evaluator; no test renders/metrics between runs or during model selection. Use same four existing development test GTs, PSNR/SSIM/LPIPS-Alex, train/test reports and all per-view regressions.",
+    "weights": "Reuse verified AlexNet SHA256 7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02; no automatic downloads",
+    "qualitative": "Full fixed test-view RGB/GT/error comparison plus existing depth/3D outputs; no favorable crops/view selection. No new geometry accuracy claim without GT.",
+    "bookend_range": "For each scene-mean metric, R=abs(A1-A2); two repeats give a descriptive observed range, not a variance estimate or confidence interval.",
+    "pilot_direction_gate": "Transform metrics to higher-is-better (PSNR, SSIM, -LPIPS). For each metric m, C_m-max(A1_m,A2_m,B_m) must be strictly greater than abs(A1_m-A2_m). All three metrics must satisfy this predeclared rule. Always report all pairwise/per-view differences and actual magnitudes.",
+    "if_fail": "No favorable pilot evidence by this rule. Stop this scoped candidate, or label bookend/implementation problems unresolved; no automatic extra seeds/scenes or tuning.",
+    "if_pass": "Only recommend separately reviewing a same-protocol multi-seed extension; no stable-performance, significance, causal shape benefit, Phase 3 release or final-test claim. One half-L1 scalar is not exhaustive strength matching."
+  },
+  "resources": {
+    "new_download_bytes": 0,
+    "now_GPU_work": false,
+    "future_GPU": "Local 12 GB budget; fastest supported measured configuration with headroom; no paid/cloud resources. Keep frozen 504x378/batch1/float32 and optimizer settings.",
+    "future_parallel_training": false,
+    "future_estimated_training_minutes": [
+      43,
+      51
+    ],
+    "estimate_basis": "Historical leaves44 complete controls were 640.725 to 757.181 seconds each. Four times this range is an estimate, not a Cauchy measurement; preflight/evaluation/retries excluded.",
+    "memory_basis": "Historical complete controls sampled full-card peaks <=4310 MiB; includes desktop differences, not a guarantee for new loss. Measure actual allocated/reserved/full-card memory."
+  },
+  "prohibited_now": [
+    "Loss implementation or actual CPU autograd test",
+    "Models/checkpoints/GPU initialization/rendering/training/new evaluation",
+    "Reliability weights, D1/D2 score reuse, new scenes, new data/prior generation or hyperparameter search",
+    "Downloads, staging, new commits or pushes of planning changes"
+  ],
+  "publication_status": "User separately approved and completed pushing only fbc61f2 and 9987bf4; new planning files remain local/uncommitted."
+}

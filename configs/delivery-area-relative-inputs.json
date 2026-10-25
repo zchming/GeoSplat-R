@@ -1,0 +1,233 @@
+{
+  "protocol": "delivery-area-relative-inputs-v1",
+  "date": "2026-10-21",
+  "status": "frozen_input_identity_only_not_model_execution_release",
+  "review_plan": "configs/second-scene-ordinal-review.json",
+  "review_plan_sha256": "058f84c0b417e745daa9d89e98b21da1c51e530e08e569b6b8f1b0fccabe88f8",
+  "numeric_core_sha256": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+  "external_evidence_key": "delivery-area-native-intake-20261021T072613Z",
+  "dataset": {
+    "scene": "ETH3D delivery_area public training/development",
+    "image_count": 44,
+    "native_wh": [
+      6048,
+      4032
+    ],
+    "selected_ranks": [
+      0,
+      21,
+      43
+    ],
+    "selected_names": [
+      "dslr_images/DSC_0675.JPG",
+      "dslr_images/DSC_0696.JPG",
+      "dslr_images/DSC_0718.JPG"
+    ],
+    "reserved_ranks": [
+      7,
+      14,
+      28,
+      35
+    ],
+    "reserved_names": [
+      "dslr_images/DSC_0682.JPG",
+      "dslr_images/DSC_0689.JPG",
+      "dslr_images/DSC_0703.JPG",
+      "dslr_images/DSC_0710.JPG"
+    ],
+    "selected_camera_records": [
+      {
+        "image_id": 1,
+        "qvec_wxyz": [
+          0.543851,
+          0.45365,
+          -0.457547,
+          0.53766
+        ],
+        "tvec": [
+          0.230225,
+          -3.72086,
+          -1.15
+        ],
+        "camera_id": 0,
+        "name": "dslr_images/DSC_0675.JPG",
+        "camera": {
+          "camera_id": 0,
+          "model": "THIN_PRISM_FISHEYE",
+          "width": 6048,
+          "height": 4032,
+          "params": [
+            3408.59,
+            3408.87,
+            3036.9,
+            2012.66,
+            0.209259,
+            0.220061,
+            7.28021e-05,
+            -2.99402e-05,
+            -0.186234,
+            0.421684,
+            0.000884047,
+            0.00052266
+          ]
+        }
+      },
+      {
+        "image_id": 22,
+        "qvec_wxyz": [
+          0.44485,
+          0.47671,
+          0.548668,
+          -0.523278
+        ],
+        "tvec": [
+          -4.21679,
+          -3.41374,
+          -0.282359
+        ],
+        "camera_id": 0,
+        "name": "dslr_images/DSC_0696.JPG",
+        "camera": {
+          "camera_id": 0,
+          "model": "THIN_PRISM_FISHEYE",
+          "width": 6048,
+          "height": 4032,
+          "params": [
+            3408.59,
+            3408.87,
+            3036.9,
+            2012.66,
+            0.209259,
+            0.220061,
+            7.28021e-05,
+            -2.99402e-05,
+            -0.186234,
+            0.421684,
+            0.000884047,
+            0.00052266
+          ]
+        }
+      },
+      {
+        "image_id": 44,
+        "qvec_wxyz": [
+          0.498864,
+          0.447227,
+          0.488373,
+          -0.55912
+        ],
+        "tvec": [
+          0.519655,
+          -3.32977,
+          1.51168
+        ],
+        "camera_id": 0,
+        "name": "dslr_images/DSC_0718.JPG",
+        "camera": {
+          "camera_id": 0,
+          "model": "THIN_PRISM_FISHEYE",
+          "width": 6048,
+          "height": 4032,
+          "params": [
+            3408.59,
+            3408.87,
+            3036.9,
+            2012.66,
+            0.209259,
+            0.220061,
+            7.28021e-05,
+            -2.99402e-05,
+            -0.186234,
+            0.421684,
+            0.000884047,
+            0.00052266
+          ]
+        }
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "role": "predictor_rgb",
+      "image": "dslr_images/DSC_0675.JPG",
+      "archive_member": "delivery_area/images/dslr_images/DSC_0675.JPG",
+      "bytes": 6574113,
+      "sha256": "0c7a9d5a6a233ef9f9bb1fe06da53824f20eb8a1e3f51d8d831a53875d03c412"
+    },
+    {
+      "role": "evaluator_GT",
+      "image": "dslr_images/DSC_0675.JPG",
+      "archive_member": "delivery_area/ground_truth_depth/dslr_images/DSC_0675.JPG",
+      "bytes": 97542144,
+      "sha256": "315d6267d7bd761838f3851dad68db2c1bde2767349e3a707e84400793c6c5be"
+    },
+    {
+      "role": "predictor_rgb",
+      "image": "dslr_images/DSC_0696.JPG",
+      "archive_member": "delivery_area/images/dslr_images/DSC_0696.JPG",
+      "bytes": 8570738,
+      "sha256": "6fde85c56d3cdb31863af39cdebfe41b8b0ce8c49825cfd4bb8b434f96ef2468"
+    },
+    {
+      "role": "evaluator_GT",
+      "image": "dslr_images/DSC_0696.JPG",
+      "archive_member": "delivery_area/ground_truth_depth/dslr_images/DSC_0696.JPG",
+      "bytes": 97542144,
+      "sha256": "98779fbffc5ee20edabbce1505cc17150f940b382a5ee2d8d15eb5a637623ca9"
+    },
+    {
+      "role": "predictor_rgb",
+      "image": "dslr_images/DSC_0718.JPG",
+      "archive_member": "delivery_area/images/dslr_images/DSC_0718.JPG",
+      "bytes": 8646709,
+      "sha256": "0c1426eb07c60bdd51a1230c8930604e1a2643d3baa3711ba5809c8f1677f64d"
+    },
+    {
+      "role": "evaluator_GT",
+      "image": "dslr_images/DSC_0718.JPG",
+      "archive_member": "delivery_area/ground_truth_depth/dslr_images/DSC_0718.JPG",
+      "bytes": 97542144,
+      "sha256": "eacc50995c4531d27a2e0f008aff5dbd11d5d0c04cd3c14eeec1af37ba584ceb"
+    },
+    {
+      "role": "predictor_cameras",
+      "path": "train/cameras.json",
+      "bytes": 1853,
+      "sha256": "d62c345a241da01559819411af608b993d9b0158105f7ee773d651b209796121"
+    }
+  ],
+  "archives": [
+    {
+      "file": "delivery_area_dslr_jpg.7z",
+      "bytes": 372958192,
+      "sha256": "f8190ebdf670935fb93ed2a6e66210a2bcc4633b6f698033855a75cac254f973",
+      "etag": "\"59347f4c-163ae3f0\"",
+      "wall_seconds": 52.50864930699754
+    },
+    {
+      "file": "delivery_area_dslr_depth.7z",
+      "bytes": 388144128,
+      "sha256": "e6edc65b5b6de343876382040c839405eef79abed33319aa377883f4ddc5775a",
+      "etag": "\"5ad0d0d4-17229c00\"",
+      "wall_seconds": 54.47784349199719,
+      "transport": "urllib direct HTTPS default certificate verification; If-Match checked before body"
+    }
+  ],
+  "metadata_sha256": {
+    "images.txt": "2b7449bdb827314d612ba0237860202f946e1fcc0329be1f5a219d707d948496",
+    "cameras.txt": "dab2abb65d2b1f171c10adea5350594c997e9ac1ab6a91a0b1a50427be37ee36"
+  },
+  "roles": {
+    "predictor": "three selected RGBs and selected camera export only; no GT/masks/archive/full calibration/points/tracks/other views",
+    "evaluator": "three separate raw axial-Z labels, future sealed predictions checked before GT semantic analysis",
+    "raw_GT_contract": "source convention little-endian headerless float32 axial Z, positive infinity unknown; length and hash verified, values/endianness/support not empirically inspected during intake"
+  },
+  "future_execution": {
+    "adapter_implemented": false,
+    "model_forwards_authorized": false,
+    "GT_semantic_analysis_authorized": false,
+    "training_authorized": false,
+    "reliability_weighting_authorized": false,
+    "required": "Separate scene-specific IO/seal admission and CPU synthetic/isolation review; leave terrace paths and numerical functions unchanged; later explicit forward release before three predictions and unified GT evaluation."
+  }
+}

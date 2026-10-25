@@ -1,0 +1,112 @@
+{
+  "protocol": "delivery-area-staged-entry-CPU-review-v1",
+  "date": "2026-10-21",
+  "status": "passed_CPU_review_recommend_single_synthetic_GPU_preflight_only",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "external_evidence_key": "delivery-area-entry-review-20261021T075139Z",
+  "review_manifest_sha256": "0d69860352b23dd8f88e24d2295fd5b88ffdcb6269c0ac7e38f338426da15e04",
+  "source_sha256": {
+    "scripts/run_delivery_relative_diagnostic.py": "41b45583260cdd5c8aed733466c108ede9a05862563bbfb674390aab5d47c557",
+    "tests/test_delivery_execution_entry.py": "2d519db2fed5e23a4f00668087e6ab1093df34828317165e3294d255d6c9a2f0",
+    "src/geosplat_r/delivery_relative_io.py": "ff13ff660181098ed2671e7339bc1805399d9d63e58502702cec861360d26441",
+    "src/geosplat_r/relative_io.py": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+    "src/geosplat_r/relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "scripts/prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+    "scripts/run_relative_diagnostic.py": "a6db23867c18f5c974f7d0609641e144256d9c633b99580de9d9c077c67aa616",
+    "configs/delivery-area-relative-adapter-plan.json": "8d8ad3a455aa7f454dc4ccc88204ecbb4edc2d1e0c69a4432eed2cc96f220ed1",
+    "configs/delivery-area-relative-inputs.json": "e74cfbddaba6b5a451bd40901c550e974543d860bf09e0f2135bddebd003c867",
+    "configs/terrace-relative-diagnostic-plan.json": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+    "configs/second-scene-ordinal-review.json": "058f84c0b417e745daa9d89e98b21da1c51e530e08e569b6b8f1b0fccabe88f8"
+  },
+  "CPU_tests": {
+    "unique_test_cases": 60,
+    "new_execution_cases": 10,
+    "prior_adapter_and_legacy_cases": 50,
+    "host_passed": 60,
+    "isolated_passed": 60,
+    "skipped": 0,
+    "isolated_real_data_mounted": false,
+    "torch_imported": false
+  },
+  "CPU_process_probes": {
+    "status": "passed",
+    "roles": [
+      {
+        "role": "predictor",
+        "forbidden_reads_refused": 52,
+        "GPU_exposed": false,
+        "reference_accesses": 0,
+        "process": {
+          "returncode": 0,
+          "wall_seconds": 0.10141198999917833,
+          "sampled_process_tree_RSS_KiB": 38516,
+          "stop_reason": null,
+          "expected_failure": false
+        }
+      },
+      {
+        "role": "evaluator",
+        "forbidden_reads_refused": 52,
+        "GPU_exposed": false,
+        "reference_accesses": 0,
+        "process": {
+          "returncode": 0,
+          "wall_seconds": 0.10120011500112014,
+          "sampled_process_tree_RSS_KiB": 40304,
+          "stop_reason": null,
+          "expected_failure": false
+        }
+      }
+    ]
+  },
+  "isolated_regression_resource": {
+    "returncode": 0,
+    "wall_seconds": 1.3071208119981748,
+    "sampled_process_tree_RSS_KiB": 85632,
+    "stop_reason": null,
+    "expected_failure": false
+  },
+  "inheritance": {
+    "AST_identical_helpers": [
+      "make_dummy",
+      "install_forward_probe",
+      "verify_imported_model_files",
+      "device_mounts",
+      "denied_reads",
+      "BoardSampler"
+    ],
+    "gpu_worker": "AST identical to old worker except final independent delivery seal call; preprocessing, architecture, forward count and computation unchanged",
+    "old_entry_and_adapter_and_core_unchanged": true
+  },
+  "model_provenance": {
+    "revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "source_files_verified": 15,
+    "weight_bytes": 99218434,
+    "weight_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "CPU_bytes_hashed_only": true
+  },
+  "commands": {
+    "preflight": "frozen externally,not executed; no real input/label location",
+    "predict": "frozen externally,not released or executed",
+    "evaluate": "frozen externally,not released or executed; output stage/result/evaluation"
+  },
+  "execution_counts": {
+    "real_RGB_decoded": 0,
+    "real_GT_value_analyses": 0,
+    "model_loads": 0,
+    "GPU_calls": 0,
+    "formal_predictions": 0,
+    "training_updates": 0,
+    "downloads": 0,
+    "commit": false,
+    "push": false
+  },
+  "preexisting_repo_files_unchanged": 147,
+  "limitations": [
+    "GPU access/forward/real evaluation not validated for this entry yet.",
+    "AST/CPU mocks preserve reviewed computation and orchestration, cannot replace actual GPU isolation preflight.",
+    "No second-scene ordinal signal or training gain established."
+  ],
+  "decision": "Recommend release exactly one synthetic GPU preflight with no real data mounts. Do not release three-image formal inference, real GT evaluation, reliability weighting or training. Failure stops with evidence retained; no automatic retry.",
+  "cumulative_contribution": "Second-scene staged execution entry, explicit role boundaries, independent sealing and audited model-computation parity plus CPU isolation evidence; no new scene accuracy or training gain."
+}

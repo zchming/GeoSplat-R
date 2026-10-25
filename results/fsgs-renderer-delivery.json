@@ -1,0 +1,131 @@
+{
+  "protocol": "fsgs-full-evaluator-delivery-result-v1",
+  "status": "pass",
+  "render_profile": "fsgs-native",
+  "render_visibility": {
+    "near_plane": 0.20000001788139343,
+    "center_cull": "Z <= float32(0.2)"
+  },
+  "optimizer_updates": 9999,
+  "checkpoint_sha256": "338aea89ce84d64d78ffc13c2d137f072a8d8aa0a9d023d9bbd4768bff9e8314",
+  "zero_parameter_updates": true,
+  "train_view_count": 3,
+  "test": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 26.78828239440918,
+        "ssim": 0.7474358677864075,
+        "lpips_alex": 0.07960017025470734,
+        "rgb_depth_render_seconds": 0.0014528083498589694,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          3.357914252281189,
+          8.201549167633056
+        ]
+      },
+      {
+        "image": "image008.png",
+        "psnr": 25.318214416503906,
+        "ssim": 0.7412946820259094,
+        "lpips_alex": 0.09452348202466965,
+        "rgb_depth_render_seconds": 0.001540836149797542,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          3.399814667701721,
+          9.611996402740479
+        ]
+      },
+      {
+        "image": "image016.png",
+        "psnr": 25.585216522216797,
+        "ssim": 0.745525598526001,
+        "lpips_alex": 0.0940953940153122,
+        "rgb_depth_render_seconds": 0.0015318132998800138,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          3.34182797908783,
+          10.483945579528807
+        ]
+      },
+      {
+        "image": "image024.png",
+        "psnr": 21.675739288330078,
+        "ssim": 0.6725552678108215,
+        "lpips_alex": 0.14525607228279114,
+        "rgb_depth_render_seconds": 0.001504282600217266,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          2.4950522565841675,
+          11.152572956085205
+        ]
+      },
+      {
+        "image": "image032.png",
+        "psnr": 24.27250099182129,
+        "ssim": 0.7416025996208191,
+        "lpips_alex": 0.10517412424087524,
+        "rgb_depth_render_seconds": 0.0015816583501873538,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          2.3218462562561033,
+          11.852740020751952
+        ]
+      },
+      {
+        "image": "image040.png",
+        "psnr": 25.786733627319336,
+        "ssim": 0.7553932070732117,
+        "lpips_alex": 0.08341483771800995,
+        "rgb_depth_render_seconds": 0.0016386925999540836,
+        "valid_depth_fraction_alpha_0_5": 1.0,
+        "depth_visualization_percentile_2_98": [
+          2.1999638986587526,
+          10.964017887115478
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 24.90444787343343,
+      "ssim": 0.7339678704738617,
+      "lpips_alex": 0.10034401342272758,
+      "rgb_depth_render_seconds": 0.0015416818916492048
+    }
+  },
+  "video_frames": 48,
+  "artifacts": [
+    "test-comparison.png",
+    "scene-3d.png",
+    "scene.ply",
+    "novel-view-path.mp4",
+    "train and test per-image RGB/GT/error/depth/alpha/valid-mask outputs"
+  ],
+  "max_metric_difference_vs_native": {
+    "psnr": 0.001125335693359375,
+    "ssim": 3.820657730102539e-05,
+    "lpips_alex": 3.207474946975708e-05
+  },
+  "max_RGBED_vs_previous_RGB_diagnostic_difference": {
+    "psnr": 0.0,
+    "ssim": 0.0,
+    "lpips_alex": 5.960464477539062e-07
+  },
+  "resource_ledger": {
+    "stage_limit_seconds": 538.4614101820116,
+    "stage_used_seconds": 9.337778799999796,
+    "inherited_seconds": 9318.381969978056,
+    "charged_seconds": 9327.719748778056,
+    "cumulative_cap_seconds": 9856.843380160068,
+    "entries": [
+      {
+        "stage": "full-native-compatible-evaluation",
+        "seconds": 9.337778799999796,
+        "exit_code": 0,
+        "stop_reason": null,
+        "board_peak_mib": 1364
+      }
+    ]
+  },
+  "evidence_key": "fsgs-renderer-delivery-20261023T120214Z",
+  "frozen_primary_metrics": "results/fsgs-final-fortress.json unchanged; this result covers only post-evaluation renderer compatibility delivery"
+}

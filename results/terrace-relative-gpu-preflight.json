@@ -1,0 +1,122 @@
+{
+  "protocol": "terrace-relative-GPU-preflight-v1",
+  "date": "2026-10-21",
+  "status": "passed_CPU_and_single_synthetic_GPU_preflight",
+  "reference_commit": "e7c8ba56ba6040c2d0f2b1f2fed5f6c4e19da25f",
+  "frozen_plan_sha256": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+  "external_evidence_key": "terrace-relative-gpu-preflight-20261021T031952Z",
+  "source_sha256": {
+    "src/geosplat_r/relative_io.py": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+    "scripts/run_relative_diagnostic.py": "a6db23867c18f5c974f7d0609641e144256d9c633b99580de9d9c077c67aa616",
+    "tests/test_relative_io.py": "eabc10ab183ff9509bfe131ce76b07b353e58be3c4caa125a6e7c0d083515975"
+  },
+  "executed_bundle": {
+    "relative_io.py": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+    "relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+    "run_relative_diagnostic.py": "a6db23867c18f5c974f7d0609641e144256d9c633b99580de9d9c077c67aa616"
+  },
+  "CPU_checks": {
+    "new_IO_checks_passed": 11,
+    "ordinal_core_checks_passed": 21,
+    "total": 32,
+    "skipped": 0,
+    "synthetic_raw_float32_reference_only": true,
+    "real_GT_payloads_read": 0
+  },
+  "isolation": {
+    "platform": "WSL /dev/dxg",
+    "CPU_probe_forbidden_reads_refused": 24,
+    "GPU_worker_forbidden_reads_refused": 24,
+    "CPU_probe_device_exposed": false,
+    "GPU_stage_required_device_only": "/dev/dxg",
+    "readonly_system_runtime_mounts": [
+      "/usr",
+      "/lib",
+      "/lib64",
+      "/sys",
+      "selected Python environments"
+    ],
+    "real_data_or_history_parent_mounts": false,
+    "preflight_real_RGB_mounts": 0,
+    "preflight_GT_mounts": 0,
+    "network_namespace_isolated": true
+  },
+  "GPU_preflight": {
+    "status": "passed_synthetic_forward",
+    "synthetic_only": true,
+    "forward_count": 1,
+    "forward_shapes": [
+      [
+        1,
+        3,
+        518,
+        784
+      ]
+    ],
+    "output_stats": {
+      "shape": [
+        672,
+        1008
+      ],
+      "dtype": "float32",
+      "nonfinite": 0,
+      "negative": 0,
+      "zero": 0,
+      "minimum": 2.2192232608795166,
+      "maximum": 5.006351470947266,
+      "inference_seconds": 0.5409581609992529
+    },
+    "real_RGB_decoded": 0,
+    "GT_read": false,
+    "formal_predictions_written": 0,
+    "torch_version": "2.4.1+cu124",
+    "CUDA_build": "12.4",
+    "GPU_name": "NVIDIA GeForce RTX 4070 SUPER",
+    "GPU_total_bytes": 12878086144,
+    "peak_allocated_MiB": 331.5322265625,
+    "peak_reserved_MiB": 440.0,
+    "matmul_TF32": false,
+    "cudnn_TF32": true,
+    "training_mode": false,
+    "optimizer_created": false,
+    "network_downloads_possible": false,
+    "forbidden_reads_refused_count": 24
+  },
+  "whole_board_memory": {
+    "samples": 35,
+    "sampled_whole_board_peak_MiB": 1664,
+    "sampling_period_ms": 100
+  },
+  "resources": {
+    "total_wall_seconds": 3.8093821480006227,
+    "GPU_worker_wall_seconds": 3.102964667999913,
+    "GPU_worker_CPU_peak_RSS_KiB": 1047008,
+    "forward_seconds": 0.5409581609992529
+  },
+  "execution_counts": {
+    "synthetic_GPU_model_forwards": 1,
+    "formal_three_view_predictions": 0,
+    "real_GT_evaluations": 0,
+    "optimizer_updates": 0,
+    "automatic_retries": 0
+  },
+  "implementation": {
+    "predictor": "only four frozen train RGB/camera assets, native shape check, 1/6 AREA resize, single forward per view and complete three-output seal",
+    "evaluator": "validate every predicted hash/dtype/shape before reference metadata/payload; native little-endian read-only raw float32 map with expected length/digest; existing frozen ordinal core",
+    "model_import": "actual loaded depth_anything_v2 module paths constrained to verified staged model source files",
+    "forward_observer": "wrap direct self.forward call to record shape once; no extra forward, math/weights unchanged"
+  },
+  "retained_expected_warnings": [
+    "OpenCV cannot open forbidden paths during isolation probes",
+    "xFormers not available, matching frozen no-xformers protocol"
+  ],
+  "limitations": [
+    "synthetic preflight is not a real-scene accuracy result",
+    "no real triple has been predicted or sensor GT evaluated in this step",
+    "100ms whole-board sampling is a sampled peak, not guaranteed instantaneous maximum",
+    "finite/nonnegative dummy output cannot establish ordinal accuracy or reliability"
+  ],
+  "decision": "recommend release exactly three frozen Small-model predictions, then unified CPU native-GT ordinal evaluation only after all predictions are sealed; no reliability weighting or training release",
+  "cumulative_contribution": "real-input IO and source/admission sealing reviewed and synthetic-tested, WSL GPU data-isolation and frozen forward demonstrated; historical anchor failure preserved; no new real accuracy or ranking benefit established"
+}

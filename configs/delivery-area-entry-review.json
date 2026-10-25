@@ -1,0 +1,77 @@
+{
+  "protocol": "delivery-area-staged-entry-review-v1",
+  "date": "2026-10-21",
+  "status": "CPU_review_passed_GPU_not_executed",
+  "scope": "prepare/review only; no GPU, model loads, real predictions, GT value analysis or training",
+  "source_sha256": {
+    "scripts/run_delivery_relative_diagnostic.py": "41b45583260cdd5c8aed733466c108ede9a05862563bbfb674390aab5d47c557",
+    "tests/test_delivery_execution_entry.py": "2d519db2fed5e23a4f00668087e6ab1093df34828317165e3294d255d6c9a2f0",
+    "src/geosplat_r/delivery_relative_io.py": "ff13ff660181098ed2671e7339bc1805399d9d63e58502702cec861360d26441",
+    "src/geosplat_r/relative_io.py": "2899cb3c0d5f72adf9b517d78fb78efe947b0c452d359e76c338c7a577e8d832",
+    "src/geosplat_r/relative_diagnostics.py": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "scripts/prepare_sensor_anchors_cpu.py": "2cb6ed758045a858043762a8dcc14d126efcc95807bfe0f41b8c30c6a7c8f7b1",
+    "scripts/run_relative_diagnostic.py": "a6db23867c18f5c974f7d0609641e144256d9c633b99580de9d9c077c67aa616",
+    "configs/delivery-area-relative-adapter-plan.json": "8d8ad3a455aa7f454dc4ccc88204ecbb4edc2d1e0c69a4432eed2cc96f220ed1",
+    "configs/delivery-area-relative-inputs.json": "e74cfbddaba6b5a451bd40901c550e974543d860bf09e0f2135bddebd003c867",
+    "configs/terrace-relative-diagnostic-plan.json": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+    "configs/second-scene-ordinal-review.json": "058f84c0b417e745daa9d89e98b21da1c51e530e08e569b6b8f1b0fccabe88f8"
+  },
+  "model_identity": {
+    "revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "source_files_verified": 15,
+    "weight_bytes": 99218434,
+    "weight_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "CPU_bytes_hashed_only": true
+  },
+  "environment": {
+    "python": "3.10.22",
+    "numpy": "1.26.4",
+    "opencv": "4.11.0",
+    "torch_package_metadata": "2.4.1+cu124",
+    "torch_imported": false
+  },
+  "stage_contracts": {
+    "preflight": {
+      "real_data_locations_allowed": false,
+      "GT_allowed": false,
+      "synthetic_forwards_if_released": 1,
+      "formal_prediction_files": 0,
+      "CPU_probe_first": true
+    },
+    "predict": {
+      "only_three_RGB_and_camera_manifest": true,
+      "GT_allowed": false,
+      "forwards_if_released": 3,
+      "seal_after_all_three": true
+    },
+    "evaluate": {
+      "GPU_model_or_weights_allowed": false,
+      "all_three_seals_before_label_metadata_mount_or_read": true,
+      "GT_access": "three selected labels only, independent CPU process",
+      "evaluation_subdirectory": "stage/result/evaluation"
+    }
+  },
+  "release_recommendation": {
+    "recommend_next": "exactly one synthetic GPU isolation and forward preflight only",
+    "current_GPU_executions": 0,
+    "formal_prediction_release": false,
+    "real_GT_evaluation_release": false,
+    "training_or_reliability_release": false
+  },
+  "preflight_acceptance": [
+    "New entry, adapter, legacy IO/core/helper, plans, input, model and weight hashes match reviewed identities.",
+    "CPU forbidden-path probe passes before GPU stage.",
+    "Only readonly runtime/model/source/weight and /dev/dxg device exposed; no real RGB, camera data, labels, archives or whole data/history parents.",
+    "Exactly one generated-image forward; 1x3x518x784 CUDA float32,no_grad,eval,no xformers,seed42; raw672x1008 float32 finite/nonnegative.",
+    "Zero real RGB decoded, formal prediction files, GT reads or optimizer updates; no network.",
+    "Record and check torch2.4.1+cu124, numpy1.26.4,cv2 4.11.0; matmulTF32=False and cuDNN_TF32=True match frozen defaults.",
+    "Record time, CPU RSS,Torch allocated/reserved and100ms board peak; memory<=12GiB with nonempty samples.",
+    "Any failure or unexpected flags/input/source/device state stops; preserve evidence, no automatic retry or setting change."
+  ],
+  "limitations": [
+    "GPU access/forward/real evaluation not validated for this entry yet.",
+    "AST/CPU mocks preserve reviewed computation and orchestration, cannot replace actual GPU isolation preflight.",
+    "No second-scene ordinal signal or training gain established."
+  ],
+  "external_evidence_key": "delivery-area-entry-review-20261021T075139Z"
+}

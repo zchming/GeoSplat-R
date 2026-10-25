@@ -1,0 +1,252 @@
+{
+  "protocol": "fsgs-native-sparse-leaves-result-v1",
+  "status": "single_scene_quality_candidate",
+  "baseline": {
+    "source": "results/correlation-four-arm.json",
+    "sha256": "f692eddbe9a072c92ea7b11757bab0416d21f9345e4c41556e49af7a7e551bab",
+    "l1_bookends": {
+      "A1_L1": {
+        "psnr": 12.296916961669922,
+        "ssim": 0.21332843601703644,
+        "lpips_alex": 0.3733755052089691,
+        "rgb_depth_render_seconds": 0.004922707362504753
+      },
+      "A2_L1_repeat": {
+        "psnr": 12.300403356552124,
+        "ssim": 0.22074807062745094,
+        "lpips_alex": 0.3673497885465622,
+        "rgb_depth_render_seconds": 0.004554165912497864
+      }
+    },
+    "l1_mean": {
+      "psnr": 12.298660159111023,
+      "ssim": 0.2170382533222437,
+      "lpips_alex": 0.37036264687776566
+    }
+  },
+  "native": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 17.728239059448242,
+        "ssim": 0.6186915636062622,
+        "lpips_alex": 0.16525793075561523
+      },
+      {
+        "image": "image008.png",
+        "psnr": 18.3975772857666,
+        "ssim": 0.6263685822486877,
+        "lpips_alex": 0.13944396376609802
+      },
+      {
+        "image": "image016.png",
+        "psnr": 16.57137680053711,
+        "ssim": 0.4992876648902893,
+        "lpips_alex": 0.1967909187078476
+      },
+      {
+        "image": "image024.png",
+        "psnr": 16.776748657226562,
+        "ssim": 0.5198183059692383,
+        "lpips_alex": 0.18517367541790009
+      }
+    ],
+    "mean": {
+      "psnr": 17.36848545074463,
+      "ssim": 0.5660415291786194,
+      "lpips_alex": 0.17166662216186523
+    },
+    "wall_seconds": 0.3495985240006121,
+    "point_count": 359092,
+    "checkpoint_sha256": "85251a838a4390a504cc2ef8ba02319f725ae536d04cbc164a8e61d608a3e75b",
+    "renderer": "FSGS native CUDA",
+    "metric_protocol": "same float RGB, torchmetrics SSIM options and LPIPS-Alex normalize=True as baseline"
+  },
+  "gsplat": {
+    "test_mean": {
+      "psnr": 17.368537425994873,
+      "ssim": 0.5660350322723389,
+      "lpips_alex": 0.17168303579092026,
+      "rgb_depth_render_seconds": 0.0019863474125941137
+    },
+    "test_per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 17.728330612182617,
+        "ssim": 0.61869877576828,
+        "lpips_alex": 0.16526052355766296,
+        "rgb_depth_render_seconds": 0.0019815301000562615,
+        "valid_depth_fraction_alpha_0_5": 0.9998110355253212,
+        "depth_visualization_percentile_2_98": [
+          6.962368726730347,
+          49.256710052490234
+        ]
+      },
+      {
+        "image": "image008.png",
+        "psnr": 18.39754867553711,
+        "ssim": 0.6263526082038879,
+        "lpips_alex": 0.13945555686950684,
+        "rgb_depth_render_seconds": 0.0020037711001350544,
+        "valid_depth_fraction_alpha_0_5": 0.9990499286134207,
+        "depth_visualization_percentile_2_98": [
+          7.011559295654297,
+          48.842438507080075
+        ]
+      },
+      {
+        "image": "image016.png",
+        "psnr": 16.571348190307617,
+        "ssim": 0.4992756247520447,
+        "lpips_alex": 0.19683198630809784,
+        "rgb_depth_render_seconds": 0.0019004395500815008,
+        "valid_depth_fraction_alpha_0_5": 0.9961839674141262,
+        "depth_visualization_percentile_2_98": [
+          7.065304718017578,
+          47.83011291503907
+        ]
+      },
+      {
+        "image": "image024.png",
+        "psnr": 16.77692222595215,
+        "ssim": 0.5198131203651428,
+        "lpips_alex": 0.1851840764284134,
+        "rgb_depth_render_seconds": 0.002059648900103639,
+        "valid_depth_fraction_alpha_0_5": 0.9944307970101621,
+        "depth_visualization_percentile_2_98": [
+          7.076061725616455,
+          48.52727127075195
+        ]
+      }
+    ],
+    "train_mean": {
+      "psnr": 32.34341621398926,
+      "ssim": 0.9705965717633566,
+      "lpips_alex": 0.025566495954990387,
+      "rgb_depth_render_seconds": 0.002021749983335515
+    },
+    "evaluation_seconds": 3.856056921002164,
+    "whole_board_peak_mib": 1558
+  },
+  "delta_vs_l1_mean": {
+    "psnr": 5.06987726688385,
+    "ssim": 0.3489967789500952,
+    "lpips_alex": -0.1986796110868454
+  },
+  "mean_gates_vs_best_bookend": {
+    "psnr": true,
+    "ssim": true,
+    "lpips_alex": true
+  },
+  "per_image": [
+    {
+      "image": "image000.png",
+      "fsgs_gsplat": {
+        "psnr": 17.728330612182617,
+        "ssim": 0.61869877576828,
+        "lpips_alex": 0.16526052355766296
+      },
+      "l1_repeat_mean": {
+        "psnr": 12.467427253723145,
+        "ssim": 0.24117643386125565,
+        "lpips_alex": 0.3503677248954773
+      },
+      "delta_vs_l1_mean": {
+        "psnr": 5.260903358459473,
+        "ssim": 0.3775223419070244,
+        "lpips_alex": -0.18510720133781433
+      }
+    },
+    {
+      "image": "image008.png",
+      "fsgs_gsplat": {
+        "psnr": 18.39754867553711,
+        "ssim": 0.6263526082038879,
+        "lpips_alex": 0.13945555686950684
+      },
+      "l1_repeat_mean": {
+        "psnr": 12.691193103790283,
+        "ssim": 0.2298424243927002,
+        "lpips_alex": 0.342597097158432
+      },
+      "delta_vs_l1_mean": {
+        "psnr": 5.706355571746826,
+        "ssim": 0.39651018381118774,
+        "lpips_alex": -0.20314154028892517
+      }
+    },
+    {
+      "image": "image016.png",
+      "fsgs_gsplat": {
+        "psnr": 16.571348190307617,
+        "ssim": 0.4992756247520447,
+        "lpips_alex": 0.19683198630809784
+      },
+      "l1_repeat_mean": {
+        "psnr": 11.924425601959229,
+        "ssim": 0.2014632746577263,
+        "lpips_alex": 0.3926393985748291
+      },
+      "delta_vs_l1_mean": {
+        "psnr": 4.646922588348389,
+        "ssim": 0.2978123500943184,
+        "lpips_alex": -0.19580741226673126
+      }
+    },
+    {
+      "image": "image024.png",
+      "fsgs_gsplat": {
+        "psnr": 16.77692222595215,
+        "ssim": 0.5198131203651428,
+        "lpips_alex": 0.1851840764284134
+      },
+      "l1_repeat_mean": {
+        "psnr": 12.111594676971436,
+        "ssim": 0.19567088037729263,
+        "lpips_alex": 0.3958463668823242
+      },
+      "delta_vs_l1_mean": {
+        "psnr": 4.665327548980713,
+        "ssim": 0.3241422399878502,
+        "lpips_alex": -0.21066229045391083
+      }
+    }
+  ],
+  "max_native_gsplat_per_image_metric_difference": {
+    "psnr": 0.0001735687255859375,
+    "ssim": 1.5974044799804688e-05,
+    "lpips_alex": 4.106760025024414e-05
+  },
+  "training": {
+    "completed": true,
+    "native_iterations": 10000,
+    "optimizer_steps": 9999,
+    "seed": 44,
+    "wall_seconds": 679.700328308998,
+    "peak_torch_allocated_bytes": 2528433152,
+    "peak_torch_reserved_bytes": 3055550464,
+    "checkpoint_sha256": "85251a838a4390a504cc2ef8ba02319f725ae536d04cbc164a8e61d608a3e75b",
+    "test_views_loaded": 0,
+    "midas_weights_sha256": "501f0c75b3bca7daec6b3682c5054c09b366765aef6fa3a09d03a5cb4b230853",
+    "pixel_origin": "gsplat rays: native projected pixels shifted by -0.5"
+  },
+  "resources": {
+    "successful_training_worker_seconds": 684.551253013,
+    "successful_training_board_peak_mib": 4071,
+    "interrupted_attempt_seconds": 557.8615723750008,
+    "total_charged_seconds": 4911.19036687707,
+    "total_limit_seconds": 5400,
+    "whole_project_cost": false
+  },
+  "failures_preserved": [
+    "source TLS retrieval",
+    "CUDA missing cstdint",
+    "PIL name shadow in CPU check",
+    "initial pixel-origin training stopped at last reported iteration 8370",
+    "native checkpoint restricted-load failure",
+    "checkpoint-loading repair used API absent from Torch2.4"
+  ],
+  "scope": "One development scene/seed; complete-method comparison, native 9999 versus baseline 30000 optimizer updates; no isolated component or final benchmark claim",
+  "evidence_key": "fsgs-integration-20261023T031053Z",
+  "committed_or_pushed": false
+}

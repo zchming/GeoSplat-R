@@ -1,0 +1,262 @@
+{
+  "scope": "Phase 1 fern 3-view distortion-corrected vanilla baseline; single seed; no algorithm gain claim",
+  "protocol_config": "configs/fern-3view-undistorted.json",
+  "image_protocol": {
+    "name": "fern-undistorted-v1",
+    "calibration_sha256": "958b679096a31e5c1cbccf141d4ddf5e776cf0e1afd05b3f1fc409cfcff7a13b",
+    "opencv": "4.11.0",
+    "source_K": [
+      [
+        407.5657916100737,
+        0.0,
+        252.0
+      ],
+      [
+        0.0,
+        407.5657916100737,
+        189.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "source_distortion": [
+      0.019750463822896944,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "new_K": [
+      [
+        413.7574847929507,
+        0.0,
+        251.5
+      ],
+      [
+        0.0,
+        413.7574847929507,
+        188.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "size": [
+      504,
+      378
+    ],
+    "alpha": 0.0,
+    "center_principal_point": true,
+    "focal_guard_factor": 1.001,
+    "opencv_roi_reported": [
+      0,
+      0,
+      503,
+      377
+    ],
+    "interpolation": "INTER_LINEAR, uint8 sRGB",
+    "cropping": false,
+    "evaluation_mask": false,
+    "padding_pixels": 0,
+    "map_bounds": [
+      1.4402366876602173,
+      502.55975341796875,
+      1.2047101259231567,
+      376.7952880859375
+    ],
+    "analytic_forward_map_max_abs_error_px": 1.525876211871946e-05,
+    "selection_inputs": "camera calibration and image dimensions only; no image content or test metrics",
+    "caveat": "Resampled test GT defines a new evaluation protocol; cross-protocol differences are not algorithm gains"
+  },
+  "initialization": {
+    "points": 488,
+    "training_reprojection_mean_px": 0.33210503638564426,
+    "intrinsics_protocol": "fern-undistorted-v1",
+    "train_names": [
+      "image001.png",
+      "image010.png",
+      "image019.png"
+    ],
+    "test_names": [
+      "image000.png",
+      "image008.png",
+      "image016.png"
+    ]
+  },
+  "train": {
+    "per_image": [
+      {
+        "image": "image001.png",
+        "psnr": 43.64155197143555,
+        "ssim": 0.9983253479003906,
+        "lpips_alex": 0.001589520601555705,
+        "rgb_depth_render_seconds": 0.0028484422500014263,
+        "valid_depth_fraction_alpha_0_5": 0.9962784496514655,
+        "depth_visualization_percentile_2_98": [
+          3.5279855060577394,
+          12.405269088745117
+        ]
+      },
+      {
+        "image": "image010.png",
+        "psnr": 44.865020751953125,
+        "ssim": 0.9981136918067932,
+        "lpips_alex": 0.0010623550042510033,
+        "rgb_depth_render_seconds": 0.0029644012000005658,
+        "valid_depth_fraction_alpha_0_5": 0.9968243470227597,
+        "depth_visualization_percentile_2_98": [
+          4.398535289764404,
+          12.463153266906739
+        ]
+      },
+      {
+        "image": "image019.png",
+        "psnr": 47.81346130371094,
+        "ssim": 0.9984908699989319,
+        "lpips_alex": 0.0008002474787645042,
+        "rgb_depth_render_seconds": 0.0029399613000009595,
+        "valid_depth_fraction_alpha_0_5": 0.9942575795750399,
+        "depth_visualization_percentile_2_98": [
+          4.291278047561645,
+          12.223392086029053
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 45.44001134236654,
+      "ssim": 0.9983099699020386,
+      "lpips_alex": 0.001150707694857071,
+      "rgb_depth_render_seconds": 0.002917601583334317
+    }
+  },
+  "test": {
+    "per_image": [
+      {
+        "image": "image000.png",
+        "psnr": 16.92289924621582,
+        "ssim": 0.46971482038497925,
+        "lpips_alex": 0.3891755938529968,
+        "rgb_depth_render_seconds": 0.002820784099998264,
+        "valid_depth_fraction_alpha_0_5": 0.9912393969933653,
+        "depth_visualization_percentile_2_98": [
+          3.9192782497406005,
+          12.360564880371093
+        ]
+      },
+      {
+        "image": "image008.png",
+        "psnr": 17.27542495727539,
+        "ssim": 0.4602065682411194,
+        "lpips_alex": 0.36584851145744324,
+        "rgb_depth_render_seconds": 0.002902348399999255,
+        "valid_depth_fraction_alpha_0_5": 0.9944255479969766,
+        "depth_visualization_percentile_2_98": [
+          3.8976652431488037,
+          12.359152374267579
+        ]
+      },
+      {
+        "image": "image016.png",
+        "psnr": 10.860740661621094,
+        "ssim": 0.2041490226984024,
+        "lpips_alex": 0.5921735167503357,
+        "rgb_depth_render_seconds": 0.0030313901999988956,
+        "valid_depth_fraction_alpha_0_5": 0.891046233308138,
+        "depth_visualization_percentile_2_98": [
+          3.5728704166412353,
+          12.851499519348144
+        ]
+      }
+    ],
+    "mean": {
+      "psnr": 15.019688288370768,
+      "ssim": 0.37802347044150036,
+      "lpips_alex": 0.4490658740202586,
+      "rgb_depth_render_seconds": 0.002918174233332138
+    }
+  },
+  "training_resources": {
+    "status": "passed",
+    "error": null,
+    "elapsed_perf_counter_seconds": 317.694324533,
+    "elapsed_wall_clock_seconds": 347.2719416618347,
+    "torch_peak_allocated_mib": 699.88818359375,
+    "torch_peak_reserved_mib": 1110.0,
+    "whole_board_sampled_peak_mib": 2062,
+    "sampling_period_ms": 200,
+    "samples": 1582,
+    "sampler_error": null,
+    "gpu_timestamp_sampling_span_seconds": 347.224,
+    "gpu_utilization_mean_percent": 91.22819216182047,
+    "gpu_utilization_peak_percent": 96,
+    "training_perf_counter_seconds": 317.60758703400006,
+    "training_wall_clock_seconds": 347.1852037906647,
+    "cuda_stream_elapsed_seconds": 346.49359375,
+    "optimizer_updates": 30000,
+    "final_gaussians": 441448,
+    "initial_gaussians": 488,
+    "initial_parameters_sha256": "b600c3076269ef9eca9066c9081f163a805cd880a2a1be8d65f2892ebe2d5c17"
+  },
+  "evaluation": {
+    "evaluation_seconds": 3.6140355400000317,
+    "torch_peak_allocated_mib": 388.52099609375,
+    "torch_peak_reserved_mib": 548.0,
+    "whole_board_sampled_peak_mib": 1435,
+    "gpu_timestamp_sampling_span_seconds": 3.626
+  },
+  "versions": {
+    "torch": "2.4.1+cu124",
+    "torchvision": "0.19.1+cu124",
+    "gsplat": "1.5.3+pt24cu124",
+    "torchmetrics": "1.9.0",
+    "numpy": "1.26.4"
+  },
+  "metric_protocol": {
+    "rgb": "sRGB [0,1], clamp prediction, no mask/crop",
+    "psnr": "-10 log10 per-image RGB MSE, then arithmetic image mean",
+    "ssim": {
+      "gaussian_kernel": true,
+      "sigma": 1.5,
+      "kernel_size": 11,
+      "data_range": 1.0,
+      "k1": 0.01,
+      "k2": 0.03
+    },
+    "lpips": "AlexNet, normalize=True; per-image reset",
+    "alexnet_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+    "lpips_calibration_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+  },
+  "provenance": {
+    "upstream": "937e29912570c372bed6747a5c9bf85fed877bae",
+    "cameras_sha256": "7683398e2a3fdff4140c9137ca7637dd45159e5d9072c27e8d0b7750238c3a32",
+    "points_sha256": "59029bf5b99ae08db9d2f9ac1d336e954ab2f86cef8e2e7e7249e878d8268394",
+    "training_implementation_sha256": "8569567ebbd88592457b4f59e6e38e926a669e9df20e20a66f71d8bd150fbf0d",
+    "image_cache": "3 CUDA float32 RGBs",
+    "memory_fraction": 0.8164312176851362,
+    "memory_headroom_mib": 1024
+  },
+  "checkpoint_sha256": "eb3ebc62a81e54544ce266e2f53345c4e98d50f8eec3c2fe63491ddc53547177",
+  "checks": {
+    "tests_passed": 16,
+    "tests_skipped": 0,
+    "video_decoded_frames": 48,
+    "training_failures_this_substep": 0,
+    "oom_this_substep": 0
+  },
+  "acceptance": {
+    "substep": "pass: pinhole-ray protocol, train-only initialization, runtime and separate evaluation",
+    "quality": "severe overfitting remains; not a successful reconstruction-quality optimization",
+    "next_research_step": "Phase 2 minimal uniform depth regularization on this frozen protocol, only after authorization",
+    "publication": "prepare one reviewable initial engineering commit; no automatic commit or push"
+  },
+  "limits": [
+    "Resampled GT, intrinsics and initial point cloud differ from legacy; metric/time differences are not algorithm gains",
+    "Public calibration may derive from full-view SfM; no end-to-end 3-view camera recovery claim",
+    "One development scene and one full seed, no generalization or variance conclusion",
+    "No independent dense geometry ground truth; lower SfM residual is not accuracy validation"
+  ]
+}

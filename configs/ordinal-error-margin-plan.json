@@ -1,0 +1,470 @@
+{
+  "protocol": "ordinal-error-margin-hypothesis-v1",
+  "date": "2026-10-21",
+  "status": "conditionally_reviewed_not_implemented_or_executed",
+  "authorization": {
+    "review_only": true,
+    "implementation": false,
+    "score_computation": false,
+    "feature_generation": false,
+    "risk_curve_computation": false,
+    "new_GT_analysis": false,
+    "GPU": false,
+    "inference": false,
+    "training": false,
+    "downloads": false,
+    "commit": false,
+    "push": false
+  },
+  "hypothesis": "On each of the six already-observed development images, a smaller within-image prediction-rank gap identifies more frozen >=10%-GT-contrast ordinal errors; this is a non-geometric ambiguity baseline, not a calibrated confidence or novel reliability method.",
+  "selection_rationale": "Two-scene ordinal signal passes but does not imply error discrimination. Use exactly one simple parameter-free prediction-only control before any geometric/learned score. Existing D1/D2/H1/Cauchy failures remain stopped.",
+  "known_evidence": [
+    {
+      "scene": "terrace",
+      "image": "dslr_images/DSC_0259.JPG",
+      "baseline_loss": 0.007871930585148894,
+      "wrong_pair_memberships": 315,
+      "conservative_unique_wrong_pair_lower_bound": 304,
+      "local_wrong_memberships": 20,
+      "local_cells": 84,
+      "local_pairs": 9793,
+      "source_report": "results/terrace-relative-diagnostic.json",
+      "source_report_sha256": "00e1ddf2e7386e51a8b4ec6385db4572b857a074e1b6aa692c9a07b033e2d13f"
+    },
+    {
+      "scene": "terrace",
+      "image": "dslr_images/DSC_0271.JPG",
+      "baseline_loss": 0.007866764507014772,
+      "wrong_pair_memberships": 252,
+      "conservative_unique_wrong_pair_lower_bound": 242,
+      "local_wrong_memberships": 35,
+      "local_cells": 62,
+      "local_pairs": 5661,
+      "source_report": "results/terrace-relative-diagnostic.json",
+      "source_report_sha256": "00e1ddf2e7386e51a8b4ec6385db4572b857a074e1b6aa692c9a07b033e2d13f"
+    },
+    {
+      "scene": "terrace",
+      "image": "dslr_images/DSC_0285.JPG",
+      "baseline_loss": 0.013603150187753701,
+      "wrong_pair_memberships": 588,
+      "conservative_unique_wrong_pair_lower_bound": 581,
+      "local_wrong_memberships": 30,
+      "local_cells": 86,
+      "local_pairs": 9680,
+      "source_report": "results/terrace-relative-diagnostic.json",
+      "source_report_sha256": "00e1ddf2e7386e51a8b4ec6385db4572b857a074e1b6aa692c9a07b033e2d13f"
+    },
+    {
+      "scene": "delivery_area",
+      "image": "dslr_images/DSC_0675.JPG",
+      "baseline_loss": 0.01854718023977689,
+      "wrong_pair_memberships": 96,
+      "conservative_unique_wrong_pair_lower_bound": 93,
+      "local_wrong_memberships": 0,
+      "local_cells": 20,
+      "local_pairs": 611,
+      "source_report": "results/delivery-area-relative-diagnostic.json",
+      "source_report_sha256": "40c8973e076609d1de23f9e5313d2fb2b03f452666ba49ecfcc390b25c4ddf8f"
+    },
+    {
+      "scene": "delivery_area",
+      "image": "dslr_images/DSC_0696.JPG",
+      "baseline_loss": 0.01136238113663766,
+      "wrong_pair_memberships": 417,
+      "conservative_unique_wrong_pair_lower_bound": 410,
+      "local_wrong_memberships": 43,
+      "local_cells": 90,
+      "local_pairs": 10018,
+      "source_report": "results/delivery-area-relative-diagnostic.json",
+      "source_report_sha256": "40c8973e076609d1de23f9e5313d2fb2b03f452666ba49ecfcc390b25c4ddf8f"
+    },
+    {
+      "scene": "delivery_area",
+      "image": "dslr_images/DSC_0718.JPG",
+      "baseline_loss": 0.009667237472825647,
+      "wrong_pair_memberships": 430,
+      "conservative_unique_wrong_pair_lower_bound": 423,
+      "local_wrong_memberships": 27,
+      "local_cells": 95,
+      "local_pairs": 12162,
+      "source_report": "results/delivery-area-relative-diagnostic.json",
+      "source_report_sha256": "40c8973e076609d1de23f9e5313d2fb2b03f452666ba49ecfcc390b25c4ddf8f"
+    }
+  ],
+  "pre_registration_limits": "GT outcomes and error examples of all six images were already observed; candidate descriptor/risk values have not been computed. This is a frozen exploratory development screen, not a blind confirmation.",
+  "input_assets": [
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "prediction/stage/result/predictions/0.npy",
+      "role": "scorer",
+      "bytes": 2709632,
+      "sha256": "5219e0c36e7a35528c9c694f73aeae05f175bc9f8e01f5cc9b71729e0ba9e248"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "prediction/stage/result/predictions/1.npy",
+      "role": "scorer",
+      "bytes": 2709632,
+      "sha256": "20bfe11a98d39c0f126a40999f2ce4f760a70c7bf40459b0f065ba6500d51349"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "prediction/stage/result/predictions/2.npy",
+      "role": "scorer",
+      "bytes": 2709632,
+      "sha256": "72ef3bf8d266459275ef843603a6195c8cda720b5939cee12617b734a71ee431"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "prediction/stage/result/predictions/seal.json",
+      "role": "scorer",
+      "bytes": 4098,
+      "sha256": "9bd8860f2e72ea65eb0b8d17e373198e88c4bb3b3d63e9779eca5aed1607b930"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/image-0-evaluator-only-pairs.npz",
+      "role": "evaluator",
+      "bytes": 1378142,
+      "sha256": "c8fa290dcbea2cb10046fe6cd694bfb1e500c648d875a0253408aa2eaf88eaba"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/image-1-evaluator-only-pairs.npz",
+      "role": "evaluator",
+      "bytes": 1550389,
+      "sha256": "886d1b7a88db2363de52d6cd04bd8183f6512fb2826e4ad5b5b8d07006b3a240"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/image-2-evaluator-only-pairs.npz",
+      "role": "evaluator",
+      "bytes": 1435751,
+      "sha256": "1d5c3fe677fa16ff032d3ad34b91ce14693880865684f52d7b17f86323d8b6d5"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/image-0.json",
+      "role": "evaluator",
+      "bytes": 112507,
+      "sha256": "b9384bf82d2d9b31aa7d4b305a6672095ee4c39dc5d58ec7de60cf872be62fbf"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/image-1.json",
+      "role": "evaluator",
+      "bytes": 112764,
+      "sha256": "73610b2d88787c9308326a1cb291395169ca4619625f0d4442cf140354b9cda6"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/image-2.json",
+      "role": "evaluator",
+      "bytes": 112793,
+      "sha256": "e65032592db25781a7de5a6a5bd72fa924ea0368ec7369cecfc8f05b9e6b2c33"
+    },
+    {
+      "scene": "terrace",
+      "evidence_key": "terrace-relative-diagnostic-20261021T070955Z",
+      "relative_path": "evaluation/stage/result/assessment.json",
+      "role": "evaluator",
+      "bytes": 208,
+      "sha256": "86e2d7b6325ef76e6d6de5a513721c283c0d03a106bcfce52bbb79b8236b6bf9"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "prediction/stage/result/predictions/0.npy",
+      "role": "scorer",
+      "bytes": 2709632,
+      "sha256": "52b56bfa262e297423f41d82e2e0c11847ea5791a82f36aae09b84edc7e4bfd0"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "prediction/stage/result/predictions/1.npy",
+      "role": "scorer",
+      "bytes": 2709632,
+      "sha256": "d476d4f9903b927a4123ba726095176369feb58d6c031db9acf73aecb85f3039"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "prediction/stage/result/predictions/2.npy",
+      "role": "scorer",
+      "bytes": 2709632,
+      "sha256": "15d6c0a061907f70aa3ef41469ad59abd143e277f93e71a590b9c91ca48e0a7e"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "prediction/stage/result/predictions/seal.json",
+      "role": "scorer",
+      "bytes": 3547,
+      "sha256": "878158f51db1372508f939f26d96b6da5837108a851cb44a720503b9aab9cf62"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/image-0-evaluator-only-pairs.npz",
+      "role": "evaluator",
+      "bytes": 1550389,
+      "sha256": "fc7fbcc32a9efd96d2c3a78de99914f4b84fdbe38fc90c961efbc22aa8c7365c"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/image-1-evaluator-only-pairs.npz",
+      "role": "evaluator",
+      "bytes": 1550389,
+      "sha256": "f690e9c9b729aadef51c0011d4f4b1ae61a6b6aa5b01511665dee9d32f5d88e1"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/image-2-evaluator-only-pairs.npz",
+      "role": "evaluator",
+      "bytes": 1550464,
+      "sha256": "8640f7036327f256e5f17304e06a2fb8e90961fa92e91074bc00abc27133c5dc"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/image-0.json",
+      "role": "evaluator",
+      "bytes": 112240,
+      "sha256": "d98fcc5f83d18f9f21565b2d8e2b20bfaa3f1d8063be28844017ff301b72022d"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/image-1.json",
+      "role": "evaluator",
+      "bytes": 113061,
+      "sha256": "1610cb52dfd404e1f554929e11063d84326def2467a18e0949c93a4742e7bef2"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/image-2.json",
+      "role": "evaluator",
+      "bytes": 113250,
+      "sha256": "7193fbf6461afaa9a721141800e8b388f933c31ec6fb703f082a0a70ac2c40f2"
+    },
+    {
+      "scene": "delivery_area",
+      "evidence_key": "delivery-area-relative-diagnostic-20261021T080419Z",
+      "relative_path": "evaluation/stage/result/evaluation/assessment.json",
+      "role": "evaluator",
+      "bytes": 180,
+      "sha256": "5796dd1aaeb6f7f23af44f6e9ad8754f168cc1fc771adad68147c092be5d2f3b"
+    }
+  ],
+  "input_asset_totals": {
+    "files": 22,
+    "scorer_files": 8,
+    "scorer_bytes": 16265437,
+    "evaluator_additional_files": 14,
+    "evaluator_additional_bytes": 9692527,
+    "download_bytes": 0
+  },
+  "inherited_protocol": {
+    "terrace_plan_sha256": "e1a3da0170e9beb0394136f81ab8bcf0b934e4d4dd6a285d24f1e0bcd7669b50",
+    "delivery_adapter_plan_sha256": "8d8ad3a455aa7f454dc4ccc88204ecbb4edc2d1e0c69a4432eed2cc96f220ed1",
+    "numerical_core_sha256": "76b39d2a52ccc4303d4e4f92be70d676c7d837c4bddd3535ec1f134aef5d63e2",
+    "raw_q_shape": [
+      672,
+      1008
+    ],
+    "native_wh": [
+      6048,
+      4032
+    ],
+    "grid": [
+      12,
+      9
+    ],
+    "GT_contrast_min": 1.1,
+    "main_cells": "same frozen cells with>=16 eligible pairs; no resampling/refill, new contrast or masks",
+    "pair_memberships": "retain source-cell memberships and report canonical unique/repeated edges",
+    "target_loss": "unchanged model q vs original evaluator Z: correct0,wrong1,exact q tie0.5,invalid either endpoint1",
+    "aggregation": "same per-cell means, local/cross half each,three-image equal scene mean; scene gates separate,not pooled"
+  },
+  "descriptor": {
+    "name": "prediction-only empirical-CDF rank margin",
+    "scorer_inputs": "six sealed raw q arrays and their two prediction seals only; no RGB,cameras,GT masks,GT-indexed nodes,pairs,Z,per-image errors or previous results",
+    "domain": "all integer working-grid centers x=2..1005,y=2..669, inclusive,independent of GT support",
+    "domain_pixels": 670672,
+    "valid": "finite nonnegative raw q; q=0 valid",
+    "numeric": "promote raw float32 q values to float64, sort valid domain values; do not normalize using GT-selected nodes or interpolate a CDF image",
+    "CDF": "F(v)=(count(domain q<v)+0.5*count(domain q==v))/N; searchsorted left/right in float64; queried v may lie between domain values",
+    "output": "per-image sorted domain q values plus valid/invalid domain counts,shape,source hashes and complete-six-descriptor seal; no pair scores,weights or oracle output",
+    "no_fit_or_GT_alignment": true,
+    "seal": "All six descriptors complete before evaluator semantically opens/deserializes any evaluator-only cache. Trusted inventory controller may hash opaque bytes for provenance; scorer process never receives evaluator mounts or bytes.",
+    "G0_valid_fraction_min": 0.99,
+    "on_empty_or_insufficient_domain": "blocked_prediction_descriptor_support; preserve all counts,no fill or alternate mask"
+  },
+  "pair_score": {
+    "query": "evaluator uses original native indices and unchanged raw-q four-neighbor float64 bilinear sampling; after sampling apply sealed global F to q_a/q_b",
+    "risk": "S_ab=1-abs(F(q_a)-F(q_b)); larger is more ambiguous; fixed sign, no learned threshold",
+    "invalid_prediction_or_descriptor": "score1 worst risk; target loss remains1 for invalid prediction. Shared invalid-node worst ordering in all feasible score controls; report separately,never drop.",
+    "zero_or_equal_q": "valid; equal q implies S=1 and target0.5 on eligible unequal-GT pairs",
+    "not_a_pixel_confidence": "pair ambiguity does not assign responsibility to a pixel or produce a depth-L1 training weight"
+  },
+  "risk_metric": {
+    "coverage": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "primary_coverage": 0.5,
+    "retention": "independently in each already-included cell:keep c*n lowest-risk memberships; fractional ties ensure exact requested membership mass,no index-based selection",
+    "tie_rule": "For cell n and m=c*n,let t be score at zero-based ceil(m)-1;weights1 for S<t,0 for S>t,and (m-count(S<t))/count(S==t) on every S==t. No epsilon, no arbitrary stable-sort tie winner.",
+    "cell_risk": "R_cell(c)=sum(w*L)/sum(w); sum(w)=c*n",
+    "aggregation": "same cells/strata/images as baseline at every coverage,not a new support subset; R_image(c)=0.5*(mean_local_cells+mean_cross_cells); R_scene=mean(all3 images)",
+    "identity_at_full_coverage": "every score/control R(1) exactly reproduces retained baseline cell/stratum/image/scene loss within1e-12",
+    "secondary": "report each coverage; optional explicitly named discrete_four_coverage_mean=(R(.25)+R(.5)+R(.75)+R(1))/4,not continuous AURC or a new acceptance target",
+    "no_IID_inference": true
+  },
+  "controls": {
+    "constant": "all valid nodes/pairs constant risk0.5 (invalid prediction endpoint risk1); with these fully valid frozen samples,all coverages equal original baseline by fractional ties",
+    "score_only_shuffles": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "image_seed": "seed+1000*image_index;image_index0/1/2 within each scene",
+      "permutation": "one PCG64 permutation of valid sampled-node F values in original native-index order;reuse across every local/cross pair;invalid masks fixed",
+      "target_unchanged": "never shuffle raw q used for baseline L,GT,indices,cells,or pair eligibility; this differs from prior ordinal-signal shuffled-prediction controls",
+      "report": "all20 seed/cell/stratum/image/scene risks plus mean,min,max; do not choose seeds or compute IID significance"
+    },
+    "risk_oracle": "evaluator-only risk S=L using actual frozen model target loss,kept fixed. It lower-bounds retained risk; at coverage1 it equals baseline,not zero. Not the earlier q=1/Z model oracle;never exported to scorer/training."
+  },
+  "evaluation_support": {
+    "minimum_canonical_unique_wrong_pairs_each_image": 50,
+    "minimum_error_bearing_source_cells_each_image": 3,
+    "error_bearing_cell": "at least one wrong L=1 pair membership in either included stratum;count union of original source-cell IDs",
+    "minimum_positive_image_R1": true,
+    "unique_pair_counts_status": "conservative existing lower bounds93..581 support planning only;exact wrong graph/source-cell count not newly computed this review",
+    "stratum_without_errors": "retain in image/scene macro risk; mark discrimination/relative ratio unknown_no_error when R_stratum(1)=0. No success claim for this stratum; never remove it.",
+    "on_failure": "blocked_error_support for overall six-image screen; preserve all other diagnostics,do not drop image,change contrast or add a scene",
+    "graph_reporting": "unique wrong edges,distinct error-incident nodes,max-node error incidence,per-cell error concentration; counts do not make dependent pairs independent",
+    "folds": "No fitting and no OOF claim; do not randomly split correlated pairs into train/test. Image summaries and two scene summaries are descriptive; unseen scene required for confirmation.",
+    "when_checked": "Only in evaluator after complete-six-descriptor seal; this support cannot be certified by the prior metadata-only input gate."
+  },
+  "acceptance": {
+    "engineering": [
+      "all identities/roles,source fidelity and isolated no-GT descriptor stage pass",
+      "synthetic constant/equal/zero/invalid,CDF between-values,half-pixel,fractional boundary ties,source-cell membership and oracle checks pass",
+      "changing labels,nodes/pairs or errors cannot change descriptor;score shuffles cannot change L;every R1 reproduces original baseline",
+      "all six descriptors sealed before evaluator assets;new output refuses overwrite or source/input overlap"
+    ],
+    "primary_each_of_six_images": {
+      "R50_at_most_fraction_of_own_R100": 0.8,
+      "R50_at_most_fraction_of_mean20_score_shuffle_R50": 0.9
+    },
+    "primary_each_of_two_scenes": {
+      "R50_at_most_fraction_of_own_R100": 0.75
+    },
+    "each_stratum_no_harm": "R_stratum(.5)<=R_stratum(1)+1e-12 for each of12 strata;zero-error stratum stays0 but discrimination remains unknown",
+    "threshold_meaning": "Operational development investment screen chosen before any descriptor/risk computation,not published universal standards,significance or calibrated probabilities.",
+    "on_negative": "stop this fixed margin hypothesis,no sign reversal,threshold/coverage/domain/contrast changes,mixture scores or extra inference;retain negative/unknowns",
+    "on_positive": "only supports a simple ambiguity control on observed development scenes. Require separately reviewed,unopened scene with protocol frozen before results for confirmation; do not call geometric reliability or enter weighting/training."
+  },
+  "resources": {
+    "CPU_threads_max": 4,
+    "RSS_budget_GiB": 2,
+    "timeout_seconds": 600,
+    "new_output_budget_MiB": 256,
+    "descriptor_reference_values_estimated_bytes": 32192256,
+    "GPU_calls": 0,
+    "model_loads": 0,
+    "downloads": 0,
+    "streaming": "one raw map/descriptor and one scene/image/control at a time;reuse frozen nodes/pairs,no all-native-pixel pairs"
+  },
+  "synthetic_review_examples": [
+    {
+      "domain_q": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "F_at_values": [
+        0.125,
+        0.5,
+        0.5,
+        0.875
+      ],
+      "risk_pair_0_3": 0.25,
+      "risk_pair_1_1": 1,
+      "meaning": "paper arithmetic only;zero valid,ties ambiguity high"
+    },
+    {
+      "constant_q": 1,
+      "F": 0.5,
+      "risk": 1,
+      "retained_risk": "same baseline at every coverage;fractional ties,no fabricated discrimination"
+    },
+    {
+      "domain_q": [
+        1,
+        2,
+        3
+      ],
+      "GT_Z": [
+        1,
+        2,
+        4
+      ],
+      "example_pair": "first versus last",
+      "risk": "1/3 (relatively low)",
+      "loss": 1,
+      "meaning": "Large prediction-rank gap can be confidently reversed; the hypothesis is falsifiable,not implied by using q in both score and target. Paper example only."
+    }
+  ],
+  "release_order": [
+    "current:proposal/static inventory consistency only,no scoring/descriptor/risk curve",
+    "next separate authorization:minimal CPU descriptor/evaluator entry and synthetic/isolation checks,then metadata-only input gate;no real descriptor/risk computation or GT cache deserialization",
+    "after checks and explicit release:one frozen CPU diagnostic;seal all6 descriptors first,then evaluator reads frozen caches,checks error support and computes risk only if support passes;no new model inference",
+    "if passed,review separate unseen-scene confirmation data/protocol and costs before downloads or execution",
+    "only independent confirmation and an aligned training target could justify reviewing any weighting experiment;none released"
+  ],
+  "external_evidence_key": "ordinal-error-hypothesis-review-20261021T121134Z",
+  "cumulative_contribution": "Independent sensor-supported ordinal structure in two development scenes plus a falsifiable prediction-only ambiguity-control protocol. Old D1/D2/H1/Cauchy routes remain stopped; no new scoring result,novel geometry reliability,or training benefit.",
+  "pre_execution_input_gate": {
+    "allowed": "Validate explicit role lists,source/prediction seals,byte sizes/hashes and prediction header dtype/shape only;no CDF,score,GT cache deserialization or new target statistics.",
+    "unknown": "Exact unique wrong-pair/error-cell/error-node support deferred until post-descriptor-seal evaluator;blocked remains distinct from hypothesis failure."
+  },
+  "leakage_caveat": "Score and target both depend on the same frozen model q; GT-contrast>=10% conditions the sample. A positive association is an internal ambiguity baseline, not independent geometric evidence, calibrated risk or causal diagnosis."
+}
